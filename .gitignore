@@ -1,0 +1,42 @@
+# ===== OS =====
+.DS_Store
+Thumbs.db
+.AppleDouble
+._*
+Icon?
+
+# ===== C++ Build Artifacts =====
+*.o
+*.obj
+*.out
+*.exe
+*.a
+*.so
+*.dll
+*.dylib
+
+# ===== Build Folders =====
+build/
+bin/
+out/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+Makefile
+
+# ===== Editors / IDEs =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== Logs & Temporary =====
+*.log
+tmp/
+
+# ===== Secrets =====
+.env
+.env.*
+*.key
+*.pem
