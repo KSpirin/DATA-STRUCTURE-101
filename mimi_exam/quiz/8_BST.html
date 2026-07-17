@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>08. Binary Search Tree (BST) — Quiz</title>
+<style>
+:root{
+  --bg:#111;
+  --card:#1a1a1a;
+  --border:#2a2a2a;
+  --txt:#e8e8e8;
+  --muted:#666;
+  --accent:#5865f2;
+  --ok:#3ba55c;
+  --err:#ed4245;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+/* top bar */
+nav{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-bottom:1px solid var(--border);background:var(--card)}
+nav .home{font-weight:600;color:var(--muted);font-size:.85rem;letter-spacing:.04em}
+nav .home:hover{color:var(--txt)}
+nav .sep{color:var(--border)}
+nav .topic{font-size:.85rem;color:var(--txt)}
+
+/* topic grid on index */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;padding:2rem 1.5rem}
+.tile{border:1px solid var(--border);border-radius:8px;padding:1.25rem 1.5rem;background:var(--card);cursor:pointer;transition:border-color .15s,background .15s}
+.tile:hover{border-color:var(--accent);background:#1e1e2e}
+.tile .num{font-size:.75rem;color:var(--muted);margin-bottom:.25rem;font-family:var(--mono)}
+.tile .name{font-size:1.1rem;font-weight:600}
+.tile .count{font-size:.8rem;color:var(--muted);margin-top:.25rem}
+
+/* quiz page layout */
+.page{max-width:780px;margin:0 auto;padding:2rem 1.5rem}
+.page h1{font-size:1.3rem;font-weight:700;margin-bottom:1.75rem}
+
+/* question card */
+.q{border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-bottom:1.25rem;background:var(--card)}
+.q-num{font-size:.75rem;color:var(--muted);font-family:var(--mono);margin-bottom:.5rem}
+.q-text{font-size:.95rem;margin-bottom:1rem}
+.opts{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.75rem}
+.opt{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:.9rem;transition:border-color .1s,background .1s;user-select:none}
+.opt:hover{border-color:#444}
+.opt input{margin-top:3px;accent-color:var(--accent);flex-shrink:0}
+.opt.ok{border-color:var(--ok);background:rgba(59,165,92,.12);color:#9ae6b4}
+.opt.err{border-color:var(--err);background:rgba(237,66,69,.12);color:#fca5a5}
+.check{background:var(--accent);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.check:hover{opacity:.9}
+.exp{display:none;margin-top:.75rem;padding:.75rem;border-radius:6px;font-size:.85rem;line-height:1.5;border-left:3px solid var(--muted);background:#161616;color:var(--muted)}
+.exp.show{display:block}
+.exp.ok{border-color:var(--ok);color:#9ae6b4}
+.exp.err{border-color:var(--err);color:#fca5a5}
+
+/* code blocks */
+pre{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:.75rem;overflow-x:auto;margin:.5rem 0}
+pre code{font-family:var(--mono);font-size:.8rem;color:#c9d1d9}
+code{font-family:var(--mono);font-size:.85em;background:#0d0d0d;padding:.1em .3em;border-radius:3px}
+
+/* score bar */
+.score-bar{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--card)}
+.score-bar span{font-size:.85rem;color:var(--muted)}
+.score-bar strong{color:var(--txt)}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav>
+  <a class="home" href="index.html">Quiz Home</a>
+  <span class="sep">/</span>
+  <span class="topic">BST</span>
+  <div style="margin-left:auto;display:flex;gap:1rem;font-size:.85rem;color:var(--muted)">
+    <a href="7_BINARY_TREE.html">← Binary Tree</a>
+    <a href="9_AVL.html">AVL →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <h1>08. Binary Search Tree (BST)</h1>
+  
+<div class="q">
+  <div class="q-num">Q1</div>
+  <div class="q-text">An In-order traversal of a valid Binary Search Tree (BST) visits nodes in which sorted order?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q0" value="0"><span>A. Random order</span></label>
+<label class="opt"><input type="radio" name="q0" value="1"><span>B. Ascending sorted order</span></label>
+<label class="opt"><input type="radio" name="q0" value="2"><span>C. Descending sorted order</span></label>
+<label class="opt"><input type="radio" name="q0" value="3"><span>D. Postorder equivalent order</span></label>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. Alternating leaf-root order</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">By BST properties, left child < parent < right child. Traversing Inorder visits elements in ascending order.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q2</div>
+  <div class="q-text">When deleting a BST node with two children, what is a standard replacement strategy?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q1" value="0"><span>A. Delete the entire left subtree.</span></label>
+<label class="opt"><input type="radio" name="q1" value="1"><span>B. Replace the node's value with its Inorder Successor (minimum in right subtree).</span></label>
+<label class="opt"><input type="radio" name="q1" value="2"><span>C. Replace the node's value with a root node.</span></label>
+<label class="opt"><input type="radio" name="q1" value="3"><span>D. Convert it into an AVL leaf.</span></label>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. Swap it with the leftmost leaf.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">To delete a node with two children, replace it with its Inorder Successor or Inorder Predecessor.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q3</div>
+  <div class="q-text">What is the worst-case time complexity of searching for a key in a BST of size <code>N</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q2" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q2" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q2" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q2" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">If keys are inserted in sorted order, the BST becomes a single-linked list. Searching this tree takes linear $\mathcal{O}(N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q4</div>
+  <div class="q-text">What is the maximum number of children a node can have in a Binary Search Tree?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q3" value="0"><span>A. 0</span></label>
+<label class="opt"><input type="radio" name="q3" value="1"><span>B. 1</span></label>
+<label class="opt"><input type="radio" name="q3" value="2"><span>C. 2</span></label>
+<label class="opt"><input type="radio" name="q3" value="3"><span>D. Variable</span></label>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. Unlimited</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Every node in a BST is restricted to a maximum of 2 child branches (left and right).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q5</div>
+  <div class="q-text">Which traversal can validate the BST property by verifying that each visited node is greater than the previously visited node?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q4" value="0"><span>A. Preorder</span></label>
+<label class="opt"><input type="radio" name="q4" value="1"><span>B. Postorder</span></label>
+<label class="opt"><input type="radio" name="q4" value="2"><span>C. Inorder</span></label>
+<label class="opt"><input type="radio" name="q4" value="3"><span>D. Level-order</span></label>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. DFS Out-order</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Since inorder visits BST elements in sorted order, checking that current > previous validates the BST.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q6</div>
+  <div class="q-text">What is the Inorder Predecessor of the root node in a Binary Search Tree?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q5" value="0"><span>A. The minimum element in the left subtree.</span></label>
+<label class="opt"><input type="radio" name="q5" value="1"><span>B. The maximum element in the left subtree.</span></label>
+<label class="opt"><input type="radio" name="q5" value="2"><span>C. The minimum element in the right subtree.</span></label>
+<label class="opt"><input type="radio" name="q5" value="3"><span>D. The maximum element in the right subtree.</span></label>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. The left child itself.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">The inorder predecessor is the node visited immediately before the root, which corresponds to the maximum value in the root's left subtree.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q7</div>
+  <div class="q-text">What is the time complexity to find the minimum value in a balanced BST containing <code>N</code> nodes?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q6" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q6" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q6" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q6" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">In a balanced BST, the height is $O(\log N)$, so searching for the leftmost node takes $\mathcal{O}(\log N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q8</div>
+  <div class="q-text">Reconstructing a unique Binary Search Tree from a traversal sequence is possible with only a:</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q7" value="0"><span>A. Preorder traversal sequence.</span></label>
+<label class="opt"><input type="radio" name="q7" value="1"><span>B. Postorder traversal sequence.</span></label>
+<label class="opt"><input type="radio" name="q7" value="2"><span>C. Inorder traversal sequence.</span></label>
+<label class="opt"><input type="radio" name="q7" value="3"><span>D. Either Preorder or Postorder sequence (since Inorder is implicitly sorted keys).</span></label>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. Level-order traversal sequence.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">In a BST, the inorder sequence is simply the sorted keys. Thus, having either Preorder or Postorder traversal alone is sufficient.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q9</div>
+  <div class="q-text">If keys <code>[10, 20, 30, 40]</code> are inserted sequentially into an empty BST, what is the resulting height of the tree?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q8" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q8" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q8" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q8" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. 0</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Inserting sorted keys generates a right-skewed tree structure with height 4.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q10</div>
+  <div class="q-text">If we insert keys <code>[15, 10, 20, 8, 12]</code> into an empty BST, which node is the parent of node <code>12</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q9" value="0"><span>A. 15</span></label>
+<label class="opt"><input type="radio" name="q9" value="1"><span>B. 10</span></label>
+<label class="opt"><input type="radio" name="q9" value="2"><span>C. 20</span></label>
+<label class="opt"><input type="radio" name="q9" value="3"><span>D. 8</span></label>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. None</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">12 goes right of 10. Thus, 10 is the parent of 12.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q11</div>
+  <div class="q-text">What is the average time complexity of inserting an element in a Binary Search Tree?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q10" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q10" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q10" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q10" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">On average, a BST is balanced with height $O(\log N)$. Inserting an element traverses one path from root to leaf, taking $O(\log N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q12</div>
+  <div class="q-text">Which of the following keys is NOT present in the left subtree of node 50 in a valid BST?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q11" value="0"><span>A. 10</span></label>
+<label class="opt"><input type="radio" name="q11" value="1"><span>B. 25</span></label>
+<label class="opt"><input type="radio" name="q11" value="2"><span>C. 30</span></label>
+<label class="opt"><input type="radio" name="q11" value="3"><span>D. 49</span></label>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. 51</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">By the BST property, all keys in the left subtree of a node must be strictly less than that node's value. `51` is greater than 50, so it must be in the right subtree.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q13</div>
+  <div class="q-text">What is the height of a BST after inserting keys in the order: <code>[10, 5, 15, 3, 7, 12, 18]</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q12" value="0"><span>A. 2</span></label>
+<label class="opt"><input type="radio" name="q12" value="1"><span>B. 3</span></label>
+<label class="opt"><input type="radio" name="q12" value="2"><span>C. 4</span></label>
+<label class="opt"><input type="radio" name="q12" value="3"><span>D. 7</span></label>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. 5</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Inserting these elements produces a perfect binary tree of height 3: Root 10; Left 5 (with children 3, 7); Right 15 (with children 12, 18).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q14</div>
+  <div class="q-text">What is the time complexity to search for a key in a skewed BST of size <code>N</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q13" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q13" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q13" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q13" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A skewed BST is structurally identical to a linked list, requiring a linear scan of up to $N$ nodes, taking $O(N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q15</div>
+  <div class="q-text">In a BST, the largest key is found by starting at the root and continuously traversing which pointer?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q14" value="0"><span>A. Left child</span></label>
+<label class="opt"><input type="radio" name="q14" value="1"><span>B. Right child</span></label>
+<label class="opt"><input type="radio" name="q14" value="2"><span>C. Parent</span></label>
+<label class="opt"><input type="radio" name="q14" value="3"><span>D. Sibling</span></label>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. Null child</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Since right child is always greater, the maximum element is found by traversing down the rightmost path of the tree.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q16</div>
+  <div class="q-text">For a BST initially containing keys <code>[10, 5, 20]</code> (with root 10). If we insert key 15, which node does it become the child of?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q15" value="0"><span>A. Node 10</span></label>
+<label class="opt"><input type="radio" name="q15" value="1"><span>B. Node 5</span></label>
+<label class="opt"><input type="radio" name="q15" value="2"><span>C. Node 20</span></label>
+<label class="opt"><input type="radio" name="q15" value="3"><span>D. Node 15 itself</span></label>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. None</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">BST insertion follows recursive comparisons: 15 > 10, go to right child (20). 15 < 20, go to left child. Since left child of 20 is empty, 15 is inserted as the left child of 20.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q17</div>
+  <div class="q-text">Consider BST: Root 15, left child 10, right child 20, and left child of right child is 18. What is the Inorder Successor of 15?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q16" value="0"><span>A. 10</span></label>
+<label class="opt"><input type="radio" name="q16" value="1"><span>B. 20</span></label>
+<label class="opt"><input type="radio" name="q16" value="2"><span>C. 18</span></label>
+<label class="opt"><input type="radio" name="q16" value="3"><span>D. 15</span></label>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. None</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">The Inorder Successor of a node with a right child is the absolute minimum node in its right subtree. The right subtree contains {20, 18}. The minimum value is 18. Successor: 18.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q18</div>
+  <div class="q-text">An In-order traversal of a valid Binary Search Tree (BST) visits nodes in which sorted order?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. Random order</span></label>
+<label class="opt"><input type="radio" name="q17" value="1"><span>B. Ascending sorted order</span></label>
+<label class="opt"><input type="radio" name="q17" value="2"><span>C. Descending sorted order</span></label>
+<label class="opt"><input type="radio" name="q17" value="3"><span>D. Postorder equivalent order</span></label>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. Alternating leaf-root order</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">By BST properties, left child < parent < right child. Traversing Inorder visits elements in ascending order.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q19</div>
+  <div class="q-text">When deleting a BST node with two children, what is a standard replacement strategy?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. Delete the entire left subtree.</span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. Replace the node's value with its Inorder Successor (minimum in right subtree).</span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. Replace the node's value with a root node.</span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. Convert it into an AVL leaf.</span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. Swap it with the leftmost leaf.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">To delete a node with two children, replace it with its Inorder Successor or Inorder Predecessor.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q20</div>
+  <div class="q-text">What is the worst-case time complexity of searching for a key in a BST of size <code>N</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">If keys are inserted in sorted order, the BST becomes a single-linked list. Searching this tree takes linear $\mathcal{O}(N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q21</div>
+  <div class="q-text">What is the maximum number of children a node can have in a Binary Search Tree?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. 0</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. 1</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. 2</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. Variable</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. Unlimited</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Every node in a BST is restricted to a maximum of 2 child branches (left and right).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q22</div>
+  <div class="q-text">Which traversal can validate the BST property by verifying that each visited node is greater than the previously visited node?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. Preorder</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. Postorder</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. Inorder</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. Level-order</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. DFS Out-order</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Since inorder visits BST elements in sorted order, checking that current > previous validates the BST.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q23</div>
+  <div class="q-text">What is the Inorder Predecessor of the root node in a Binary Search Tree?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. The minimum element in the left subtree.</span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. The maximum element in the left subtree.</span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. The minimum element in the right subtree.</span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. The maximum element in the right subtree.</span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. The left child itself.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">The inorder predecessor is the node visited immediately before the root, which corresponds to the maximum value in the root's left subtree.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q24</div>
+  <div class="q-text">What is the time complexity to find the minimum value in a balanced BST containing <code>N</code> nodes?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">In a balanced BST, the height is $O(\log N)$, so searching for the leftmost node takes $\mathcal{O}(\log N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q25</div>
+  <div class="q-text">Reconstructing a unique Binary Search Tree from a traversal sequence is possible with only a:</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. Preorder traversal sequence.</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. Postorder traversal sequence.</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. Inorder traversal sequence.</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. Either Preorder or Postorder sequence (since Inorder is implicitly sorted keys).</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. Level-order traversal sequence.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">In a BST, the inorder sequence is simply the sorted keys. Thus, having either Preorder or Postorder traversal alone is sufficient.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q26</div>
+  <div class="q-text">If keys <code>[10, 20, 30, 40]</code> are inserted sequentially into an empty BST, what is the resulting height of the tree?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. 0</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Inserting sorted keys generates a right-skewed tree structure with height 4.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q27</div>
+  <div class="q-text">If we insert keys <code>[15, 10, 20, 8, 12]</code> into an empty BST, which node is the parent of node <code>12</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. 15</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. 10</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. 20</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. 8</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. None</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">12 goes right of 10. Thus, 10 is the parent of 12.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q28</div>
+  <div class="q-text">What is the average time complexity of inserting an element in a Binary Search Tree?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">On average, a BST is balanced with height $O(\log N)$. Inserting an element traverses one path from root to leaf, taking $O(\log N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q29</div>
+  <div class="q-text">Which of the following keys is NOT present in the left subtree of node 50 in a valid BST?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. 10</span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. 25</span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. 30</span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. 49</span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. 51</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">By the BST property, all keys in the left subtree of a node must be strictly less than that node's value. `51` is greater than 50, so it must be in the right subtree.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q30</div>
+  <div class="q-text">What is the height of a BST after inserting keys in the order: <code>[10, 5, 15, 3, 7, 12, 18]</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. 2</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. 3</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. 4</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. 7</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. 5</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Inserting these elements produces a perfect binary tree of height 3: Root 10; Left 5 (with children 3, 7); Right 15 (with children 12, 18).</div>
+</div>
+</div>
+
+<div class="score-bar">
+  <span>Score: <strong>0 / 0</strong></span>
+  <span style="margin-left:auto">30 questions</span>
+</div>
+
+<script>window.__QS__ = [{"q": "An In-order traversal of a valid Binary Search Tree (BST) visits nodes in which sorted order?", "options": ["Random order", "Ascending sorted order", "Descending sorted order", "Postorder equivalent order", "Alternating leaf-root order"], "correct": 1, "explain": "By BST properties, left child < parent < right child. Traversing Inorder visits elements in ascending order."}, {"q": "When deleting a BST node with two children, what is a standard replacement strategy?", "options": ["Delete the entire left subtree.", "Replace the node's value with its Inorder Successor (minimum in right subtree).", "Replace the node's value with a root node.", "Convert it into an AVL leaf.", "Swap it with the leftmost leaf."], "correct": 1, "explain": "To delete a node with two children, replace it with its Inorder Successor or Inorder Predecessor."}, {"q": "What is the worst-case time complexity of searching for a key in a BST of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "If keys are inserted in sorted order, the BST becomes a single-linked list. Searching this tree takes linear $\\mathcal{O}(N)$ time."}, {"q": "What is the maximum number of children a node can have in a Binary Search Tree?", "options": ["0", "1", "2", "Variable", "Unlimited"], "correct": 2, "explain": "Every node in a BST is restricted to a maximum of 2 child branches (left and right)."}, {"q": "Which traversal can validate the BST property by verifying that each visited node is greater than the previously visited node?", "options": ["Preorder", "Postorder", "Inorder", "Level-order", "DFS Out-order"], "correct": 2, "explain": "Since inorder visits BST elements in sorted order, checking that current > previous validates the BST."}, {"q": "What is the Inorder Predecessor of the root node in a Binary Search Tree?", "options": ["The minimum element in the left subtree.", "The maximum element in the left subtree.", "The minimum element in the right subtree.", "The maximum element in the right subtree.", "The left child itself."], "correct": 1, "explain": "The inorder predecessor is the node visited immediately before the root, which corresponds to the maximum value in the root's left subtree."}, {"q": "What is the time complexity to find the minimum value in a balanced BST containing <code>N</code> nodes?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "In a balanced BST, the height is $O(\\log N)$, so searching for the leftmost node takes $\\mathcal{O}(\\log N)$ time."}, {"q": "Reconstructing a unique Binary Search Tree from a traversal sequence is possible with only a:", "options": ["Preorder traversal sequence.", "Postorder traversal sequence.", "Inorder traversal sequence.", "Either Preorder or Postorder sequence (since Inorder is implicitly sorted keys).", "Level-order traversal sequence."], "correct": 3, "explain": "In a BST, the inorder sequence is simply the sorted keys. Thus, having either Preorder or Postorder traversal alone is sufficient."}, {"q": "If keys <code>[10, 20, 30, 40]</code> are inserted sequentially into an empty BST, what is the resulting height of the tree?", "options": ["1", "2", "3", "4", "0"], "correct": 3, "explain": "Inserting sorted keys generates a right-skewed tree structure with height 4."}, {"q": "If we insert keys <code>[15, 10, 20, 8, 12]</code> into an empty BST, which node is the parent of node <code>12</code>?", "options": ["15", "10", "20", "8", "None"], "correct": 1, "explain": "12 goes right of 10. Thus, 10 is the parent of 12."}, {"q": "What is the average time complexity of inserting an element in a Binary Search Tree?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "On average, a BST is balanced with height $O(\\log N)$. Inserting an element traverses one path from root to leaf, taking $O(\\log N)$ time."}, {"q": "Which of the following keys is NOT present in the left subtree of node 50 in a valid BST?", "options": ["10", "25", "30", "49", "51"], "correct": 4, "explain": "By the BST property, all keys in the left subtree of a node must be strictly less than that node's value. `51` is greater than 50, so it must be in the right subtree."}, {"q": "What is the height of a BST after inserting keys in the order: <code>[10, 5, 15, 3, 7, 12, 18]</code>?", "options": ["2", "3", "4", "7", "5"], "correct": 1, "explain": "Inserting these elements produces a perfect binary tree of height 3: Root 10; Left 5 (with children 3, 7); Right 15 (with children 12, 18)."}, {"q": "What is the time complexity to search for a key in a skewed BST of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "A skewed BST is structurally identical to a linked list, requiring a linear scan of up to $N$ nodes, taking $O(N)$ time."}, {"q": "In a BST, the largest key is found by starting at the root and continuously traversing which pointer?", "options": ["Left child", "Right child", "Parent", "Sibling", "Null child"], "correct": 1, "explain": "Since right child is always greater, the maximum element is found by traversing down the rightmost path of the tree."}, {"q": "For a BST initially containing keys <code>[10, 5, 20]</code> (with root 10). If we insert key 15, which node does it become the child of?", "options": ["Node 10", "Node 5", "Node 20", "Node 15 itself", "None"], "correct": 2, "explain": "BST insertion follows recursive comparisons: 15 > 10, go to right child (20). 15 < 20, go to left child. Since left child of 20 is empty, 15 is inserted as the left child of 20."}, {"q": "Consider BST: Root 15, left child 10, right child 20, and left child of right child is 18. What is the Inorder Successor of 15?", "options": ["10", "20", "18", "15", "None"], "correct": 2, "explain": "The Inorder Successor of a node with a right child is the absolute minimum node in its right subtree. The right subtree contains {20, 18}. The minimum value is 18. Successor: 18."}, {"q": "An In-order traversal of a valid Binary Search Tree (BST) visits nodes in which sorted order?", "options": ["Random order", "Ascending sorted order", "Descending sorted order", "Postorder equivalent order", "Alternating leaf-root order"], "correct": 1, "explain": "By BST properties, left child < parent < right child. Traversing Inorder visits elements in ascending order."}, {"q": "When deleting a BST node with two children, what is a standard replacement strategy?", "options": ["Delete the entire left subtree.", "Replace the node's value with its Inorder Successor (minimum in right subtree).", "Replace the node's value with a root node.", "Convert it into an AVL leaf.", "Swap it with the leftmost leaf."], "correct": 1, "explain": "To delete a node with two children, replace it with its Inorder Successor or Inorder Predecessor."}, {"q": "What is the worst-case time complexity of searching for a key in a BST of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "If keys are inserted in sorted order, the BST becomes a single-linked list. Searching this tree takes linear $\\mathcal{O}(N)$ time."}, {"q": "What is the maximum number of children a node can have in a Binary Search Tree?", "options": ["0", "1", "2", "Variable", "Unlimited"], "correct": 2, "explain": "Every node in a BST is restricted to a maximum of 2 child branches (left and right)."}, {"q": "Which traversal can validate the BST property by verifying that each visited node is greater than the previously visited node?", "options": ["Preorder", "Postorder", "Inorder", "Level-order", "DFS Out-order"], "correct": 2, "explain": "Since inorder visits BST elements in sorted order, checking that current > previous validates the BST."}, {"q": "What is the Inorder Predecessor of the root node in a Binary Search Tree?", "options": ["The minimum element in the left subtree.", "The maximum element in the left subtree.", "The minimum element in the right subtree.", "The maximum element in the right subtree.", "The left child itself."], "correct": 1, "explain": "The inorder predecessor is the node visited immediately before the root, which corresponds to the maximum value in the root's left subtree."}, {"q": "What is the time complexity to find the minimum value in a balanced BST containing <code>N</code> nodes?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "In a balanced BST, the height is $O(\\log N)$, so searching for the leftmost node takes $\\mathcal{O}(\\log N)$ time."}, {"q": "Reconstructing a unique Binary Search Tree from a traversal sequence is possible with only a:", "options": ["Preorder traversal sequence.", "Postorder traversal sequence.", "Inorder traversal sequence.", "Either Preorder or Postorder sequence (since Inorder is implicitly sorted keys).", "Level-order traversal sequence."], "correct": 3, "explain": "In a BST, the inorder sequence is simply the sorted keys. Thus, having either Preorder or Postorder traversal alone is sufficient."}, {"q": "If keys <code>[10, 20, 30, 40]</code> are inserted sequentially into an empty BST, what is the resulting height of the tree?", "options": ["1", "2", "3", "4", "0"], "correct": 3, "explain": "Inserting sorted keys generates a right-skewed tree structure with height 4."}, {"q": "If we insert keys <code>[15, 10, 20, 8, 12]</code> into an empty BST, which node is the parent of node <code>12</code>?", "options": ["15", "10", "20", "8", "None"], "correct": 1, "explain": "12 goes right of 10. Thus, 10 is the parent of 12."}, {"q": "What is the average time complexity of inserting an element in a Binary Search Tree?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "On average, a BST is balanced with height $O(\\log N)$. Inserting an element traverses one path from root to leaf, taking $O(\\log N)$ time."}, {"q": "Which of the following keys is NOT present in the left subtree of node 50 in a valid BST?", "options": ["10", "25", "30", "49", "51"], "correct": 4, "explain": "By the BST property, all keys in the left subtree of a node must be strictly less than that node's value. `51` is greater than 50, so it must be in the right subtree."}, {"q": "What is the height of a BST after inserting keys in the order: <code>[10, 5, 15, 3, 7, 12, 18]</code>?", "options": ["2", "3", "4", "7", "5"], "correct": 1, "explain": "Inserting these elements produces a perfect binary tree of height 3: Root 10; Left 5 (with children 3, 7); Right 15 (with children 12, 18)."}];</script>
+<script>
+const QS = window.__QS__;
+let correct = 0, answered = 0;
+
+document.querySelectorAll('.q').forEach((card, qi) => {
+  const btn = card.querySelector('.check');
+  btn.addEventListener('click', () => {
+    const sel = card.querySelector('input:checked');
+    if (!sel) return;
+    const chosen = parseInt(sel.value);
+    const answer = QS[qi].correct;
+    const opts = card.querySelectorAll('.opt');
+    const exp = card.querySelector('.exp');
+
+    opts.forEach((o, i) => {
+      if (i === answer) o.classList.add('ok');
+      else if (i === chosen && chosen !== answer) o.classList.add('err');
+      o.querySelector('input').disabled = true;
+    });
+
+    exp.classList.add('show');
+    if (chosen === answer) {
+      correct++;
+      exp.classList.add('ok');
+    } else {
+      exp.classList.add('err');
+    }
+    answered++;
+    btn.disabled = true;
+    document.querySelector('.score-bar strong').textContent = correct + ' / ' + answered;
+  });
+});
+</script>
+
+</body>
+</html>

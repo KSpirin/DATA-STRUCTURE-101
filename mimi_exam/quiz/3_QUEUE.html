@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03. Queue ADT — Quiz</title>
+<style>
+:root{
+  --bg:#111;
+  --card:#1a1a1a;
+  --border:#2a2a2a;
+  --txt:#e8e8e8;
+  --muted:#666;
+  --accent:#5865f2;
+  --ok:#3ba55c;
+  --err:#ed4245;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+/* top bar */
+nav{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-bottom:1px solid var(--border);background:var(--card)}
+nav .home{font-weight:600;color:var(--muted);font-size:.85rem;letter-spacing:.04em}
+nav .home:hover{color:var(--txt)}
+nav .sep{color:var(--border)}
+nav .topic{font-size:.85rem;color:var(--txt)}
+
+/* topic grid on index */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;padding:2rem 1.5rem}
+.tile{border:1px solid var(--border);border-radius:8px;padding:1.25rem 1.5rem;background:var(--card);cursor:pointer;transition:border-color .15s,background .15s}
+.tile:hover{border-color:var(--accent);background:#1e1e2e}
+.tile .num{font-size:.75rem;color:var(--muted);margin-bottom:.25rem;font-family:var(--mono)}
+.tile .name{font-size:1.1rem;font-weight:600}
+.tile .count{font-size:.8rem;color:var(--muted);margin-top:.25rem}
+
+/* quiz page layout */
+.page{max-width:780px;margin:0 auto;padding:2rem 1.5rem}
+.page h1{font-size:1.3rem;font-weight:700;margin-bottom:1.75rem}
+
+/* question card */
+.q{border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-bottom:1.25rem;background:var(--card)}
+.q-num{font-size:.75rem;color:var(--muted);font-family:var(--mono);margin-bottom:.5rem}
+.q-text{font-size:.95rem;margin-bottom:1rem}
+.opts{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.75rem}
+.opt{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:.9rem;transition:border-color .1s,background .1s;user-select:none}
+.opt:hover{border-color:#444}
+.opt input{margin-top:3px;accent-color:var(--accent);flex-shrink:0}
+.opt.ok{border-color:var(--ok);background:rgba(59,165,92,.12);color:#9ae6b4}
+.opt.err{border-color:var(--err);background:rgba(237,66,69,.12);color:#fca5a5}
+.check{background:var(--accent);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.check:hover{opacity:.9}
+.exp{display:none;margin-top:.75rem;padding:.75rem;border-radius:6px;font-size:.85rem;line-height:1.5;border-left:3px solid var(--muted);background:#161616;color:var(--muted)}
+.exp.show{display:block}
+.exp.ok{border-color:var(--ok);color:#9ae6b4}
+.exp.err{border-color:var(--err);color:#fca5a5}
+
+/* code blocks */
+pre{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:.75rem;overflow-x:auto;margin:.5rem 0}
+pre code{font-family:var(--mono);font-size:.8rem;color:#c9d1d9}
+code{font-family:var(--mono);font-size:.85em;background:#0d0d0d;padding:.1em .3em;border-radius:3px}
+
+/* score bar */
+.score-bar{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--card)}
+.score-bar span{font-size:.85rem;color:var(--muted)}
+.score-bar strong{color:var(--txt)}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav>
+  <a class="home" href="index.html">Quiz Home</a>
+  <span class="sep">/</span>
+  <span class="topic">Queue</span>
+  <div style="margin-left:auto;display:flex;gap:1rem;font-size:.85rem;color:var(--muted)">
+    <a href="2_STACK.html">← Stack</a>
+    <a href="4_LINKED_LIST.html">Linked List →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <h1>03. Queue ADT</h1>
+  
+<div class="q">
+  <div class="q-num">Q1</div>
+  <div class="q-text">In an array-based Circular Queue of size <code>N</code>, which of the following expressions correctly wraps the tail pointer index <code>iback</code> during enqueue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q0" value="0"><span>A. <code>iback = (iback + 1) % (N + 1)</code></span></label>
+<label class="opt"><input type="radio" name="q0" value="1"><span>B. <code>iback = (iback + 1) % N</code></span></label>
+<label class="opt"><input type="radio" name="q0" value="2"><span>C. <code>iback = iback + 1</code></span></label>
+<label class="opt"><input type="radio" name="q0" value="3"><span>D. <code>iback = (iback % N) + 1</code></span></label>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. <code>iback = (iback - 1) % N</code></span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Circular indices wrap around using modulo capacity arithmetic: <code>(index + 1) % N</code>.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q2</div>
+  <div class="q-text">Which of the following conditions represents a full Circular Queue when the front index wraps around and is positioned immediately after rear?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q1" value="0"><span>A. <code>FRONT == 0 && REAR == SIZE - 1</code></span></label>
+<label class="opt"><input type="radio" name="q1" value="1"><span>B. <code>FRONT == REAR + 1</code></span></label>
+<label class="opt"><input type="radio" name="q1" value="2"><span>C. <code>FRONT == REAR</code></span></label>
+<label class="opt"><input type="radio" name="q1" value="3"><span>D. <code>FRONT == REAR - 1</code></span></label>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. <code>SIZE == 0</code></span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A circular queue is full under two configurations: 1) FRONT == 0 && REAR == SIZE - 1 and 2) FRONT == REAR + 1.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q3</div>
+  <div class="q-text">Performing a Breadth-First Search (BFS) directory tree starting at root node A (with children B and E, where B has children C and D, and E has child F) yields which sequence?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q2" value="0"><span>A. A, B, C, D, E, F</span></label>
+<label class="opt"><input type="radio" name="q2" value="1"><span>B. A, B, E, C, D, F</span></label>
+<label class="opt"><input type="radio" name="q2" value="2"><span>C. A, B, E, F, C, D</span></label>
+<label class="opt"><input type="radio" name="q2" value="3"><span>D. A, B, C, E, D, F</span></label>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. C, D, B, F, E, A</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">BFS processes level-by-level: Level 0 (A), Level 1 (B, E), Level 2 (C, D, F). Thus: A -> B, E -> C, D, F.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q4</div>
+  <div class="q-text">In a Queue ADT, elements are inserted at the ______ and removed from the ______.</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q3" value="0"><span>A. front, rear</span></label>
+<label class="opt"><input type="radio" name="q3" value="1"><span>B. rear, front</span></label>
+<label class="opt"><input type="radio" name="q3" value="2"><span>C. top, bottom</span></label>
+<label class="opt"><input type="radio" name="q3" value="3"><span>D. bottom, top</span></label>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. middle, front</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Queues follow First-In, First-Out (FIFO). New elements are enqueued at the back/rear, and removed from the front.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q5</div>
+  <div class="q-text">What is the time complexity of enqueuing an element into a Circular Queue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q4" value="0"><span>A. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q4" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q4" value="2"><span>C. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q4" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Circular Queue insertions run in constant $\mathcal{O}(1)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q6</div>
+  <div class="q-text">What is a Double-Ended Queue (Deque)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q5" value="0"><span>A. A queue that allows insertion at one end and removal at the other.</span></label>
+<label class="opt"><input type="radio" name="q5" value="1"><span>B. A queue that allows insertions and deletions at both the front and the back.</span></label>
+<label class="opt"><input type="radio" name="q5" value="2"><span>C. A queue with two storage arrays to prevent stack overflow.</span></label>
+<label class="opt"><input type="radio" name="q5" value="3"><span>D. A queue that operates in $O(\log N)$ time.</span></label>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. A queue that sorting elements automatically.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A Deque (Double-Ended Queue) allows elements to be enqueued or dequeued from either the front or the back.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q7</div>
+  <div class="q-text">What is the minimum number of queues required to implement a Stack ADT?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q6" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q6" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q6" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q6" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. A stack cannot be built using queues.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">To simulate LIFO using queues, you need at least two queues.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q8</div>
+  <div class="q-text">What is the time complexity of checking whether a Queue is empty?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q7" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q7" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q7" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q7" value="3"><span>D. $\mathcal{O}(N^2)$</span></label>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. Depends on queue capacity.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Checking if a queue is empty is a constant-time check: either testing size == 0 or front == -1.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q9</div>
+  <div class="q-text">How does a Priority Queue differ from a standard FIFO Queue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q8" value="0"><span>A. It uses stack pointers.</span></label>
+<label class="opt"><input type="radio" name="q8" value="1"><span>B. It dequeues elements based on priority/value instead of strict arrival order.</span></label>
+<label class="opt"><input type="radio" name="q8" value="2"><span>C. It only supports floating-point values.</span></label>
+<label class="opt"><input type="radio" name="q8" value="3"><span>D. It is twice as fast in memory footprint.</span></label>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. It requires lazy deletion on all inserts.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">In a Priority Queue, elements are enqueued normally but dequeued based on priority.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q10</div>
+  <div class="q-text">Which OS mechanism uses Queues to manage processes waiting for CPU execution time?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q9" value="0"><span>A. Call Stack</span></label>
+<label class="opt"><input type="radio" name="q9" value="1"><span>B. Ready Queue Scheduling</span></label>
+<label class="opt"><input type="radio" name="q9" value="2"><span>C. Virtual Memory</span></label>
+<label class="opt"><input type="radio" name="q9" value="3"><span>D. Direct Memory Access (DMA)</span></label>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. Symbol Tables</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Operating systems use scheduling queues (Ready Queue) to manage active process threads waiting for CPU execution time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q11</div>
+  <div class="q-text">Which data structure operates on a Restricted-Access FIFO policy?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q10" value="0"><span>A. Stack</span></label>
+<label class="opt"><input type="radio" name="q10" value="1"><span>B. Queue</span></label>
+<label class="opt"><input type="radio" name="q10" value="2"><span>C. Binary Heap</span></label>
+<label class="opt"><input type="radio" name="q10" value="3"><span>D. Hash Table</span></label>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. BST</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Queues strictly restrict insertions to the back (enqueue) and deletions to the front (dequeue), enforcing First-In, First-Out (FIFO) policies.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q12</div>
+  <div class="q-text">In a Circular Queue of size <code>N</code>, how is the current size calculated from <code>front</code> and <code>rear</code> indices?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q11" value="0"><span>A. <code>(rear - front + N) % N</code></span></label>
+<label class="opt"><input type="radio" name="q11" value="1"><span>B. <code>(rear - front) % N</code></span></label>
+<label class="opt"><input type="radio" name="q11" value="2"><span>C. <code>(rear - front + N) % N + 1</code></span></label>
+<label class="opt"><input type="radio" name="q11" value="3"><span>D. <code>rear - front</code></span></label>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. Depends on size tracker variable only.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">If the queue has wrapped, `rear < front`. The general formula to compute elements in flight is <code>(rear - front + N) % N</code>.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q13</div>
+  <div class="q-text">How can you implement a Stack using two Queues?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q12" value="0"><span>A. By enqueuing to queue 1 and dequeueing to queue 2 on every pop.</span></label>
+<label class="opt"><input type="radio" name="q12" value="1"><span>B. By making push operation costly: enqueue new element to queue 2, dequeue all elements from queue 1 to queue 2, then swap names of queue 1 and queue 2.</span></label>
+<label class="opt"><input type="radio" name="q12" value="2"><span>C. By using a priority sorting queue.</span></label>
+<label class="opt"><input type="radio" name="q12" value="3"><span>D. Stacks cannot be implemented with queues.</span></label>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. By using double hashing.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">By pushing elements to an empty helper queue, then dumping all existing elements on top of it, we reverse queue order to simulate LIFO.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q14</div>
+  <div class="q-text">What is the front-pointing index in a Circular Queue after enqueuing 3 elements and dequeueing 2 elements (starting from empty at index 0)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q13" value="0"><span>A. 0</span></label>
+<label class="opt"><input type="radio" name="q13" value="1"><span>B. 1</span></label>
+<label class="opt"><input type="radio" name="q13" value="2"><span>C. 2</span></label>
+<label class="opt"><input type="radio" name="q13" value="3"><span>D. 3</span></label>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. 4</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Enqueuing 3 elements fills indices 0, 1, 2. Dequeueing 2 elements removes index 0 and index 1. The front pointer now rests at index 2.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q15</div>
+  <div class="q-text">Which Queue variation is commonly used in network packet buffers to prioritize bandwidth for critical traffic?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q14" value="0"><span>A. LIFO Queue</span></label>
+<label class="opt"><input type="radio" name="q14" value="1"><span>B. Priority Queue</span></label>
+<label class="opt"><input type="radio" name="q14" value="2"><span>C. Circular Queue</span></label>
+<label class="opt"><input type="radio" name="q14" value="3"><span>D. Double-Ended Queue</span></label>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. Stack Queue</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Priority Queues sort incoming packets based on their header priorities, serving high-priority packets first.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q16</div>
+  <div class="q-text">What is the value of <code>rear</code> and <code>front</code> after enqueuing 3 elements and dequeueing 2 elements in a Circular Queue? (Assuming 0-indexed empty queue starts at index 0)</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q15" value="0"><span>A. front = 2, rear = 2</span></label>
+<label class="opt"><input type="radio" name="q15" value="1"><span>B. front = 0, rear = 1</span></label>
+<label class="opt"><input type="radio" name="q15" value="2"><span>C. front = 1, rear = 2</span></label>
+<label class="opt"><input type="radio" name="q15" value="3"><span>D. front = 2, rear = 3</span></label>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. front = 0, rear = 2</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">1) Enqueue 3 elements fills index 0, 1, and 2. <code>rear</code> is at 2. 2) Dequeuing 2 elements removes index 0 and 1. The <code>front</code> pointer moves to index 2. Both front and rear now rest at index 2.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q17</div>
+  <div class="q-text">Read the following queue simulation. What is printed?<pre><code>#include &lt;iostream&gt;
+#include &lt;queue&gt;
+int main() {
+    std::queue&lt;int&gt; q;
+    q.push(1); q.push(2); q.push(3);
+    q.pop();
+    q.push(4);
+    while(!q.empty()) {
+        std::cout &lt;&lt; q.front() &lt;&lt; " ";
+        q.pop();
+    }
+    return 0;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q16" value="0"><span>A. 1 2 3 4</span></label>
+<label class="opt"><input type="radio" name="q16" value="1"><span>B. 2 3 4</span></label>
+<label class="opt"><input type="radio" name="q16" value="2"><span>C. 4 3 2</span></label>
+<label class="opt"><input type="radio" name="q16" value="3"><span>D. 3 2 1</span></label>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. 1 2 3</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">The queue starts as [1, 2, 3]. Popping removes the front element (1), leaving [2, 3]. Pushing 4 yields [2, 3, 4]. Printing front and popping sequentially outputs '2 3 4 '.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q18</div>
+  <div class="q-text">In an array-based Circular Queue of size <code>N</code>, which of the following expressions correctly wraps the tail pointer index <code>iback</code> during enqueue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. <code>iback = (iback + 1) % (N + 1)</code></span></label>
+<label class="opt"><input type="radio" name="q17" value="1"><span>B. <code>iback = (iback + 1) % N</code></span></label>
+<label class="opt"><input type="radio" name="q17" value="2"><span>C. <code>iback = iback + 1</code></span></label>
+<label class="opt"><input type="radio" name="q17" value="3"><span>D. <code>iback = (iback % N) + 1</code></span></label>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. <code>iback = (iback - 1) % N</code></span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Circular indices wrap around using modulo capacity arithmetic: <code>(index + 1) % N</code>.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q19</div>
+  <div class="q-text">Which of the following conditions represents a full Circular Queue when the front index wraps around and is positioned immediately after rear?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. <code>FRONT == 0 && REAR == SIZE - 1</code></span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. <code>FRONT == REAR + 1</code></span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. <code>FRONT == REAR</code></span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. <code>FRONT == REAR - 1</code></span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. <code>SIZE == 0</code></span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A circular queue is full under two configurations: 1) FRONT == 0 && REAR == SIZE - 1 and 2) FRONT == REAR + 1.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q20</div>
+  <div class="q-text">Performing a Breadth-First Search (BFS) directory tree starting at root node A (with children B and E, where B has children C and D, and E has child F) yields which sequence?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. A, B, C, D, E, F</span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. A, B, E, C, D, F</span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. A, B, E, F, C, D</span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. A, B, C, E, D, F</span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. C, D, B, F, E, A</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">BFS processes level-by-level: Level 0 (A), Level 1 (B, E), Level 2 (C, D, F). Thus: A -> B, E -> C, D, F.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q21</div>
+  <div class="q-text">In a Queue ADT, elements are inserted at the ______ and removed from the ______.</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. front, rear</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. rear, front</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. top, bottom</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. bottom, top</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. middle, front</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Queues follow First-In, First-Out (FIFO). New elements are enqueued at the back/rear, and removed from the front.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q22</div>
+  <div class="q-text">What is the time complexity of enqueuing an element into a Circular Queue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Circular Queue insertions run in constant $\mathcal{O}(1)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q23</div>
+  <div class="q-text">What is a Double-Ended Queue (Deque)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. A queue that allows insertion at one end and removal at the other.</span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. A queue that allows insertions and deletions at both the front and the back.</span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. A queue with two storage arrays to prevent stack overflow.</span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. A queue that operates in $O(\log N)$ time.</span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. A queue that sorting elements automatically.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A Deque (Double-Ended Queue) allows elements to be enqueued or dequeued from either the front or the back.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q24</div>
+  <div class="q-text">What is the minimum number of queues required to implement a Stack ADT?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. A stack cannot be built using queues.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">To simulate LIFO using queues, you need at least two queues.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q25</div>
+  <div class="q-text">What is the time complexity of checking whether a Queue is empty?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. $\mathcal{O}(N^2)$</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. Depends on queue capacity.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Checking if a queue is empty is a constant-time check: either testing size == 0 or front == -1.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q26</div>
+  <div class="q-text">How does a Priority Queue differ from a standard FIFO Queue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. It uses stack pointers.</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. It dequeues elements based on priority/value instead of strict arrival order.</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. It only supports floating-point values.</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. It is twice as fast in memory footprint.</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. It requires lazy deletion on all inserts.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">In a Priority Queue, elements are enqueued normally but dequeued based on priority.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q27</div>
+  <div class="q-text">Which OS mechanism uses Queues to manage processes waiting for CPU execution time?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. Call Stack</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. Ready Queue Scheduling</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. Virtual Memory</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. Direct Memory Access (DMA)</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. Symbol Tables</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Operating systems use scheduling queues (Ready Queue) to manage active process threads waiting for CPU execution time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q28</div>
+  <div class="q-text">Which data structure operates on a Restricted-Access FIFO policy?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. Stack</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. Queue</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. Binary Heap</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. Hash Table</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. BST</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Queues strictly restrict insertions to the back (enqueue) and deletions to the front (dequeue), enforcing First-In, First-Out (FIFO) policies.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q29</div>
+  <div class="q-text">In a Circular Queue of size <code>N</code>, how is the current size calculated from <code>front</code> and <code>rear</code> indices?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. <code>(rear - front + N) % N</code></span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. <code>(rear - front) % N</code></span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. <code>(rear - front + N) % N + 1</code></span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. <code>rear - front</code></span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. Depends on size tracker variable only.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">If the queue has wrapped, `rear < front`. The general formula to compute elements in flight is <code>(rear - front + N) % N</code>.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q30</div>
+  <div class="q-text">How can you implement a Stack using two Queues?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. By enqueuing to queue 1 and dequeueing to queue 2 on every pop.</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. By making push operation costly: enqueue new element to queue 2, dequeue all elements from queue 1 to queue 2, then swap names of queue 1 and queue 2.</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. By using a priority sorting queue.</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. Stacks cannot be implemented with queues.</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. By using double hashing.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">By pushing elements to an empty helper queue, then dumping all existing elements on top of it, we reverse queue order to simulate LIFO.</div>
+</div>
+</div>
+
+<div class="score-bar">
+  <span>Score: <strong>0 / 0</strong></span>
+  <span style="margin-left:auto">30 questions</span>
+</div>
+
+<script>window.__QS__ = [{"q": "In an array-based Circular Queue of size <code>N</code>, which of the following expressions correctly wraps the tail pointer index <code>iback</code> during enqueue?", "options": ["<code>iback = (iback + 1) % (N + 1)</code>", "<code>iback = (iback + 1) % N</code>", "<code>iback = iback + 1</code>", "<code>iback = (iback % N) + 1</code>", "<code>iback = (iback - 1) % N</code>"], "correct": 1, "explain": "Circular indices wrap around using modulo capacity arithmetic: <code>(index + 1) % N</code>."}, {"q": "Which of the following conditions represents a full Circular Queue when the front index wraps around and is positioned immediately after rear?", "options": ["<code>FRONT == 0 && REAR == SIZE - 1</code>", "<code>FRONT == REAR + 1</code>", "<code>FRONT == REAR</code>", "<code>FRONT == REAR - 1</code>", "<code>SIZE == 0</code>"], "correct": 1, "explain": "A circular queue is full under two configurations: 1) FRONT == 0 && REAR == SIZE - 1 and 2) FRONT == REAR + 1."}, {"q": "Performing a Breadth-First Search (BFS) directory tree starting at root node A (with children B and E, where B has children C and D, and E has child F) yields which sequence?", "options": ["A, B, C, D, E, F", "A, B, E, C, D, F", "A, B, E, F, C, D", "A, B, C, E, D, F", "C, D, B, F, E, A"], "correct": 1, "explain": "BFS processes level-by-level: Level 0 (A), Level 1 (B, E), Level 2 (C, D, F). Thus: A -> B, E -> C, D, F."}, {"q": "In a Queue ADT, elements are inserted at the ______ and removed from the ______.", "options": ["front, rear", "rear, front", "top, bottom", "bottom, top", "middle, front"], "correct": 1, "explain": "Queues follow First-In, First-Out (FIFO). New elements are enqueued at the back/rear, and removed from the front."}, {"q": "What is the time complexity of enqueuing an element into a Circular Queue?", "options": ["$\\mathcal{O}(N)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(1)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "Circular Queue insertions run in constant $\\mathcal{O}(1)$ time."}, {"q": "What is a Double-Ended Queue (Deque)?", "options": ["A queue that allows insertion at one end and removal at the other.", "A queue that allows insertions and deletions at both the front and the back.", "A queue with two storage arrays to prevent stack overflow.", "A queue that operates in $O(\\log N)$ time.", "A queue that sorting elements automatically."], "correct": 1, "explain": "A Deque (Double-Ended Queue) allows elements to be enqueued or dequeued from either the front or the back."}, {"q": "What is the minimum number of queues required to implement a Stack ADT?", "options": ["1", "2", "3", "4", "A stack cannot be built using queues."], "correct": 1, "explain": "To simulate LIFO using queues, you need at least two queues."}, {"q": "What is the time complexity of checking whether a Queue is empty?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N^2)$", "Depends on queue capacity."], "correct": 0, "explain": "Checking if a queue is empty is a constant-time check: either testing size == 0 or front == -1."}, {"q": "How does a Priority Queue differ from a standard FIFO Queue?", "options": ["It uses stack pointers.", "It dequeues elements based on priority/value instead of strict arrival order.", "It only supports floating-point values.", "It is twice as fast in memory footprint.", "It requires lazy deletion on all inserts."], "correct": 1, "explain": "In a Priority Queue, elements are enqueued normally but dequeued based on priority."}, {"q": "Which OS mechanism uses Queues to manage processes waiting for CPU execution time?", "options": ["Call Stack", "Ready Queue Scheduling", "Virtual Memory", "Direct Memory Access (DMA)", "Symbol Tables"], "correct": 1, "explain": "Operating systems use scheduling queues (Ready Queue) to manage active process threads waiting for CPU execution time."}, {"q": "Which data structure operates on a Restricted-Access FIFO policy?", "options": ["Stack", "Queue", "Binary Heap", "Hash Table", "BST"], "correct": 1, "explain": "Queues strictly restrict insertions to the back (enqueue) and deletions to the front (dequeue), enforcing First-In, First-Out (FIFO) policies."}, {"q": "In a Circular Queue of size <code>N</code>, how is the current size calculated from <code>front</code> and <code>rear</code> indices?", "options": ["<code>(rear - front + N) % N</code>", "<code>(rear - front) % N</code>", "<code>(rear - front + N) % N + 1</code>", "<code>rear - front</code>", "Depends on size tracker variable only."], "correct": 0, "explain": "If the queue has wrapped, `rear < front`. The general formula to compute elements in flight is <code>(rear - front + N) % N</code>."}, {"q": "How can you implement a Stack using two Queues?", "options": ["By enqueuing to queue 1 and dequeueing to queue 2 on every pop.", "By making push operation costly: enqueue new element to queue 2, dequeue all elements from queue 1 to queue 2, then swap names of queue 1 and queue 2.", "By using a priority sorting queue.", "Stacks cannot be implemented with queues.", "By using double hashing."], "correct": 1, "explain": "By pushing elements to an empty helper queue, then dumping all existing elements on top of it, we reverse queue order to simulate LIFO."}, {"q": "What is the front-pointing index in a Circular Queue after enqueuing 3 elements and dequeueing 2 elements (starting from empty at index 0)?", "options": ["0", "1", "2", "3", "4"], "correct": 2, "explain": "Enqueuing 3 elements fills indices 0, 1, 2. Dequeueing 2 elements removes index 0 and index 1. The front pointer now rests at index 2."}, {"q": "Which Queue variation is commonly used in network packet buffers to prioritize bandwidth for critical traffic?", "options": ["LIFO Queue", "Priority Queue", "Circular Queue", "Double-Ended Queue", "Stack Queue"], "correct": 1, "explain": "Priority Queues sort incoming packets based on their header priorities, serving high-priority packets first."}, {"q": "What is the value of <code>rear</code> and <code>front</code> after enqueuing 3 elements and dequeueing 2 elements in a Circular Queue? (Assuming 0-indexed empty queue starts at index 0)", "options": ["front = 2, rear = 2", "front = 0, rear = 1", "front = 1, rear = 2", "front = 2, rear = 3", "front = 0, rear = 2"], "correct": 0, "explain": "1) Enqueue 3 elements fills index 0, 1, and 2. <code>rear</code> is at 2. 2) Dequeuing 2 elements removes index 0 and 1. The <code>front</code> pointer moves to index 2. Both front and rear now rest at index 2."}, {"q": "Read the following queue simulation. What is printed?<pre><code>#include &lt;iostream&gt;\n#include &lt;queue&gt;\nint main() {\n    std::queue&lt;int&gt; q;\n    q.push(1); q.push(2); q.push(3);\n    q.pop();\n    q.push(4);\n    while(!q.empty()) {\n        std::cout &lt;&lt; q.front() &lt;&lt; \" \";\n        q.pop();\n    }\n    return 0;\n}</code></pre>", "options": ["1 2 3 4", "2 3 4", "4 3 2", "3 2 1", "1 2 3"], "correct": 1, "explain": "The queue starts as [1, 2, 3]. Popping removes the front element (1), leaving [2, 3]. Pushing 4 yields [2, 3, 4]. Printing front and popping sequentially outputs '2 3 4 '."}, {"q": "In an array-based Circular Queue of size <code>N</code>, which of the following expressions correctly wraps the tail pointer index <code>iback</code> during enqueue?", "options": ["<code>iback = (iback + 1) % (N + 1)</code>", "<code>iback = (iback + 1) % N</code>", "<code>iback = iback + 1</code>", "<code>iback = (iback % N) + 1</code>", "<code>iback = (iback - 1) % N</code>"], "correct": 1, "explain": "Circular indices wrap around using modulo capacity arithmetic: <code>(index + 1) % N</code>."}, {"q": "Which of the following conditions represents a full Circular Queue when the front index wraps around and is positioned immediately after rear?", "options": ["<code>FRONT == 0 && REAR == SIZE - 1</code>", "<code>FRONT == REAR + 1</code>", "<code>FRONT == REAR</code>", "<code>FRONT == REAR - 1</code>", "<code>SIZE == 0</code>"], "correct": 1, "explain": "A circular queue is full under two configurations: 1) FRONT == 0 && REAR == SIZE - 1 and 2) FRONT == REAR + 1."}, {"q": "Performing a Breadth-First Search (BFS) directory tree starting at root node A (with children B and E, where B has children C and D, and E has child F) yields which sequence?", "options": ["A, B, C, D, E, F", "A, B, E, C, D, F", "A, B, E, F, C, D", "A, B, C, E, D, F", "C, D, B, F, E, A"], "correct": 1, "explain": "BFS processes level-by-level: Level 0 (A), Level 1 (B, E), Level 2 (C, D, F). Thus: A -> B, E -> C, D, F."}, {"q": "In a Queue ADT, elements are inserted at the ______ and removed from the ______.", "options": ["front, rear", "rear, front", "top, bottom", "bottom, top", "middle, front"], "correct": 1, "explain": "Queues follow First-In, First-Out (FIFO). New elements are enqueued at the back/rear, and removed from the front."}, {"q": "What is the time complexity of enqueuing an element into a Circular Queue?", "options": ["$\\mathcal{O}(N)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(1)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "Circular Queue insertions run in constant $\\mathcal{O}(1)$ time."}, {"q": "What is a Double-Ended Queue (Deque)?", "options": ["A queue that allows insertion at one end and removal at the other.", "A queue that allows insertions and deletions at both the front and the back.", "A queue with two storage arrays to prevent stack overflow.", "A queue that operates in $O(\\log N)$ time.", "A queue that sorting elements automatically."], "correct": 1, "explain": "A Deque (Double-Ended Queue) allows elements to be enqueued or dequeued from either the front or the back."}, {"q": "What is the minimum number of queues required to implement a Stack ADT?", "options": ["1", "2", "3", "4", "A stack cannot be built using queues."], "correct": 1, "explain": "To simulate LIFO using queues, you need at least two queues."}, {"q": "What is the time complexity of checking whether a Queue is empty?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N^2)$", "Depends on queue capacity."], "correct": 0, "explain": "Checking if a queue is empty is a constant-time check: either testing size == 0 or front == -1."}, {"q": "How does a Priority Queue differ from a standard FIFO Queue?", "options": ["It uses stack pointers.", "It dequeues elements based on priority/value instead of strict arrival order.", "It only supports floating-point values.", "It is twice as fast in memory footprint.", "It requires lazy deletion on all inserts."], "correct": 1, "explain": "In a Priority Queue, elements are enqueued normally but dequeued based on priority."}, {"q": "Which OS mechanism uses Queues to manage processes waiting for CPU execution time?", "options": ["Call Stack", "Ready Queue Scheduling", "Virtual Memory", "Direct Memory Access (DMA)", "Symbol Tables"], "correct": 1, "explain": "Operating systems use scheduling queues (Ready Queue) to manage active process threads waiting for CPU execution time."}, {"q": "Which data structure operates on a Restricted-Access FIFO policy?", "options": ["Stack", "Queue", "Binary Heap", "Hash Table", "BST"], "correct": 1, "explain": "Queues strictly restrict insertions to the back (enqueue) and deletions to the front (dequeue), enforcing First-In, First-Out (FIFO) policies."}, {"q": "In a Circular Queue of size <code>N</code>, how is the current size calculated from <code>front</code> and <code>rear</code> indices?", "options": ["<code>(rear - front + N) % N</code>", "<code>(rear - front) % N</code>", "<code>(rear - front + N) % N + 1</code>", "<code>rear - front</code>", "Depends on size tracker variable only."], "correct": 0, "explain": "If the queue has wrapped, `rear < front`. The general formula to compute elements in flight is <code>(rear - front + N) % N</code>."}, {"q": "How can you implement a Stack using two Queues?", "options": ["By enqueuing to queue 1 and dequeueing to queue 2 on every pop.", "By making push operation costly: enqueue new element to queue 2, dequeue all elements from queue 1 to queue 2, then swap names of queue 1 and queue 2.", "By using a priority sorting queue.", "Stacks cannot be implemented with queues.", "By using double hashing."], "correct": 1, "explain": "By pushing elements to an empty helper queue, then dumping all existing elements on top of it, we reverse queue order to simulate LIFO."}];</script>
+<script>
+const QS = window.__QS__;
+let correct = 0, answered = 0;
+
+document.querySelectorAll('.q').forEach((card, qi) => {
+  const btn = card.querySelector('.check');
+  btn.addEventListener('click', () => {
+    const sel = card.querySelector('input:checked');
+    if (!sel) return;
+    const chosen = parseInt(sel.value);
+    const answer = QS[qi].correct;
+    const opts = card.querySelectorAll('.opt');
+    const exp = card.querySelector('.exp');
+
+    opts.forEach((o, i) => {
+      if (i === answer) o.classList.add('ok');
+      else if (i === chosen && chosen !== answer) o.classList.add('err');
+      o.querySelector('input').disabled = true;
+    });
+
+    exp.classList.add('show');
+    if (chosen === answer) {
+      correct++;
+      exp.classList.add('ok');
+    } else {
+      exp.classList.add('err');
+    }
+    answered++;
+    btn.disabled = true;
+    document.querySelector('.score-bar strong').textContent = correct + ' / ' + answered;
+  });
+});
+</script>
+
+</body>
+</html>

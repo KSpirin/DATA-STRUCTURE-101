@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>04. Linked Lists — Quiz</title>
+<style>
+:root{
+  --bg:#111;
+  --card:#1a1a1a;
+  --border:#2a2a2a;
+  --txt:#e8e8e8;
+  --muted:#666;
+  --accent:#5865f2;
+  --ok:#3ba55c;
+  --err:#ed4245;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+/* top bar */
+nav{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-bottom:1px solid var(--border);background:var(--card)}
+nav .home{font-weight:600;color:var(--muted);font-size:.85rem;letter-spacing:.04em}
+nav .home:hover{color:var(--txt)}
+nav .sep{color:var(--border)}
+nav .topic{font-size:.85rem;color:var(--txt)}
+
+/* topic grid on index */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;padding:2rem 1.5rem}
+.tile{border:1px solid var(--border);border-radius:8px;padding:1.25rem 1.5rem;background:var(--card);cursor:pointer;transition:border-color .15s,background .15s}
+.tile:hover{border-color:var(--accent);background:#1e1e2e}
+.tile .num{font-size:.75rem;color:var(--muted);margin-bottom:.25rem;font-family:var(--mono)}
+.tile .name{font-size:1.1rem;font-weight:600}
+.tile .count{font-size:.8rem;color:var(--muted);margin-top:.25rem}
+
+/* quiz page layout */
+.page{max-width:780px;margin:0 auto;padding:2rem 1.5rem}
+.page h1{font-size:1.3rem;font-weight:700;margin-bottom:1.75rem}
+
+/* question card */
+.q{border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-bottom:1.25rem;background:var(--card)}
+.q-num{font-size:.75rem;color:var(--muted);font-family:var(--mono);margin-bottom:.5rem}
+.q-text{font-size:.95rem;margin-bottom:1rem}
+.opts{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.75rem}
+.opt{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:.9rem;transition:border-color .1s,background .1s;user-select:none}
+.opt:hover{border-color:#444}
+.opt input{margin-top:3px;accent-color:var(--accent);flex-shrink:0}
+.opt.ok{border-color:var(--ok);background:rgba(59,165,92,.12);color:#9ae6b4}
+.opt.err{border-color:var(--err);background:rgba(237,66,69,.12);color:#fca5a5}
+.check{background:var(--accent);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.check:hover{opacity:.9}
+.exp{display:none;margin-top:.75rem;padding:.75rem;border-radius:6px;font-size:.85rem;line-height:1.5;border-left:3px solid var(--muted);background:#161616;color:var(--muted)}
+.exp.show{display:block}
+.exp.ok{border-color:var(--ok);color:#9ae6b4}
+.exp.err{border-color:var(--err);color:#fca5a5}
+
+/* code blocks */
+pre{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:.75rem;overflow-x:auto;margin:.5rem 0}
+pre code{font-family:var(--mono);font-size:.8rem;color:#c9d1d9}
+code{font-family:var(--mono);font-size:.85em;background:#0d0d0d;padding:.1em .3em;border-radius:3px}
+
+/* score bar */
+.score-bar{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--card)}
+.score-bar span{font-size:.85rem;color:var(--muted)}
+.score-bar strong{color:var(--txt)}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav>
+  <a class="home" href="index.html">Quiz Home</a>
+  <span class="sep">/</span>
+  <span class="topic">Linked List</span>
+  <div style="margin-left:auto;display:flex;gap:1rem;font-size:.85rem;color:var(--muted)">
+    <a href="3_QUEUE.html">← Queue</a>
+    <a href="5_HASH.html">Hash Table →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <h1>04. Linked Lists</h1>
+  
+<div class="q">
+  <div class="q-num">Q1</div>
+  <div class="q-text">On a 64-bit operating system, how much memory is consumed by a pointer variable?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q0" value="0"><span>A. 2 bytes</span></label>
+<label class="opt"><input type="radio" name="q0" value="1"><span>B. 4 bytes</span></label>
+<label class="opt"><input type="radio" name="q0" value="2"><span>C. 8 bytes</span></label>
+<label class="opt"><input type="radio" name="q0" value="3"><span>D. 16 bytes</span></label>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. Depends on the data structure it points to.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">On 64-bit architectures, memory addresses are 64-bit integers, meaning all pointer variables consume exactly 8 bytes of storage.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q2</div>
+  <div class="q-text">When inserting a new node at the front of a singly linked list (<code>push_front</code>), what pointer assignment must occur first to prevent losing list access?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q1" value="0"><span>A. Set list head pointer to point to the new node.</span></label>
+<label class="opt"><input type="radio" name="q1" value="1"><span>B. Set the new node's next pointer to point to the current list head.</span></label>
+<label class="opt"><input type="radio" name="q1" value="2"><span>C. Deallocate the old head pointer.</span></label>
+<label class="opt"><input type="radio" name="q1" value="3"><span>D. Set the tail node's next pointer to the new node.</span></label>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. Initialize head pointer to nullptr.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">You must first point the new node's next to the current head: new_node->next = head; before updating the head pointer.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q3</div>
+  <div class="q-text">What is the worst-case time complexity of inserting an element at position <code>k</code> (where <code>0 < k < N</code>) in a singly linked list of size <code>N</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q2" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q2" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q2" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q2" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">In a singly linked list, accessing position $k$ requires traversing the list from head node. This traversal takes linear $\mathcal{O}(N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q4</div>
+  <div class="q-text">Which algorithm is used to detect cycles in a linked list using two pointers moving at different speeds?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q3" value="0"><span>A. Kahn's Topological Sort</span></label>
+<label class="opt"><input type="radio" name="q3" value="1"><span>B. Floyd's Tortoise and Hare Algorithm</span></label>
+<label class="opt"><input type="radio" name="q3" value="2"><span>C. Warshall's Transitive Closure</span></label>
+<label class="opt"><input type="radio" name="q3" value="3"><span>D. Dijkstra's Algorithm</span></label>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. Binary Search Traversal.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Floyd's Cycle-Finding Algorithm uses a slow pointer moving 1 step and a fast pointer moving 2 steps.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q5</div>
+  <div class="q-text">How many link pointers are stored in each node of a Doubly Linked List?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q4" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q4" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q4" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q4" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. 0</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Each node in a doubly linked list stores two pointers: next and prev.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q6</div>
+  <div class="q-text">What is the time complexity to delete a node at the tail of a Singly Linked List of size <code>N</code>, if we only maintain a head and tail pointer?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q5" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q5" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q5" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q5" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Although we have a tail pointer, deleting the tail requires updating the second-to-last node's next pointer to nullptr, which takes $O(N)$ traversal time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q7</div>
+  <div class="q-text">What is a Circular Linked List?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q6" value="0"><span>A. A list where nodes are arranged in a circular array.</span></label>
+<label class="opt"><input type="radio" name="q6" value="1"><span>B. A list where the tail node's next pointer links back to the head node.</span></label>
+<label class="opt"><input type="radio" name="q6" value="2"><span>C. A list containing duplicate values.</span></label>
+<label class="opt"><input type="radio" name="q6" value="3"><span>D. A list that cannot be traversed.</span></label>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. A list with two head pointers.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A circular linked list forms a closed ring, so the last (tail) node points directly back to the first (head) node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q8</div>
+  <div class="q-text">To find the middle element of a linked list in a single pass, we should use:</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q7" value="0"><span>A. A recursion stack.</span></label>
+<label class="opt"><input type="radio" name="q7" value="1"><span>B. A fast pointer moving 2 nodes and a slow pointer moving 1 node per step.</span></label>
+<label class="opt"><input type="radio" name="q7" value="2"><span>C. A hash map mapping nodes to indexes.</span></label>
+<label class="opt"><input type="radio" name="q7" value="3"><span>D. A temporary copy of the array.</span></label>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. A sorting algorithm.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Using the two-pointer technique: when the fast pointer reaches the tail, the slow pointer will be exactly at the middle node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q9</div>
+  <div class="q-text">What is the auxiliary space complexity of reversing a singly linked list of size <code>N</code> iteratively?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q8" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q8" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q8" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q8" value="3"><span>D. $\mathcal{O}(N^2)$</span></label>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. $\mathcal{O}(N \log N)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Reversing iteratively only requires updating pointers in-place using a few temporary variables, yielding constant $O(1)$ space.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q10</div>
+  <div class="q-text">What is a Skip List and what is its average search complexity?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q9" value="0"><span>A. A list that skips odd keys, search takes $O(N)$.</span></label>
+<label class="opt"><input type="radio" name="q9" value="1"><span>B. A probabilistic multi-level linked list, search takes $O(\log N)$.</span></label>
+<label class="opt"><input type="radio" name="q9" value="2"><span>C. A tree structure, search takes $O(1)$.</span></label>
+<label class="opt"><input type="radio" name="q9" value="3"><span>D. A queue simulation, search takes $O(N^2)$.</span></label>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. A sorted array, search takes $O(N \log N)$.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A Skip List is a probabilistic data structure that layers multiple linked lists, allowing search, insert, and delete operations to run in $O(\log N)$ average time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q11</div>
+  <div class="q-text">What is the main benefit of a Doubly Linked List over a Singly Linked List?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q10" value="0"><span>A. It consumes less memory.</span></label>
+<label class="opt"><input type="radio" name="q10" value="1"><span>B. It allows bidirectional traversal and deletion of a node in $O(1)$ time if only the node pointer is given.</span></label>
+<label class="opt"><input type="radio" name="q10" value="2"><span>C. Search operations take $O(\log N)$ time.</span></label>
+<label class="opt"><input type="radio" name="q10" value="3"><span>D. It does not require pointer tracking.</span></label>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. It is faster for random access.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Because doubly linked list nodes store pointers to both next and prev nodes, we can detach a node in-place in $O(1)$ without traversing to find its predecessor.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q12</div>
+  <div class="q-text">In a circular linked list, what does the tail node's next pointer refer to?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q11" value="0"><span>A. nullptr</span></label>
+<label class="opt"><input type="radio" name="q11" value="1"><span>B. The tail node itself</span></label>
+<label class="opt"><input type="radio" name="q11" value="2"><span>C. The head node</span></label>
+<label class="opt"><input type="radio" name="q11" value="3"><span>D. A sentinel node</span></label>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. The second node</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A circular list forms a closed ring, so the last (tail) node points directly back to the first (head) node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q13</div>
+  <div class="q-text">What occurs during a 'dereferencing nullptr' error in a linked list operation?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q12" value="0"><span>A. The program ignores it.</span></label>
+<label class="opt"><input type="radio" name="q12" value="1"><span>B. The compiler flags a syntax error.</span></label>
+<label class="opt"><input type="radio" name="q12" value="2"><span>C. The operating system halts the program with a Segmentation Fault.</span></label>
+<label class="opt"><input type="radio" name="q12" value="3"><span>D. A new node is automatically created.</span></label>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. Memory leak occurs.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Null pointers do not refer to valid memory addresses. Accessing `ptr->next` or `ptr->val` when `ptr` is nullptr triggers a runtime segmentation fault.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q14</div>
+  <div class="q-text">What is the time complexity to find the length of a singly linked list if no length variable is cached?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q13" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q13" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q13" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q13" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Without a cached counter, we must traverse the list from head to tail node, visiting all $N$ nodes in $O(N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q15</div>
+  <div class="q-text">What is the key advantage of using a Sentinel (Dummy) Node in Linked Lists?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q14" value="0"><span>A. It reduces memory consumption.</span></label>
+<label class="opt"><input type="radio" name="q14" value="1"><span>B. It removes special check cases for empty lists and insertion/deletion at head/tail.</span></label>
+<label class="opt"><input type="radio" name="q14" value="2"><span>C. It speeds up traversal to $O(1)$.</span></label>
+<label class="opt"><input type="radio" name="q14" value="3"><span>D. It automatically sorts list nodes.</span></label>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. It prevents memory fragmentation.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">With a dummy node, head is never nullptr, eliminating the need to write special code branches to handle empty lists or head changes.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q16</div>
+  <div class="q-text">What is the output of the following linked list wiring logic?<pre><code>struct Node { int val; Node* next; };
+Node* head = new Node{1, nullptr};
+Node* temp = new Node{2, nullptr};
+temp-&gt;next = head;
+head = temp;
+std::cout &lt;&lt; head-&gt;val &lt;&lt; " " &lt;&lt; head-&gt;next-&gt;val;</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q15" value="0"><span>A. 1 2</span></label>
+<label class="opt"><input type="radio" name="q15" value="1"><span>B. 2 1</span></label>
+<label class="opt"><input type="radio" name="q15" value="2"><span>C. 1 1</span></label>
+<label class="opt"><input type="radio" name="q15" value="3"><span>D. 2 2</span></label>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. Crash</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp"><code>temp</code> is initialized with val 2 and its <code>next</code> is set to <code>head</code> (which is 1). Then <code>head</code> is set to <code>temp</code>. Thus <code>head->val</code> is 2 and <code>head->next->val</code> is 1.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q17</div>
+  <div class="q-text">Where does pointer <code>curr</code> point after executing this loop on the list <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; nullptr</code>?<pre><code>Node* curr = head;
+while(curr != nullptr &amp;&amp; curr-&gt;next != nullptr) {
+    curr = curr-&gt;next-&gt;next;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q16" value="0"><span>A. Node 3</span></label>
+<label class="opt"><input type="radio" name="q16" value="1"><span>B. Node 4</span></label>
+<label class="opt"><input type="radio" name="q16" value="2"><span>C. nullptr</span></label>
+<label class="opt"><input type="radio" name="q16" value="3"><span>D. Node 2</span></label>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. Infinite loop</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Initially <code>curr</code> is at 1. First iteration: moves to <code>curr->next->next</code> which is 3. Second iteration: <code>curr->next</code> is 4, <code>next->next</code> is <code>nullptr</code>, so <code>curr</code> becomes <code>nullptr</code>. Loop terminates.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q18</div>
+  <div class="q-text">On a 64-bit operating system, how much memory is consumed by a pointer variable?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. 2 bytes</span></label>
+<label class="opt"><input type="radio" name="q17" value="1"><span>B. 4 bytes</span></label>
+<label class="opt"><input type="radio" name="q17" value="2"><span>C. 8 bytes</span></label>
+<label class="opt"><input type="radio" name="q17" value="3"><span>D. 16 bytes</span></label>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. Depends on the data structure it points to.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">On 64-bit architectures, memory addresses are 64-bit integers, meaning all pointer variables consume exactly 8 bytes of storage.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q19</div>
+  <div class="q-text">When inserting a new node at the front of a singly linked list (<code>push_front</code>), what pointer assignment must occur first to prevent losing list access?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. Set list head pointer to point to the new node.</span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. Set the new node's next pointer to point to the current list head.</span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. Deallocate the old head pointer.</span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. Set the tail node's next pointer to the new node.</span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. Initialize head pointer to nullptr.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">You must first point the new node's next to the current head: new_node->next = head; before updating the head pointer.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q20</div>
+  <div class="q-text">What is the worst-case time complexity of inserting an element at position <code>k</code> (where <code>0 < k < N</code>) in a singly linked list of size <code>N</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">In a singly linked list, accessing position $k$ requires traversing the list from head node. This traversal takes linear $\mathcal{O}(N)$ time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q21</div>
+  <div class="q-text">Which algorithm is used to detect cycles in a linked list using two pointers moving at different speeds?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. Kahn's Topological Sort</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. Floyd's Tortoise and Hare Algorithm</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. Warshall's Transitive Closure</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. Dijkstra's Algorithm</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. Binary Search Traversal.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Floyd's Cycle-Finding Algorithm uses a slow pointer moving 1 step and a fast pointer moving 2 steps.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q22</div>
+  <div class="q-text">How many link pointers are stored in each node of a Doubly Linked List?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. 0</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Each node in a doubly linked list stores two pointers: next and prev.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q23</div>
+  <div class="q-text">What is the time complexity to delete a node at the tail of a Singly Linked List of size <code>N</code>, if we only maintain a head and tail pointer?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Although we have a tail pointer, deleting the tail requires updating the second-to-last node's next pointer to nullptr, which takes $O(N)$ traversal time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q24</div>
+  <div class="q-text">What is a Circular Linked List?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. A list where nodes are arranged in a circular array.</span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. A list where the tail node's next pointer links back to the head node.</span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. A list containing duplicate values.</span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. A list that cannot be traversed.</span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. A list with two head pointers.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A circular linked list forms a closed ring, so the last (tail) node points directly back to the first (head) node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q25</div>
+  <div class="q-text">To find the middle element of a linked list in a single pass, we should use:</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. A recursion stack.</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. A fast pointer moving 2 nodes and a slow pointer moving 1 node per step.</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. A hash map mapping nodes to indexes.</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. A temporary copy of the array.</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. A sorting algorithm.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Using the two-pointer technique: when the fast pointer reaches the tail, the slow pointer will be exactly at the middle node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q26</div>
+  <div class="q-text">What is the auxiliary space complexity of reversing a singly linked list of size <code>N</code> iteratively?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. $\mathcal{O}(1)$</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. $\mathcal{O}(N)$</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. $\mathcal{O}(N^2)$</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. $\mathcal{O}(N \log N)$</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Reversing iteratively only requires updating pointers in-place using a few temporary variables, yielding constant $O(1)$ space.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q27</div>
+  <div class="q-text">What is a Skip List and what is its average search complexity?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. A list that skips odd keys, search takes $O(N)$.</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. A probabilistic multi-level linked list, search takes $O(\log N)$.</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. A tree structure, search takes $O(1)$.</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. A queue simulation, search takes $O(N^2)$.</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. A sorted array, search takes $O(N \log N)$.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A Skip List is a probabilistic data structure that layers multiple linked lists, allowing search, insert, and delete operations to run in $O(\log N)$ average time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q28</div>
+  <div class="q-text">What is the main benefit of a Doubly Linked List over a Singly Linked List?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. It consumes less memory.</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. It allows bidirectional traversal and deletion of a node in $O(1)$ time if only the node pointer is given.</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. Search operations take $O(\log N)$ time.</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. It does not require pointer tracking.</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. It is faster for random access.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Because doubly linked list nodes store pointers to both next and prev nodes, we can detach a node in-place in $O(1)$ without traversing to find its predecessor.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q29</div>
+  <div class="q-text">In a circular linked list, what does the tail node's next pointer refer to?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. nullptr</span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. The tail node itself</span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. The head node</span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. A sentinel node</span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. The second node</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">A circular list forms a closed ring, so the last (tail) node points directly back to the first (head) node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q30</div>
+  <div class="q-text">What occurs during a 'dereferencing nullptr' error in a linked list operation?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. The program ignores it.</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. The compiler flags a syntax error.</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. The operating system halts the program with a Segmentation Fault.</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. A new node is automatically created.</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. Memory leak occurs.</span></label>
+</div>
+  <button class="check">Check</button>
+  <div class="exp">Null pointers do not refer to valid memory addresses. Accessing `ptr->next` or `ptr->val` when `ptr` is nullptr triggers a runtime segmentation fault.</div>
+</div>
+</div>
+
+<div class="score-bar">
+  <span>Score: <strong>0 / 0</strong></span>
+  <span style="margin-left:auto">30 questions</span>
+</div>
+
+<script>window.__QS__ = [{"q": "On a 64-bit operating system, how much memory is consumed by a pointer variable?", "options": ["2 bytes", "4 bytes", "8 bytes", "16 bytes", "Depends on the data structure it points to."], "correct": 2, "explain": "On 64-bit architectures, memory addresses are 64-bit integers, meaning all pointer variables consume exactly 8 bytes of storage."}, {"q": "When inserting a new node at the front of a singly linked list (<code>push_front</code>), what pointer assignment must occur first to prevent losing list access?", "options": ["Set list head pointer to point to the new node.", "Set the new node's next pointer to point to the current list head.", "Deallocate the old head pointer.", "Set the tail node's next pointer to the new node.", "Initialize head pointer to nullptr."], "correct": 1, "explain": "You must first point the new node's next to the current head: new_node->next = head; before updating the head pointer."}, {"q": "What is the worst-case time complexity of inserting an element at position <code>k</code> (where <code>0 < k < N</code>) in a singly linked list of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "In a singly linked list, accessing position $k$ requires traversing the list from head node. This traversal takes linear $\\mathcal{O}(N)$ time."}, {"q": "Which algorithm is used to detect cycles in a linked list using two pointers moving at different speeds?", "options": ["Kahn's Topological Sort", "Floyd's Tortoise and Hare Algorithm", "Warshall's Transitive Closure", "Dijkstra's Algorithm", "Binary Search Traversal."], "correct": 1, "explain": "Floyd's Cycle-Finding Algorithm uses a slow pointer moving 1 step and a fast pointer moving 2 steps."}, {"q": "How many link pointers are stored in each node of a Doubly Linked List?", "options": ["1", "2", "3", "4", "0"], "correct": 1, "explain": "Each node in a doubly linked list stores two pointers: next and prev."}, {"q": "What is the time complexity to delete a node at the tail of a Singly Linked List of size <code>N</code>, if we only maintain a head and tail pointer?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "Although we have a tail pointer, deleting the tail requires updating the second-to-last node's next pointer to nullptr, which takes $O(N)$ traversal time."}, {"q": "What is a Circular Linked List?", "options": ["A list where nodes are arranged in a circular array.", "A list where the tail node's next pointer links back to the head node.", "A list containing duplicate values.", "A list that cannot be traversed.", "A list with two head pointers."], "correct": 1, "explain": "A circular linked list forms a closed ring, so the last (tail) node points directly back to the first (head) node."}, {"q": "To find the middle element of a linked list in a single pass, we should use:", "options": ["A recursion stack.", "A fast pointer moving 2 nodes and a slow pointer moving 1 node per step.", "A hash map mapping nodes to indexes.", "A temporary copy of the array.", "A sorting algorithm."], "correct": 1, "explain": "Using the two-pointer technique: when the fast pointer reaches the tail, the slow pointer will be exactly at the middle node."}, {"q": "What is the auxiliary space complexity of reversing a singly linked list of size <code>N</code> iteratively?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N^2)$", "$\\mathcal{O}(N \\log N)$"], "correct": 0, "explain": "Reversing iteratively only requires updating pointers in-place using a few temporary variables, yielding constant $O(1)$ space."}, {"q": "What is a Skip List and what is its average search complexity?", "options": ["A list that skips odd keys, search takes $O(N)$.", "A probabilistic multi-level linked list, search takes $O(\\log N)$.", "A tree structure, search takes $O(1)$.", "A queue simulation, search takes $O(N^2)$.", "A sorted array, search takes $O(N \\log N)$."], "correct": 1, "explain": "A Skip List is a probabilistic data structure that layers multiple linked lists, allowing search, insert, and delete operations to run in $O(\\log N)$ average time."}, {"q": "What is the main benefit of a Doubly Linked List over a Singly Linked List?", "options": ["It consumes less memory.", "It allows bidirectional traversal and deletion of a node in $O(1)$ time if only the node pointer is given.", "Search operations take $O(\\log N)$ time.", "It does not require pointer tracking.", "It is faster for random access."], "correct": 1, "explain": "Because doubly linked list nodes store pointers to both next and prev nodes, we can detach a node in-place in $O(1)$ without traversing to find its predecessor."}, {"q": "In a circular linked list, what does the tail node's next pointer refer to?", "options": ["nullptr", "The tail node itself", "The head node", "A sentinel node", "The second node"], "correct": 2, "explain": "A circular list forms a closed ring, so the last (tail) node points directly back to the first (head) node."}, {"q": "What occurs during a 'dereferencing nullptr' error in a linked list operation?", "options": ["The program ignores it.", "The compiler flags a syntax error.", "The operating system halts the program with a Segmentation Fault.", "A new node is automatically created.", "Memory leak occurs."], "correct": 2, "explain": "Null pointers do not refer to valid memory addresses. Accessing `ptr->next` or `ptr->val` when `ptr` is nullptr triggers a runtime segmentation fault."}, {"q": "What is the time complexity to find the length of a singly linked list if no length variable is cached?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "Without a cached counter, we must traverse the list from head to tail node, visiting all $N$ nodes in $O(N)$ time."}, {"q": "What is the key advantage of using a Sentinel (Dummy) Node in Linked Lists?", "options": ["It reduces memory consumption.", "It removes special check cases for empty lists and insertion/deletion at head/tail.", "It speeds up traversal to $O(1)$.", "It automatically sorts list nodes.", "It prevents memory fragmentation."], "correct": 1, "explain": "With a dummy node, head is never nullptr, eliminating the need to write special code branches to handle empty lists or head changes."}, {"q": "What is the output of the following linked list wiring logic?<pre><code>struct Node { int val; Node* next; };\nNode* head = new Node{1, nullptr};\nNode* temp = new Node{2, nullptr};\ntemp-&gt;next = head;\nhead = temp;\nstd::cout &lt;&lt; head-&gt;val &lt;&lt; \" \" &lt;&lt; head-&gt;next-&gt;val;</code></pre>", "options": ["1 2", "2 1", "1 1", "2 2", "Crash"], "correct": 1, "explain": "<code>temp</code> is initialized with val 2 and its <code>next</code> is set to <code>head</code> (which is 1). Then <code>head</code> is set to <code>temp</code>. Thus <code>head->val</code> is 2 and <code>head->next->val</code> is 1."}, {"q": "Where does pointer <code>curr</code> point after executing this loop on the list <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; nullptr</code>?<pre><code>Node* curr = head;\nwhile(curr != nullptr &amp;&amp; curr-&gt;next != nullptr) {\n    curr = curr-&gt;next-&gt;next;\n}</code></pre>", "options": ["Node 3", "Node 4", "nullptr", "Node 2", "Infinite loop"], "correct": 2, "explain": "Initially <code>curr</code> is at 1. First iteration: moves to <code>curr->next->next</code> which is 3. Second iteration: <code>curr->next</code> is 4, <code>next->next</code> is <code>nullptr</code>, so <code>curr</code> becomes <code>nullptr</code>. Loop terminates."}, {"q": "On a 64-bit operating system, how much memory is consumed by a pointer variable?", "options": ["2 bytes", "4 bytes", "8 bytes", "16 bytes", "Depends on the data structure it points to."], "correct": 2, "explain": "On 64-bit architectures, memory addresses are 64-bit integers, meaning all pointer variables consume exactly 8 bytes of storage."}, {"q": "When inserting a new node at the front of a singly linked list (<code>push_front</code>), what pointer assignment must occur first to prevent losing list access?", "options": ["Set list head pointer to point to the new node.", "Set the new node's next pointer to point to the current list head.", "Deallocate the old head pointer.", "Set the tail node's next pointer to the new node.", "Initialize head pointer to nullptr."], "correct": 1, "explain": "You must first point the new node's next to the current head: new_node->next = head; before updating the head pointer."}, {"q": "What is the worst-case time complexity of inserting an element at position <code>k</code> (where <code>0 < k < N</code>) in a singly linked list of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "In a singly linked list, accessing position $k$ requires traversing the list from head node. This traversal takes linear $\\mathcal{O}(N)$ time."}, {"q": "Which algorithm is used to detect cycles in a linked list using two pointers moving at different speeds?", "options": ["Kahn's Topological Sort", "Floyd's Tortoise and Hare Algorithm", "Warshall's Transitive Closure", "Dijkstra's Algorithm", "Binary Search Traversal."], "correct": 1, "explain": "Floyd's Cycle-Finding Algorithm uses a slow pointer moving 1 step and a fast pointer moving 2 steps."}, {"q": "How many link pointers are stored in each node of a Doubly Linked List?", "options": ["1", "2", "3", "4", "0"], "correct": 1, "explain": "Each node in a doubly linked list stores two pointers: next and prev."}, {"q": "What is the time complexity to delete a node at the tail of a Singly Linked List of size <code>N</code>, if we only maintain a head and tail pointer?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "Although we have a tail pointer, deleting the tail requires updating the second-to-last node's next pointer to nullptr, which takes $O(N)$ traversal time."}, {"q": "What is a Circular Linked List?", "options": ["A list where nodes are arranged in a circular array.", "A list where the tail node's next pointer links back to the head node.", "A list containing duplicate values.", "A list that cannot be traversed.", "A list with two head pointers."], "correct": 1, "explain": "A circular linked list forms a closed ring, so the last (tail) node points directly back to the first (head) node."}, {"q": "To find the middle element of a linked list in a single pass, we should use:", "options": ["A recursion stack.", "A fast pointer moving 2 nodes and a slow pointer moving 1 node per step.", "A hash map mapping nodes to indexes.", "A temporary copy of the array.", "A sorting algorithm."], "correct": 1, "explain": "Using the two-pointer technique: when the fast pointer reaches the tail, the slow pointer will be exactly at the middle node."}, {"q": "What is the auxiliary space complexity of reversing a singly linked list of size <code>N</code> iteratively?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N^2)$", "$\\mathcal{O}(N \\log N)$"], "correct": 0, "explain": "Reversing iteratively only requires updating pointers in-place using a few temporary variables, yielding constant $O(1)$ space."}, {"q": "What is a Skip List and what is its average search complexity?", "options": ["A list that skips odd keys, search takes $O(N)$.", "A probabilistic multi-level linked list, search takes $O(\\log N)$.", "A tree structure, search takes $O(1)$.", "A queue simulation, search takes $O(N^2)$.", "A sorted array, search takes $O(N \\log N)$."], "correct": 1, "explain": "A Skip List is a probabilistic data structure that layers multiple linked lists, allowing search, insert, and delete operations to run in $O(\\log N)$ average time."}, {"q": "What is the main benefit of a Doubly Linked List over a Singly Linked List?", "options": ["It consumes less memory.", "It allows bidirectional traversal and deletion of a node in $O(1)$ time if only the node pointer is given.", "Search operations take $O(\\log N)$ time.", "It does not require pointer tracking.", "It is faster for random access."], "correct": 1, "explain": "Because doubly linked list nodes store pointers to both next and prev nodes, we can detach a node in-place in $O(1)$ without traversing to find its predecessor."}, {"q": "In a circular linked list, what does the tail node's next pointer refer to?", "options": ["nullptr", "The tail node itself", "The head node", "A sentinel node", "The second node"], "correct": 2, "explain": "A circular list forms a closed ring, so the last (tail) node points directly back to the first (head) node."}, {"q": "What occurs during a 'dereferencing nullptr' error in a linked list operation?", "options": ["The program ignores it.", "The compiler flags a syntax error.", "The operating system halts the program with a Segmentation Fault.", "A new node is automatically created.", "Memory leak occurs."], "correct": 2, "explain": "Null pointers do not refer to valid memory addresses. Accessing `ptr->next` or `ptr->val` when `ptr` is nullptr triggers a runtime segmentation fault."}];</script>
+<script>
+const QS = window.__QS__;
+let correct = 0, answered = 0;
+
+document.querySelectorAll('.q').forEach((card, qi) => {
+  const btn = card.querySelector('.check');
+  btn.addEventListener('click', () => {
+    const sel = card.querySelector('input:checked');
+    if (!sel) return;
+    const chosen = parseInt(sel.value);
+    const answer = QS[qi].correct;
+    const opts = card.querySelectorAll('.opt');
+    const exp = card.querySelector('.exp');
+
+    opts.forEach((o, i) => {
+      if (i === answer) o.classList.add('ok');
+      else if (i === chosen && chosen !== answer) o.classList.add('err');
+      o.querySelector('input').disabled = true;
+    });
+
+    exp.classList.add('show');
+    if (chosen === answer) {
+      correct++;
+      exp.classList.add('ok');
+    } else {
+      exp.classList.add('err');
+    }
+    answered++;
+    btn.disabled = true;
+    document.querySelector('.score-bar strong').textContent = correct + ' / ' + answered;
+  });
+});
+</script>
+
+</body>
+</html>
