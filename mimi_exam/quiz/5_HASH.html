@@ -10,61 +10,80 @@
   --card:#1a1a1a;
   --border:#2a2a2a;
   --txt:#e8e8e8;
-  --muted:#666;
+  --muted:#888;
   --accent:#5865f2;
   --ok:#3ba55c;
   --err:#ed4245;
   --mono:'JetBrains Mono',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--txt);font-family:system-ui,sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
 a{color:inherit;text-decoration:none}
 
 /* top bar */
-nav{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-bottom:1px solid var(--border);background:var(--card)}
-nav .home{font-weight:600;color:var(--muted);font-size:.85rem;letter-spacing:.04em}
+nav{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-bottom:1px solid var(--border);background:var(--card);position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:rgba(26,26,26,0.9)}
+nav .home{font-weight:600;color:var(--muted);font-size:.85rem;letter-spacing:.04em;transition:color .2s}
 nav .home:hover{color:var(--txt)}
 nav .sep{color:var(--border)}
-nav .topic{font-size:.85rem;color:var(--txt)}
+nav .topic{font-size:.85rem;color:var(--txt);font-weight:500}
+.nav-links{margin-left:auto;display:flex;gap:1rem;font-size:.85rem;color:var(--muted)}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--txt)}
 
 /* topic grid on index */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;padding:2rem 1.5rem}
-.tile{border:1px solid var(--border);border-radius:8px;padding:1.25rem 1.5rem;background:var(--card);cursor:pointer;transition:border-color .15s,background .15s}
-.tile:hover{border-color:var(--accent);background:#1e1e2e}
-.tile .num{font-size:.75rem;color:var(--muted);margin-bottom:.25rem;font-family:var(--mono)}
-.tile .name{font-size:1.1rem;font-weight:600}
-.tile .count{font-size:.8rem;color:var(--muted);margin-top:.25rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;padding:2rem 1.5rem}
+.tile{border:1px solid var(--border);border-radius:10px;padding:1.5rem;background:var(--card);cursor:pointer;transition:all .2s ease}
+.tile:hover{border-color:var(--accent);background:#1e1e2e;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+.tile .num{font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-family:var(--mono)}
+.tile .name{font-size:1.15rem;font-weight:600;letter-spacing:-0.02em}
+.tile .count{font-size:.8rem;color:var(--muted);margin-top:.5rem}
 
 /* quiz page layout */
-.page{max-width:780px;margin:0 auto;padding:2rem 1.5rem}
-.page h1{font-size:1.3rem;font-weight:700;margin-bottom:1.75rem}
+.page{max-width:780px;margin:0 auto;padding:2.5rem 1.5rem}
+.page h1{font-size:1.5rem;font-weight:700;margin-bottom:2rem;letter-spacing:-0.02em}
 
 /* question card */
-.q{border:1px solid var(--border);border-radius:8px;padding:1.25rem;margin-bottom:1.25rem;background:var(--card)}
-.q-num{font-size:.75rem;color:var(--muted);font-family:var(--mono);margin-bottom:.5rem}
-.q-text{font-size:.95rem;margin-bottom:1rem}
-.opts{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.75rem}
-.opt{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem .75rem;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:.9rem;transition:border-color .1s,background .1s;user-select:none}
-.opt:hover{border-color:#444}
-.opt input{margin-top:3px;accent-color:var(--accent);flex-shrink:0}
-.opt.ok{border-color:var(--ok);background:rgba(59,165,92,.12);color:#9ae6b4}
-.opt.err{border-color:var(--err);background:rgba(237,66,69,.12);color:#fca5a5}
-.check{background:var(--accent);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
-.check:hover{opacity:.9}
-.exp{display:none;margin-top:.75rem;padding:.75rem;border-radius:6px;font-size:.85rem;line-height:1.5;border-left:3px solid var(--muted);background:#161616;color:var(--muted)}
-.exp.show{display:block}
-.exp.ok{border-color:var(--ok);color:#9ae6b4}
-.exp.err{border-color:var(--err);color:#fca5a5}
+.q{border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;background:var(--card);box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.q-num{font-size:.75rem;color:var(--muted);font-family:var(--mono);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
+.q-text{font-size:1rem;margin-bottom:1.25rem;font-weight:400}
+.opts{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem}
+.opt{display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 1rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.95rem;transition:all .15s ease;user-select:none;background:rgba(255,255,255,0.02)}
+.opt:hover{border-color:#555;background:rgba(255,255,255,0.05)}
+.opt input{margin-top:4px;accent-color:var(--accent);flex-shrink:0;width:1rem;height:1rem}
+.opt.ok{border-color:var(--ok);background:rgba(59,165,92,.1);color:#a7f3d0}
+.opt.err{border-color:var(--err);background:rgba(237,66,69,.1);color:#fecaca}
+.check{background:var(--accent);color:#fff;border:none;padding:.6rem 1.25rem;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:600;transition:all .2s;box-shadow:0 2px 4px rgba(88,101,242,0.2)}
+.check:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 4px 8px rgba(88,101,242,0.3)}
+.check:active{transform:translateY(0);box-shadow:none}
+.check:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+.exp{display:none;margin-top:1rem;padding:1rem;border-radius:8px;font-size:.9rem;line-height:1.6;border-left:4px solid var(--muted);background:#111;color:var(--txt)}
+.exp.show{display:block;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.exp.ok{border-color:var(--ok);color:#a7f3d0}
+.exp.err{border-color:var(--err);color:#fecaca}
 
 /* code blocks */
-pre{background:#0d0d0d;border:1px solid var(--border);border-radius:6px;padding:.75rem;overflow-x:auto;margin:.5rem 0}
-pre code{font-family:var(--mono);font-size:.8rem;color:#c9d1d9}
-code{font-family:var(--mono);font-size:.85em;background:#0d0d0d;padding:.1em .3em;border-radius:3px}
+pre{background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:1rem;overflow-x:auto;margin:.75rem 0}
+pre code{font-family:var(--mono);font-size:.85rem;color:#c9d1d9}
+code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;border-radius:4px;color:#e8e8e8}
 
 /* score bar */
-.score-bar{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--card)}
-.score-bar span{font-size:.85rem;color:var(--muted)}
-.score-bar strong{color:var(--txt)}
+.score-bar{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--card);backdrop-filter:blur(8px);background:rgba(26,26,26,0.9);z-index:10}
+.score-bar span{font-size:.9rem;color:var(--muted)}
+.score-bar strong{color:var(--accent);font-size:1.05rem}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  nav { padding: 0.6rem 1rem; }
+  .grid { padding: 1.5rem 1rem; grid-template-columns: 1fr; }
+  .page { padding: 1.5rem 1rem; }
+  .page h1 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+  .q { padding: 1.25rem; margin-bottom: 1rem; }
+  .opt { padding: 0.5rem 0.75rem; font-size: 0.9rem; }
+  .check { width: 100%; padding: 0.75rem; }
+  .score-bar { padding: 0.6rem 1rem; }
+  .nav-links { display: none; } /* hide prev/next text on very small screens, maybe keep icons if we had them, but for now just hide to save space or adjust */
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
@@ -75,7 +94,7 @@ code{font-family:var(--mono);font-size:.85em;background:#0d0d0d;padding:.1em .3e
   <a class="home" href="index.html">Quiz Home</a>
   <span class="sep">/</span>
   <span class="topic">Hash Table</span>
-  <div style="margin-left:auto;display:flex;gap:1rem;font-size:.85rem;color:var(--muted)">
+  <div class="nav-links">
     <a href="4_LINKED_LIST.html">← Linked List</a>
     <a href="6_HEAP.html">Heap →</a>
   </div>
