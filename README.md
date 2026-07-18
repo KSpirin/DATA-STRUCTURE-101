@@ -20,7 +20,7 @@ Built to score 100/100 — and structured to be useful for anyone learning the s
 | Folder | Contents |
 |--------|----------|
 | `everything_you_should_know/` | Deep theory guides + complexity tables for each topic |
-| `leetcode/` | Annotated C++ solutions — LeetCode problems + custom implementations |
+| `leetcode/` | Blank starter files for LeetCode problems — implement, then run the built-in test cases |
 | `mimi_exam/` | 30 LeetCode-style coding challenges (3 per topic) with blank starter files _(yes, "mimi" not "mini" — intentional)_ |
 | `solution/` | Weekly-pushed solutions to the coding challenges |
 
@@ -64,8 +64,11 @@ mimi_exam/
 ## Running any C++ file
 
 ```bash
-g++ -std=c++17 -Wall filename.cpp -o out
-./out
+# macOS (clang++ is default)
+clang++ -std=c++17 filename.cpp -o out && ./out
+
+# or with g++
+g++ -std=c++17 -Wall filename.cpp -o out && ./out
 ```
 
 ---
@@ -92,7 +95,7 @@ g++ -std=c++17 -Wall filename.cpp -o out
 - **Floyd's cycle detection** (tortoise & hare) shows up constantly — know it cold.
 - Build and run every file locally. No IDE required:
  ```bash
- g++ -std=c++17 -Wall starter_1.cpp -o test && ./test
+ clang++ -std=c++17 starter_1.cpp -o test && ./test
  ```
 
 ---

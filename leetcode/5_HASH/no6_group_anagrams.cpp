@@ -1,137 +1,59 @@
 /**
- * @file no6_group_anagrams.cpp
- * @brief LeetCode 49: Group Anagrams
+ * @brief LeetCode 49 - Group Anagrams
  * @difficulty Medium
  * @link https://leetcode.com/problems/group-anagrams/
+ *
+ * Problem:
+ * Group strings that are anagrams of each other.
  * 
- * Problem Description:
- * Given an array of strings `strs`, group the anagrams together. 
- * You can return the answer in any order.
+ * Example: ['eat','tea','tan','ate','nat','bat'] -> [['bat'],['nat','tan'],['ate','eat','tea']]
  * 
- * An Anagram is a word or phrase formed by rearranging the letters of a 
- * different word or phrase, typically using all the original letters exactly once.
- */
+ * Constraints: 1 <= strs.length <= 10^4 */
 
+#include <iostream>
 #include <vector>
 #include <string>
 #include <unordered_map>
 #include <algorithm>
-#include <iostream>
 #include <cassert>
 
 class Solution {
 public:
     std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string>& strs) {
-        // Map from sorted string representation to a list of anagrams
-        std::unordered_map<std::string, std::vector<std::string>> groups;
-        
-        for (const std::string& s : strs) {
-            // Create a copy of the string to sort it
-            std::string sorted_s = s;
-            std::sort(sorted_s.begin(), sorted_s.end());
-            // Group anagrams by their sorted representative
-            groups[sorted_s].push_back(s);
-        }
-        
-        // Collect results from the map
-        std::vector<std::vector<std::string>> result;
-        result.reserve(groups.size());
-        for (auto& pair : groups) {
-            result.push_back(std::move(pair.second));
-        }
-        
-        return result;
+        // TODO
     }
 };
 
-/*
-================================================================================
-Manual Dry-Run Trace:
-Input: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-
-Initial state:
-  groups = {} (empty hash map)
-  result = {} (empty 2D vector)
-
-Iterate through each string in strs:
-
-1. s = "eat"
-   - sorted_s = "aet"
-   - groups["aet"] = ["eat"]
-
-2. s = "tea"
-   - sorted_s = "aet"
-   - groups["aet"] = ["eat", "tea"]
-
-3. s = "tan"
-   - sorted_s = "ant"
-   - groups["ant"] = ["tan"]
-
-4. s = "ate"
-   - sorted_s = "aet"
-   - groups["aet"] = ["eat", "tea", "ate"]
-
-5. s = "nat"
-   - sorted_s = "ant"
-   - groups["ant"] = ["tan", "nat"]
-
-6. s = "bat"
-   - sorted_s = "abt"
-   - groups["abt"] = ["bat"]
-
-After traversing all strings, map keys and values:
-  "aet" -> ["eat", "tea", "ate"]
-  "ant" -> ["tan", "nat"]
-  "abt" -> ["bat"]
-
-Convert groups map to 2D vector (order of outer groups does not matter):
-  result = [
-    ["eat", "tea", "ate"],
-    ["tan", "nat"],
-    ["bat"]
-  ]
-
-================================================================================
-Complexity Analysis:
-- Time Complexity: O(N * L log L)
-  where N is the number of strings in strs, and L is the maximum length of a string in strs.
-  For each of the N strings, we copy and sort the string of length L, which takes O(L log L) time.
-  Inserting and accessing keys in std::unordered_map takes O(L) time on average due to string hashing.
-  Hence, the overall time complexity is dominated by sorting, i.e., O(N * L log L).
-  (Note: An alternative count-based representation approach runs in O(N * L) but has a higher constant factor.)
-- Space Complexity: O(N * L)
-  We store all characters of all strings in the hash map, which takes O(N * L) space in total.
-================================================================================
-*/
-
 int main() {
-    Solution solver;
-    std::vector<std::string> strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-    auto result = solver.groupAnagrams(strs);
-    
-    // Validate number of groups
-    assert(result.size() == 3);
-    
-    // Verify that groups contain correct members
-    int aet_count = 0, ant_count = 0, abt_count = 0;
-    for (const auto& group : result) {
-        // Sort individual group contents to ease matching
-        std::vector<std::string> sortedGroup = group;
-        std::sort(sortedGroup.begin(), sortedGroup.end());
-        
-        if (sortedGroup == std::vector<std::string>{"ate", "eat", "tea"}) {
-            aet_count++;
-        } else if (sortedGroup == std::vector<std::string>{"nat", "tan"}) {
-            ant_count++;
-        } else if (sortedGroup == std::vector<std::string>{"bat"}) {
-            abt_count++;
-        }
+    int passed = 0, failed = 0;
+    auto check = [&](bool ok, const std::string& label) {
+        if (ok) { passed++; std::cout << "  [PASS] " << label << std::endl; }
+        else    { failed++; std::cout << "  [FAIL] " << label << std::endl; }
+    };
+
+    {
+        std::vector<std::string> s1={"eat","tea","tan","ate","nat","bat"};
+        auto r=Solution().groupAnagrams(s1);
+        check(r.size()==3, "6 words -> 3 groups");
     }
-    
-    assert(aet_count == 1);
-    assert(ant_count == 1);
-    assert(abt_count == 1);
-    
-    std::cout << "Group Anagrams tests passed!" << std::endl;
+    {
+        std::vector<std::string> s2={""};
+        auto r=Solution().groupAnagrams(s2);
+        check(r.size()==1, "empty string -> 1 group");
+    }
+    {
+        std::vector<std::string> s3={"a"};
+        auto r=Solution().groupAnagrams(s3);
+        check(r.size()==1 && r[0][0]=="a", "single char -> 1 group");
+    }
+    {
+        std::vector<std::string> s4={"abc","bca","cab","xyz","zyx"};
+        auto r=Solution().groupAnagrams(s4);
+        check(r.size()==2, "abc group + xyz group -> 2 groups");
+    }
+
+    std::cout << "\n" << passed << "/" << (passed + failed) << " test cases passed";
+    if (failed == 0) std::cout << " -- All passed!" << std::endl;
+    else             std::cout << " -- " << failed << " failed." << std::endl;
     return 0;
 }
