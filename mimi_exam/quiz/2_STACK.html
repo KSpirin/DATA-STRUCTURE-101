@@ -110,8 +110,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q0" value="1"><span>B. <code>A B C D - * E / +</code></span></label>
 <label class="opt"><input type="radio" name="q0" value="2"><span>C. <code>A B C * D - E / +</code></span></label>
 <label class="opt"><input type="radio" name="q0" value="3"><span>D. <code>A B C D - E / * +</code></span></label>
-<label class="opt"><input type="radio" name="q0" value="4"><span>E. <code>+ A / * B - C D E</code></span></label>
-</div>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. <code>+ A / * B - C D E</code></span></label></div>
   <button class="check">Check</button>
   <div class="exp">Following operator precedence: 1) `(C - D)` -> `C D -`. 2) Multiply by `B` -> `B C D - *`. 3) Divide by `E` -> `B C D - * E /`. 4) Add `A` -> `A B C D - * E / +`.</div>
 </div>
@@ -123,8 +122,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q1" value="1"><span>B. <code>top == N</code></span></label>
 <label class="opt"><input type="radio" name="q1" value="2"><span>C. <code>top == 0</code></span></label>
 <label class="opt"><input type="radio" name="q1" value="3"><span>D. <code>top == N + 1</code></span></label>
-<label class="opt"><input type="radio" name="q1" value="4"><span>E. <code>top == -1</code></span></label>
-</div>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. <code>top == -1</code></span></label></div>
   <button class="check">Check</button>
   <div class="exp">If <code>top</code> starts at 0 and increments after pushing, it equals the current size. The stack is full when size reaches capacity: <code>top == N</code>.</div>
 </div>
@@ -136,8 +134,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q2" value="1"><span>B. Last-In, First-Out (LIFO)</span></label>
 <label class="opt"><input type="radio" name="q2" value="2"><span>C. First-In, Last-Out (FILO)</span></label>
 <label class="opt"><input type="radio" name="q2" value="3"><span>D. Random Access Ordering</span></label>
-<label class="opt"><input type="radio" name="q2" value="4"><span>E. Priority-based Extraction</span></label>
-</div>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. Priority-based Extraction</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Stacks follow Last-In, First-Out (LIFO) behavior. Insertions and removals are only performed at one end (the top).</div>
 </div>
@@ -149,8 +146,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q3" value="1"><span>B. 60</span></label>
 <label class="opt"><input type="radio" name="q3" value="2"><span>C. 27</span></label>
 <label class="opt"><input type="radio" name="q3" value="3"><span>D. 35</span></label>
-<label class="opt"><input type="radio" name="q3" value="4"><span>E. 70</span></label>
-</div>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. 70</span></label></div>
   <button class="check">Check</button>
   <div class="exp">1) Push 10, 4, 2. 2) `/` pop 2, 4 -> 4/2 = 2. Push 2. 3) `+` pop 2, 10 -> 10+2 = 12. Push 12. 4) Push 5. 5) `*` pop 5, 12 -> 12 * 5 = 60.</div>
 </div>
@@ -162,8 +158,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q4" value="1"><span>B. The stack is empty when encountering an opening tag.</span></label>
 <label class="opt"><input type="radio" name="q4" value="2"><span>C. The tag popped from the stack when encountering a closing tag does not match the closing tag.</span></label>
 <label class="opt"><input type="radio" name="q4" value="3"><span>D. The stack size exceeds the document length.</span></label>
-<label class="opt"><input type="radio" name="q4" value="4"><span>E. Popping the matching opening tag successfully.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. Popping the matching opening tag successfully.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Nesting requires that any closing tag must match the most recently pushed opening tag. If the popped tag doesn't match, or the stack is empty during a pop, the tags are mismatched.</div>
 </div>
@@ -175,8 +170,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q5" value="1"><span>B. Two Stacks</span></label>
 <label class="opt"><input type="radio" name="q5" value="2"><span>C. One Linked List</span></label>
 <label class="opt"><input type="radio" name="q5" value="3"><span>D. A Binary Search Tree</span></label>
-<label class="opt"><input type="radio" name="q5" value="4"><span>E. A Hash Table</span></label>
-</div>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. A Hash Table</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Web browsers use two stacks: a 'Back' stack and a 'Forward' stack. Clicking a link pushes the current page to the 'Back' stack and clears the 'Forward' stack.</div>
 </div>
@@ -188,8 +182,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q6" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
 <label class="opt"><input type="radio" name="q6" value="2"><span>C. $\mathcal{O}(N)$</span></label>
 <label class="opt"><input type="radio" name="q6" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
-<label class="opt"><input type="radio" name="q6" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
-</div>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. $\mathcal{O}(N^2)$</span></label></div>
   <button class="check">Check</button>
   <div class="exp">A standard stack only exposes the top element. Finding the minimum requires popping all elements to inspect them, taking linear $\mathcal{O}(N)$ time.</div>
 </div>
@@ -201,8 +194,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q7" value="1"><span>B. A stack where elements are kept in strictly decreasing order from bottom to top.</span></label>
 <label class="opt"><input type="radio" name="q7" value="2"><span>C. A stack that pops elements automatically after 5 seconds.</span></label>
 <label class="opt"><input type="radio" name="q7" value="3"><span>D. A stack that only accepts negative integers.</span></label>
-<label class="opt"><input type="radio" name="q7" value="4"><span>E. A stack implemented using a circular array.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. A stack implemented using a circular array.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">A Monotonic Decreasing Stack maintains its elements in strictly decreasing order from bottom to top (each pushed element is smaller than the one below it).</div>
 </div>
@@ -214,8 +206,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q8" value="1"><span>B. <code>A B C D + - *</code></span></label>
 <label class="opt"><input type="radio" name="q8" value="2"><span>C. <code>A B + * C D -</code></span></label>
 <label class="opt"><input type="radio" name="q8" value="3"><span>D. <code>* A B + - C D</code></span></label>
-<label class="opt"><input type="radio" name="q8" value="4"><span>E. <code>A B C - D + *</code></span></label>
-</div>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. <code>A B C - D + *</code></span></label></div>
   <button class="check">Check</button>
   <div class="exp">Prefix `* + A B - C D` evaluates as: 1) `+ A B` -> `(A+B)`. 2) `- C D` -> `(C-D)`. 3) `*` applied to results -> `(A+B) * (C-D)`, which in postfix is `A B + C D - *`.</div>
 </div>
@@ -227,8 +218,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q9" value="1"><span>B. Stack Overflow</span></label>
 <label class="opt"><input type="radio" name="q9" value="2"><span>C. Segmentation Fault</span></label>
 <label class="opt"><input type="radio" name="q9" value="3"><span>D. Rehashing</span></label>
-<label class="opt"><input type="radio" name="q9" value="4"><span>E. Memory Leak</span></label>
-</div>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. Memory Leak</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Pushing onto a stack that has exceeded its storage capacity triggers a Stack Overflow condition.</div>
 </div>
@@ -240,8 +230,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q10" value="1"><span>B. Operators with greater or equal precedence are popped from the stack and printed before pushing the new operator.</span></label>
 <label class="opt"><input type="radio" name="q10" value="2"><span>C. It is pushed onto the stack immediately without any checks.</span></label>
 <label class="opt"><input type="radio" name="q10" value="3"><span>D. The stack is cleared.</span></label>
-<label class="opt"><input type="radio" name="q10" value="4"><span>E. It is discarded.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. It is discarded.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Operators are stored on the stack. To maintain precedence, before pushing a new operator, we must pop and print any stack operators that have greater or equal precedence.</div>
 </div>
@@ -253,8 +242,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q11" value="1"><span>B. Pop operations take $O(N)$ time.</span></label>
 <label class="opt"><input type="radio" name="q11" value="2"><span>C. It has memory overhead for storing node pointers in every element.</span></label>
 <label class="opt"><input type="radio" name="q11" value="3"><span>D. It does not support dynamic expansion.</span></label>
-<label class="opt"><input type="radio" name="q11" value="4"><span>E. It causes stack overflow.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. It causes stack overflow.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">A linked list stack grows dynamically (no overflow), but every node incurs pointer overhead (8 bytes on 64-bit systems) in addition to the data storage.</div>
 </div>
@@ -266,8 +254,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q12" value="1"><span>B. Level-order traversal.</span></label>
 <label class="opt"><input type="radio" name="q12" value="2"><span>C. Postorder traversal.</span></label>
 <label class="opt"><input type="radio" name="q12" value="3"><span>D. Preorder DFS traversal.</span></label>
-<label class="opt"><input type="radio" name="q12" value="4"><span>E. Topological Sort.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. Topological Sort.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Preorder and DFS traversals utilize a LIFO Stack structure to track nodes along a single path before backtracking.</div>
 </div>
@@ -279,8 +266,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q13" value="1"><span>B. <code>* A + B C</code></span></label>
 <label class="opt"><input type="radio" name="q13" value="2"><span>C. <code>A B * C +</code></span></label>
 <label class="opt"><input type="radio" name="q13" value="3"><span>D. <code>+ A * B C</code></span></label>
-<label class="opt"><input type="radio" name="q13" value="4"><span>E. <code>* + A B C</code></span></label>
-</div>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. <code>* + A B C</code></span></label></div>
   <button class="check">Check</button>
   <div class="exp">1) `A * B` -> `* A B`. 2) Add `C` -> `+ * A B C`.</div>
 </div>
@@ -292,8 +278,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q14" value="1"><span>B. Y</span></label>
 <label class="opt"><input type="radio" name="q14" value="2"><span>C. Z</span></label>
 <label class="opt"><input type="radio" name="q14" value="3"><span>D. W</span></label>
-<label class="opt"><input type="radio" name="q14" value="4"><span>E. Stack is empty</span></label>
-</div>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. Stack is empty</span></label></div>
   <button class="check">Check</button>
   <div class="exp">1) Initial: `[X, Y, Z]`. 2) Push W -> `[X, Y, Z, W]`. 3) Pop -> pops W, stack becomes `[X, Y, Z]`. 4) Pop -> pops Z, stack becomes `[X, Y]`. Top is Y.</div>
 </div>
@@ -317,8 +302,7 @@ int main() {
 <label class="opt"><input type="radio" name="q15" value="1"><span>B. 20 30</span></label>
 <label class="opt"><input type="radio" name="q15" value="2"><span>C. 10 30</span></label>
 <label class="opt"><input type="radio" name="q15" value="3"><span>D. 10 10</span></label>
-<label class="opt"><input type="radio" name="q15" value="4"><span>E. 30 10</span></label>
-</div>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. 30 10</span></label></div>
   <button class="check">Check</button>
   <div class="exp">1) Push 10, push 20. 2) s.top() prints 20. 3) s.pop() removes 20 (stack is [10]). 4) s.push(30) makes stack [10, 30]. 5) s.pop() removes 30 (stack is [10]). 6) s.top() prints 10. Output: '20 10'.</div>
 </div>
@@ -342,180 +326,176 @@ bool check(std::string s) {
 <label class="opt"><input type="radio" name="q16" value="1"><span>B. false</span></label>
 <label class="opt"><input type="radio" name="q16" value="2"><span>C. Undefined Behavior</span></label>
 <label class="opt"><input type="radio" name="q16" value="3"><span>D. Compiler Error</span></label>
-<label class="opt"><input type="radio" name="q16" value="4"><span>E. Throws Exception</span></label>
-</div>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. Throws Exception</span></label></div>
   <button class="check">Check</button>
   <div class="exp">The string has two open parentheses, which are pushed. The first two close parentheses pop them, leaving the stack empty. The third close parenthesis encounters an empty stack (st.empty() is true) and returns false.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q18</div>
-  <div class="q-text">What is the postfix (Reverse Polish) representation of the infix expression: <code>A + B * (C - D) / E</code>?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. <code>A B C D - * + E /</code></span></label>
-<label class="opt"><input type="radio" name="q17" value="1"><span>B. <code>A B C D - * E / +</code></span></label>
-<label class="opt"><input type="radio" name="q17" value="2"><span>C. <code>A B C * D - E / +</code></span></label>
-<label class="opt"><input type="radio" name="q17" value="3"><span>D. <code>A B C D - E / * +</code></span></label>
-<label class="opt"><input type="radio" name="q17" value="4"><span>E. <code>+ A / * B - C D E</code></span></label>
-</div>
+  <div class="q-text">Evaluate this postfix expression step by step. What is the final result of <code>6 2 3 + - 4 *</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. 4</span></label>
+<label class="opt"><input type="radio" name="q17" value="1"><span>B. -4</span></label>
+<label class="opt"><input type="radio" name="q17" value="2"><span>C. 20</span></label>
+<label class="opt"><input type="radio" name="q17" value="3"><span>D. -20</span></label>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. 36</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Following operator precedence: 1) `(C - D)` -> `C D -`. 2) Multiply by `B` -> `B C D - *`. 3) Divide by `E` -> `B C D - * E /`. 4) Add `A` -> `A B C D - * E / +`.</div>
+  <div class="exp">Push 6, 2, 3 (stack: [6,2,3]). '+': pop 3, pop 2, push 2+3=5 (stack: [6,5]). '-': pop 5, pop 6, push 6-5=1 (stack: [1]). Push 4 (stack: [1,4]). '*': pop 4, pop 1, push 1*4=4. Final result: 4.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q19</div>
-  <div class="q-text">For a stack implemented using a fixed-size array of capacity <code>N</code> with the top-index tracking variable <code>top</code> initialized to <code>0</code> (where data is pushed into index <code>top</code> and then <code>top</code> is incremented), what represents the stack full condition?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. <code>top == N - 1</code></span></label>
-<label class="opt"><input type="radio" name="q18" value="1"><span>B. <code>top == N</code></span></label>
-<label class="opt"><input type="radio" name="q18" value="2"><span>C. <code>top == 0</code></span></label>
-<label class="opt"><input type="radio" name="q18" value="3"><span>D. <code>top == N + 1</code></span></label>
-<label class="opt"><input type="radio" name="q18" value="4"><span>E. <code>top == -1</code></span></label>
-</div>
+  <div class="q-text">Trace this expression evaluation using a stack: <code>4 5 6 * + 3 -</code>. What is the final value?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. 31</span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. 27</span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. 9</span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. 41</span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. -9</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">If <code>top</code> starts at 0 and increments after pushing, it equals the current size. The stack is full when size reaches capacity: <code>top == N</code>.</div>
+  <div class="exp">Push 4,5,6. '*': pop 6,5 -> 5*6=30, push (stack:[4,30]). '+': pop 30,4 -> 4+30=34, push (stack:[34]). Push 3 (stack:[34,3]). '-': pop 3,34 -> 34-3=31.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q20</div>
-  <div class="q-text">Which of the following describes the operational behavior of a Stack?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. First-In, First-Out (FIFO)</span></label>
-<label class="opt"><input type="radio" name="q19" value="1"><span>B. Last-In, First-Out (LIFO)</span></label>
-<label class="opt"><input type="radio" name="q19" value="2"><span>C. First-In, Last-Out (FILO)</span></label>
-<label class="opt"><input type="radio" name="q19" value="3"><span>D. Random Access Ordering</span></label>
-<label class="opt"><input type="radio" name="q19" value="4"><span>E. Priority-based Extraction</span></label>
-</div>
+  <div class="q-text">Convert the infix expression <code>(A + B) * C - D</code> to postfix.</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. <code>A B + C * D -</code></span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. <code>A B C + * D -</code></span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. <code>A B + C D - *</code></span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. <code>- * + A B C D</code></span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. <code>A B + * C D -</code></span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Stacks follow Last-In, First-Out (LIFO) behavior. Insertions and removals are only performed at one end (the top).</div>
+  <div class="exp">1) (A+B) -> A B +. 2) Multiply by C -> A B + C *. 3) Subtract D -> A B + C * D -.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q21</div>
-  <div class="q-text">Using a stack, what is the output of evaluating the following postfix expression: <code>10 4 2 / + 5 *</code>?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. 30</span></label>
-<label class="opt"><input type="radio" name="q20" value="1"><span>B. 60</span></label>
-<label class="opt"><input type="radio" name="q20" value="2"><span>C. 27</span></label>
-<label class="opt"><input type="radio" name="q20" value="3"><span>D. 35</span></label>
-<label class="opt"><input type="radio" name="q20" value="4"><span>E. 70</span></label>
-</div>
+  <div class="q-text">Simulate infix-to-postfix conversion for <code>A * (B + C)</code> using an operator stack. Immediately after reading the ')' token, what has been output so far and what remains on the stack?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. Output: 'A B C +', Stack: [ * ]</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. Output: 'A B +', Stack: [ *, ( ]</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. Output: 'A B + *', Stack: empty</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. Output: 'A', Stack: [ *, (, + ]</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. Output: 'A B C', Stack: [ +, * ]</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">1) Push 10, 4, 2. 2) `/` pop 2, 4 -> 4/2 = 2. Push 2. 3) `+` pop 2, 10 -> 10+2 = 12. Push 12. 4) Push 5. 5) `*` pop 5, 12 -> 12 * 5 = 60.</div>
+  <div class="exp">Reading A outputs 'A'. '*' is pushed (stack: [*]). '(' is pushed (stack: [*, (]). B outputs 'A B'. '+' is pushed since it's inside the parentheses (stack: [*, (, +]). C outputs 'A B C'. On ')', pop and output operators until '(' is found: pop '+' -> output 'A B C +', then discard the '('. The stack now holds only [*], which waits to be popped at the end.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q22</div>
-  <div class="q-text">When parsing XHTML tags with a stack, which condition indicates a syntax nesting error?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. Pushing an opening tag onto the stack when it is empty.</span></label>
-<label class="opt"><input type="radio" name="q21" value="1"><span>B. The stack is empty when encountering an opening tag.</span></label>
-<label class="opt"><input type="radio" name="q21" value="2"><span>C. The tag popped from the stack when encountering a closing tag does not match the closing tag.</span></label>
-<label class="opt"><input type="radio" name="q21" value="3"><span>D. The stack size exceeds the document length.</span></label>
-<label class="opt"><input type="radio" name="q21" value="4"><span>E. Popping the matching opening tag successfully.</span></label>
-</div>
+  <div class="q-text">A stack-based bracket checker processes the string <code>{[()]}</code>. How many push operations occur in total before the first pop?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. 0</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Nesting requires that any closing tag must match the most recently pushed opening tag. If the popped tag doesn't match, or the stack is empty during a pop, the tags are mismatched.</div>
+  <div class="exp">Reading left to right: '{' push, '[' push, '(' push — three consecutive pushes. The next character ')' is a closing bracket, which triggers the first pop (matched against '('). So 3 pushes occur before the first pop.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q23</div>
-  <div class="q-text">Which data structure is typically used to implement the 'Back' and 'Forward' navigation history in web browsers?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. Single Queue</span></label>
-<label class="opt"><input type="radio" name="q22" value="1"><span>B. Two Stacks</span></label>
-<label class="opt"><input type="radio" name="q22" value="2"><span>C. One Linked List</span></label>
-<label class="opt"><input type="radio" name="q22" value="3"><span>D. A Binary Search Tree</span></label>
-<label class="opt"><input type="radio" name="q22" value="4"><span>E. A Hash Table</span></label>
-</div>
+  <div class="q-text">Given a stack-based array implementation where <code>Array[0]</code> stores the capacity (slide convention) and data occupies indices 1..top, after executing <code>push(5); push(8); pop(); push(3);</code> on an initially empty stack (top=0), what is the final value of <code>top</code> and <code>Array[top]</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. top=2, Array[top]=3</span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. top=1, Array[top]=3</span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. top=2, Array[top]=8</span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. top=3, Array[top]=3</span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. top=1, Array[top]=5</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Web browsers use two stacks: a 'Back' stack and a 'Forward' stack. Clicking a link pushes the current page to the 'Back' stack and clears the 'Forward' stack.</div>
+  <div class="exp">push(5): top=1, Array[1]=5. push(8): top=2, Array[2]=8. pop(): returns Array[2]=8, top=1. push(3): top=2, Array[2]=3. Final: top=2, Array[top]=3.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q24</div>
-  <div class="q-text">What is the time complexity to retrieve the minimum element from a standard, non-auxiliary Stack ADT of size <code>N</code>?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. $\mathcal{O}(1)$</span></label>
-<label class="opt"><input type="radio" name="q23" value="1"><span>B. $\mathcal{O}(\log N)$</span></label>
-<label class="opt"><input type="radio" name="q23" value="2"><span>C. $\mathcal{O}(N)$</span></label>
-<label class="opt"><input type="radio" name="q23" value="3"><span>D. $\mathcal{O}(N \log N)$</span></label>
-<label class="opt"><input type="radio" name="q23" value="4"><span>E. $\mathcal{O}(N^2)$</span></label>
-</div>
+  <div class="q-text">Using two stacks (<code>inStack</code> and <code>outStack</code>) to implement a Queue, what is the amortized time complexity of <code>dequeue()</code> across a long sequence of operations?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. O(1) amortized</span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. O(N) every single call, no amortization possible</span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. O(N^2)</span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. O(1) worst case always</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">A standard stack only exposes the top element. Finding the minimum requires popping all elements to inspect them, taking linear $\mathcal{O}(N)$ time.</div>
+  <div class="exp">Each element is moved from inStack to outStack (reversing order) at most once over its lifetime. Although a single dequeue can be O(N) when outStack is empty and must be refilled, that cost is spread over the many O(1) dequeues that follow, giving O(1) amortized time.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q25</div>
-  <div class="q-text">Which of the following defines a 'Monotonic Decreasing Stack'?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. A stack where elements are kept in strictly increasing order from bottom to top.</span></label>
-<label class="opt"><input type="radio" name="q24" value="1"><span>B. A stack where elements are kept in strictly decreasing order from bottom to top.</span></label>
-<label class="opt"><input type="radio" name="q24" value="2"><span>C. A stack that pops elements automatically after 5 seconds.</span></label>
-<label class="opt"><input type="radio" name="q24" value="3"><span>D. A stack that only accepts negative integers.</span></label>
-<label class="opt"><input type="radio" name="q24" value="4"><span>E. A stack implemented using a circular array.</span></label>
-</div>
+  <div class="q-text">Trace the monotonic stack algorithm for 'Daily Temperatures' on input <code>[73, 74, 75, 71, 69]</code>. What is <code>answer[0]</code> (days until a warmer temperature after index 0)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. 0</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. 3</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. 4</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">A Monotonic Decreasing Stack maintains its elements in strictly decreasing order from bottom to top (each pushed element is smaller than the one below it).</div>
+  <div class="exp">Index 0 (73) is immediately followed by index 1 (74), which is warmer. So it only takes 1 day. Trace: push idx0. At idx1, 74>73 -> pop idx0, answer[0]=1-0=1. Push idx1. Continue for the rest.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q26</div>
-  <div class="q-text">Convert the Prefix expression <code>* + A B - C D</code> to Postfix.</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. <code>A B + C D - *</code></span></label>
-<label class="opt"><input type="radio" name="q25" value="1"><span>B. <code>A B C D + - *</code></span></label>
-<label class="opt"><input type="radio" name="q25" value="2"><span>C. <code>A B + * C D -</code></span></label>
-<label class="opt"><input type="radio" name="q25" value="3"><span>D. <code>* A B + - C D</code></span></label>
-<label class="opt"><input type="radio" name="q25" value="4"><span>E. <code>A B C - D + *</code></span></label>
-</div>
+  <div class="q-text">In the same 'Daily Temperatures' trace <code>[73, 74, 75, 71, 69]</code>, what is <code>answer[4]</code> (the last index)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. 0</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. 1</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. -1</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. 3</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Prefix `* + A B - C D` evaluates as: 1) `+ A B` -> `(A+B)`. 2) `- C D` -> `(C-D)`. 3) `*` applied to results -> `(A+B) * (C-D)`, which in postfix is `A B + C D - *`.</div>
+  <div class="exp">Index 4 (69) is the last day; there is no future day to compare against, so it has no warmer day ahead. Its answer stays at the default value 0.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q27</div>
-  <div class="q-text">What occurs when an application attempts to push an element onto an array-based stack that has reached its capacity limit?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. Stack Underflow</span></label>
-<label class="opt"><input type="radio" name="q26" value="1"><span>B. Stack Overflow</span></label>
-<label class="opt"><input type="radio" name="q26" value="2"><span>C. Segmentation Fault</span></label>
-<label class="opt"><input type="radio" name="q26" value="3"><span>D. Rehashing</span></label>
-<label class="opt"><input type="radio" name="q26" value="4"><span>E. Memory Leak</span></label>
-</div>
+  <div class="q-text">What is the output of this code using <code>std::stack</code> with a custom struct?<pre><code>#include &lt;iostream&gt;
+#include &lt;stack&gt;
+int main() {
+    std::stack&lt;int&gt; s;
+    for (int i = 1; i &lt;= 3; ++i) s.push(i * i);
+    int sum = 0;
+    while (!s.empty()) {
+        sum += s.top();
+        s.pop();
+    }
+    std::cout &lt;&lt; sum;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. 14</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. 6</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. 9</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. 1</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. 36</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Pushing onto a stack that has exceeded its storage capacity triggers a Stack Overflow condition.</div>
+  <div class="exp">Pushed values: 1, 4, 9 (1*1, 2*2, 3*3). Popping and summing all of them regardless of order gives 1+4+9=14.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q28</div>
-  <div class="q-text">In an infix-to-postfix conversion algorithm using a stack, what is done when an operator is parsed?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. It is printed immediately.</span></label>
-<label class="opt"><input type="radio" name="q27" value="1"><span>B. Operators with greater or equal precedence are popped from the stack and printed before pushing the new operator.</span></label>
-<label class="opt"><input type="radio" name="q27" value="2"><span>C. It is pushed onto the stack immediately without any checks.</span></label>
-<label class="opt"><input type="radio" name="q27" value="3"><span>D. The stack is cleared.</span></label>
-<label class="opt"><input type="radio" name="q27" value="4"><span>E. It is discarded.</span></label>
-</div>
+  <div class="q-text">A function uses recursion to reverse a string via an implicit call stack: <code>rev(s, i)</code> prints <code>s[i]</code> AFTER the recursive call <code>rev(s, i+1)</code> returns. For input <code>"abc"</code> starting at i=0, in what order are characters printed?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. a b c</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. c b a</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. c a b</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. b c a</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. a c b</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Operators are stored on the stack. To maintain precedence, before pushing a new operator, we must pop and print any stack operators that have greater or equal precedence.</div>
+  <div class="exp">This is the classic 'print after recursive call' pattern — it mimics how a stack unwinds. Calls go rev(0)->rev(1)->rev(2)->rev(3) (base case), then printing happens on the way back out: s[2]='c', s[1]='b', s[0]='a'. Output: 'c b a'.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q29</div>
-  <div class="q-text">What is the primary drawback of using a singly linked list to implement a Stack ADT?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. Push operations take $O(N)$ time.</span></label>
-<label class="opt"><input type="radio" name="q28" value="1"><span>B. Pop operations take $O(N)$ time.</span></label>
-<label class="opt"><input type="radio" name="q28" value="2"><span>C. It has memory overhead for storing node pointers in every element.</span></label>
-<label class="opt"><input type="radio" name="q28" value="3"><span>D. It does not support dynamic expansion.</span></label>
-<label class="opt"><input type="radio" name="q28" value="4"><span>E. It causes stack overflow.</span></label>
-</div>
+  <div class="q-text">Which scenario correctly triggers a Stack Underflow?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. Calling push() on a stack that is at full capacity</span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. Calling pop() or top() on a stack with zero elements</span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. Calling empty() on any stack</span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. Pushing a null value onto the stack</span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. Popping the last remaining element (leaving exactly one element)</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">A linked list stack grows dynamically (no overflow), but every node incurs pointer overhead (8 bytes on 64-bit systems) in addition to the data storage.</div>
+  <div class="exp">Stack Underflow specifically refers to attempting to remove or access data (pop/top) when the stack contains no elements to remove.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q30</div>
-  <div class="q-text">Which stack-based traversal algorithm matches Depth-First Search?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. Inorder traversal.</span></label>
-<label class="opt"><input type="radio" name="q29" value="1"><span>B. Level-order traversal.</span></label>
-<label class="opt"><input type="radio" name="q29" value="2"><span>C. Postorder traversal.</span></label>
-<label class="opt"><input type="radio" name="q29" value="3"><span>D. Preorder DFS traversal.</span></label>
-<label class="opt"><input type="radio" name="q29" value="4"><span>E. Topological Sort.</span></label>
-</div>
+  <div class="q-text">Trace the largest-rectangle-in-histogram monotonic stack algorithm on heights <code>[2, 1, 2]</code> (with an appended sentinel 0). At what point is the bar of height 2 at index 0 popped, and what area does it produce?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. Popped when i=1 (height 1 < 2); width = 1, area = 2</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. Popped when i=2; width = 2, area = 4</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. Never popped explicitly, only removed by the sentinel</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. Popped when i=1; width = 3, area = 6</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. Popped at i=3 (sentinel); width=1, area=2</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Preorder and DFS traversals utilize a LIFO Stack structure to track nodes along a single path before backtracking.</div>
-</div>
+  <div class="exp">Push idx0 (h=2). At i=1, h=1 < 2, so we pop idx0. Its left boundary is empty stack (-1), right boundary is i=1, so width = 1 - (-1) - 1 = 1. Area = 2 * 1 = 2.</div>
 </div>
 
 <div class="score-bar">
@@ -523,7 +503,7 @@ bool check(std::string s) {
   <span style="margin-left:auto">30 questions</span>
 </div>
 
-<script>window.__QS__ = [{"q": "What is the postfix (Reverse Polish) representation of the infix expression: <code>A + B * (C - D) / E</code>?", "options": ["<code>A B C D - * + E /</code>", "<code>A B C D - * E / +</code>", "<code>A B C * D - E / +</code>", "<code>A B C D - E / * +</code>", "<code>+ A / * B - C D E</code>"], "correct": 1, "explain": "Following operator precedence: 1) `(C - D)` -> `C D -`. 2) Multiply by `B` -> `B C D - *`. 3) Divide by `E` -> `B C D - * E /`. 4) Add `A` -> `A B C D - * E / +`."}, {"q": "For a stack implemented using a fixed-size array of capacity <code>N</code> with the top-index tracking variable <code>top</code> initialized to <code>0</code> (where data is pushed into index <code>top</code> and then <code>top</code> is incremented), what represents the stack full condition?", "options": ["<code>top == N - 1</code>", "<code>top == N</code>", "<code>top == 0</code>", "<code>top == N + 1</code>", "<code>top == -1</code>"], "correct": 1, "explain": "If <code>top</code> starts at 0 and increments after pushing, it equals the current size. The stack is full when size reaches capacity: <code>top == N</code>."}, {"q": "Which of the following describes the operational behavior of a Stack?", "options": ["First-In, First-Out (FIFO)", "Last-In, First-Out (LIFO)", "First-In, Last-Out (FILO)", "Random Access Ordering", "Priority-based Extraction"], "correct": 1, "explain": "Stacks follow Last-In, First-Out (LIFO) behavior. Insertions and removals are only performed at one end (the top)."}, {"q": "Using a stack, what is the output of evaluating the following postfix expression: <code>10 4 2 / + 5 *</code>?", "options": ["30", "60", "27", "35", "70"], "correct": 1, "explain": "1) Push 10, 4, 2. 2) `/` pop 2, 4 -> 4/2 = 2. Push 2. 3) `+` pop 2, 10 -> 10+2 = 12. Push 12. 4) Push 5. 5) `*` pop 5, 12 -> 12 * 5 = 60."}, {"q": "When parsing XHTML tags with a stack, which condition indicates a syntax nesting error?", "options": ["Pushing an opening tag onto the stack when it is empty.", "The stack is empty when encountering an opening tag.", "The tag popped from the stack when encountering a closing tag does not match the closing tag.", "The stack size exceeds the document length.", "Popping the matching opening tag successfully."], "correct": 2, "explain": "Nesting requires that any closing tag must match the most recently pushed opening tag. If the popped tag doesn't match, or the stack is empty during a pop, the tags are mismatched."}, {"q": "Which data structure is typically used to implement the 'Back' and 'Forward' navigation history in web browsers?", "options": ["Single Queue", "Two Stacks", "One Linked List", "A Binary Search Tree", "A Hash Table"], "correct": 1, "explain": "Web browsers use two stacks: a 'Back' stack and a 'Forward' stack. Clicking a link pushes the current page to the 'Back' stack and clears the 'Forward' stack."}, {"q": "What is the time complexity to retrieve the minimum element from a standard, non-auxiliary Stack ADT of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "A standard stack only exposes the top element. Finding the minimum requires popping all elements to inspect them, taking linear $\\mathcal{O}(N)$ time."}, {"q": "Which of the following defines a 'Monotonic Decreasing Stack'?", "options": ["A stack where elements are kept in strictly increasing order from bottom to top.", "A stack where elements are kept in strictly decreasing order from bottom to top.", "A stack that pops elements automatically after 5 seconds.", "A stack that only accepts negative integers.", "A stack implemented using a circular array."], "correct": 1, "explain": "A Monotonic Decreasing Stack maintains its elements in strictly decreasing order from bottom to top (each pushed element is smaller than the one below it)."}, {"q": "Convert the Prefix expression <code>* + A B - C D</code> to Postfix.", "options": ["<code>A B + C D - *</code>", "<code>A B C D + - *</code>", "<code>A B + * C D -</code>", "<code>* A B + - C D</code>", "<code>A B C - D + *</code>"], "correct": 0, "explain": "Prefix `* + A B - C D` evaluates as: 1) `+ A B` -> `(A+B)`. 2) `- C D` -> `(C-D)`. 3) `*` applied to results -> `(A+B) * (C-D)`, which in postfix is `A B + C D - *`."}, {"q": "What occurs when an application attempts to push an element onto an array-based stack that has reached its capacity limit?", "options": ["Stack Underflow", "Stack Overflow", "Segmentation Fault", "Rehashing", "Memory Leak"], "correct": 1, "explain": "Pushing onto a stack that has exceeded its storage capacity triggers a Stack Overflow condition."}, {"q": "In an infix-to-postfix conversion algorithm using a stack, what is done when an operator is parsed?", "options": ["It is printed immediately.", "Operators with greater or equal precedence are popped from the stack and printed before pushing the new operator.", "It is pushed onto the stack immediately without any checks.", "The stack is cleared.", "It is discarded."], "correct": 1, "explain": "Operators are stored on the stack. To maintain precedence, before pushing a new operator, we must pop and print any stack operators that have greater or equal precedence."}, {"q": "What is the primary drawback of using a singly linked list to implement a Stack ADT?", "options": ["Push operations take $O(N)$ time.", "Pop operations take $O(N)$ time.", "It has memory overhead for storing node pointers in every element.", "It does not support dynamic expansion.", "It causes stack overflow."], "correct": 2, "explain": "A linked list stack grows dynamically (no overflow), but every node incurs pointer overhead (8 bytes on 64-bit systems) in addition to the data storage."}, {"q": "Which stack-based traversal algorithm matches Depth-First Search?", "options": ["Inorder traversal.", "Level-order traversal.", "Postorder traversal.", "Preorder DFS traversal.", "Topological Sort."], "correct": 3, "explain": "Preorder and DFS traversals utilize a LIFO Stack structure to track nodes along a single path before backtracking."}, {"q": "What is the prefix representation of the infix expression: <code>A * B + C</code>?", "options": ["<code>+ * A B C</code>", "<code>* A + B C</code>", "<code>A B * C +</code>", "<code>+ A * B C</code>", "<code>* + A B C</code>"], "correct": 0, "explain": "1) `A * B` -> `* A B`. 2) Add `C` -> `+ * A B C`."}, {"q": "If a stack contains elements <code>[X, Y, Z]</code> (Z is top) and we perform: <code>push(W)</code>, <code>pop()</code>, <code>pop()</code>, what is the top element?", "options": ["X", "Y", "Z", "W", "Stack is empty"], "correct": 1, "explain": "1) Initial: `[X, Y, Z]`. 2) Push W -> `[X, Y, Z, W]`. 3) Pop -> pops W, stack becomes `[X, Y, Z]`. 4) Pop -> pops Z, stack becomes `[X, Y]`. Top is Y."}, {"q": "Determine the output of the following stack operations:<pre><code>#include &lt;iostream&gt;\n#include &lt;stack&gt;\nint main() {\n    std::stack&lt;int&gt; s;\n    s.push(10);\n    s.push(20);\n    std::cout &lt;&lt; s.top() &lt;&lt; \" \";\n    s.pop();\n    s.push(30);\n    s.pop();\n    std::cout &lt;&lt; s.top();\n    return 0;\n}</code></pre>", "options": ["20 10", "20 30", "10 30", "10 10", "30 10"], "correct": 0, "explain": "1) Push 10, push 20. 2) s.top() prints 20. 3) s.pop() removes 20 (stack is [10]). 4) s.push(30) makes stack [10, 30]. 5) s.pop() removes 30 (stack is [10]). 6) s.top() prints 10. Output: '20 10'."}, {"q": "A parsing program executes this function. What does it return for the string <code>\"(()))\"</code>?<pre><code>#include &lt;stack&gt;\n#include &lt;string&gt;\nbool check(std::string s) {\n    std::stack&lt;char&gt; st;\n    for(char c : s) {\n        if(c == '(') st.push(c);\n        else if(c == ')') {\n            if(st.empty()) return false;\n            st.pop();\n        }\n    }\n    return st.empty();\n}</code></pre>", "options": ["true", "false", "Undefined Behavior", "Compiler Error", "Throws Exception"], "correct": 1, "explain": "The string has two open parentheses, which are pushed. The first two close parentheses pop them, leaving the stack empty. The third close parenthesis encounters an empty stack (st.empty() is true) and returns false."}, {"q": "What is the postfix (Reverse Polish) representation of the infix expression: <code>A + B * (C - D) / E</code>?", "options": ["<code>A B C D - * + E /</code>", "<code>A B C D - * E / +</code>", "<code>A B C * D - E / +</code>", "<code>A B C D - E / * +</code>", "<code>+ A / * B - C D E</code>"], "correct": 1, "explain": "Following operator precedence: 1) `(C - D)` -> `C D -`. 2) Multiply by `B` -> `B C D - *`. 3) Divide by `E` -> `B C D - * E /`. 4) Add `A` -> `A B C D - * E / +`."}, {"q": "For a stack implemented using a fixed-size array of capacity <code>N</code> with the top-index tracking variable <code>top</code> initialized to <code>0</code> (where data is pushed into index <code>top</code> and then <code>top</code> is incremented), what represents the stack full condition?", "options": ["<code>top == N - 1</code>", "<code>top == N</code>", "<code>top == 0</code>", "<code>top == N + 1</code>", "<code>top == -1</code>"], "correct": 1, "explain": "If <code>top</code> starts at 0 and increments after pushing, it equals the current size. The stack is full when size reaches capacity: <code>top == N</code>."}, {"q": "Which of the following describes the operational behavior of a Stack?", "options": ["First-In, First-Out (FIFO)", "Last-In, First-Out (LIFO)", "First-In, Last-Out (FILO)", "Random Access Ordering", "Priority-based Extraction"], "correct": 1, "explain": "Stacks follow Last-In, First-Out (LIFO) behavior. Insertions and removals are only performed at one end (the top)."}, {"q": "Using a stack, what is the output of evaluating the following postfix expression: <code>10 4 2 / + 5 *</code>?", "options": ["30", "60", "27", "35", "70"], "correct": 1, "explain": "1) Push 10, 4, 2. 2) `/` pop 2, 4 -> 4/2 = 2. Push 2. 3) `+` pop 2, 10 -> 10+2 = 12. Push 12. 4) Push 5. 5) `*` pop 5, 12 -> 12 * 5 = 60."}, {"q": "When parsing XHTML tags with a stack, which condition indicates a syntax nesting error?", "options": ["Pushing an opening tag onto the stack when it is empty.", "The stack is empty when encountering an opening tag.", "The tag popped from the stack when encountering a closing tag does not match the closing tag.", "The stack size exceeds the document length.", "Popping the matching opening tag successfully."], "correct": 2, "explain": "Nesting requires that any closing tag must match the most recently pushed opening tag. If the popped tag doesn't match, or the stack is empty during a pop, the tags are mismatched."}, {"q": "Which data structure is typically used to implement the 'Back' and 'Forward' navigation history in web browsers?", "options": ["Single Queue", "Two Stacks", "One Linked List", "A Binary Search Tree", "A Hash Table"], "correct": 1, "explain": "Web browsers use two stacks: a 'Back' stack and a 'Forward' stack. Clicking a link pushes the current page to the 'Back' stack and clears the 'Forward' stack."}, {"q": "What is the time complexity to retrieve the minimum element from a standard, non-auxiliary Stack ADT of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "A standard stack only exposes the top element. Finding the minimum requires popping all elements to inspect them, taking linear $\\mathcal{O}(N)$ time."}, {"q": "Which of the following defines a 'Monotonic Decreasing Stack'?", "options": ["A stack where elements are kept in strictly increasing order from bottom to top.", "A stack where elements are kept in strictly decreasing order from bottom to top.", "A stack that pops elements automatically after 5 seconds.", "A stack that only accepts negative integers.", "A stack implemented using a circular array."], "correct": 1, "explain": "A Monotonic Decreasing Stack maintains its elements in strictly decreasing order from bottom to top (each pushed element is smaller than the one below it)."}, {"q": "Convert the Prefix expression <code>* + A B - C D</code> to Postfix.", "options": ["<code>A B + C D - *</code>", "<code>A B C D + - *</code>", "<code>A B + * C D -</code>", "<code>* A B + - C D</code>", "<code>A B C - D + *</code>"], "correct": 0, "explain": "Prefix `* + A B - C D` evaluates as: 1) `+ A B` -> `(A+B)`. 2) `- C D` -> `(C-D)`. 3) `*` applied to results -> `(A+B) * (C-D)`, which in postfix is `A B + C D - *`."}, {"q": "What occurs when an application attempts to push an element onto an array-based stack that has reached its capacity limit?", "options": ["Stack Underflow", "Stack Overflow", "Segmentation Fault", "Rehashing", "Memory Leak"], "correct": 1, "explain": "Pushing onto a stack that has exceeded its storage capacity triggers a Stack Overflow condition."}, {"q": "In an infix-to-postfix conversion algorithm using a stack, what is done when an operator is parsed?", "options": ["It is printed immediately.", "Operators with greater or equal precedence are popped from the stack and printed before pushing the new operator.", "It is pushed onto the stack immediately without any checks.", "The stack is cleared.", "It is discarded."], "correct": 1, "explain": "Operators are stored on the stack. To maintain precedence, before pushing a new operator, we must pop and print any stack operators that have greater or equal precedence."}, {"q": "What is the primary drawback of using a singly linked list to implement a Stack ADT?", "options": ["Push operations take $O(N)$ time.", "Pop operations take $O(N)$ time.", "It has memory overhead for storing node pointers in every element.", "It does not support dynamic expansion.", "It causes stack overflow."], "correct": 2, "explain": "A linked list stack grows dynamically (no overflow), but every node incurs pointer overhead (8 bytes on 64-bit systems) in addition to the data storage."}, {"q": "Which stack-based traversal algorithm matches Depth-First Search?", "options": ["Inorder traversal.", "Level-order traversal.", "Postorder traversal.", "Preorder DFS traversal.", "Topological Sort."], "correct": 3, "explain": "Preorder and DFS traversals utilize a LIFO Stack structure to track nodes along a single path before backtracking."}];</script>
+<script>window.__QS__ = [{"q": "What is the postfix (Reverse Polish) representation of the infix expression: <code>A + B * (C - D) / E</code>?", "options": ["<code>A B C D - * + E /</code>", "<code>A B C D - * E / +</code>", "<code>A B C * D - E / +</code>", "<code>A B C D - E / * +</code>", "<code>+ A / * B - C D E</code>"], "correct": 1, "explain": "Following operator precedence: 1) `(C - D)` -> `C D -`. 2) Multiply by `B` -> `B C D - *`. 3) Divide by `E` -> `B C D - * E /`. 4) Add `A` -> `A B C D - * E / +`."}, {"q": "For a stack implemented using a fixed-size array of capacity <code>N</code> with the top-index tracking variable <code>top</code> initialized to <code>0</code> (where data is pushed into index <code>top</code> and then <code>top</code> is incremented), what represents the stack full condition?", "options": ["<code>top == N - 1</code>", "<code>top == N</code>", "<code>top == 0</code>", "<code>top == N + 1</code>", "<code>top == -1</code>"], "correct": 1, "explain": "If <code>top</code> starts at 0 and increments after pushing, it equals the current size. The stack is full when size reaches capacity: <code>top == N</code>."}, {"q": "Which of the following describes the operational behavior of a Stack?", "options": ["First-In, First-Out (FIFO)", "Last-In, First-Out (LIFO)", "First-In, Last-Out (FILO)", "Random Access Ordering", "Priority-based Extraction"], "correct": 1, "explain": "Stacks follow Last-In, First-Out (LIFO) behavior. Insertions and removals are only performed at one end (the top)."}, {"q": "Using a stack, what is the output of evaluating the following postfix expression: <code>10 4 2 / + 5 *</code>?", "options": ["30", "60", "27", "35", "70"], "correct": 1, "explain": "1) Push 10, 4, 2. 2) `/` pop 2, 4 -> 4/2 = 2. Push 2. 3) `+` pop 2, 10 -> 10+2 = 12. Push 12. 4) Push 5. 5) `*` pop 5, 12 -> 12 * 5 = 60."}, {"q": "When parsing XHTML tags with a stack, which condition indicates a syntax nesting error?", "options": ["Pushing an opening tag onto the stack when it is empty.", "The stack is empty when encountering an opening tag.", "The tag popped from the stack when encountering a closing tag does not match the closing tag.", "The stack size exceeds the document length.", "Popping the matching opening tag successfully."], "correct": 2, "explain": "Nesting requires that any closing tag must match the most recently pushed opening tag. If the popped tag doesn't match, or the stack is empty during a pop, the tags are mismatched."}, {"q": "Which data structure is typically used to implement the 'Back' and 'Forward' navigation history in web browsers?", "options": ["Single Queue", "Two Stacks", "One Linked List", "A Binary Search Tree", "A Hash Table"], "correct": 1, "explain": "Web browsers use two stacks: a 'Back' stack and a 'Forward' stack. Clicking a link pushes the current page to the 'Back' stack and clears the 'Forward' stack."}, {"q": "What is the time complexity to retrieve the minimum element from a standard, non-auxiliary Stack ADT of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "A standard stack only exposes the top element. Finding the minimum requires popping all elements to inspect them, taking linear $\\mathcal{O}(N)$ time."}, {"q": "Which of the following defines a 'Monotonic Decreasing Stack'?", "options": ["A stack where elements are kept in strictly increasing order from bottom to top.", "A stack where elements are kept in strictly decreasing order from bottom to top.", "A stack that pops elements automatically after 5 seconds.", "A stack that only accepts negative integers.", "A stack implemented using a circular array."], "correct": 1, "explain": "A Monotonic Decreasing Stack maintains its elements in strictly decreasing order from bottom to top (each pushed element is smaller than the one below it)."}, {"q": "Convert the Prefix expression <code>* + A B - C D</code> to Postfix.", "options": ["<code>A B + C D - *</code>", "<code>A B C D + - *</code>", "<code>A B + * C D -</code>", "<code>* A B + - C D</code>", "<code>A B C - D + *</code>"], "correct": 0, "explain": "Prefix `* + A B - C D` evaluates as: 1) `+ A B` -> `(A+B)`. 2) `- C D` -> `(C-D)`. 3) `*` applied to results -> `(A+B) * (C-D)`, which in postfix is `A B + C D - *`."}, {"q": "What occurs when an application attempts to push an element onto an array-based stack that has reached its capacity limit?", "options": ["Stack Underflow", "Stack Overflow", "Segmentation Fault", "Rehashing", "Memory Leak"], "correct": 1, "explain": "Pushing onto a stack that has exceeded its storage capacity triggers a Stack Overflow condition."}, {"q": "In an infix-to-postfix conversion algorithm using a stack, what is done when an operator is parsed?", "options": ["It is printed immediately.", "Operators with greater or equal precedence are popped from the stack and printed before pushing the new operator.", "It is pushed onto the stack immediately without any checks.", "The stack is cleared.", "It is discarded."], "correct": 1, "explain": "Operators are stored on the stack. To maintain precedence, before pushing a new operator, we must pop and print any stack operators that have greater or equal precedence."}, {"q": "What is the primary drawback of using a singly linked list to implement a Stack ADT?", "options": ["Push operations take $O(N)$ time.", "Pop operations take $O(N)$ time.", "It has memory overhead for storing node pointers in every element.", "It does not support dynamic expansion.", "It causes stack overflow."], "correct": 2, "explain": "A linked list stack grows dynamically (no overflow), but every node incurs pointer overhead (8 bytes on 64-bit systems) in addition to the data storage."}, {"q": "Which stack-based traversal algorithm matches Depth-First Search?", "options": ["Inorder traversal.", "Level-order traversal.", "Postorder traversal.", "Preorder DFS traversal.", "Topological Sort."], "correct": 3, "explain": "Preorder and DFS traversals utilize a LIFO Stack structure to track nodes along a single path before backtracking."}, {"q": "What is the prefix representation of the infix expression: <code>A * B + C</code>?", "options": ["<code>+ * A B C</code>", "<code>* A + B C</code>", "<code>A B * C +</code>", "<code>+ A * B C</code>", "<code>* + A B C</code>"], "correct": 0, "explain": "1) `A * B` -> `* A B`. 2) Add `C` -> `+ * A B C`."}, {"q": "If a stack contains elements <code>[X, Y, Z]</code> (Z is top) and we perform: <code>push(W)</code>, <code>pop()</code>, <code>pop()</code>, what is the top element?", "options": ["X", "Y", "Z", "W", "Stack is empty"], "correct": 1, "explain": "1) Initial: `[X, Y, Z]`. 2) Push W -> `[X, Y, Z, W]`. 3) Pop -> pops W, stack becomes `[X, Y, Z]`. 4) Pop -> pops Z, stack becomes `[X, Y]`. Top is Y."}, {"q": "Determine the output of the following stack operations:<pre><code>#include &lt;iostream&gt;\n#include &lt;stack&gt;\nint main() {\n    std::stack&lt;int&gt; s;\n    s.push(10);\n    s.push(20);\n    std::cout &lt;&lt; s.top() &lt;&lt; \" \";\n    s.pop();\n    s.push(30);\n    s.pop();\n    std::cout &lt;&lt; s.top();\n    return 0;\n}</code></pre>", "options": ["20 10", "20 30", "10 30", "10 10", "30 10"], "correct": 0, "explain": "1) Push 10, push 20. 2) s.top() prints 20. 3) s.pop() removes 20 (stack is [10]). 4) s.push(30) makes stack [10, 30]. 5) s.pop() removes 30 (stack is [10]). 6) s.top() prints 10. Output: '20 10'."}, {"q": "A parsing program executes this function. What does it return for the string <code>\"(()))\"</code>?<pre><code>#include &lt;stack&gt;\n#include &lt;string&gt;\nbool check(std::string s) {\n    std::stack&lt;char&gt; st;\n    for(char c : s) {\n        if(c == '(') st.push(c);\n        else if(c == ')') {\n            if(st.empty()) return false;\n            st.pop();\n        }\n    }\n    return st.empty();\n}</code></pre>", "options": ["true", "false", "Undefined Behavior", "Compiler Error", "Throws Exception"], "correct": 1, "explain": "The string has two open parentheses, which are pushed. The first two close parentheses pop them, leaving the stack empty. The third close parenthesis encounters an empty stack (st.empty() is true) and returns false."}, {"q": "Evaluate this postfix expression step by step. What is the final result of <code>6 2 3 + - 4 *</code>?", "options": ["4", "-4", "20", "-20", "36"], "correct": 0, "explain": "Push 6, 2, 3 (stack: [6,2,3]). '+': pop 3, pop 2, push 2+3=5 (stack: [6,5]). '-': pop 5, pop 6, push 6-5=1 (stack: [1]). Push 4 (stack: [1,4]). '*': pop 4, pop 1, push 1*4=4. Final result: 4."}, {"q": "Trace this expression evaluation using a stack: <code>4 5 6 * + 3 -</code>. What is the final value?", "options": ["31", "27", "9", "41", "-9"], "correct": 0, "explain": "Push 4,5,6. '*': pop 6,5 -> 5*6=30, push (stack:[4,30]). '+': pop 30,4 -> 4+30=34, push (stack:[34]). Push 3 (stack:[34,3]). '-': pop 3,34 -> 34-3=31."}, {"q": "Convert the infix expression <code>(A + B) * C - D</code> to postfix.", "options": ["<code>A B + C * D -</code>", "<code>A B C + * D -</code>", "<code>A B + C D - *</code>", "<code>- * + A B C D</code>", "<code>A B + * C D -</code>"], "correct": 0, "explain": "1) (A+B) -> A B +. 2) Multiply by C -> A B + C *. 3) Subtract D -> A B + C * D -."}, {"q": "Simulate infix-to-postfix conversion for <code>A * (B + C)</code> using an operator stack. Immediately after reading the ')' token, what has been output so far and what remains on the stack?", "options": ["Output: 'A B C +', Stack: [ * ]", "Output: 'A B +', Stack: [ *, ( ]", "Output: 'A B + *', Stack: empty", "Output: 'A', Stack: [ *, (, + ]", "Output: 'A B C', Stack: [ +, * ]"], "correct": 0, "explain": "Reading A outputs 'A'. '*' is pushed (stack: [*]). '(' is pushed (stack: [*, (]). B outputs 'A B'. '+' is pushed since it's inside the parentheses (stack: [*, (, +]). C outputs 'A B C'. On ')', pop and output operators until '(' is found: pop '+' -> output 'A B C +', then discard the '('. The stack now holds only [*], which waits to be popped at the end."}, {"q": "A stack-based bracket checker processes the string <code>{[()]}</code>. How many push operations occur in total before the first pop?", "options": ["1", "2", "3", "4", "0"], "correct": 2, "explain": "Reading left to right: '{' push, '[' push, '(' push — three consecutive pushes. The next character ')' is a closing bracket, which triggers the first pop (matched against '('). So 3 pushes occur before the first pop."}, {"q": "Given a stack-based array implementation where <code>Array[0]</code> stores the capacity (slide convention) and data occupies indices 1..top, after executing <code>push(5); push(8); pop(); push(3);</code> on an initially empty stack (top=0), what is the final value of <code>top</code> and <code>Array[top]</code>?", "options": ["top=2, Array[top]=3", "top=1, Array[top]=3", "top=2, Array[top]=8", "top=3, Array[top]=3", "top=1, Array[top]=5"], "correct": 0, "explain": "push(5): top=1, Array[1]=5. push(8): top=2, Array[2]=8. pop(): returns Array[2]=8, top=1. push(3): top=2, Array[2]=3. Final: top=2, Array[top]=3."}, {"q": "Using two stacks (<code>inStack</code> and <code>outStack</code>) to implement a Queue, what is the amortized time complexity of <code>dequeue()</code> across a long sequence of operations?", "options": ["O(1) amortized", "O(N) every single call, no amortization possible", "O(log N)", "O(N^2)", "O(1) worst case always"], "correct": 0, "explain": "Each element is moved from inStack to outStack (reversing order) at most once over its lifetime. Although a single dequeue can be O(N) when outStack is empty and must be refilled, that cost is spread over the many O(1) dequeues that follow, giving O(1) amortized time."}, {"q": "Trace the monotonic stack algorithm for 'Daily Temperatures' on input <code>[73, 74, 75, 71, 69]</code>. What is <code>answer[0]</code> (days until a warmer temperature after index 0)?", "options": ["1", "2", "0", "3", "4"], "correct": 0, "explain": "Index 0 (73) is immediately followed by index 1 (74), which is warmer. So it only takes 1 day. Trace: push idx0. At idx1, 74>73 -> pop idx0, answer[0]=1-0=1. Push idx1. Continue for the rest."}, {"q": "In the same 'Daily Temperatures' trace <code>[73, 74, 75, 71, 69]</code>, what is <code>answer[4]</code> (the last index)?", "options": ["0", "1", "-1", "4", "3"], "correct": 0, "explain": "Index 4 (69) is the last day; there is no future day to compare against, so it has no warmer day ahead. Its answer stays at the default value 0."}, {"q": "What is the output of this code using <code>std::stack</code> with a custom struct?<pre><code>#include &lt;iostream&gt;\n#include &lt;stack&gt;\nint main() {\n    std::stack&lt;int&gt; s;\n    for (int i = 1; i &lt;= 3; ++i) s.push(i * i);\n    int sum = 0;\n    while (!s.empty()) {\n        sum += s.top();\n        s.pop();\n    }\n    std::cout &lt;&lt; sum;\n}</code></pre>", "options": ["14", "6", "9", "1", "36"], "correct": 0, "explain": "Pushed values: 1, 4, 9 (1*1, 2*2, 3*3). Popping and summing all of them regardless of order gives 1+4+9=14."}, {"q": "A function uses recursion to reverse a string via an implicit call stack: <code>rev(s, i)</code> prints <code>s[i]</code> AFTER the recursive call <code>rev(s, i+1)</code> returns. For input <code>\"abc\"</code> starting at i=0, in what order are characters printed?", "options": ["a b c", "c b a", "c a b", "b c a", "a c b"], "correct": 1, "explain": "This is the classic 'print after recursive call' pattern — it mimics how a stack unwinds. Calls go rev(0)->rev(1)->rev(2)->rev(3) (base case), then printing happens on the way back out: s[2]='c', s[1]='b', s[0]='a'. Output: 'c b a'."}, {"q": "Which scenario correctly triggers a Stack Underflow?", "options": ["Calling push() on a stack that is at full capacity", "Calling pop() or top() on a stack with zero elements", "Calling empty() on any stack", "Pushing a null value onto the stack", "Popping the last remaining element (leaving exactly one element)"], "correct": 1, "explain": "Stack Underflow specifically refers to attempting to remove or access data (pop/top) when the stack contains no elements to remove."}, {"q": "Trace the largest-rectangle-in-histogram monotonic stack algorithm on heights <code>[2, 1, 2]</code> (with an appended sentinel 0). At what point is the bar of height 2 at index 0 popped, and what area does it produce?", "options": ["Popped when i=1 (height 1 < 2); width = 1, area = 2", "Popped when i=2; width = 2, area = 4", "Never popped explicitly, only removed by the sentinel", "Popped when i=1; width = 3, area = 6", "Popped at i=3 (sentinel); width=1, area=2"], "correct": 0, "explain": "Push idx0 (h=2). At i=1, h=1 < 2, so we pop idx0. Its left boundary is empty stack (-1), right boundary is i=1, so width = 1 - (-1) - 1 = 1. Area = 2 * 1 = 2."}];</script>
 <script>
 const QS = window.__QS__;
 let correct = 0, answered = 0;

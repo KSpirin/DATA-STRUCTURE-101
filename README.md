@@ -4,6 +4,8 @@ A personal study repository covering the complete **Data Structures & Algorithms
 Built to score 100/100 — and structured to be useful for anyone learning the same topics.
 
 > **Weekly update**: Solutions to mock coding challenges are pushed every week so you can follow the learning path over time.
+> 
+> **Maintenance Note:** Currently reviewing and updating quizzes/theory for topics 6-10. Topics 1-5 have been fully verified.
 
 ---
 

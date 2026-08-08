@@ -15,6 +15,7 @@ Unlike arrays, which have fixed sizes (or require expensive reallocations in dyn
 
 ---
 
+## 🎯 THE CORE
 ### Why use Linked Lists? (Comparison with Arrays)
 In arrays, inserting or deleting elements at arbitrary positions requires shifting all elements after that position to maintain contiguity. This is an $O(N)$ operation. In a linked list, once the position is located, insertion or deletion is done in $O(1)$ time by rewiring pointers.
 
@@ -42,6 +43,13 @@ Suppose we have a node storing an `int` ($4$ bytes) and a pointer to the next no
   *Due to alignment restrictions on 64-bit architectures, structures are aligned to 8-byte boundaries. Thus, a node containing a $4$-byte `int` and an $8$-byte pointer is padded to **$16$ bytes** in memory (4 bytes int + 4 bytes padding + 8 bytes pointer).*
 
 ---
+
+---
+
+> 💡 **Bonus & Applications:** 
+> The sections below contain supplementary materials, lab applications, C++ reference code, and LeetCode problems. You may skip this part if you are only reviewing core theory for the exam.
+
+## 🛠️ THE BONUS
 
 ## 2. Templated Singly Linked List Implementation
 

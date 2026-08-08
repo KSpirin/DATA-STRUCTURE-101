@@ -1,3 +1,6 @@
+> [!WARNING]
+> **DRAFT / UNVERIFIED:** This chapter is currently under review and may contain factual errors. Please do not use this as a definitive reference until this warning is removed.
+
 # AVL Trees - The Complete Guide
 
 An **AVL Tree** (named after its inventors **Adelson-Velskii and Landis**) is a self-balancing Binary Search Tree (BST). It is the first dynamically balanced data structure ever proposed. 

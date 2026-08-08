@@ -4,6 +4,7 @@ Welcome to the ultimate C++ study guide designed for Data Structures and Algorit
 
 ---
 
+## 🎯 THE CORE
 ## 1. Theoretical Explanations
 
 ### 1.1 Input & Output (I/O) Streams
@@ -157,6 +158,13 @@ Templates enable generic programming, allowing functions and classes to operate 
 | **Pointer Dereference** | $\mathcal{O}(1)$ | $\mathcal{O}(1)$ | Direct memory access. |
 
 ---
+
+---
+
+> 💡 **Bonus & Applications:** 
+> The sections below contain supplementary materials, lab applications, C++ reference code, and LeetCode problems. You may skip this part if you are only reviewing core theory for the exam.
+
+## 🛠️ THE BONUS
 
 ## 3. Templated Complex Number Class Implementation
 

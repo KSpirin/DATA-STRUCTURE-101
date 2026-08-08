@@ -4,6 +4,7 @@ A comprehensive study guide on the **Stack Abstract Data Type (Stack ADT)**, its
 
 ---
 
+## 🎯 THE CORE
 ## 1. Theoretical Foundations & Stack ADT
 
 A **Stack** is an abstract data type (ADT) that models a linear collection of elements with a strict insertion and removal discipline.
@@ -43,6 +44,13 @@ Stacks can be implemented using either **Singly Linked Lists** or **One-Ended Ar
 For a standard array, adding or removing elements at the *front* (index 0) requires shifting all other elements, resulting in a time complexity of $\mathcal{O}(n)$. However, operations at the *back* (index `top - 1`) do not require shifting and run in $\mathcal{O}(1)$ amortized time.
 
 ---
+
+---
+
+> 💡 **Bonus & Applications:** 
+> The sections below contain supplementary materials, lab applications, C++ reference code, and LeetCode problems. You may skip this part if you are only reviewing core theory for the exam.
+
+## 🛠️ THE BONUS
 
 ## 3. C++ Class Implementations
 

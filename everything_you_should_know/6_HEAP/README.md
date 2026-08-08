@@ -1,3 +1,6 @@
+> [!WARNING]
+> **DRAFT / UNVERIFIED:** This chapter is currently under review and may contain factual errors. Please do not use this as a definitive reference until this warning is removed.
+
 # Heap & Priority Queue Study Guide
 
 ## 1. Theoretical Background

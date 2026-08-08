@@ -4,6 +4,7 @@ Welcome to the ultimate guide on the **Queue** data structure. This document ser
 
 ---
 
+## 🎯 THE CORE
 ## 1. Theoretical Foundations
 
 ### 1.1 What is a Queue?
@@ -126,6 +127,13 @@ Alternatively, we can maintain an explicit `count` variable tracking the current
 *   This approach allows us to use all `capacity` slots in the array.
 
 ---
+
+---
+
+> 💡 **Bonus & Applications:** 
+> The sections below contain supplementary materials, lab applications, C++ reference code, and LeetCode problems. You may skip this part if you are only reviewing core theory for the exam.
+
+## 🛠️ THE BONUS
 
 ## 3. Complete Templated C++ Implementations
 
@@ -325,7 +333,7 @@ This section catalogs the LeetCode practice problems implemented in the reposito
 ### Easy Problems
 
 1. **Number of Recent Calls** (LeetCode 933)
-   - **File Link**: [no3_warshall.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no3_recent.cpp)
+   - **File Link**: [no3_recent.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no3_recent.cpp)
    - **Concept**: Tracking events in a fixed time window.
    - **Approach**: Uses a standard FIFO queue. Every time a new request arrives, we push it to the queue and pop any older requests that fall outside the 3000ms window limit.
    - **Complexities**: Time: $\mathcal{O}(1)$ amortized per ping, Space: $\mathcal{O}(W)$ where $W$ is the maximum number of requests in the window.
@@ -335,19 +343,19 @@ This section catalogs the LeetCode practice problems implemented in the reposito
 ### Medium Problems
 
 2. **Design Circular Queue** (LeetCode 622)
-   - **File Link**: [no1_islands.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no1_circular_queue.cpp)
+   - **File Link**: [no1_circular_queue.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no1_circular_queue.cpp)
    - **Concept**: Implementing a queue in a fixed-size array without memory drift.
    - **Approach**: Uses two pointers (`head` and `tail`) with cyclic modulo indexing: `(tail + 1) % capacity`. It tracks whether the queue is empty or full using special value flags (`head == -1` or pointer equations).
    - **Complexities**: Time: $\mathcal{O}(1)$ for all operations, Space: $\mathcal{O}(K)$ for the underlying array of capacity $K$.
 
 3. **Implement Stack using Queues** (LeetCode 225)
-   - **File Link**: [no2_course.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no2_stack_queue.cpp)
+   - **File Link**: [no2_stack_queue.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no2_stack_queue.cpp)
    - **Concept**: Emulating LIFO behavior using FIFO queues.
    - **Approach**: Can be implemented using either two queues (where one acts as a buffer) or a single queue. With a single queue, when we push a new element, we enqueue it and then rotate the queue by popping all previously existing elements from the front and enqueuing them back to the rear, reversing their order.
    - **Complexities**: Time: $\mathcal{O}(N)$ for `push`, $\mathcal{O}(1)$ for `pop`/`top` (single queue approach), Space: $\mathcal{O}(N)$ total space.
 
 4. **Shortest Path in Binary Matrix** (LeetCode 1091)
-   - **File Link**: [no5_redundant.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no5_shortest_path.cpp)
+   - **File Link**: [no5_shortest_path.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no5_shortest_path.cpp)
    - **Code Reference**: [Solution::shortestPathBinaryMatrix](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no5_shortest_path.cpp#L46)
    - **Concept**: Shortest path in an unweighted grid with 8-directional movement.
    - **Approach**: Employs Breadth-First Search (BFS) starting from the top-left cell `(0, 0)`. BFS uses a queue to visit cells level-by-level, ensuring that the first time we reach the bottom-right cell `(n - 1, n - 1)`, it is guaranteed to be the shortest path. We mark cells as visited (e.g., by changing their value to 1 in-place) before pushing them to the queue to avoid duplicate visits.
@@ -372,7 +380,7 @@ This section catalogs the LeetCode practice problems implemented in the reposito
 ### Hard Problems
 
 7. **Sliding Window Maximum** (LeetCode 239)
-   - **File Link**: [no4_clone.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no4_sliding_max.cpp)
+   - **File Link**: [no4_sliding_max.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no4_sliding_max.cpp)
    - **Code Reference**: [Solution::maxSlidingWindow](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/3_QUEUE/no4_sliding_max.cpp#L44)
    - **Concept**: Finding the maximum value in a moving subarray of size $K$.
    - **Approach**: Uses a Monotonic Deque (double-ended queue) to store indices of elements in the array.

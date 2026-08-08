@@ -4,6 +4,7 @@ Welcome to the ultimate study guide for **Hashing and Hash Tables**. This docume
 
 ---
 
+## 🎯 THE CORE
 ## 1. Searching Paradigms: An Overview
 
 Before diving into hashing, it is crucial to understand the landscape of search algorithms and where hashing fits.
@@ -71,7 +72,7 @@ Selected digits (positions) are extracted from the key, and concatenated to form
   - Sum = $123 + 456 + 78 = 657$.
   - Address = $657 \pmod{1000} = 657$.
 
-### G. Fold Boundary Hashing
+### F. Fold Boundary Hashing
 Similar to Fold Shift Hashing, but the boundary parts (the leftmost and rightmost segments) are **reversed** (folded inward) before summation.
 - **Example**: Let key = $12345678$, Table Size $M = 1000$.
   - Split into: $a = 123$, $b = 456$, $c = 78$.
@@ -79,7 +80,7 @@ Similar to Fold Shift Hashing, but the boundary parts (the leftmost and rightmos
   - Sum = $321 + 456 + 87 = 864$.
   - Address = $864 \pmod{1000} = 864$.
 
-### H. Modulo-Division Hashing (Division Method)
+### G. Modulo-Division Hashing (Division Method)
 The key is divided by the table size $N$, and the remainder is used as the address.
 $$H(K) = K \pmod N$$
 - **Important**: To achieve optimal distribution and avoid patterns in key digits, the table size $N$ should be a **prime number** not close to a power of $2$ or $10$.
@@ -166,6 +167,13 @@ When the load factor $\lambda$ exceeds a threshold (typically $0.5$ for Open Add
 - **Slide example**: Increasing table size from $9$ to $19$ to resolve insertion collision of $1989$.
 
 ---
+
+---
+
+> 💡 **Bonus & Applications:** 
+> The sections below contain supplementary materials, lab applications, C++ reference code, and LeetCode problems. You may skip this part if you are only reviewing core theory for the exam.
+
+## 🛠️ THE BONUS
 
 ## 5. Templated C++ Implementations
 
@@ -561,19 +569,19 @@ This section catalogs the LeetCode practice problems implemented in the reposito
 ### Easy Problems
 
 1. **Two Sum** (LeetCode 1)
-   - **File Link**: [no1_islands.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no1_twosum.cpp)
+   - **File Link**: [no1_twosum.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no1_twosum.cpp)
    - **Concept**: Finding two elements that sum to a target value.
    - **Approach**: Uses a single-pass hash map to map each number to its index. For each number, it checks if `target - num` already exists in the map.
    - **Complexities**: Time: $O(N)$, Space: $O(N)$
 
 2. **Design HashMap** (LeetCode 706)
-   - **File Link**: [no2_course.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no2_hashmap.cpp)
+   - **File Link**: [no2_hashmap.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no2_hashmap.cpp)
    - **Concept**: Implementing a hash map from scratch.
    - **Approach**: Uses Separate Chaining with a vector of lists to handle collisions, demonstrating standard hash bucket operations.
    - **Complexities**: Time: $O(1)$ average, Space: $O(N + K)$ where $K$ is the bucket size.
 
 3. **First Unique Character in a String** (LeetCode 387)
-   - **File Link**: [no3_warshall.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no3_unique_char.cpp)
+   - **File Link**: [no3_unique_char.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no3_unique_char.cpp)
    - **Concept**: Finding the index of the first non-repeating character.
    - **Approach**: Uses a frequency hash map (or fixed-size array since character space is small) to count character occurrences, then scans the string a second time to find the first character with a count of 1.
    - **Complexities**: Time: $O(N)$, Space: $O(1)$ (since alphabet size is constant, 26 characters).
@@ -583,7 +591,7 @@ This section catalogs the LeetCode practice problems implemented in the reposito
 ### Medium (Advanced) Problems
 
 4. **LRU Cache** (LeetCode 146)
-   - **File Link**: [no4_clone.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no4_lru.cpp)
+   - **File Link**: [no4_lru.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no4_lru.cpp)
    - **Code Reference**: [LRUCache](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no4_lru.cpp#L20)
    - **Concept**: Cache eviction policy (Least Recently Used).
    - **Approach**: Combines a hash map (`std::unordered_map`) and a doubly linked list. The hash map maps keys to node pointers in the doubly linked list, enabling $O(1)$ access. The doubly linked list keeps track of the element usage order.
@@ -593,7 +601,7 @@ This section catalogs the LeetCode practice problems implemented in the reposito
    - **Complexities**: Time: $O(1)$ average for both `get` and `put`, Space: $O(C)$ where $C$ is the cache capacity.
 
 5. **Longest Consecutive Sequence** (LeetCode 128)
-   - **File Link**: [no5_redundant.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no5_consecutive.cpp)
+   - **File Link**: [no5_consecutive.cpp](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no5_consecutive.cpp)
    - **Code Reference**: [Solution::longestConsecutive](file:///Users/miyaks/Desktop/self-learn-1/the_BibleOfDataStructure/leetcode/5_HASH/no5_consecutive.cpp#L17)
    - **Concept**: Finding the length of the longest sequence of consecutive integers.
    - **Approach**: Inserts all elements into an `std::unordered_set` for $O(1)$ lookup. It then iterates through the elements. For each element `num`, it checks if it is the start of a sequence by verifying that `num - 1` is not in the set. If it is the start, it sequentially checks for `num + 1`, `num + 2`, etc., computing the sequence length.

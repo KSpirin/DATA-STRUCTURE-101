@@ -101,7 +101,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 </nav>
 
 <div class="page">
-  <h1>01. C++ Basics & Memory Management</h1>
+  <h1>01. C++ Basics &amp; Memory Management</h1>
   
 <div class="q">
   <div class="q-num">Q1</div>
@@ -110,8 +110,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q0" value="1"><span>B. To prevent the compiler from generating syntax errors due to duplicate declarations when a header file is included multiple times.</span></label>
 <label class="opt"><input type="radio" name="q0" value="2"><span>C. To define a namespace structure automatically.</span></label>
 <label class="opt"><input type="radio" name="q0" value="3"><span>D. To automatically import the standard C++ libraries.</span></label>
-<label class="opt"><input type="radio" name="q0" value="4"><span>E. To allocate global memory segments for templated nodes.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. To allocate global memory segments for templated nodes.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">In C++, including the same header multiple times causes duplicate class/variable definitions. Guards like <code>#ifndef</code>, <code>#define</code>, and <code>#endif</code> prevent compiling the definition block twice.</div>
 </div>
@@ -123,8 +122,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q1" value="1"><span>B. ClassB can access and modify all private members of ClassA.</span></label>
 <label class="opt"><input type="radio" name="q1" value="2"><span>C. Both ClassA and ClassB can access each other's private members.</span></label>
 <label class="opt"><input type="radio" name="q1" value="3"><span>D. ClassB gains access, and any subclasses of ClassB automatically gain access to ClassA.</span></label>
-<label class="opt"><input type="radio" name="q1" value="4"><span>E. Friendship is transitive, meaning any friend of ClassB also becomes a friend of ClassA.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. Friendship is transitive, meaning any friend of ClassB also becomes a friend of ClassA.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Friendship is one-way: ClassA declaring ClassB as a friend allows ClassB to access ClassA's private members, but not vice-versa. Friendship is also neither inherited nor transitive.</div>
 </div>
@@ -136,8 +134,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q2" value="1"><span>B. 15</span></label>
 <label class="opt"><input type="radio" name="q2" value="2"><span>C. 20</span></label>
 <label class="opt"><input type="radio" name="q2" value="3"><span>D. 30</span></label>
-<label class="opt"><input type="radio" name="q2" value="4"><span>E. The compiler triggers an error because reference reassignment is invalid.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. The compiler triggers an error because reference reassignment is invalid.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">A reference is an alias. Adding 5 to <code>ref</code> changes <code>x</code> to 15. Then multiplying <code>x</code> by 2 changes it to 30. Since <code>ref</code> aliases <code>x</code>, it evaluates to 30.</div>
 </div>
@@ -149,8 +146,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q3" value="1"><span>B. <code>release</code></span></label>
 <label class="opt"><input type="radio" name="q3" value="2"><span>C. <code>delete</code></span></label>
 <label class="opt"><input type="radio" name="q3" value="3"><span>D. <code>delete[]</code></span></label>
-<label class="opt"><input type="radio" name="q3" value="4"><span>E. <code>destruct</code></span></label>
-</div>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. <code>destruct</code></span></label></div>
   <button class="check">Check</button>
   <div class="exp">For single objects allocated with <code>new</code>, use <code>delete</code>. For array allocations like <code>new Type[N]</code>, use <code>delete[]</code>.</div>
 </div>
@@ -162,8 +158,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q4" value="1"><span>B. <code>double abs() const;</code></span></label>
 <label class="opt"><input type="radio" name="q4" value="2"><span>C. <code>double const abs();</code></span></label>
 <label class="opt"><input type="radio" name="q4" value="3"><span>D. <code>void abs(const double);</code></span></label>
-<label class="opt"><input type="radio" name="q4" value="4"><span>E. <code>static double abs();</code></span></label>
-</div>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. <code>static double abs();</code></span></label></div>
   <button class="check">Check</button>
   <div class="exp">Placing the keyword <code>const</code> after the parameter list (e.g. <code>double abs() const;</code>) tells the compiler that the function is a read-only accessor and cannot modify member variables.</div>
 </div>
@@ -175,8 +170,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q5" value="1"><span>B. Structs cannot use templates, whereas classes can.</span></label>
 <label class="opt"><input type="radio" name="q5" value="2"><span>C. Structs default to public visibility for members and inheritance, while classes default to private.</span></label>
 <label class="opt"><input type="radio" name="q5" value="3"><span>D. Structs are allocated on the stack, while classes are always allocated on the heap.</span></label>
-<label class="opt"><input type="radio" name="q5" value="4"><span>E. Structs cannot have constructors or destructors.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. Structs cannot have constructors or destructors.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">In C++, the only semantic difference is that a <code>struct</code> defaults to public member visibility and inheritance, while a <code>class</code> defaults to private member visibility and inheritance.</div>
 </div>
@@ -188,8 +182,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q6" value="1"><span>B. Constructor, Destructor, Copy Constructor, Copy Assignment, Move Constructor</span></label>
 <label class="opt"><input type="radio" name="q6" value="2"><span>C. Destructor, Copy Constructor, Copy Assignment, Getter, Setter</span></label>
 <label class="opt"><input type="radio" name="q6" value="3"><span>D. Constructor, Destructor, Template, Friend, Static</span></label>
-<label class="opt"><input type="radio" name="q6" value="4"><span>E. Destructor, Operator<<, Operator>>, Operator=, Constructor</span></label>
-</div>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. Destructor, Operator<<, Operator>>, Operator=, Constructor</span></label></div>
   <button class="check">Check</button>
   <div class="exp">The Rule of 5 states that if you need to custom-implement any of the following, you likely need all 5: Destructor, Copy Constructor, Copy Assignment Operator, Move Constructor, and Move Assignment Operator.</div>
 </div>
@@ -201,8 +194,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q7" value="1"><span>B. To ensure the derived class destructor is called when a derived object is deleted via a base class pointer.</span></label>
 <label class="opt"><input type="radio" name="q7" value="2"><span>C. To speed up compilation of virtual tables.</span></label>
 <label class="opt"><input type="radio" name="q7" value="3"><span>D. To make derived members public automatically.</span></label>
-<label class="opt"><input type="radio" name="q7" value="4"><span>E. To compile the base class as abstract.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. To compile the base class as abstract.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">If a derived object is deleted via a base class pointer and the base class destructor is not virtual, the derived class destructor will not execute, leading to memory leaks.</div>
 </div>
@@ -214,8 +206,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q8" value="1"><span>B. The runtime calls <code>std::terminate()</code> and halts the program.</span></label>
 <label class="opt"><input type="radio" name="q8" value="2"><span>C. The compiler automatically repairs the error at runtime.</span></label>
 <label class="opt"><input type="radio" name="q8" value="3"><span>D. The program loops infinitely.</span></label>
-<label class="opt"><input type="radio" name="q8" value="4"><span>E. All pointer allocations are automatically freed.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. All pointer allocations are automatically freed.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Uncaught exceptions result in the C++ runtime environment calling <code>std::terminate()</code> (which defaults to <code>abort()</code>), ending program execution immediately.</div>
 </div>
@@ -227,8 +218,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q9" value="1"><span>B. It prints 0.</span></label>
 <label class="opt"><input type="radio" name="q9" value="2"><span>C. It causes a compile-time error.</span></label>
 <label class="opt"><input type="radio" name="q9" value="3"><span>D. It triggers Undefined Behavior because <code>p</code> is a dangling pointer pointing to deallocated memory.</span></label>
-<label class="opt"><input type="radio" name="q9" value="4"><span>E. It throws a <code>std::bad_alloc</code> exception.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. It throws a <code>std::bad_alloc</code> exception.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Deleting a pointer deallocates the memory it points to. Accessing it afterward (dangling pointer reference) results in Undefined Behavior, which could crash the program or output garbage values.</div>
 </div>
@@ -240,8 +230,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q10" value="1"><span>B. <code>ClassType</code></span></label>
 <label class="opt"><input type="radio" name="q10" value="2"><span>C. <code>ClassType&</code></span></label>
 <label class="opt"><input type="radio" name="q10" value="3"><span>D. <code>ClassType&&</code></span></label>
-<label class="opt"><input type="radio" name="q10" value="4"><span>E. <code>const ClassType&</code></span></label>
-</div>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. <code>const ClassType&</code></span></label></div>
   <button class="check">Check</button>
   <div class="exp">Like the copy assignment operator, the move assignment operator returns a reference to the calling object (<code>ClassType&</code>) to support chain assignments.</div>
 </div>
@@ -253,8 +242,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q11" value="1"><span>B. <code>inline</code></span></label>
 <label class="opt"><input type="radio" name="q11" value="2"><span>C. <code>const</code></span></label>
 <label class="opt"><input type="radio" name="q11" value="3"><span>D. <code>constexpr</code></span></label>
-<label class="opt"><input type="radio" name="q11" value="4"><span>E. <code>virtual</code></span></label>
-</div>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. <code>virtual</code></span></label></div>
   <button class="check">Check</button>
   <div class="exp">The keyword <code>constexpr</code> specifies that the value of a function or variable can be computed at compile-time.</div>
 </div>
@@ -266,8 +254,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q12" value="1"><span>B. Both objects point to the same memory location, leading to potential double-free crashes.</span></label>
 <label class="opt"><input type="radio" name="q12" value="2"><span>C. The program crashes immediately during compilation.</span></label>
 <label class="opt"><input type="radio" name="q12" value="3"><span>D. The original object's pointer is set to nullptr.</span></label>
-<label class="opt"><input type="radio" name="q12" value="4"><span>E. The pointer size doubles.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. The pointer size doubles.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Shallow copying copies only pointer addresses, not the underlying heap memory. This leads to two instances managing the same memory, triggering double frees on destruction.</div>
 </div>
@@ -279,8 +266,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q13" value="1"><span>B. <code>delete[]</code> calls destructors for every object in the allocated array, while <code>delete</code> only calls it for the first element.</span></label>
 <label class="opt"><input type="radio" name="q13" value="2"><span>C. <code>delete</code> is used for classes, <code>delete[]</code> is used for basic data types.</span></label>
 <label class="opt"><input type="radio" name="q13" value="3"><span>D. <code>delete[]</code> is deprecated in C++17.</span></label>
-<label class="opt"><input type="radio" name="q13" value="4"><span>E. <code>delete</code> automatically calls garbage collection.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. <code>delete</code> automatically calls garbage collection.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">For arrays allocated via <code>new Type[N]</code>, <code>delete[]</code> ensures the compiler calls the destructor for all $N$ objects in the array. <code>delete</code> only calls it for the first.</div>
 </div>
@@ -292,8 +278,7 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 <label class="opt"><input type="radio" name="q14" value="1"><span>B. The function does not accept parameters.</span></label>
 <label class="opt"><input type="radio" name="q14" value="2"><span>C. The function is guaranteed not to throw any exceptions.</span></label>
 <label class="opt"><input type="radio" name="q14" value="3"><span>D. The function runs in $O(1)$ time.</span></label>
-<label class="opt"><input type="radio" name="q14" value="4"><span>E. The function cannot be overloaded.</span></label>
-</div>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. The function cannot be overloaded.</span></label></div>
   <button class="check">Check</button>
   <div class="exp">The <code>noexcept</code> specifier tells the compiler and runtime that a function is guaranteed not to throw any exceptions, allowing performance optimizations during move operations.</div>
 </div>
@@ -315,8 +300,7 @@ int main() {
 <label class="opt"><input type="radio" name="q15" value="1"><span>B. 50</span></label>
 <label class="opt"><input type="radio" name="q15" value="2"><span>C. 55</span></label>
 <label class="opt"><input type="radio" name="q15" value="3"><span>D. 60</span></label>
-<label class="opt"><input type="radio" name="q15" value="4"><span>E. Compiler Error</span></label>
-</div>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. Compiler Error</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Inside <code>modify</code>, <code>x</code> is modified via pointer dereference (*a += 5) to 15. <code>y</code> is passed by reference, so b *= 2 modifies <code>y</code> to 40. The sum 15 + 40 equals 55.</div>
 </div>
@@ -341,8 +325,7 @@ int main() {
 <label class="opt"><input type="radio" name="q16" value="1"><span>B. CKCA</span></label>
 <label class="opt"><input type="radio" name="q16" value="2"><span>C. CKKA</span></label>
 <label class="opt"><input type="radio" name="q16" value="3"><span>D. CKAA</span></label>
-<label class="opt"><input type="radio" name="q16" value="4"><span>E. CCKA</span></label>
-</div>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. CCKA</span></label></div>
   <button class="check">Check</button>
   <div class="exp">1) <code>Test t1;</code> calls default constructor, printing 'C'.
 2) <code>Test t2 = t1;</code> is copy initialization, invoking the copy constructor, printing 'K'.
@@ -370,167 +353,203 @@ int main() {
 <label class="opt"><input type="radio" name="q17" value="1"><span>B. Prints 'B'</span></label>
 <label class="opt"><input type="radio" name="q17" value="2"><span>C. Prints 'DB'</span></label>
 <label class="opt"><input type="radio" name="q17" value="3"><span>D. Prints 'BD'</span></label>
-<label class="opt"><input type="radio" name="q17" value="4"><span>E. Segmentation fault</span></label>
-</div>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. Segmentation fault</span></label></div>
   <button class="check">Check</button>
   <div class="exp">Because the Base class destructor is not declared <code>virtual</code>, deleting a Derived object via a Base pointer leads to static dispatch: only the Base destructor is called, printing 'B'. Derived destructor is bypassed, leaking memory.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q19</div>
-  <div class="q-text">Why must the preprocessor guard directive <code>#ifndef SINGLE_LIST_H</code> be placed at the top of header files?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. To instruct the compiler to compile the file using inline compiler optimization.</span></label>
-<label class="opt"><input type="radio" name="q18" value="1"><span>B. To prevent the compiler from generating syntax errors due to duplicate declarations when a header file is included multiple times.</span></label>
-<label class="opt"><input type="radio" name="q18" value="2"><span>C. To define a namespace structure automatically.</span></label>
-<label class="opt"><input type="radio" name="q18" value="3"><span>D. To automatically import the standard C++ libraries.</span></label>
-<label class="opt"><input type="radio" name="q18" value="4"><span>E. To allocate global memory segments for templated nodes.</span></label>
-</div>
+  <div class="q-text">Trace the recursion. What value does <code>func(4)</code> return?<pre><code>int func(int x) {
+    if (x &lt; 1) return 0;
+    return x + func(x - 1);
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. 6</span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. 10</span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. 4</span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. 0</span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. 24</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">In C++, including the same header multiple times causes duplicate class/variable definitions. Guards like <code>#ifndef</code>, <code>#define</code>, and <code>#endif</code> prevent compiling the definition block twice.</div>
+  <div class="exp">func(4)=4+func(3), func(3)=3+func(2), func(2)=2+func(1), func(1)=1+func(0), func(0)=0. Summing back: 1, 3, 6, 10. func(4)=10.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q20</div>
-  <div class="q-text">If class <code>ClassA</code> declares class <code>ClassB</code> to be a <code>friend</code> (i.e. <code>friend class ClassB;</code> inside ClassA), which of the following is true?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. ClassA can access and modify all private members of ClassB.</span></label>
-<label class="opt"><input type="radio" name="q19" value="1"><span>B. ClassB can access and modify all private members of ClassA.</span></label>
-<label class="opt"><input type="radio" name="q19" value="2"><span>C. Both ClassA and ClassB can access each other's private members.</span></label>
-<label class="opt"><input type="radio" name="q19" value="3"><span>D. ClassB gains access, and any subclasses of ClassB automatically gain access to ClassA.</span></label>
-<label class="opt"><input type="radio" name="q19" value="4"><span>E. Friendship is transitive, meaning any friend of ClassB also becomes a friend of ClassA.</span></label>
-</div>
+  <div class="q-text">Trace this loop. What is <code>arr[3]</code> after execution?<pre><code>int arr[5];
+arr[0] = 1;
+for (int i = 1; i &lt; 5; ++i) {
+    arr[i] = 2 * arr[i - 1] + 1;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. 7</span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. 15</span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. 31</span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. 1</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Friendship is one-way: ClassA declaring ClassB as a friend allows ClassB to access ClassA's private members, but not vice-versa. Friendship is also neither inherited nor transitive.</div>
+  <div class="exp">arr[0]=1, arr[1]=2*1+1=3, arr[2]=2*3+1=7, arr[3]=2*7+1=15.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q21</div>
-  <div class="q-text">Consider the code: <code>int x = 10; int& ref = x; ref += 5; x *= 2;</code>. What is the value of <code>ref</code> after these operations?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. 10</span></label>
-<label class="opt"><input type="radio" name="q20" value="1"><span>B. 15</span></label>
-<label class="opt"><input type="radio" name="q20" value="2"><span>C. 20</span></label>
-<label class="opt"><input type="radio" name="q20" value="3"><span>D. 30</span></label>
-<label class="opt"><input type="radio" name="q20" value="4"><span>E. The compiler triggers an error because reference reassignment is invalid.</span></label>
-</div>
+  <div class="q-text">What is printed by this operator chaining?<pre><code>#include &lt;iostream&gt;
+int sqr(int x){ return x*x; }
+int main(){
+    std::cout &lt;&lt; &quot;val=&quot; &lt;&lt; sqr(3) &lt;&lt; std::endl;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. val=9</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. val=6</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. val=3sqr(3)</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. Compiler Error</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. val=x*x</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">A reference is an alias. Adding 5 to <code>ref</code> changes <code>x</code> to 15. Then multiplying <code>x</code> by 2 changes it to 30. Since <code>ref</code> aliases <code>x</code>, it evaluates to 30.</div>
+  <div class="exp">cout << is evaluated left to right: ((cout << "val=") << sqr(3)) << endl. sqr(3) evaluates to 9, so it prints 'val=9'.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q22</div>
-  <div class="q-text">Which C++ operator is used to deallocate memory previously allocated with the <code>new</code> operator for a single object?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. <code>free</code></span></label>
-<label class="opt"><input type="radio" name="q21" value="1"><span>B. <code>release</code></span></label>
-<label class="opt"><input type="radio" name="q21" value="2"><span>C. <code>delete</code></span></label>
-<label class="opt"><input type="radio" name="q21" value="3"><span>D. <code>delete[]</code></span></label>
-<label class="opt"><input type="radio" name="q21" value="4"><span>E. <code>destruct</code></span></label>
-</div>
+  <div class="q-text">Given the preprocessor performs pure text substitution (no syntax checking), what is printed?<pre><code>#include &lt;iostream&gt;
+#define SQUARE(x) x * x
+int main() {
+    std::cout &lt;&lt; SQUARE(2 + 3);
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. 25</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. 11</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. Compiler Error</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. 10</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. 13</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">For single objects allocated with <code>new</code>, use <code>delete</code>. For array allocations like <code>new Type[N]</code>, use <code>delete[]</code>.</div>
+  <div class="exp">Textual substitution gives 2 + 3 * 2 + 3, which by operator precedence evaluates as 2 + (3*2) + 3 = 2+6+3 = 11, not 25. This is why function-like macros are dangerous without parentheses.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q23</div>
-  <div class="q-text">Which member function signature correctly defines a read-only 'accessor' that prevents modifying the calling object's member variables?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. <code>const double abs();</code></span></label>
-<label class="opt"><input type="radio" name="q22" value="1"><span>B. <code>double abs() const;</code></span></label>
-<label class="opt"><input type="radio" name="q22" value="2"><span>C. <code>double const abs();</code></span></label>
-<label class="opt"><input type="radio" name="q22" value="3"><span>D. <code>void abs(const double);</code></span></label>
-<label class="opt"><input type="radio" name="q22" value="4"><span>E. <code>static double abs();</code></span></label>
-</div>
+  <div class="q-text">Trace the following namespace resolution. What is printed?<pre><code>#include &lt;iostream&gt;
+namespace lab {
+    int n = 4;
+}
+int n = 10;
+int main() {
+    std::cout &lt;&lt; n &lt;&lt; &quot; &quot; &lt;&lt; lab::n;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. 4 4</span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. 10 4</span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. 10 10</span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. 4 10</span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. Compiler Error</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Placing the keyword <code>const</code> after the parameter list (e.g. <code>double abs() const;</code>) tells the compiler that the function is a read-only accessor and cannot modify member variables.</div>
+  <div class="exp">The unqualified n inside main() refers to the global n (10). lab::n explicitly accesses the namespace-scoped n (4). Output: '10 4'.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q24</div>
-  <div class="q-text">What is the primary difference between a C++ <code>struct</code> and a C++ <code>class</code>?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. Classes can have member functions, but structs cannot.</span></label>
-<label class="opt"><input type="radio" name="q23" value="1"><span>B. Structs cannot use templates, whereas classes can.</span></label>
-<label class="opt"><input type="radio" name="q23" value="2"><span>C. Structs default to public visibility for members and inheritance, while classes default to private.</span></label>
-<label class="opt"><input type="radio" name="q23" value="3"><span>D. Structs are allocated on the stack, while classes are always allocated on the heap.</span></label>
-<label class="opt"><input type="radio" name="q23" value="4"><span>E. Structs cannot have constructors or destructors.</span></label>
-</div>
+  <div class="q-text">A student forgets a header guard and includes 'Node.h' from two different .cpp translation units that are linked into the same executable. What is the most likely resulting error?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. Nothing — headers are always safe to include multiple times</span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. A 'multiple definition' linker error if the header contains non-inline definitions</span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. A runtime segmentation fault only</span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. The compiler automatically deduplicates the header</span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. A warning only, compilation still succeeds silently</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">In C++, the only semantic difference is that a <code>struct</code> defaults to public member visibility and inheritance, while a <code>class</code> defaults to private member visibility and inheritance.</div>
+  <div class="exp">Without a header guard, if the header defines (not just declares) functions/variables and is included in multiple .cpp files, each translation unit emits its own copy of the symbol, and the linker reports 'multiple definition' when combining object files.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q25</div>
-  <div class="q-text">Which of the following describes the C++ 'Rule of 5' for resource management?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. Destructor, Copy Constructor, Copy Assignment, Move Constructor, Move Assignment</span></label>
-<label class="opt"><input type="radio" name="q24" value="1"><span>B. Constructor, Destructor, Copy Constructor, Copy Assignment, Move Constructor</span></label>
-<label class="opt"><input type="radio" name="q24" value="2"><span>C. Destructor, Copy Constructor, Copy Assignment, Getter, Setter</span></label>
-<label class="opt"><input type="radio" name="q24" value="3"><span>D. Constructor, Destructor, Template, Friend, Static</span></label>
-<label class="opt"><input type="radio" name="q24" value="4"><span>E. Destructor, Operator<<, Operator>>, Operator=, Constructor</span></label>
-</div>
+  <div class="q-text">Trace pointer arithmetic. What does this print?<pre><code>#include &lt;iostream&gt;
+int main() {
+    int arr[4] = {10, 20, 30, 40};
+    int* p = arr;
+    p += 2;
+    std::cout &lt;&lt; *p &lt;&lt; &quot; &quot; &lt;&lt; *(p - 1);
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. 30 20</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. 20 10</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. 30 40</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. 10 20</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. 40 30</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">The Rule of 5 states that if you need to custom-implement any of the following, you likely need all 5: Destructor, Copy Constructor, Copy Assignment Operator, Move Constructor, and Move Assignment Operator.</div>
+  <div class="exp">p starts at arr[0]. p += 2 advances it by 2 elements (not bytes) to arr[2] = 30. *(p-1) is arr[1] = 20. Output: '30 20'.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q26</div>
-  <div class="q-text">Why is it critical to declare a base class destructor as <code>virtual</code> in an inheritance hierarchy?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. To allow derived class object creation.</span></label>
-<label class="opt"><input type="radio" name="q25" value="1"><span>B. To ensure the derived class destructor is called when a derived object is deleted via a base class pointer.</span></label>
-<label class="opt"><input type="radio" name="q25" value="2"><span>C. To speed up compilation of virtual tables.</span></label>
-<label class="opt"><input type="radio" name="q25" value="3"><span>D. To make derived members public automatically.</span></label>
-<label class="opt"><input type="radio" name="q25" value="4"><span>E. To compile the base class as abstract.</span></label>
-</div>
+  <div class="q-text">What is printed when a template function is instantiated with two different types?<pre><code>#include &lt;iostream&gt;
+template &lt;typename T&gt;
+T sqr(T x) { return x * x; }
+int main() {
+    std::cout &lt;&lt; sqr(3) &lt;&lt; &quot; &quot; &lt;&lt; sqr(2.5);
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. 9 6.25</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. 9 6</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. Compiler Error: sqr redefined</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. 9.0 6.25</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. 6 5</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">If a derived object is deleted via a base class pointer and the base class destructor is not virtual, the derived class destructor will not execute, leading to memory leaks.</div>
+  <div class="exp">The compiler instantiates sqr<int> and sqr<double> separately at compile time based on the argument types. sqr(3) -> 9, sqr(2.5) -> 6.25.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q27</div>
-  <div class="q-text">What occurs when an exception is thrown in C++ but no matching <code>try-catch</code> block catches it?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. The exception is ignored and the program continues.</span></label>
-<label class="opt"><input type="radio" name="q26" value="1"><span>B. The runtime calls <code>std::terminate()</code> and halts the program.</span></label>
-<label class="opt"><input type="radio" name="q26" value="2"><span>C. The compiler automatically repairs the error at runtime.</span></label>
-<label class="opt"><input type="radio" name="q26" value="3"><span>D. The program loops infinitely.</span></label>
-<label class="opt"><input type="radio" name="q26" value="4"><span>E. All pointer allocations are automatically freed.</span></label>
-</div>
+  <div class="q-text">Given a class with a virtual destructor in the base and a derived class allocated via a base pointer, what happens on <code>delete</code>?<pre><code>class Base { public: virtual ~Base(){ /*A*/ } };
+class Derived : public Base { public: ~Derived(){ /*B*/ } };
+Base* b = new Derived();
+delete b;</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. Only Base's destructor (A) runs — memory leak of Derived's members</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. Only Derived's destructor (B) runs</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. Derived's destructor (B) runs first, then Base's (A) — correct full cleanup</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. Undefined behavior always occurs</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. Compiler error: cannot delete through a base pointer</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Uncaught exceptions result in the C++ runtime environment calling <code>std::terminate()</code> (which defaults to <code>abort()</code>), ending program execution immediately.</div>
+  <div class="exp">Because ~Base() is virtual, delete b performs a virtual dispatch: Derived's destructor runs first (cleaning up derived members), then it implicitly calls Base's destructor. Full and correct cleanup occurs.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q28</div>
-  <div class="q-text">What is the consequence of executing: <code>int* p = new int(5); delete p; std::cout << *p;</code>?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. It prints 5.</span></label>
-<label class="opt"><input type="radio" name="q27" value="1"><span>B. It prints 0.</span></label>
-<label class="opt"><input type="radio" name="q27" value="2"><span>C. It causes a compile-time error.</span></label>
-<label class="opt"><input type="radio" name="q27" value="3"><span>D. It triggers Undefined Behavior because <code>p</code> is a dangling pointer pointing to deallocated memory.</span></label>
-<label class="opt"><input type="radio" name="q27" value="4"><span>E. It throws a <code>std::bad_alloc</code> exception.</span></label>
-</div>
+  <div class="q-text">If the base class destructor above were NOT declared virtual, what would happen instead on <code>delete b;</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. Same as before — always safe</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. Only Base's destructor runs; Derived's destructor is skipped, causing a resource leak in Derived's members</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. A compile error</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. Only Derived's destructor runs</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. The program crashes immediately with a segfault</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Deleting a pointer deallocates the memory it points to. Accessing it afterward (dangling pointer reference) results in Undefined Behavior, which could crash the program or output garbage values.</div>
+  <div class="exp">Without a virtual destructor, deleting a derived object through a base pointer only calls the base class's destructor (static binding). Any resources owned exclusively by Derived are leaked — this is why polymorphic base classes should always have virtual destructors.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q29</div>
-  <div class="q-text">What is the return type of the move assignment operator in C++?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. <code>void</code></span></label>
-<label class="opt"><input type="radio" name="q28" value="1"><span>B. <code>ClassType</code></span></label>
-<label class="opt"><input type="radio" name="q28" value="2"><span>C. <code>ClassType&</code></span></label>
-<label class="opt"><input type="radio" name="q28" value="3"><span>D. <code>ClassType&&</code></span></label>
-<label class="opt"><input type="radio" name="q28" value="4"><span>E. <code>const ClassType&</code></span></label>
-</div>
+  <div class="q-text">What does <code>sizeof</code> most likely report for this struct on a typical 64-bit system (assume default alignment)?<pre><code>struct Mixed {
+    char c;   // 1 byte
+    int i;    // 4 bytes
+    char* p;  // 8 bytes
+};</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. 13 bytes (1+4+8, no padding)</span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. 16 bytes (padded for alignment)</span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. 9 bytes</span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. 24 bytes</span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. 20 bytes</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">Like the copy assignment operator, the move assignment operator returns a reference to the calling object (<code>ClassType&</code>) to support chain assignments.</div>
+  <div class="exp">c takes offset 0 (1B) then 3B padding so int i aligns to offset 4 (4B, ends at 8). char* p needs 8-byte alignment, already satisfied at offset 8 (8B, ends at 16). Struct alignment (8, from the pointer) already divides 16 evenly, so no trailing padding is needed. Total: 16 bytes.</div>
 </div>
 
 <div class="q">
   <div class="q-num">Q30</div>
-  <div class="q-text">Which keyword is used to specify that a function can be evaluated at compile-time in C++?</div>
-  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. <code>static</code></span></label>
-<label class="opt"><input type="radio" name="q29" value="1"><span>B. <code>inline</code></span></label>
-<label class="opt"><input type="radio" name="q29" value="2"><span>C. <code>const</code></span></label>
-<label class="opt"><input type="radio" name="q29" value="3"><span>D. <code>constexpr</code></span></label>
-<label class="opt"><input type="radio" name="q29" value="4"><span>E. <code>virtual</code></span></label>
-</div>
+  <div class="q-text">Trace this static local variable across multiple calls. What is printed?<pre><code>#include &lt;iostream&gt;
+void counter() {
+    static int count = 0;
+    count++;
+    std::cout &lt;&lt; count &lt;&lt; &quot; &quot;;
+}
+int main() {
+    counter();
+    counter();
+    counter();
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. 1 2 3</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. 1 1 1</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. 0 1 2</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. 3 3 3</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. Compiler Error</span></label></div>
   <button class="check">Check</button>
-  <div class="exp">The keyword <code>constexpr</code> specifies that the value of a function or variable can be computed at compile-time.</div>
-</div>
+  <div class="exp">A static local variable is initialized only once and retains its value between function calls (unlike a normal local variable, which is re-created and re-initialized every call). Each call increments the same persistent count: 1, then 2, then 3.</div>
 </div>
 
 <div class="score-bar">
@@ -538,7 +557,7 @@ int main() {
   <span style="margin-left:auto">30 questions</span>
 </div>
 
-<script>window.__QS__ = [{"q": "Why must the preprocessor guard directive <code>#ifndef SINGLE_LIST_H</code> be placed at the top of header files?", "options": ["To instruct the compiler to compile the file using inline compiler optimization.", "To prevent the compiler from generating syntax errors due to duplicate declarations when a header file is included multiple times.", "To define a namespace structure automatically.", "To automatically import the standard C++ libraries.", "To allocate global memory segments for templated nodes."], "correct": 1, "explain": "In C++, including the same header multiple times causes duplicate class/variable definitions. Guards like <code>#ifndef</code>, <code>#define</code>, and <code>#endif</code> prevent compiling the definition block twice."}, {"q": "If class <code>ClassA</code> declares class <code>ClassB</code> to be a <code>friend</code> (i.e. <code>friend class ClassB;</code> inside ClassA), which of the following is true?", "options": ["ClassA can access and modify all private members of ClassB.", "ClassB can access and modify all private members of ClassA.", "Both ClassA and ClassB can access each other's private members.", "ClassB gains access, and any subclasses of ClassB automatically gain access to ClassA.", "Friendship is transitive, meaning any friend of ClassB also becomes a friend of ClassA."], "correct": 1, "explain": "Friendship is one-way: ClassA declaring ClassB as a friend allows ClassB to access ClassA's private members, but not vice-versa. Friendship is also neither inherited nor transitive."}, {"q": "Consider the code: <code>int x = 10; int& ref = x; ref += 5; x *= 2;</code>. What is the value of <code>ref</code> after these operations?", "options": ["10", "15", "20", "30", "The compiler triggers an error because reference reassignment is invalid."], "correct": 3, "explain": "A reference is an alias. Adding 5 to <code>ref</code> changes <code>x</code> to 15. Then multiplying <code>x</code> by 2 changes it to 30. Since <code>ref</code> aliases <code>x</code>, it evaluates to 30."}, {"q": "Which C++ operator is used to deallocate memory previously allocated with the <code>new</code> operator for a single object?", "options": ["<code>free</code>", "<code>release</code>", "<code>delete</code>", "<code>delete[]</code>", "<code>destruct</code>"], "correct": 2, "explain": "For single objects allocated with <code>new</code>, use <code>delete</code>. For array allocations like <code>new Type[N]</code>, use <code>delete[]</code>."}, {"q": "Which member function signature correctly defines a read-only 'accessor' that prevents modifying the calling object's member variables?", "options": ["<code>const double abs();</code>", "<code>double abs() const;</code>", "<code>double const abs();</code>", "<code>void abs(const double);</code>", "<code>static double abs();</code>"], "correct": 1, "explain": "Placing the keyword <code>const</code> after the parameter list (e.g. <code>double abs() const;</code>) tells the compiler that the function is a read-only accessor and cannot modify member variables."}, {"q": "What is the primary difference between a C++ <code>struct</code> and a C++ <code>class</code>?", "options": ["Classes can have member functions, but structs cannot.", "Structs cannot use templates, whereas classes can.", "Structs default to public visibility for members and inheritance, while classes default to private.", "Structs are allocated on the stack, while classes are always allocated on the heap.", "Structs cannot have constructors or destructors."], "correct": 2, "explain": "In C++, the only semantic difference is that a <code>struct</code> defaults to public member visibility and inheritance, while a <code>class</code> defaults to private member visibility and inheritance."}, {"q": "Which of the following describes the C++ 'Rule of 5' for resource management?", "options": ["Destructor, Copy Constructor, Copy Assignment, Move Constructor, Move Assignment", "Constructor, Destructor, Copy Constructor, Copy Assignment, Move Constructor", "Destructor, Copy Constructor, Copy Assignment, Getter, Setter", "Constructor, Destructor, Template, Friend, Static", "Destructor, Operator<<, Operator>>, Operator=, Constructor"], "correct": 0, "explain": "The Rule of 5 states that if you need to custom-implement any of the following, you likely need all 5: Destructor, Copy Constructor, Copy Assignment Operator, Move Constructor, and Move Assignment Operator."}, {"q": "Why is it critical to declare a base class destructor as <code>virtual</code> in an inheritance hierarchy?", "options": ["To allow derived class object creation.", "To ensure the derived class destructor is called when a derived object is deleted via a base class pointer.", "To speed up compilation of virtual tables.", "To make derived members public automatically.", "To compile the base class as abstract."], "correct": 1, "explain": "If a derived object is deleted via a base class pointer and the base class destructor is not virtual, the derived class destructor will not execute, leading to memory leaks."}, {"q": "What occurs when an exception is thrown in C++ but no matching <code>try-catch</code> block catches it?", "options": ["The exception is ignored and the program continues.", "The runtime calls <code>std::terminate()</code> and halts the program.", "The compiler automatically repairs the error at runtime.", "The program loops infinitely.", "All pointer allocations are automatically freed."], "correct": 1, "explain": "Uncaught exceptions result in the C++ runtime environment calling <code>std::terminate()</code> (which defaults to <code>abort()</code>), ending program execution immediately."}, {"q": "What is the consequence of executing: <code>int* p = new int(5); delete p; std::cout << *p;</code>?", "options": ["It prints 5.", "It prints 0.", "It causes a compile-time error.", "It triggers Undefined Behavior because <code>p</code> is a dangling pointer pointing to deallocated memory.", "It throws a <code>std::bad_alloc</code> exception."], "correct": 3, "explain": "Deleting a pointer deallocates the memory it points to. Accessing it afterward (dangling pointer reference) results in Undefined Behavior, which could crash the program or output garbage values."}, {"q": "What is the return type of the move assignment operator in C++?", "options": ["<code>void</code>", "<code>ClassType</code>", "<code>ClassType&</code>", "<code>ClassType&&</code>", "<code>const ClassType&</code>"], "correct": 2, "explain": "Like the copy assignment operator, the move assignment operator returns a reference to the calling object (<code>ClassType&</code>) to support chain assignments."}, {"q": "Which keyword is used to specify that a function can be evaluated at compile-time in C++?", "options": ["<code>static</code>", "<code>inline</code>", "<code>const</code>", "<code>constexpr</code>", "<code>virtual</code>"], "correct": 3, "explain": "The keyword <code>constexpr</code> specifies that the value of a function or variable can be computed at compile-time."}, {"q": "What occurs during a shallow copy of a class containing a raw pointer to dynamically allocated memory?", "options": ["A new copy of the heap memory is allocated.", "Both objects point to the same memory location, leading to potential double-free crashes.", "The program crashes immediately during compilation.", "The original object's pointer is set to nullptr.", "The pointer size doubles."], "correct": 1, "explain": "Shallow copying copies only pointer addresses, not the underlying heap memory. This leads to two instances managing the same memory, triggering double frees on destruction."}, {"q": "Which of the following describes the difference between <code>delete</code> and <code>delete[]</code>?", "options": ["<code>delete[]</code> frees twice as much memory.", "<code>delete[]</code> calls destructors for every object in the allocated array, while <code>delete</code> only calls it for the first element.", "<code>delete</code> is used for classes, <code>delete[]</code> is used for basic data types.", "<code>delete[]</code> is deprecated in C++17.", "<code>delete</code> automatically calls garbage collection."], "correct": 1, "explain": "For arrays allocated via <code>new Type[N]</code>, <code>delete[]</code> ensures the compiler calls the destructor for all $N$ objects in the array. <code>delete</code> only calls it for the first."}, {"q": "What does the C++ <code>noexcept</code> specifier indicate on a function declaration?", "options": ["The function is not allowed to return a value.", "The function does not accept parameters.", "The function is guaranteed not to throw any exceptions.", "The function runs in $O(1)$ time.", "The function cannot be overloaded."], "correct": 2, "explain": "The <code>noexcept</code> specifier tells the compiler and runtime that a function is guaranteed not to throw any exceptions, allowing performance optimizations during move operations."}, {"q": "What is the output of the following C++ code?<pre><code>#include &lt;iostream&gt;\nvoid modify(int* a, int&amp; b) {\n    *a += 5;\n    b *= 2;\n}\nint main() {\n    int x = 10, y = 20;\n    modify(&amp;x, y);\n    std::cout &lt;&lt; (x + y);\n    return 0;\n}</code></pre>", "options": ["30", "50", "55", "60", "Compiler Error"], "correct": 2, "explain": "Inside <code>modify</code>, <code>x</code> is modified via pointer dereference (*a += 5) to 15. <code>y</code> is passed by reference, so b *= 2 modifies <code>y</code> to 40. The sum 15 + 40 equals 55."}, {"q": "Read the following class definitions. What is printed when this program is executed?<pre><code>#include &lt;iostream&gt;\nclass Test {\npublic:\n    Test() { std::cout &lt;&lt; \"C\"; }\n    Test(const Test&amp;) { std::cout &lt;&lt; \"K\"; }\n    Test&amp; operator=(const Test&amp;) { std::cout &lt;&lt; \"A\"; return *this; }\n};\nint main() {\n    Test t1;\n    Test t2 = t1;\n    Test t3;\n    t3 = t2;\n    return 0;\n}</code></pre>", "options": ["CCAA", "CKCA", "CKKA", "CKAA", "CCKA"], "correct": 1, "explain": "1) <code>Test t1;</code> calls default constructor, printing 'C'.\n2) <code>Test t2 = t1;</code> is copy initialization, invoking the copy constructor, printing 'K'.\n3) <code>Test t3;</code> calls default constructor, printing 'C'.\n4) <code>t3 = t2;</code> is assignment on an already-constructed object, invoking the assignment operator, printing 'A'. Output: CKCA."}, {"q": "Predict the output or behavior of this code block representing inheritance destruction:<pre><code>#include &lt;iostream&gt;\nclass Base {\npublic:\n    ~Base() { std::cout &lt;&lt; \"B\"; }\n};\nclass Derived : public Base {\npublic:\n    ~Derived() { std::cout &lt;&lt; \"D\"; }\n};\nint main() {\n    Base* ptr = new Derived();\n    delete ptr;\n    return 0;\n}</code></pre>", "options": ["Prints 'D'", "Prints 'B'", "Prints 'DB'", "Prints 'BD'", "Segmentation fault"], "correct": 1, "explain": "Because the Base class destructor is not declared <code>virtual</code>, deleting a Derived object via a Base pointer leads to static dispatch: only the Base destructor is called, printing 'B'. Derived destructor is bypassed, leaking memory."}, {"q": "Why must the preprocessor guard directive <code>#ifndef SINGLE_LIST_H</code> be placed at the top of header files?", "options": ["To instruct the compiler to compile the file using inline compiler optimization.", "To prevent the compiler from generating syntax errors due to duplicate declarations when a header file is included multiple times.", "To define a namespace structure automatically.", "To automatically import the standard C++ libraries.", "To allocate global memory segments for templated nodes."], "correct": 1, "explain": "In C++, including the same header multiple times causes duplicate class/variable definitions. Guards like <code>#ifndef</code>, <code>#define</code>, and <code>#endif</code> prevent compiling the definition block twice."}, {"q": "If class <code>ClassA</code> declares class <code>ClassB</code> to be a <code>friend</code> (i.e. <code>friend class ClassB;</code> inside ClassA), which of the following is true?", "options": ["ClassA can access and modify all private members of ClassB.", "ClassB can access and modify all private members of ClassA.", "Both ClassA and ClassB can access each other's private members.", "ClassB gains access, and any subclasses of ClassB automatically gain access to ClassA.", "Friendship is transitive, meaning any friend of ClassB also becomes a friend of ClassA."], "correct": 1, "explain": "Friendship is one-way: ClassA declaring ClassB as a friend allows ClassB to access ClassA's private members, but not vice-versa. Friendship is also neither inherited nor transitive."}, {"q": "Consider the code: <code>int x = 10; int& ref = x; ref += 5; x *= 2;</code>. What is the value of <code>ref</code> after these operations?", "options": ["10", "15", "20", "30", "The compiler triggers an error because reference reassignment is invalid."], "correct": 3, "explain": "A reference is an alias. Adding 5 to <code>ref</code> changes <code>x</code> to 15. Then multiplying <code>x</code> by 2 changes it to 30. Since <code>ref</code> aliases <code>x</code>, it evaluates to 30."}, {"q": "Which C++ operator is used to deallocate memory previously allocated with the <code>new</code> operator for a single object?", "options": ["<code>free</code>", "<code>release</code>", "<code>delete</code>", "<code>delete[]</code>", "<code>destruct</code>"], "correct": 2, "explain": "For single objects allocated with <code>new</code>, use <code>delete</code>. For array allocations like <code>new Type[N]</code>, use <code>delete[]</code>."}, {"q": "Which member function signature correctly defines a read-only 'accessor' that prevents modifying the calling object's member variables?", "options": ["<code>const double abs();</code>", "<code>double abs() const;</code>", "<code>double const abs();</code>", "<code>void abs(const double);</code>", "<code>static double abs();</code>"], "correct": 1, "explain": "Placing the keyword <code>const</code> after the parameter list (e.g. <code>double abs() const;</code>) tells the compiler that the function is a read-only accessor and cannot modify member variables."}, {"q": "What is the primary difference between a C++ <code>struct</code> and a C++ <code>class</code>?", "options": ["Classes can have member functions, but structs cannot.", "Structs cannot use templates, whereas classes can.", "Structs default to public visibility for members and inheritance, while classes default to private.", "Structs are allocated on the stack, while classes are always allocated on the heap.", "Structs cannot have constructors or destructors."], "correct": 2, "explain": "In C++, the only semantic difference is that a <code>struct</code> defaults to public member visibility and inheritance, while a <code>class</code> defaults to private member visibility and inheritance."}, {"q": "Which of the following describes the C++ 'Rule of 5' for resource management?", "options": ["Destructor, Copy Constructor, Copy Assignment, Move Constructor, Move Assignment", "Constructor, Destructor, Copy Constructor, Copy Assignment, Move Constructor", "Destructor, Copy Constructor, Copy Assignment, Getter, Setter", "Constructor, Destructor, Template, Friend, Static", "Destructor, Operator<<, Operator>>, Operator=, Constructor"], "correct": 0, "explain": "The Rule of 5 states that if you need to custom-implement any of the following, you likely need all 5: Destructor, Copy Constructor, Copy Assignment Operator, Move Constructor, and Move Assignment Operator."}, {"q": "Why is it critical to declare a base class destructor as <code>virtual</code> in an inheritance hierarchy?", "options": ["To allow derived class object creation.", "To ensure the derived class destructor is called when a derived object is deleted via a base class pointer.", "To speed up compilation of virtual tables.", "To make derived members public automatically.", "To compile the base class as abstract."], "correct": 1, "explain": "If a derived object is deleted via a base class pointer and the base class destructor is not virtual, the derived class destructor will not execute, leading to memory leaks."}, {"q": "What occurs when an exception is thrown in C++ but no matching <code>try-catch</code> block catches it?", "options": ["The exception is ignored and the program continues.", "The runtime calls <code>std::terminate()</code> and halts the program.", "The compiler automatically repairs the error at runtime.", "The program loops infinitely.", "All pointer allocations are automatically freed."], "correct": 1, "explain": "Uncaught exceptions result in the C++ runtime environment calling <code>std::terminate()</code> (which defaults to <code>abort()</code>), ending program execution immediately."}, {"q": "What is the consequence of executing: <code>int* p = new int(5); delete p; std::cout << *p;</code>?", "options": ["It prints 5.", "It prints 0.", "It causes a compile-time error.", "It triggers Undefined Behavior because <code>p</code> is a dangling pointer pointing to deallocated memory.", "It throws a <code>std::bad_alloc</code> exception."], "correct": 3, "explain": "Deleting a pointer deallocates the memory it points to. Accessing it afterward (dangling pointer reference) results in Undefined Behavior, which could crash the program or output garbage values."}, {"q": "What is the return type of the move assignment operator in C++?", "options": ["<code>void</code>", "<code>ClassType</code>", "<code>ClassType&</code>", "<code>ClassType&&</code>", "<code>const ClassType&</code>"], "correct": 2, "explain": "Like the copy assignment operator, the move assignment operator returns a reference to the calling object (<code>ClassType&</code>) to support chain assignments."}, {"q": "Which keyword is used to specify that a function can be evaluated at compile-time in C++?", "options": ["<code>static</code>", "<code>inline</code>", "<code>const</code>", "<code>constexpr</code>", "<code>virtual</code>"], "correct": 3, "explain": "The keyword <code>constexpr</code> specifies that the value of a function or variable can be computed at compile-time."}];</script>
+<script>window.__QS__ = [{"q": "Why must the preprocessor guard directive <code>#ifndef SINGLE_LIST_H</code> be placed at the top of header files?", "options": ["To instruct the compiler to compile the file using inline compiler optimization.", "To prevent the compiler from generating syntax errors due to duplicate declarations when a header file is included multiple times.", "To define a namespace structure automatically.", "To automatically import the standard C++ libraries.", "To allocate global memory segments for templated nodes."], "correct": 1, "explain": "In C++, including the same header multiple times causes duplicate class/variable definitions. Guards like <code>#ifndef</code>, <code>#define</code>, and <code>#endif</code> prevent compiling the definition block twice."}, {"q": "If class <code>ClassA</code> declares class <code>ClassB</code> to be a <code>friend</code> (i.e. <code>friend class ClassB;</code> inside ClassA), which of the following is true?", "options": ["ClassA can access and modify all private members of ClassB.", "ClassB can access and modify all private members of ClassA.", "Both ClassA and ClassB can access each other's private members.", "ClassB gains access, and any subclasses of ClassB automatically gain access to ClassA.", "Friendship is transitive, meaning any friend of ClassB also becomes a friend of ClassA."], "correct": 1, "explain": "Friendship is one-way: ClassA declaring ClassB as a friend allows ClassB to access ClassA's private members, but not vice-versa. Friendship is also neither inherited nor transitive."}, {"q": "Consider the code: <code>int x = 10; int& ref = x; ref += 5; x *= 2;</code>. What is the value of <code>ref</code> after these operations?", "options": ["10", "15", "20", "30", "The compiler triggers an error because reference reassignment is invalid."], "correct": 3, "explain": "A reference is an alias. Adding 5 to <code>ref</code> changes <code>x</code> to 15. Then multiplying <code>x</code> by 2 changes it to 30. Since <code>ref</code> aliases <code>x</code>, it evaluates to 30."}, {"q": "Which C++ operator is used to deallocate memory previously allocated with the <code>new</code> operator for a single object?", "options": ["<code>free</code>", "<code>release</code>", "<code>delete</code>", "<code>delete[]</code>", "<code>destruct</code>"], "correct": 2, "explain": "For single objects allocated with <code>new</code>, use <code>delete</code>. For array allocations like <code>new Type[N]</code>, use <code>delete[]</code>."}, {"q": "Which member function signature correctly defines a read-only 'accessor' that prevents modifying the calling object's member variables?", "options": ["<code>const double abs();</code>", "<code>double abs() const;</code>", "<code>double const abs();</code>", "<code>void abs(const double);</code>", "<code>static double abs();</code>"], "correct": 1, "explain": "Placing the keyword <code>const</code> after the parameter list (e.g. <code>double abs() const;</code>) tells the compiler that the function is a read-only accessor and cannot modify member variables."}, {"q": "What is the primary difference between a C++ <code>struct</code> and a C++ <code>class</code>?", "options": ["Classes can have member functions, but structs cannot.", "Structs cannot use templates, whereas classes can.", "Structs default to public visibility for members and inheritance, while classes default to private.", "Structs are allocated on the stack, while classes are always allocated on the heap.", "Structs cannot have constructors or destructors."], "correct": 2, "explain": "In C++, the only semantic difference is that a <code>struct</code> defaults to public member visibility and inheritance, while a <code>class</code> defaults to private member visibility and inheritance."}, {"q": "Which of the following describes the C++ 'Rule of 5' for resource management?", "options": ["Destructor, Copy Constructor, Copy Assignment, Move Constructor, Move Assignment", "Constructor, Destructor, Copy Constructor, Copy Assignment, Move Constructor", "Destructor, Copy Constructor, Copy Assignment, Getter, Setter", "Constructor, Destructor, Template, Friend, Static", "Destructor, Operator<<, Operator>>, Operator=, Constructor"], "correct": 0, "explain": "The Rule of 5 states that if you need to custom-implement any of the following, you likely need all 5: Destructor, Copy Constructor, Copy Assignment Operator, Move Constructor, and Move Assignment Operator."}, {"q": "Why is it critical to declare a base class destructor as <code>virtual</code> in an inheritance hierarchy?", "options": ["To allow derived class object creation.", "To ensure the derived class destructor is called when a derived object is deleted via a base class pointer.", "To speed up compilation of virtual tables.", "To make derived members public automatically.", "To compile the base class as abstract."], "correct": 1, "explain": "If a derived object is deleted via a base class pointer and the base class destructor is not virtual, the derived class destructor will not execute, leading to memory leaks."}, {"q": "What occurs when an exception is thrown in C++ but no matching <code>try-catch</code> block catches it?", "options": ["The exception is ignored and the program continues.", "The runtime calls <code>std::terminate()</code> and halts the program.", "The compiler automatically repairs the error at runtime.", "The program loops infinitely.", "All pointer allocations are automatically freed."], "correct": 1, "explain": "Uncaught exceptions result in the C++ runtime environment calling <code>std::terminate()</code> (which defaults to <code>abort()</code>), ending program execution immediately."}, {"q": "What is the consequence of executing: <code>int* p = new int(5); delete p; std::cout << *p;</code>?", "options": ["It prints 5.", "It prints 0.", "It causes a compile-time error.", "It triggers Undefined Behavior because <code>p</code> is a dangling pointer pointing to deallocated memory.", "It throws a <code>std::bad_alloc</code> exception."], "correct": 3, "explain": "Deleting a pointer deallocates the memory it points to. Accessing it afterward (dangling pointer reference) results in Undefined Behavior, which could crash the program or output garbage values."}, {"q": "What is the return type of the move assignment operator in C++?", "options": ["<code>void</code>", "<code>ClassType</code>", "<code>ClassType&</code>", "<code>ClassType&&</code>", "<code>const ClassType&</code>"], "correct": 2, "explain": "Like the copy assignment operator, the move assignment operator returns a reference to the calling object (<code>ClassType&</code>) to support chain assignments."}, {"q": "Which keyword is used to specify that a function can be evaluated at compile-time in C++?", "options": ["<code>static</code>", "<code>inline</code>", "<code>const</code>", "<code>constexpr</code>", "<code>virtual</code>"], "correct": 3, "explain": "The keyword <code>constexpr</code> specifies that the value of a function or variable can be computed at compile-time."}, {"q": "What occurs during a shallow copy of a class containing a raw pointer to dynamically allocated memory?", "options": ["A new copy of the heap memory is allocated.", "Both objects point to the same memory location, leading to potential double-free crashes.", "The program crashes immediately during compilation.", "The original object's pointer is set to nullptr.", "The pointer size doubles."], "correct": 1, "explain": "Shallow copying copies only pointer addresses, not the underlying heap memory. This leads to two instances managing the same memory, triggering double frees on destruction."}, {"q": "Which of the following describes the difference between <code>delete</code> and <code>delete[]</code>?", "options": ["<code>delete[]</code> frees twice as much memory.", "<code>delete[]</code> calls destructors for every object in the allocated array, while <code>delete</code> only calls it for the first element.", "<code>delete</code> is used for classes, <code>delete[]</code> is used for basic data types.", "<code>delete[]</code> is deprecated in C++17.", "<code>delete</code> automatically calls garbage collection."], "correct": 1, "explain": "For arrays allocated via <code>new Type[N]</code>, <code>delete[]</code> ensures the compiler calls the destructor for all $N$ objects in the array. <code>delete</code> only calls it for the first."}, {"q": "What does the C++ <code>noexcept</code> specifier indicate on a function declaration?", "options": ["The function is not allowed to return a value.", "The function does not accept parameters.", "The function is guaranteed not to throw any exceptions.", "The function runs in $O(1)$ time.", "The function cannot be overloaded."], "correct": 2, "explain": "The <code>noexcept</code> specifier tells the compiler and runtime that a function is guaranteed not to throw any exceptions, allowing performance optimizations during move operations."}, {"q": "What is the output of the following C++ code?<pre><code>#include &lt;iostream&gt;\nvoid modify(int* a, int&amp; b) {\n    *a += 5;\n    b *= 2;\n}\nint main() {\n    int x = 10, y = 20;\n    modify(&amp;x, y);\n    std::cout &lt;&lt; (x + y);\n    return 0;\n}</code></pre>", "options": ["30", "50", "55", "60", "Compiler Error"], "correct": 2, "explain": "Inside <code>modify</code>, <code>x</code> is modified via pointer dereference (*a += 5) to 15. <code>y</code> is passed by reference, so b *= 2 modifies <code>y</code> to 40. The sum 15 + 40 equals 55."}, {"q": "Read the following class definitions. What is printed when this program is executed?<pre><code>#include &lt;iostream&gt;\nclass Test {\npublic:\n    Test() { std::cout &lt;&lt; \"C\"; }\n    Test(const Test&amp;) { std::cout &lt;&lt; \"K\"; }\n    Test&amp; operator=(const Test&amp;) { std::cout &lt;&lt; \"A\"; return *this; }\n};\nint main() {\n    Test t1;\n    Test t2 = t1;\n    Test t3;\n    t3 = t2;\n    return 0;\n}</code></pre>", "options": ["CCAA", "CKCA", "CKKA", "CKAA", "CCKA"], "correct": 1, "explain": "1) <code>Test t1;</code> calls default constructor, printing 'C'.\n2) <code>Test t2 = t1;</code> is copy initialization, invoking the copy constructor, printing 'K'.\n3) <code>Test t3;</code> calls default constructor, printing 'C'.\n4) <code>t3 = t2;</code> is assignment on an already-constructed object, invoking the assignment operator, printing 'A'. Output: CKCA."}, {"q": "Predict the output or behavior of this code block representing inheritance destruction:<pre><code>#include &lt;iostream&gt;\nclass Base {\npublic:\n    ~Base() { std::cout &lt;&lt; \"B\"; }\n};\nclass Derived : public Base {\npublic:\n    ~Derived() { std::cout &lt;&lt; \"D\"; }\n};\nint main() {\n    Base* ptr = new Derived();\n    delete ptr;\n    return 0;\n}</code></pre>", "options": ["Prints 'D'", "Prints 'B'", "Prints 'DB'", "Prints 'BD'", "Segmentation fault"], "correct": 1, "explain": "Because the Base class destructor is not declared <code>virtual</code>, deleting a Derived object via a Base pointer leads to static dispatch: only the Base destructor is called, printing 'B'. Derived destructor is bypassed, leaking memory."}, {"q": "Trace the recursion. What value does <code>func(4)</code> return?<pre><code>int func(int x) {\n    if (x &lt; 1) return 0;\n    return x + func(x - 1);\n}</code></pre>", "options": ["6", "10", "4", "0", "24"], "correct": 1, "explain": "func(4)=4+func(3), func(3)=3+func(2), func(2)=2+func(1), func(1)=1+func(0), func(0)=0. Summing back: 1, 3, 6, 10. func(4)=10."}, {"q": "Trace this loop. What is <code>arr[3]</code> after execution?<pre><code>int arr[5];\narr[0] = 1;\nfor (int i = 1; i &lt; 5; ++i) {\n    arr[i] = 2 * arr[i - 1] + 1;\n}</code></pre>", "options": ["7", "15", "3", "31", "1"], "correct": 1, "explain": "arr[0]=1, arr[1]=2*1+1=3, arr[2]=2*3+1=7, arr[3]=2*7+1=15."}, {"q": "What is printed by this operator chaining?<pre><code>#include &lt;iostream&gt;\nint sqr(int x){ return x*x; }\nint main(){\n    std::cout &lt;&lt; &quot;val=&quot; &lt;&lt; sqr(3) &lt;&lt; std::endl;\n}</code></pre>", "options": ["val=9", "val=6", "val=3sqr(3)", "Compiler Error", "val=x*x"], "correct": 0, "explain": "cout << is evaluated left to right: ((cout << \"val=\") << sqr(3)) << endl. sqr(3) evaluates to 9, so it prints 'val=9'."}, {"q": "Given the preprocessor performs pure text substitution (no syntax checking), what is printed?<pre><code>#include &lt;iostream&gt;\n#define SQUARE(x) x * x\nint main() {\n    std::cout &lt;&lt; SQUARE(2 + 3);\n}</code></pre>", "options": ["25", "11", "Compiler Error", "10", "13"], "correct": 1, "explain": "Textual substitution gives 2 + 3 * 2 + 3, which by operator precedence evaluates as 2 + (3*2) + 3 = 2+6+3 = 11, not 25. This is why function-like macros are dangerous without parentheses."}, {"q": "Trace the following namespace resolution. What is printed?<pre><code>#include &lt;iostream&gt;\nnamespace lab {\n    int n = 4;\n}\nint n = 10;\nint main() {\n    std::cout &lt;&lt; n &lt;&lt; &quot; &quot; &lt;&lt; lab::n;\n}</code></pre>", "options": ["4 4", "10 4", "10 10", "4 10", "Compiler Error"], "correct": 1, "explain": "The unqualified n inside main() refers to the global n (10). lab::n explicitly accesses the namespace-scoped n (4). Output: '10 4'."}, {"q": "A student forgets a header guard and includes 'Node.h' from two different .cpp translation units that are linked into the same executable. What is the most likely resulting error?", "options": ["Nothing — headers are always safe to include multiple times", "A 'multiple definition' linker error if the header contains non-inline definitions", "A runtime segmentation fault only", "The compiler automatically deduplicates the header", "A warning only, compilation still succeeds silently"], "correct": 1, "explain": "Without a header guard, if the header defines (not just declares) functions/variables and is included in multiple .cpp files, each translation unit emits its own copy of the symbol, and the linker reports 'multiple definition' when combining object files."}, {"q": "Trace pointer arithmetic. What does this print?<pre><code>#include &lt;iostream&gt;\nint main() {\n    int arr[4] = {10, 20, 30, 40};\n    int* p = arr;\n    p += 2;\n    std::cout &lt;&lt; *p &lt;&lt; &quot; &quot; &lt;&lt; *(p - 1);\n}</code></pre>", "options": ["30 20", "20 10", "30 40", "10 20", "40 30"], "correct": 0, "explain": "p starts at arr[0]. p += 2 advances it by 2 elements (not bytes) to arr[2] = 30. *(p-1) is arr[1] = 20. Output: '30 20'."}, {"q": "What is printed when a template function is instantiated with two different types?<pre><code>#include &lt;iostream&gt;\ntemplate &lt;typename T&gt;\nT sqr(T x) { return x * x; }\nint main() {\n    std::cout &lt;&lt; sqr(3) &lt;&lt; &quot; &quot; &lt;&lt; sqr(2.5);\n}</code></pre>", "options": ["9 6.25", "9 6", "Compiler Error: sqr redefined", "9.0 6.25", "6 5"], "correct": 0, "explain": "The compiler instantiates sqr<int> and sqr<double> separately at compile time based on the argument types. sqr(3) -> 9, sqr(2.5) -> 6.25."}, {"q": "Given a class with a virtual destructor in the base and a derived class allocated via a base pointer, what happens on <code>delete</code>?<pre><code>class Base { public: virtual ~Base(){ /*A*/ } };\nclass Derived : public Base { public: ~Derived(){ /*B*/ } };\nBase* b = new Derived();\ndelete b;</code></pre>", "options": ["Only Base's destructor (A) runs — memory leak of Derived's members", "Only Derived's destructor (B) runs", "Derived's destructor (B) runs first, then Base's (A) — correct full cleanup", "Undefined behavior always occurs", "Compiler error: cannot delete through a base pointer"], "correct": 2, "explain": "Because ~Base() is virtual, delete b performs a virtual dispatch: Derived's destructor runs first (cleaning up derived members), then it implicitly calls Base's destructor. Full and correct cleanup occurs."}, {"q": "If the base class destructor above were NOT declared virtual, what would happen instead on <code>delete b;</code>?", "options": ["Same as before — always safe", "Only Base's destructor runs; Derived's destructor is skipped, causing a resource leak in Derived's members", "A compile error", "Only Derived's destructor runs", "The program crashes immediately with a segfault"], "correct": 1, "explain": "Without a virtual destructor, deleting a derived object through a base pointer only calls the base class's destructor (static binding). Any resources owned exclusively by Derived are leaked — this is why polymorphic base classes should always have virtual destructors."}, {"q": "What does <code>sizeof</code> most likely report for this struct on a typical 64-bit system (assume default alignment)?<pre><code>struct Mixed {\n    char c;   // 1 byte\n    int i;    // 4 bytes\n    char* p;  // 8 bytes\n};</code></pre>", "options": ["13 bytes (1+4+8, no padding)", "16 bytes (padded for alignment)", "9 bytes", "24 bytes", "20 bytes"], "correct": 1, "explain": "c takes offset 0 (1B) then 3B padding so int i aligns to offset 4 (4B, ends at 8). char* p needs 8-byte alignment, already satisfied at offset 8 (8B, ends at 16). Struct alignment (8, from the pointer) already divides 16 evenly, so no trailing padding is needed. Total: 16 bytes."}, {"q": "Trace this static local variable across multiple calls. What is printed?<pre><code>#include &lt;iostream&gt;\nvoid counter() {\n    static int count = 0;\n    count++;\n    std::cout &lt;&lt; count &lt;&lt; &quot; &quot;;\n}\nint main() {\n    counter();\n    counter();\n    counter();\n}</code></pre>", "options": ["1 2 3", "1 1 1", "0 1 2", "3 3 3", "Compiler Error"], "correct": 0, "explain": "A static local variable is initialized only once and retains its value between function calls (unlike a normal local variable, which is re-created and re-initialized every call). Each call increments the same persistent count: 1, then 2, then 3."}];</script>
 <script>
 const QS = window.__QS__;
 let correct = 0, answered = 0;

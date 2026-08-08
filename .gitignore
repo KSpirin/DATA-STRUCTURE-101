@@ -40,4 +40,5 @@ compile_commands.json
 # Private lecture slides (not for redistribution)
 _ForStudents/
 
-
+# Temporary / draft files
+temp/

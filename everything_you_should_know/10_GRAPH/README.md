@@ -1,3 +1,6 @@
+> [!WARNING]
+> **DRAFT / UNVERIFIED:** This chapter is currently under review and may contain factual errors. Please do not use this as a definitive reference until this warning is removed.
+
 # Study Guide: Graphs (Part I & II)
 
 Welcome to the ultimate study guide for **Graphs**. This document covers foundational graph theory, representations, traversal algorithms (DFS & BFS), edge classifications, topological sorting, and transitive closure (Warshall's Algorithm). Full templated C++ implementations are included.
