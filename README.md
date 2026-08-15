@@ -32,16 +32,16 @@ Built to score 100/100 — and structured to be useful for anyone learning the s
 
 | # | Topic | Theory | LeetCode Solutions | Mock Challenges |
 |---|-------|--------|-------------------|-----------------|
-| 01 | C++ Basics & Memory | [Guide](everything_you_should_know/1_CPP/README.md) | [5 problems](leetcode/1_CPP/) | [3 challenges](mimi_exam/1_CPP/) |
-| 02 | Stack | [Guide](everything_you_should_know/2_STACK/README.md) | [7 problems](leetcode/2_STACK/) | [3 challenges](mimi_exam/2_STACK/) |
-| 03 | Queue | [Guide](everything_you_should_know/3_QUEUE/README.md) | [7 problems](leetcode/3_QUEUE/) | [3 challenges](mimi_exam/3_QUEUE/) |
-| 04 | Linked List | [Guide](everything_you_should_know/4_LINKED_LIST/README.md) | [8 problems](leetcode/4_LINKED_LIST/) | [3 challenges](mimi_exam/4_LINKED_LIST/) |
-| 05 | Hash Table | [Guide](everything_you_should_know/5_HASH/README.md) | [7 problems](leetcode/5_HASH/) | [3 challenges](mimi_exam/5_HASH/) |
-| 06 | Heap / Priority Queue | [Guide](everything_you_should_know/6_HEAP/README.md) | [7 problems](leetcode/6_HEAP/) | [3 challenges](mimi_exam/6_HEAP/) |
-| 07 | Binary Tree | [Guide](everything_you_should_know/7_BINARY_TREE/README.md) | [7 problems](leetcode/7_BINARY_TREE/) | [3 challenges](mimi_exam/7_BINARY_TREE/) |
-| 08 | Binary Search Tree | [Guide](everything_you_should_know/8_BST/README.md) | [7 problems](leetcode/8_BST/) | [3 challenges](mimi_exam/8_BST/) |
-| 09 | AVL Tree | [Guide](everything_you_should_know/9_AVL/README.md) | [5 problems](leetcode/9_AVL/) | [3 challenges](mimi_exam/9_AVL/) |
-| 10 | Graph (BFS / DFS / Dijkstra / DSU) | [Guide](everything_you_should_know/10_GRAPH/README.md) | [8 problems](leetcode/10_GRAPH/) | [3 challenges](mimi_exam/10_GRAPH/) |
+| 01 | C++ Basics & Memory | [Guide](everything_you_should_know/01_CPP.md) | [5 problems](leetcode/01_CPP/) | [3 challenges](mimi_exam/01_CPP/) |
+| 02 | Stack | [Guide](everything_you_should_know/02_STACK.md) | [7 problems](leetcode/02_STACK/) | [3 challenges](mimi_exam/02_STACK/) |
+| 03 | Queue | [Guide](everything_you_should_know/03_QUEUE.md) | [7 problems](leetcode/03_QUEUE/) | [3 challenges](mimi_exam/03_QUEUE/) |
+| 04 | Linked List | [Guide](everything_you_should_know/04_LINKED_LIST.md) | [8 problems](leetcode/04_LINKED_LIST/) | [3 challenges](mimi_exam/04_LINKED_LIST/) |
+| 05 | Hash Table | [Guide](everything_you_should_know/05_HASH.md) | [7 problems](leetcode/05_HASH/) | [3 challenges](mimi_exam/05_HASH/) |
+| 06 | Heap / Priority Queue | [Guide](everything_you_should_know/06_HEAP.md) | [7 problems](leetcode/06_HEAP/) | [3 challenges](mimi_exam/06_HEAP/) |
+| 07 | Binary Tree | [Guide](everything_you_should_know/07_BINARY_TREE.md) | [7 problems](leetcode/07_BINARY_TREE/) | [3 challenges](mimi_exam/07_BINARY_TREE/) |
+| 08 | Binary Search Tree | [Guide](everything_you_should_know/08_BST.md) | [7 problems](leetcode/08_BST/) | [3 challenges](mimi_exam/08_BST/) |
+| 09 | AVL Tree | [Guide](everything_you_should_know/09_AVL.md) | [5 problems](leetcode/09_AVL/) | [3 challenges](mimi_exam/09_AVL/) |
+| 10 | Graph (BFS / DFS / Dijkstra / DSU) | [Guide](everything_you_should_know/10_GRAPH.md) | [8 problems](leetcode/10_GRAPH/) | [3 challenges](mimi_exam/10_GRAPH/) |
 
 ---
 
@@ -51,12 +51,12 @@ Each challenge in `mimi_exam/` follows the LeetCode problem structure:
 
 ```
 mimi_exam/
- 2_STACK/
- question_1.md problem statement + examples + constraints
- starter_1.cpp blank skeleton with numbered // TODO comments
- question_2.md
- starter_2.cpp
- ...
+ 02_STACK/
+  question_1.md problem statement + examples + constraints
+  starter_1.cpp blank skeleton with numbered // TODO comments
+  question_2.md
+  starter_2.cpp
+  ...
 ```
 
 `solution/` is updated weekly as problems get solved.
