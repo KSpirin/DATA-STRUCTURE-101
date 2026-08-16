@@ -32,9 +32,7 @@ Built to score 100/100 — and structured to be useful for anyone learning the s
 
 | # | Topic | Theory | LeetCode Solutions | Mock Challenges |
 |---|-------|--------|-------------------|-----------------| 
-| 01 | **Foundations** | | | |
-| 01-A | C++ Basics & Memory | [Guide](everything_you_should_know/01_CPP.md) | [5 problems](leetcode/01_CPP/) | [3 challenges](mimi_exam/01_CPP/) |
-| 01-B | Arrays & Vectors | — | — | — |
+| 01 | C++ Basics, Memory & Arrays | [Guide](everything_you_should_know/01_CPP.md) | [5 problems](leetcode/01_CPP/) | [3 challenges](mimi_exam/01_CPP/) |
 | 02 | Stack | [Guide](everything_you_should_know/02_STACK.md) | [7 problems](leetcode/02_STACK/) | [3 challenges](mimi_exam/02_STACK/) |
 | 03 | Queue | [Guide](everything_you_should_know/03_QUEUE.md) | [7 problems](leetcode/03_QUEUE/) | [3 challenges](mimi_exam/03_QUEUE/) |
 | 04 | Linked List | [Guide](everything_you_should_know/04_LINKED_LIST.md) | [8 problems](leetcode/04_LINKED_LIST/) | [3 challenges](mimi_exam/04_LINKED_LIST/) |
