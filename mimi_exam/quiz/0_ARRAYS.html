@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>01. C++ Basics & Memory Management — Quiz</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav>
+  <a class="home" href="index.html">Quiz Home</a>
+  <span class="sep">/</span>
+  <span class="topic">Arrays</span>
+  <div class="nav-links">
+    <a href="1_CPP.html">← C++</a>
+    <a href="2_STACK.html">Stack →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <h1>00. Arrays</h1>
+
+<div class="q">
+  <div class="q-num">Q1</div>
+  <div class="q-text">In C++, if an array is declared as <code>int a[5];</code>, what is the valid index range for accessing its elements?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q0" value="0"><span>A. 0 to 4</span></label>
+<label class="opt"><input type="radio" name="q0" value="1"><span>B. 1 to 5</span></label>
+<label class="opt"><input type="radio" name="q0" value="2"><span>C. 0 to 5</span></label>
+<label class="opt"><input type="radio" name="q0" value="3"><span>D. 1 to 4</span></label>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. -1 to 4</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">C++ arrays are 0-indexed. An array of 5 elements has valid indices 0, 1, 2, 3, and 4.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q2</div>
+  <div class="q-text">In an array, what is the difference between capacity and size?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q1" value="0"><span>A. Capacity is how many elements are currently used; size is the maximum the array can hold</span></label>
+<label class="opt"><input type="radio" name="q1" value="1"><span>B. Capacity is the maximum number of elements the array can hold; size is how many elements are currently in use</span></label>
+<label class="opt"><input type="radio" name="q1" value="2"><span>C. They always mean the same thing</span></label>
+<label class="opt"><input type="radio" name="q1" value="3"><span>D. Capacity only applies to linked lists, not arrays</span></label>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. Size is always one less than capacity</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Capacity is the total space allocated for the array, fixed at allocation time. Size is the number of elements actually in use right now, which can be less than or equal to the capacity.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q3</div>
+  <div class="q-text">What does it mean for an array to be stored in 'contiguous memory'?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q2" value="0"><span>A. Its elements are placed one after another in memory with no gaps between them</span></label>
+<label class="opt"><input type="radio" name="q2" value="1"><span>B. Its elements are scattered randomly across memory</span></label>
+<label class="opt"><input type="radio" name="q2" value="2"><span>C. Each element stores the address of the next element</span></label>
+<label class="opt"><input type="radio" name="q2" value="3"><span>D. The array must be declared using new[]</span></label>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. The array automatically resizes when full</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Contiguous means the elements are laid out back-to-back in memory. This is what allows an array to compute any element's address directly from its index, giving O(1) access.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q4</div>
+  <div class="q-text">What happens in C++ if you access <code>a[10]</code> on an array declared as <code>int a[10];</code> (which only has valid indices 0 to 9)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q3" value="0"><span>A. The compiler automatically prevents it</span></label>
+<label class="opt"><input type="radio" name="q3" value="1"><span>B. It throws a runtime exception</span></label>
+<label class="opt"><input type="radio" name="q3" value="2"><span>C. It is undefined behavior — C++ does not check array bounds automatically</span></label>
+<label class="opt"><input type="radio" name="q3" value="3"><span>D. It returns 0</span></label>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. It resizes the array to fit</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Unlike some higher-level languages, C-style arrays in C++ do not perform automatic bounds checking. Accessing an out-of-range index is undefined behavior — it might read garbage memory, crash, or appear to work by accident.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q5</div>
+  <div class="q-text">Given <code>int a[8];</code> on a machine where <code>sizeof(int) == 4</code> and <code>a</code> begins at address <code>0x1000</code>, what is the address of <code>a[5]</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q4" value="0"><span>A. 0x1005</span></label>
+<label class="opt"><input type="radio" name="q4" value="1"><span>B. 0x1014</span></label>
+<label class="opt"><input type="radio" name="q4" value="2"><span>C. 0x1020</span></label>
+<label class="opt"><input type="radio" name="q4" value="3"><span>D. 0x1050</span></label>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. 0x1024</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Each int takes 4 bytes, so a[5] is 5 * 4 = 20 bytes after the start. 0x1000 + 20 (0x14) = 0x1014.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q6</div>
+  <div class="q-text">For <code>int a[10];</code>, which expression is equivalent to <code>&a[2]</code> (the address of the third element)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q5" value="0"><span>A. a + 2</span></label>
+<label class="opt"><input type="radio" name="q5" value="1"><span>B. a * 2</span></label>
+<label class="opt"><input type="radio" name="q5" value="2"><span>C. 2 * a[0]</span></label>
+<label class="opt"><input type="radio" name="q5" value="3"><span>D. a - 2</span></label>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. a[2] + a</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The array name a decays to a pointer to its first element. Adding 2 to that pointer moves it forward by 2 elements (pointer arithmetic accounts for the element type, not raw bytes), which is exactly &a[2].</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q7</div>
+  <div class="q-text">A function is declared as <code>void show(int arr[])</code>. Inside <code>show</code>, what does <code>sizeof(arr)</code> actually return?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q6" value="0"><span>A. The full size of the array in bytes, for example 40 for 10 ints</span></label>
+<label class="opt"><input type="radio" name="q6" value="1"><span>B. The size of a single int, for example 4</span></label>
+<label class="opt"><input type="radio" name="q6" value="2"><span>C. The size of a pointer, for example 8 bytes on a 64-bit system</span></label>
+<label class="opt"><input type="radio" name="q6" value="3"><span>D. 0, because arrays cannot be passed to functions</span></label>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. It causes a compiler error</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">When an array is passed as a function parameter, it decays into a pointer to its first element. Inside the function, arr is really an int*, so sizeof(arr) returns the size of a pointer (commonly 8 bytes on a 64-bit system), not the size of the original array.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q8</div>
+  <div class="q-text">For <code>int a[10];</code> declared inside <code>main()</code> (with <code>sizeof(int) == 4</code>), what does <code>sizeof(a)</code> evaluate to inside <code>main()</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q7" value="0"><span>A. 10</span></label>
+<label class="opt"><input type="radio" name="q7" value="1"><span>B. 40</span></label>
+<label class="opt"><input type="radio" name="q7" value="2"><span>C. 4</span></label>
+<label class="opt"><input type="radio" name="q7" value="3"><span>D. 8</span></label>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. This depends on the compiler</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Inside the function where the array is declared, the compiler still knows its full type, int[10], so sizeof(a) correctly returns 10 * sizeof(int) = 40 bytes.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q9</div>
+  <div class="q-text">What does this program print? (Assume <code>sizeof(int) == 4</code> and <code>sizeof(int*) == 8</code>.)<pre><code>void show(int arr[]) {
+    std::cout &lt;&lt; sizeof(arr) &lt;&lt; "\n";
+}
+int main() {
+    int data[6] = {1,2,3,4,5,6};
+    std::cout &lt;&lt; sizeof(data) &lt;&lt; "\n";
+    show(data);
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q8" value="0"><span>A. 24 then 8</span></label>
+<label class="opt"><input type="radio" name="q8" value="1"><span>B. 6 then 6</span></label>
+<label class="opt"><input type="radio" name="q8" value="2"><span>C. 24 then 24</span></label>
+<label class="opt"><input type="radio" name="q8" value="3"><span>D. 8 then 24</span></label>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. 6 then 8</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">In main(), data is a real array of 6 ints, so sizeof(data) = 6 * 4 = 24. When data is passed into show(), it decays to a pointer, so sizeof(arr) inside show() is the size of a pointer, 8. Output: 24 then 8.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q10</div>
+  <div class="q-text">When an array is passed to a function as <code>int arr[]</code>, what information about the original array is lost inside the function?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q9" value="0"><span>A. Its element type</span></label>
+<label class="opt"><input type="radio" name="q9" value="1"><span>B. Its size (the number of elements it holds)</span></label>
+<label class="opt"><input type="radio" name="q9" value="2"><span>C. Its starting address</span></label>
+<label class="opt"><input type="radio" name="q9" value="3"><span>D. Its contents</span></label>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. Nothing is lost</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Because the array decays to a plain pointer, the function only receives the address of the first element. The original size is not carried along automatically — it must be passed separately, for example void f(int arr[], int n).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q11</div>
+  <div class="q-text">What is the worst-case time complexity of accessing an element at index <code>i</code> in an array?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q10" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q10" value="1"><span>B. O(log n)</span></label>
+<label class="opt"><input type="radio" name="q10" value="2"><span>C. O(n)</span></label>
+<label class="opt"><input type="radio" name="q10" value="3"><span>D. O(n log n)</span></label>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. O(n^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Arrays store elements in contiguous memory, so the address of index i can be computed directly (base + i * element size) without searching. This makes access O(1).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q12</div>
+  <div class="q-text">What is the worst-case time complexity of searching for a value in an unsorted array of size n?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q11" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q11" value="1"><span>B. O(log n)</span></label>
+<label class="opt"><input type="radio" name="q11" value="2"><span>C. O(n)</span></label>
+<label class="opt"><input type="radio" name="q11" value="3"><span>D. O(n log n)</span></label>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. O(n^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Without any ordering to exploit, we may need to check every element before finding the value or confirming it is absent, giving O(n) in the worst case.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q13</div>
+  <div class="q-text">What is the worst-case time complexity of inserting a new element at the front of an array of size n, assuming there is spare capacity?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q12" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q12" value="1"><span>B. O(log n)</span></label>
+<label class="opt"><input type="radio" name="q12" value="2"><span>C. O(n)</span></label>
+<label class="opt"><input type="radio" name="q12" value="3"><span>D. O(n log n)</span></label>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. O(n^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Inserting at the front requires shifting every existing element one position to the right to make room, which takes O(n) time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q14</div>
+  <div class="q-text">Assuming there is spare capacity, what is the time complexity of inserting a new element at the end of an array?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q13" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q13" value="1"><span>B. O(log n)</span></label>
+<label class="opt"><input type="radio" name="q13" value="2"><span>C. O(n)</span></label>
+<label class="opt"><input type="radio" name="q13" value="3"><span>D. O(n log n)</span></label>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. O(n^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">If there is already room, inserting at the end just writes to the next free slot and updates the size, with no shifting needed, so it is O(1).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q15</div>
+  <div class="q-text">What is the time complexity of deleting an element from the middle of an array of size n?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q14" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q14" value="1"><span>B. O(log n)</span></label>
+<label class="opt"><input type="radio" name="q14" value="2"><span>C. O(n)</span></label>
+<label class="opt"><input type="radio" name="q14" value="3"><span>D. O(n log n)</span></label>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. O(n^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">After removing an element from the middle, every element after it must shift one position to the left to close the gap, which takes O(n) time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q16</div>
+  <div class="q-text">In an array, which operation is generally more expensive: inserting at the front, or inserting at the end, assuming there is spare capacity?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q15" value="0"><span>A. Inserting at the front is more expensive, because every existing element must shift over to make room</span></label>
+<label class="opt"><input type="radio" name="q15" value="1"><span>B. Inserting at the end is more expensive, because the array must be searched first</span></label>
+<label class="opt"><input type="radio" name="q15" value="2"><span>C. They are always equally expensive</span></label>
+<label class="opt"><input type="radio" name="q15" value="3"><span>D. Inserting at the front is O(1) and inserting at the end is O(n)</span></label>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. Neither can be done on an array</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Inserting at the end, with spare capacity, just writes to the next free slot: O(1). Inserting at the front requires shifting every existing element one position to the right first, which takes O(n).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q17</div>
+  <div class="q-text">Trace this code. What is the final content of <code>v</code>?<pre><code>std::vector&lt;int&gt; v;
+for (int i = 0; i &lt; 5; ++i) v.push_back(i * i);
+v.erase(v.begin() + 1);
+v.insert(v.begin() + 2, 99);</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q16" value="0"><span>A. 0 4 99 9 16</span></label>
+<label class="opt"><input type="radio" name="q16" value="1"><span>B. 0 1 4 9 16</span></label>
+<label class="opt"><input type="radio" name="q16" value="2"><span>C. 0 4 9 99 16</span></label>
+<label class="opt"><input type="radio" name="q16" value="3"><span>D. 0 99 4 9 16</span></label>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. 0 4 9 16 99</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">push_back fills v with 0, 1, 4, 9, 16 (i*i for i=0..4). erase(begin()+1) removes the value at index 1, which is 1, giving [0,4,9,16]. insert(begin()+2, 99) inserts 99 at index 2, giving [0,4,99,9,16].</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q18</div>
+  <div class="q-text">A std::vector doubles its capacity whenever it becomes full. Why does a sequence of n push_back calls cost O(n) in total, instead of O(n^2)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. Because push_back never actually copies any data</span></label>
+<label class="opt"><input type="radio" name="q17" value="1"><span>B. Because most push_back calls are O(1), and the occasional expensive O(n) reallocation is 'paid for' by all the cheap calls before it, averaging out to O(1) per call</span></label>
+<label class="opt"><input type="radio" name="q17" value="2"><span>C. Because the compiler optimizes away all the reallocations</span></label>
+<label class="opt"><input type="radio" name="q17" value="3"><span>D. Because vectors are actually implemented as linked lists internally</span></label>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. Because reallocation only copies half of the elements each time</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Most push_back calls are O(1) because there is room. When the vector is full, resizing costs O(n) to copy everything into a new, larger buffer, but this only happens O(log n) times. Spreading that copying cost over all n push_back calls gives O(1) amortized time per call, so the whole sequence is O(n), not O(n^2).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q19</div>
+  <div class="q-text">A vector starts with capacity 1 and doubles every time it fills up (1 -> 2 -> 4 -> 8 -> ...). About how many reallocations happen while pushing 1000 elements?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. About 10</span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. About 1000</span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. About 500</span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. About 100</span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. About 2</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Capacity doubles: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024. It takes about 10 doublings to pass 1000, so around 10 reallocations occur, far fewer than one per push_back.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q20</div>
+  <div class="q-text">After calling <code>v.erase(v.begin())</code> on a std::vector, what typically happens to its <code>capacity()</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. It stays the same; only size() decreases</span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. It is cut in half automatically</span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. It becomes 0</span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. It grows to make room for future inserts</span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. It is undefined behavior to check capacity after erase</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">erase() removes an element and shifts the rest, reducing size(). It does not automatically shrink the underlying buffer, so capacity() usually stays unchanged unless you explicitly call something like shrink_to_fit().</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q21</div>
+  <div class="q-text">When should you generally prefer std::vector over a raw C-style array in C++?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. When you don't know the number of elements in advance, or need the array to grow or shrink at runtime</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. Only when working with strings</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. Never; C-style arrays are always faster</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. Only inside class definitions</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. Only when the array has more than 100 elements</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">std::vector manages its own memory and can grow or shrink at runtime, which is exactly what you want when the size isn't fixed at compile time. A raw C-style array has a fixed size decided when it is declared.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q22</div>
+  <div class="q-text">Once a C-style array like <code>int a[10];</code> is declared, can its capacity be changed later in the program?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. No, its capacity is fixed for its entire lifetime</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. Yes, using a[10] = 20;</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. Yes, but only if it is declared with const</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. Yes, automatically, whenever it becomes full</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. Yes, using the resize() function</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A C-style array's size is fixed at the point of declaration and cannot grow or shrink afterward. To get a resizable array, you would need std::vector, or manually allocate a new, larger array and copy the data over.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q23</div>
+  <div class="q-text">This function has a bug.<pre><code>int* buildRow(int n) {
+    int row[100];
+    for (int i = 0; i &lt; n; ++i) row[i] = i;
+    return row;
+}</code></pre>What is wrong with it?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. It returns a pointer to a local array that no longer exists once the function returns, causing undefined behavior</span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. It has a syntax error and will not compile</span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. It leaks memory because row is never freed</span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. n must always equal 100 or it crashes</span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. Nothing is wrong; this is a safe and common pattern</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">row is a local array stored on the stack. Once buildRow() returns, that stack memory is no longer valid, so the returned pointer is dangling. Using it afterward is undefined behavior — this is different from a memory leak, where the memory is valid but never freed.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q24</div>
+  <div class="q-text">What is the correct way to fix the <code>buildRow()</code> bug above?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. Allocate the array on the heap with new[], or return a std::vector<int> by value instead of a raw local array</span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. Make the local array static so it survives after the function returns</span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. Add a delete[] row; line right before the return statement</span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. Change int row[100] to const int row[100]</span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. It cannot be fixed; the function must be removed</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The safest fix is to allocate the array on the heap (remembering to delete[] it later) or, in modern C++, simply return a std::vector<int> by value — it manages its own memory safely and correctly outlives the function call.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q25</div>
+  <div class="q-text">You are implementing <code>void rotateLeft(int a[], int n, int k);</code> to rotate an array left by k positions. If k could be larger than n (for example, n=5 and k=12), what should you do first?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. Reduce k using k = k % n before rotating</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. Return immediately without doing anything</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. Throw an exception whenever k > n</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. Multiply k by n before rotating</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. It is not possible to rotate by more than n positions</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Rotating an array of size n by exactly n positions returns it to its original order, so any rotation amount repeats every n steps. Taking k % n first reduces k to a safe range (0 to n-1) before the actual rotation.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q26</div>
+  <div class="q-text">Rotating the array <code>[1, 2, 3, 4, 5]</code> left by 2 positions gives which result?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. [3, 4, 5, 1, 2]</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. [4, 5, 1, 2, 3]</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. [1, 2, 3, 4, 5]</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. [5, 4, 3, 2, 1]</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. [2, 1, 3, 4, 5]</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Rotating left by 2 moves the first 2 elements (1 and 2) to the end: [3, 4, 5, 1, 2].</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q27</div>
+  <div class="q-text">You need to rotate an array in place using only O(1) extra space, with no second array. Which general technique achieves this?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. Reverse the whole array, then reverse each of the two resulting segments separately</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. Copy the array into a new array of the same size and copy it back</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. Use a hash table to remember where each element should go</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. It is impossible to rotate in O(1) extra space</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. Sort the array first, then rotate</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A classic trick: reverse the entire array, then reverse the first n-k elements, then reverse the last k elements. This produces the rotated array using only a constant amount of extra space.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q28</div>
+  <div class="q-text">You need to store scores for an unknown number of students. Students are frequently appended, but rarely removed from the middle. Which structure is usually the better choice, and why?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. A dynamic array (like std::vector), because of better cache locality and O(1) amortized append, even though it isn't optimized for middle removal</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. A singly linked list, because appending is always O(1) with no extra memory overhead</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. A dynamic array, because deleting from the middle is O(1)</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. A singly linked list, because array indices cannot exceed 1000</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. Neither works; you must use a hash table</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Since appends are frequent and middle-removals are rare, a dynamic array's strengths (contiguous memory, cache-friendly access, O(1) amortized push_back) outweigh its one weakness here (O(n) removal from the middle, which barely comes up). A linked list avoids that weakness but pays for it with pointer overhead per node and worse cache performance.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q29</div>
+  <div class="q-text">Why do arrays generally have better cache performance than linked lists when accessing elements sequentially?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. Array elements are stored contiguously in memory, so nearby elements are loaded into the CPU cache together</span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. Linked lists are always stored in cache automatically</span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. Arrays use less memory per element than linked lists</span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. Arrays are always smaller than linked lists</span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. Cache performance has nothing to do with memory layout</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Because array elements sit next to each other in memory, accessing one element often pulls nearby elements into the CPU cache too, making the next accesses faster. Linked list nodes can be scattered anywhere in memory, so each node access can cause a separate, slower cache miss.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q30</div>
+  <div class="q-text">Compared to a plain array, what extra memory overhead does a singly linked list have per element?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. None; they use exactly the same memory per element</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. Each node needs extra space to store a pointer to the next node</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. Each node needs extra space to store a pointer to the previous node</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. Linked lists always use twice as much memory as arrays, regardless of pointer size</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. Arrays actually use more memory per element than linked lists</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Besides the actual data, each linked-list node also stores a pointer to the next node. An array has no such per-element overhead — elements are packed back-to-back in memory.</div>
+</div>
+
+<div class="score-bar">
+  <span>Score: <strong>0 / 0</strong></span>
+  <span style="margin-left:auto">30 questions</span>
+</div>
+
+<script>window.__QS__ = [{"q": "In C++, if an array is declared as <code>int a[5];</code>, what is the valid index range for accessing its elements?", "options": ["0 to 4", "1 to 5", "0 to 5", "1 to 4", "-1 to 4"], "correct": 0, "explain": "C++ arrays are 0-indexed. An array of 5 elements has valid indices 0, 1, 2, 3, and 4."}, {"q": "In an array, what is the difference between capacity and size?", "options": ["Capacity is how many elements are currently used; size is the maximum the array can hold", "Capacity is the maximum number of elements the array can hold; size is how many elements are currently in use", "They always mean the same thing", "Capacity only applies to linked lists, not arrays", "Size is always one less than capacity"], "correct": 1, "explain": "Capacity is the total space allocated for the array, fixed at allocation time. Size is the number of elements actually in use right now, which can be less than or equal to the capacity."}, {"q": "What does it mean for an array to be stored in 'contiguous memory'?", "options": ["Its elements are placed one after another in memory with no gaps between them", "Its elements are scattered randomly across memory", "Each element stores the address of the next element", "The array must be declared using new[]", "The array automatically resizes when full"], "correct": 0, "explain": "Contiguous means the elements are laid out back-to-back in memory. This is what allows an array to compute any element's address directly from its index, giving O(1) access."}, {"q": "What happens in C++ if you access <code>a[10]</code> on an array declared as <code>int a[10];</code> (which only has valid indices 0 to 9)?", "options": ["The compiler automatically prevents it", "It throws a runtime exception", "It is undefined behavior — C++ does not check array bounds automatically", "It returns 0", "It resizes the array to fit"], "correct": 2, "explain": "Unlike some higher-level languages, C-style arrays in C++ do not perform automatic bounds checking. Accessing an out-of-range index is undefined behavior — it might read garbage memory, crash, or appear to work by accident."}, {"q": "Given <code>int a[8];</code> on a machine where <code>sizeof(int) == 4</code> and <code>a</code> begins at address <code>0x1000</code>, what is the address of <code>a[5]</code>?", "options": ["0x1005", "0x1014", "0x1020", "0x1050", "0x1024"], "correct": 1, "explain": "Each int takes 4 bytes, so a[5] is 5 * 4 = 20 bytes after the start. 0x1000 + 20 (0x14) = 0x1014."}, {"q": "For <code>int a[10];</code>, which expression is equivalent to <code>&a[2]</code> (the address of the third element)?", "options": ["a + 2", "a * 2", "2 * a[0]", "a - 2", "a[2] + a"], "correct": 0, "explain": "The array name a decays to a pointer to its first element. Adding 2 to that pointer moves it forward by 2 elements (pointer arithmetic accounts for the element type, not raw bytes), which is exactly &a[2]."}, {"q": "A function is declared as <code>void show(int arr[])</code>. Inside <code>show</code>, what does <code>sizeof(arr)</code> actually return?", "options": ["The full size of the array in bytes, for example 40 for 10 ints", "The size of a single int, for example 4", "The size of a pointer, for example 8 bytes on a 64-bit system", "0, because arrays cannot be passed to functions", "It causes a compiler error"], "correct": 2, "explain": "When an array is passed as a function parameter, it decays into a pointer to its first element. Inside the function, arr is really an int*, so sizeof(arr) returns the size of a pointer (commonly 8 bytes on a 64-bit system), not the size of the original array."}, {"q": "For <code>int a[10];</code> declared inside <code>main()</code> (with <code>sizeof(int) == 4</code>), what does <code>sizeof(a)</code> evaluate to inside <code>main()</code>?", "options": ["10", "40", "4", "8", "This depends on the compiler"], "correct": 1, "explain": "Inside the function where the array is declared, the compiler still knows its full type, int[10], so sizeof(a) correctly returns 10 * sizeof(int) = 40 bytes."}, {"q": "What does this program print? (Assume <code>sizeof(int) == 4</code> and <code>sizeof(int*) == 8</code>.)<pre><code>void show(int arr[]) {\n    std::cout &lt;&lt; sizeof(arr) &lt;&lt; \"\\n\";\n}\nint main() {\n    int data[6] = {1,2,3,4,5,6};\n    std::cout &lt;&lt; sizeof(data) &lt;&lt; \"\\n\";\n    show(data);\n}</code></pre>", "options": ["24 then 8", "6 then 6", "24 then 24", "8 then 24", "6 then 8"], "correct": 0, "explain": "In main(), data is a real array of 6 ints, so sizeof(data) = 6 * 4 = 24. When data is passed into show(), it decays to a pointer, so sizeof(arr) inside show() is the size of a pointer, 8. Output: 24 then 8."}, {"q": "When an array is passed to a function as <code>int arr[]</code>, what information about the original array is lost inside the function?", "options": ["Its element type", "Its size (the number of elements it holds)", "Its starting address", "Its contents", "Nothing is lost"], "correct": 1, "explain": "Because the array decays to a plain pointer, the function only receives the address of the first element. The original size is not carried along automatically — it must be passed separately, for example void f(int arr[], int n)."}, {"q": "What is the worst-case time complexity of accessing an element at index <code>i</code> in an array?", "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)", "O(n^2)"], "correct": 0, "explain": "Arrays store elements in contiguous memory, so the address of index i can be computed directly (base + i * element size) without searching. This makes access O(1)."}, {"q": "What is the worst-case time complexity of searching for a value in an unsorted array of size n?", "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)", "O(n^2)"], "correct": 2, "explain": "Without any ordering to exploit, we may need to check every element before finding the value or confirming it is absent, giving O(n) in the worst case."}, {"q": "What is the worst-case time complexity of inserting a new element at the front of an array of size n, assuming there is spare capacity?", "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)", "O(n^2)"], "correct": 2, "explain": "Inserting at the front requires shifting every existing element one position to the right to make room, which takes O(n) time."}, {"q": "Assuming there is spare capacity, what is the time complexity of inserting a new element at the end of an array?", "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)", "O(n^2)"], "correct": 0, "explain": "If there is already room, inserting at the end just writes to the next free slot and updates the size, with no shifting needed, so it is O(1)."}, {"q": "What is the time complexity of deleting an element from the middle of an array of size n?", "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)", "O(n^2)"], "correct": 2, "explain": "After removing an element from the middle, every element after it must shift one position to the left to close the gap, which takes O(n) time."}, {"q": "In an array, which operation is generally more expensive: inserting at the front, or inserting at the end, assuming there is spare capacity?", "options": ["Inserting at the front is more expensive, because every existing element must shift over to make room", "Inserting at the end is more expensive, because the array must be searched first", "They are always equally expensive", "Inserting at the front is O(1) and inserting at the end is O(n)", "Neither can be done on an array"], "correct": 0, "explain": "Inserting at the end, with spare capacity, just writes to the next free slot: O(1). Inserting at the front requires shifting every existing element one position to the right first, which takes O(n)."}, {"q": "Trace this code. What is the final content of <code>v</code>?<pre><code>std::vector&lt;int&gt; v;\nfor (int i = 0; i &lt; 5; ++i) v.push_back(i * i);\nv.erase(v.begin() + 1);\nv.insert(v.begin() + 2, 99);</code></pre>", "options": ["0 4 99 9 16", "0 1 4 9 16", "0 4 9 99 16", "0 99 4 9 16", "0 4 9 16 99"], "correct": 0, "explain": "push_back fills v with 0, 1, 4, 9, 16 (i*i for i=0..4). erase(begin()+1) removes the value at index 1, which is 1, giving [0,4,9,16]. insert(begin()+2, 99) inserts 99 at index 2, giving [0,4,99,9,16]."}, {"q": "A std::vector doubles its capacity whenever it becomes full. Why does a sequence of n push_back calls cost O(n) in total, instead of O(n^2)?", "options": ["Because push_back never actually copies any data", "Because most push_back calls are O(1), and the occasional expensive O(n) reallocation is 'paid for' by all the cheap calls before it, averaging out to O(1) per call", "Because the compiler optimizes away all the reallocations", "Because vectors are actually implemented as linked lists internally", "Because reallocation only copies half of the elements each time"], "correct": 1, "explain": "Most push_back calls are O(1) because there is room. When the vector is full, resizing costs O(n) to copy everything into a new, larger buffer, but this only happens O(log n) times. Spreading that copying cost over all n push_back calls gives O(1) amortized time per call, so the whole sequence is O(n), not O(n^2)."}, {"q": "A vector starts with capacity 1 and doubles every time it fills up (1 -> 2 -> 4 -> 8 -> ...). About how many reallocations happen while pushing 1000 elements?", "options": ["About 10", "About 1000", "About 500", "About 100", "About 2"], "correct": 0, "explain": "Capacity doubles: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024. It takes about 10 doublings to pass 1000, so around 10 reallocations occur, far fewer than one per push_back."}, {"q": "After calling <code>v.erase(v.begin())</code> on a std::vector, what typically happens to its <code>capacity()</code>?", "options": ["It stays the same; only size() decreases", "It is cut in half automatically", "It becomes 0", "It grows to make room for future inserts", "It is undefined behavior to check capacity after erase"], "correct": 0, "explain": "erase() removes an element and shifts the rest, reducing size(). It does not automatically shrink the underlying buffer, so capacity() usually stays unchanged unless you explicitly call something like shrink_to_fit()."}, {"q": "When should you generally prefer std::vector over a raw C-style array in C++?", "options": ["When you don't know the number of elements in advance, or need the array to grow or shrink at runtime", "Only when working with strings", "Never; C-style arrays are always faster", "Only inside class definitions", "Only when the array has more than 100 elements"], "correct": 0, "explain": "std::vector manages its own memory and can grow or shrink at runtime, which is exactly what you want when the size isn't fixed at compile time. A raw C-style array has a fixed size decided when it is declared."}, {"q": "Once a C-style array like <code>int a[10];</code> is declared, can its capacity be changed later in the program?", "options": ["No, its capacity is fixed for its entire lifetime", "Yes, using a[10] = 20;", "Yes, but only if it is declared with const", "Yes, automatically, whenever it becomes full", "Yes, using the resize() function"], "correct": 0, "explain": "A C-style array's size is fixed at the point of declaration and cannot grow or shrink afterward. To get a resizable array, you would need std::vector, or manually allocate a new, larger array and copy the data over."}, {"q": "This function has a bug.<pre><code>int* buildRow(int n) {\n    int row[100];\n    for (int i = 0; i &lt; n; ++i) row[i] = i;\n    return row;\n}</code></pre>What is wrong with it?", "options": ["It returns a pointer to a local array that no longer exists once the function returns, causing undefined behavior", "It has a syntax error and will not compile", "It leaks memory because row is never freed", "n must always equal 100 or it crashes", "Nothing is wrong; this is a safe and common pattern"], "correct": 0, "explain": "row is a local array stored on the stack. Once buildRow() returns, that stack memory is no longer valid, so the returned pointer is dangling. Using it afterward is undefined behavior — this is different from a memory leak, where the memory is valid but never freed."}, {"q": "What is the correct way to fix the <code>buildRow()</code> bug above?", "options": ["Allocate the array on the heap with new[], or return a std::vector<int> by value instead of a raw local array", "Make the local array static so it survives after the function returns", "Add a delete[] row; line right before the return statement", "Change int row[100] to const int row[100]", "It cannot be fixed; the function must be removed"], "correct": 0, "explain": "The safest fix is to allocate the array on the heap (remembering to delete[] it later) or, in modern C++, simply return a std::vector<int> by value — it manages its own memory safely and correctly outlives the function call."}, {"q": "You are implementing <code>void rotateLeft(int a[], int n, int k);</code> to rotate an array left by k positions. If k could be larger than n (for example, n=5 and k=12), what should you do first?", "options": ["Reduce k using k = k % n before rotating", "Return immediately without doing anything", "Throw an exception whenever k > n", "Multiply k by n before rotating", "It is not possible to rotate by more than n positions"], "correct": 0, "explain": "Rotating an array of size n by exactly n positions returns it to its original order, so any rotation amount repeats every n steps. Taking k % n first reduces k to a safe range (0 to n-1) before the actual rotation."}, {"q": "Rotating the array <code>[1, 2, 3, 4, 5]</code> left by 2 positions gives which result?", "options": ["[3, 4, 5, 1, 2]", "[4, 5, 1, 2, 3]", "[1, 2, 3, 4, 5]", "[5, 4, 3, 2, 1]", "[2, 1, 3, 4, 5]"], "correct": 0, "explain": "Rotating left by 2 moves the first 2 elements (1 and 2) to the end: [3, 4, 5, 1, 2]."}, {"q": "You need to rotate an array in place using only O(1) extra space, with no second array. Which general technique achieves this?", "options": ["Reverse the whole array, then reverse each of the two resulting segments separately", "Copy the array into a new array of the same size and copy it back", "Use a hash table to remember where each element should go", "It is impossible to rotate in O(1) extra space", "Sort the array first, then rotate"], "correct": 0, "explain": "A classic trick: reverse the entire array, then reverse the first n-k elements, then reverse the last k elements. This produces the rotated array using only a constant amount of extra space."}, {"q": "You need to store scores for an unknown number of students. Students are frequently appended, but rarely removed from the middle. Which structure is usually the better choice, and why?", "options": ["A dynamic array (like std::vector), because of better cache locality and O(1) amortized append, even though it isn't optimized for middle removal", "A singly linked list, because appending is always O(1) with no extra memory overhead", "A dynamic array, because deleting from the middle is O(1)", "A singly linked list, because array indices cannot exceed 1000", "Neither works; you must use a hash table"], "correct": 0, "explain": "Since appends are frequent and middle-removals are rare, a dynamic array's strengths (contiguous memory, cache-friendly access, O(1) amortized push_back) outweigh its one weakness here (O(n) removal from the middle, which barely comes up). A linked list avoids that weakness but pays for it with pointer overhead per node and worse cache performance."}, {"q": "Why do arrays generally have better cache performance than linked lists when accessing elements sequentially?", "options": ["Array elements are stored contiguously in memory, so nearby elements are loaded into the CPU cache together", "Linked lists are always stored in cache automatically", "Arrays use less memory per element than linked lists", "Arrays are always smaller than linked lists", "Cache performance has nothing to do with memory layout"], "correct": 0, "explain": "Because array elements sit next to each other in memory, accessing one element often pulls nearby elements into the CPU cache too, making the next accesses faster. Linked list nodes can be scattered anywhere in memory, so each node access can cause a separate, slower cache miss."}, {"q": "Compared to a plain array, what extra memory overhead does a singly linked list have per element?", "options": ["None; they use exactly the same memory per element", "Each node needs extra space to store a pointer to the next node", "Each node needs extra space to store a pointer to the previous node", "Linked lists always use twice as much memory as arrays, regardless of pointer size", "Arrays actually use more memory per element than linked lists"], "correct": 1, "explain": "Besides the actual data, each linked-list node also stores a pointer to the next node. An array has no such per-element overhead — elements are packed back-to-back in memory."}];</script>
+
+
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>

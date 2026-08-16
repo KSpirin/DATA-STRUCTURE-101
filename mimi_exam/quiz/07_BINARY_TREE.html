@@ -4,90 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>07. Binary Tree — Quiz</title>
-<style>
-:root{
-  --bg:#111;
-  --card:#1a1a1a;
-  --border:#2a2a2a;
-  --txt:#e8e8e8;
-  --muted:#888;
-  --accent:#5865f2;
-  --ok:#3ba55c;
-  --err:#ed4245;
-  --mono:'JetBrains Mono',monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
-a{color:inherit;text-decoration:none}
 
-/* top bar */
-nav{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-bottom:1px solid var(--border);background:var(--card);position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:rgba(26,26,26,0.9)}
-nav .home{font-weight:600;color:var(--muted);font-size:.85rem;letter-spacing:.04em;transition:color .2s}
-nav .home:hover{color:var(--txt)}
-nav .sep{color:var(--border)}
-nav .topic{font-size:.85rem;color:var(--txt);font-weight:500}
-.nav-links{margin-left:auto;display:flex;gap:1rem;font-size:.85rem;color:var(--muted)}
-.nav-links a{transition:color .2s}
-.nav-links a:hover{color:var(--txt)}
-
-/* topic grid on index */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;padding:2rem 1.5rem}
-.tile{border:1px solid var(--border);border-radius:10px;padding:1.5rem;background:var(--card);cursor:pointer;transition:all .2s ease}
-.tile:hover{border-color:var(--accent);background:#1e1e2e;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
-.tile .num{font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-family:var(--mono)}
-.tile .name{font-size:1.15rem;font-weight:600;letter-spacing:-0.02em}
-.tile .count{font-size:.8rem;color:var(--muted);margin-top:.5rem}
-
-/* quiz page layout */
-.page{max-width:780px;margin:0 auto;padding:2.5rem 1.5rem}
-.page h1{font-size:1.5rem;font-weight:700;margin-bottom:2rem;letter-spacing:-0.02em}
-
-/* question card */
-.q{border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;background:var(--card);box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.q-num{font-size:.75rem;color:var(--muted);font-family:var(--mono);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
-.q-text{font-size:1rem;margin-bottom:1.25rem;font-weight:400}
-.opts{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem}
-.opt{display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 1rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.95rem;transition:all .15s ease;user-select:none;background:rgba(255,255,255,0.02)}
-.opt:hover{border-color:#555;background:rgba(255,255,255,0.05)}
-.opt input{margin-top:4px;accent-color:var(--accent);flex-shrink:0;width:1rem;height:1rem}
-.opt.ok{border-color:var(--ok);background:rgba(59,165,92,.1);color:#a7f3d0}
-.opt.err{border-color:var(--err);background:rgba(237,66,69,.1);color:#fecaca}
-.check{background:var(--accent);color:#fff;border:none;padding:.6rem 1.25rem;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:600;transition:all .2s;box-shadow:0 2px 4px rgba(88,101,242,0.2)}
-.check:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 4px 8px rgba(88,101,242,0.3)}
-.check:active{transform:translateY(0);box-shadow:none}
-.check:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
-.exp{display:none;margin-top:1rem;padding:1rem;border-radius:8px;font-size:.9rem;line-height:1.6;border-left:4px solid var(--muted);background:#111;color:var(--txt)}
-.exp.show{display:block;animation:fadeIn 0.3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-.exp.ok{border-color:var(--ok);color:#a7f3d0}
-.exp.err{border-color:var(--err);color:#fecaca}
-
-/* code blocks */
-pre{background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:1rem;overflow-x:auto;margin:.75rem 0}
-pre code{font-family:var(--mono);font-size:.85rem;color:#c9d1d9}
-code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;border-radius:4px;color:#e8e8e8}
-
-/* score bar */
-.score-bar{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--card);backdrop-filter:blur(8px);background:rgba(26,26,26,0.9);z-index:10}
-.score-bar span{font-size:.9rem;color:var(--muted)}
-.score-bar strong{color:var(--accent);font-size:1.05rem}
-
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-  nav { padding: 0.6rem 1rem; }
-  .grid { padding: 1.5rem 1rem; grid-template-columns: 1fr; }
-  .page { padding: 1.5rem 1rem; }
-  .page h1 { font-size: 1.25rem; margin-bottom: 1.5rem; }
-  .q { padding: 1.25rem; margin-bottom: 1rem; }
-  .opt { padding: 0.5rem 0.75rem; font-size: 0.9rem; }
-  .check { width: 100%; padding: 0.75rem; }
-  .score-bar { padding: 0.6rem 1rem; }
-  .nav-links { display: none; } /* hide prev/next text on very small screens, maybe keep icons if we had them, but for now just hide to save space or adjust */
-}
-</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <script>alert("⚠️ WARNING: This quiz is a draft and currently under review. It may contain incorrect answers or unverified content.");</script>
@@ -510,39 +431,8 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 </div>
 
 <script>window.__QS__ = [{"q": "What is the maximum number of leaves in a binary tree of height <code>H</code>?", "options": ["<code>H</code>", "<code>2H</code>", "<code>2^(H-1)</code>", "<code>2^H</code>", "<code>2^(H+1) - 1</code>"], "correct": 2, "explain": "A perfect binary tree of height H has $2^{H-1}$ leaves at the bottom level."}, {"q": "Which traversal order processes the root node after recursively traversing both its left and right subtrees?", "options": ["Preorder", "Inorder", "Postorder", "Level-order (BFS)", "Out-order"], "correct": 2, "explain": "Postorder visits subtrees first: Left subtree -> Right subtree -> Root node."}, {"q": "An Expression Tree's postorder traversal yields which algebraic representation?", "options": ["Infix notation", "Prefix notation", "Postfix (Reverse Polish) notation", "Canonical binary notation", "Matrix adjacency notation"], "correct": 2, "explain": "Postorder traversal processes operator nodes after their children operands, naturally outputting Postfix (Reverse Polish) algebraic notation."}, {"q": "What is the degree of a leaf node in a rooted tree structure?", "options": ["0", "1", "2", "Variable", "Equal to height"], "correct": 0, "explain": "A leaf node is defined as a node with no successors (no children). Therefore, its child degree is exactly 0."}, {"q": "Which helper data structure is typically used to implement an iterative DFS traversal of a binary tree?", "options": ["Queue", "Stack", "Priority Queue", "Hash Map", "Deque"], "correct": 1, "explain": "Iterative DFS traversals simulate recursion using an explicit LIFO Stack."}, {"q": "If a binary tree contains <code>N</code> nodes, how many null pointers (empty child links) are present in the tree?", "options": ["<code>N</code>", "<code>N - 1</code>", "<code>N + 1</code>", "<code>2N</code>", "<code>2N - 1</code>"], "correct": 2, "explain": "Each node has 2 child pointers, giving $2N$ total pointers. Since $N-1$ pointers are used to link parent-child connections, there are $2N - (N-1) = N+1$ null pointers."}, {"q": "What is the maximum height of a binary tree containing <code>L</code> leaves?", "options": ["<code>L</code>", "<code>L - 1</code>", "<code>2L</code>", "<code>log2(L)</code>", "<code>2^L</code>"], "correct": 0, "explain": "To maximize height, we should have a skewed chain of nodes where each level has 1 child, except the lowest levels. For $L$ leaves, the maximum height is $L$."}, {"q": "What is the relation between the number of leaf nodes ($n_0$) and the number of nodes with degree 2 ($n_2$) in any binary tree?", "options": ["$n_0 = n_2$", "$n_0 = n_2 + 1$", "$n_0 = n_2 - 1$", "$n_0 = 2n_2$", "$n_0 = n_2 / 2$"], "correct": 1, "explain": "By algebraic tree properties: the number of leaf nodes (degree 0) is always exactly 1 more than the number of internal nodes with two children (degree 2): $n_0 = n_2 + 1$."}, {"q": "Given a Preorder traversal sequence: <code>A B D E C F</code> and an Inorder sequence: <code>D B E A F C</code>, what is the Postorder traversal?", "options": ["<code>D E B F C A</code>", "<code>D B E F C A</code>", "<code>A B C D E F</code>", "<code>D E F B C A</code>", "<code>F E D C B A</code>"], "correct": 0, "explain": "Rebuilding recursively yields left child B (with children D, E) and right child C (with left child F). Postorder is Left -> Right -> Root: `D E B F C A`."}, {"q": "What is the height of a perfect binary tree containing 15 nodes?", "options": ["3", "4", "5", "15", "7"], "correct": 1, "explain": "A perfect binary tree has $2^H - 1$ nodes. For 15 nodes, $2^H - 1 = 15 \\implies 2^H = 16 \\implies H = 4$ levels."}, {"q": "A full binary tree has 9 internal nodes. How many leaf nodes does it contain?", "options": ["8", "9", "10", "18", "11"], "correct": 2, "explain": "In any full binary tree (every node has 0 or 2 children), the number of leaf nodes $L$ is related to internal nodes $I$ by: $L = I + 1$. Thus, $9 + 1 = 10$ leaf nodes."}, {"q": "What is the maximum height of a binary tree with 7 nodes?", "options": ["3", "4", "7", "6", "5"], "correct": 2, "explain": "The maximum height occurs when the tree is completely skewed (linear chain), giving a height equal to the number of nodes: 7."}, {"q": "Which binary tree traversal visits nodes in BFS level-order?", "options": ["Preorder", "Inorder", "Postorder", "Level-order", "Out-order"], "correct": 3, "explain": "Level-order traversal visits nodes level-by-level, starting from the root, going left-to-right on each level."}, {"q": "What is the relationship between the number of edges <code>E</code> and vertices <code>V</code> in a binary tree?", "options": ["<code>E = V</code>", "<code>E = V - 1</code>", "<code>E = V + 1</code>", "<code>E = 2V</code>", "<code>E = log(V)</code>"], "correct": 1, "explain": "Every tree with $V$ vertices has exactly $V-1$ edges, as every node except the root has exactly one parent edge."}, {"q": "What is the height of a perfect binary tree with 31 nodes?", "options": ["3", "4", "5", "6", "31"], "correct": 2, "explain": "A perfect tree has $2^H - 1$ nodes. For 31 nodes: $2^H - 1 = 31 \\implies 2^H = 32 \\implies H = 5$."}, {"q": "What is printed by executing <code>traverse(root)</code> on a tree where Root (1) has Left child (2) and Right child (3)?<pre><code>void traverse(Node* root) {\n    if(!root) return;\n    std::cout &lt;&lt; root-&gt;val &lt;&lt; \" \";\n    traverse(root-&gt;left);\n    traverse(root-&gt;right);\n}</code></pre>", "options": ["1 2 3", "2 1 3", "2 3 1", "3 2 1", "1 3 2"], "correct": 0, "explain": "This implements Preorder Traversal (Root, Left, Right). For root 1, it prints 1, then traverses left child 2 (printing 2), then traverses right child 3 (printing 3). Output: '1 2 3 '."}, {"q": "What does the function <code>count(root)</code> return if <code>root</code> points to a leaf node in a binary tree?<pre><code>int count(Node* root) {\n    if(!root) return 0;\n    return 1 + count(root-&gt;left) + count(root-&gt;right);\n}</code></pre>", "options": ["0", "1", "2", "3", "Undefined Behavior"], "correct": 1, "explain": "For a leaf node, <code>root->left</code> and <code>root->right</code> are both <code>nullptr</code>. The recursive calls return 0. The expression evaluates to: <code>1 + 0 + 0 = 1</code>."}, {"q": "What is the maximum number of leaves in a binary tree of height <code>H</code>?", "options": ["<code>H</code>", "<code>2H</code>", "<code>2^(H-1)</code>", "<code>2^H</code>", "<code>2^(H+1) - 1</code>"], "correct": 2, "explain": "A perfect binary tree of height H has $2^{H-1}$ leaves at the bottom level."}, {"q": "Which traversal order processes the root node after recursively traversing both its left and right subtrees?", "options": ["Preorder", "Inorder", "Postorder", "Level-order (BFS)", "Out-order"], "correct": 2, "explain": "Postorder visits subtrees first: Left subtree -> Right subtree -> Root node."}, {"q": "An Expression Tree's postorder traversal yields which algebraic representation?", "options": ["Infix notation", "Prefix notation", "Postfix (Reverse Polish) notation", "Canonical binary notation", "Matrix adjacency notation"], "correct": 2, "explain": "Postorder traversal processes operator nodes after their children operands, naturally outputting Postfix (Reverse Polish) algebraic notation."}, {"q": "What is the degree of a leaf node in a rooted tree structure?", "options": ["0", "1", "2", "Variable", "Equal to height"], "correct": 0, "explain": "A leaf node is defined as a node with no successors (no children). Therefore, its child degree is exactly 0."}, {"q": "Which helper data structure is typically used to implement an iterative DFS traversal of a binary tree?", "options": ["Queue", "Stack", "Priority Queue", "Hash Map", "Deque"], "correct": 1, "explain": "Iterative DFS traversals simulate recursion using an explicit LIFO Stack."}, {"q": "If a binary tree contains <code>N</code> nodes, how many null pointers (empty child links) are present in the tree?", "options": ["<code>N</code>", "<code>N - 1</code>", "<code>N + 1</code>", "<code>2N</code>", "<code>2N - 1</code>"], "correct": 2, "explain": "Each node has 2 child pointers, giving $2N$ total pointers. Since $N-1$ pointers are used to link parent-child connections, there are $2N - (N-1) = N+1$ null pointers."}, {"q": "What is the maximum height of a binary tree containing <code>L</code> leaves?", "options": ["<code>L</code>", "<code>L - 1</code>", "<code>2L</code>", "<code>log2(L)</code>", "<code>2^L</code>"], "correct": 0, "explain": "To maximize height, we should have a skewed chain of nodes where each level has 1 child, except the lowest levels. For $L$ leaves, the maximum height is $L$."}, {"q": "What is the relation between the number of leaf nodes ($n_0$) and the number of nodes with degree 2 ($n_2$) in any binary tree?", "options": ["$n_0 = n_2$", "$n_0 = n_2 + 1$", "$n_0 = n_2 - 1$", "$n_0 = 2n_2$", "$n_0 = n_2 / 2$"], "correct": 1, "explain": "By algebraic tree properties: the number of leaf nodes (degree 0) is always exactly 1 more than the number of internal nodes with two children (degree 2): $n_0 = n_2 + 1$."}, {"q": "Given a Preorder traversal sequence: <code>A B D E C F</code> and an Inorder sequence: <code>D B E A F C</code>, what is the Postorder traversal?", "options": ["<code>D E B F C A</code>", "<code>D B E F C A</code>", "<code>A B C D E F</code>", "<code>D E F B C A</code>", "<code>F E D C B A</code>"], "correct": 0, "explain": "Rebuilding recursively yields left child B (with children D, E) and right child C (with left child F). Postorder is Left -> Right -> Root: `D E B F C A`."}, {"q": "What is the height of a perfect binary tree containing 15 nodes?", "options": ["3", "4", "5", "15", "7"], "correct": 1, "explain": "A perfect binary tree has $2^H - 1$ nodes. For 15 nodes, $2^H - 1 = 15 \\implies 2^H = 16 \\implies H = 4$ levels."}, {"q": "A full binary tree has 9 internal nodes. How many leaf nodes does it contain?", "options": ["8", "9", "10", "18", "11"], "correct": 2, "explain": "In any full binary tree (every node has 0 or 2 children), the number of leaf nodes $L$ is related to internal nodes $I$ by: $L = I + 1$. Thus, $9 + 1 = 10$ leaf nodes."}, {"q": "What is the maximum height of a binary tree with 7 nodes?", "options": ["3", "4", "7", "6", "5"], "correct": 2, "explain": "The maximum height occurs when the tree is completely skewed (linear chain), giving a height equal to the number of nodes: 7."}, {"q": "Which binary tree traversal visits nodes in BFS level-order?", "options": ["Preorder", "Inorder", "Postorder", "Level-order", "Out-order"], "correct": 3, "explain": "Level-order traversal visits nodes level-by-level, starting from the root, going left-to-right on each level."}];</script>
-<script>
-const QS = window.__QS__;
-let correct = 0, answered = 0;
 
-document.querySelectorAll('.q').forEach((card, qi) => {
-  const btn = card.querySelector('.check');
-  btn.addEventListener('click', () => {
-    const sel = card.querySelector('input:checked');
-    if (!sel) return;
-    const chosen = parseInt(sel.value);
-    const answer = QS[qi].correct;
-    const opts = card.querySelectorAll('.opt');
-    const exp = card.querySelector('.exp');
 
-    opts.forEach((o, i) => {
-      if (i === answer) o.classList.add('ok');
-      else if (i === chosen && chosen !== answer) o.classList.add('err');
-      o.querySelector('input').disabled = true;
-    });
-
-    exp.classList.add('show');
-    if (chosen === answer) {
-      correct++;
-      exp.classList.add('ok');
-    } else {
-      exp.classList.add('err');
-    }
-    answered++;
-    btn.disabled = true;
-    document.querySelector('.score-bar strong').textContent = correct + ' / ' + answered;
-  });
-});
-</script>
-
+<script src="assets/js/quiz.js"></script>
 </body>
 </html>

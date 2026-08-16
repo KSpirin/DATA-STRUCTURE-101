@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shuffle Exam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">Quiz Home</a>
+      <span class="nav-sep">/</span>
+      <h1>Shuffle Exam</h1>
+    </div>
+    <div class="score-container">
+      Score: <span class="score-correct" id="scoreCorrect">0</span> / <span id="scoreTotal">0</span>
+    </div>
+  </nav>
+
+  <div class="container shuffle-mode">
+    <div class="info-bar">
+      <span id="partName" style="font-size: 1.1rem; font-weight: 600; color: var(--txt);">Loading...</span>
+      <span id="questionCount">0 / 0 total questions</span>
+    </div>
+
+    <div id="quizContainer"></div>
+
+    <div class="bottom-actions" id="bottomActions">
+      <button class="shuffle-btn" onclick="initShuffle()" style="display: inline-flex; width: auto; padding: 1rem 2rem;">🔄 New Shuffle</button>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="assets/js/shuffle.js"></script>
+</body>
+</html>

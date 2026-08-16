@@ -11,7 +11,7 @@ Built to score 100/100 — and structured to be useful for anyone learning the s
 
 ## Interactive Quiz Portal
 
-**-> [Open Quiz Portal](https://kspirin.github.io/DATA-STRUCTURE-101/mimi_exam/quiz/)** — 300 multiple choice questions across all 10 topics, runs in the browser, instant answer checking.
+**-> [Open Quiz Portal](https://kspirin.github.io/DATA-STRUCTURE-101/mimi_exam/quiz/)** — 330 multiple choice questions across all topics, runs in the browser, instant answer checking.
 
 > _Why "mimi"? it's not a typo — it's just my thing_ 
 
@@ -31,8 +31,10 @@ Built to score 100/100 — and structured to be useful for anyone learning the s
 ## Topics
 
 | # | Topic | Theory | LeetCode Solutions | Mock Challenges |
-|---|-------|--------|-------------------|-----------------|
-| 01 | C++ Basics & Memory | [Guide](everything_you_should_know/01_CPP.md) | [5 problems](leetcode/01_CPP/) | [3 challenges](mimi_exam/01_CPP/) |
+|---|-------|--------|-------------------|-----------------| 
+| 01 | **Foundations** | | | |
+| 01-A | C++ Basics & Memory | [Guide](everything_you_should_know/01_CPP.md) | [5 problems](leetcode/01_CPP/) | [3 challenges](mimi_exam/01_CPP/) |
+| 01-B | Arrays & Vectors | — | — | — |
 | 02 | Stack | [Guide](everything_you_should_know/02_STACK.md) | [7 problems](leetcode/02_STACK/) | [3 challenges](mimi_exam/02_STACK/) |
 | 03 | Queue | [Guide](everything_you_should_know/03_QUEUE.md) | [7 problems](leetcode/03_QUEUE/) | [3 challenges](mimi_exam/03_QUEUE/) |
 | 04 | Linked List | [Guide](everything_you_should_know/04_LINKED_LIST.md) | [8 problems](leetcode/04_LINKED_LIST/) | [3 challenges](mimi_exam/04_LINKED_LIST/) |
@@ -79,6 +81,7 @@ g++ -std=c++17 -Wall filename.cpp -o out && ./out
 
 | Data Structure | Insert | Delete | Search | Space |
 |----------------|--------|--------|--------|-------|
+| Array / Vector | O(1) end, O(n) mid | O(n) | O(n) | O(n) |
 | Stack (array) | O(1) | O(1) | O(n) | O(n) |
 | Queue (circular array) | O(1) | O(1) | O(n) | O(n) |
 | Singly Linked List | O(1) head | O(n) tail | O(n) | O(n) |

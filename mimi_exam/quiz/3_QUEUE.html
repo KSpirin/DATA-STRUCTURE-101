@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03. Queue ADT — Quiz</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav>
+  <a class="home" href="index.html">Quiz Home</a>
+  <span class="sep">/</span>
+  <span class="topic">Queue</span>
+  <div class="nav-links">
+    <a href="2_STACK.html">← Stack</a>
+    <a href="4_LINKED_LIST.html">Linked List →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <h1>03. Queue ADT</h1>
+
+<div class="q">
+  <div class="q-num">Q1</div>
+  <div class="q-text">In a Queue ADT, elements are inserted at the ______ and removed from the ______.</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q0" value="0"><span>A. front, rear</span></label>
+<label class="opt"><input type="radio" name="q0" value="1"><span>B. rear, front</span></label>
+<label class="opt"><input type="radio" name="q0" value="2"><span>C. top, bottom</span></label>
+<label class="opt"><input type="radio" name="q0" value="3"><span>D. bottom, top</span></label>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. middle, front</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Queues follow First-In, First-Out (FIFO). New elements are enqueued at the back/rear, and removed from the front.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q2</div>
+  <div class="q-text">Which two operations, together, define the core behavior of a queue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q1" value="0"><span>A. push and pop</span></label>
+<label class="opt"><input type="radio" name="q1" value="1"><span>B. enqueue and dequeue</span></label>
+<label class="opt"><input type="radio" name="q1" value="2"><span>C. insert and delete at any position</span></label>
+<label class="opt"><input type="radio" name="q1" value="3"><span>D. front and back only, with no removal</span></label>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. search and sort</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A queue's identity comes from restricting insertion to one end and removal to the other: enqueue adds an element to the back, and dequeue removes the element from the front.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q3</div>
+  <div class="q-text">Which data structure operates on a Restricted-Access FIFO policy?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q2" value="0"><span>A. Stack</span></label>
+<label class="opt"><input type="radio" name="q2" value="1"><span>B. Queue</span></label>
+<label class="opt"><input type="radio" name="q2" value="2"><span>C. Binary Heap</span></label>
+<label class="opt"><input type="radio" name="q2" value="3"><span>D. Hash Table</span></label>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. BST</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Queues strictly restrict insertions to the back (enqueue) and deletions to the front (dequeue), enforcing First-In, First-Out (FIFO) policy.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q4</div>
+  <div class="q-text">Which real-world scenario best models how a Queue (FIFO) behaves?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q3" value="0"><span>A. People waiting in line at a ticket counter — first to arrive is first to be served</span></label>
+<label class="opt"><input type="radio" name="q3" value="1"><span>B. A stack of plates, where you only take the top one</span></label>
+<label class="opt"><input type="radio" name="q3" value="2"><span>C. A phone book sorted alphabetically</span></label>
+<label class="opt"><input type="radio" name="q3" value="3"><span>D. A pile of laundry where you grab whatever is on top</span></label>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. A deck of cards shuffled randomly</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A queue serves elements in the exact order they arrived, just like a line of people waiting their turn. The plate stack and laundry pile are LIFO examples (stack-like), not FIFO.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q5</div>
+  <div class="q-text">In an array-based Circular Queue of size <code>N</code>, which expression correctly wraps the tail pointer index <code>iback</code> during enqueue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q4" value="0"><span>A. <code>iback = (iback + 1) % (N + 1)</code></span></label>
+<label class="opt"><input type="radio" name="q4" value="1"><span>B. <code>iback = (iback + 1) % N</code></span></label>
+<label class="opt"><input type="radio" name="q4" value="2"><span>C. <code>iback = iback + 1</code></span></label>
+<label class="opt"><input type="radio" name="q4" value="3"><span>D. <code>iback = (iback % N) + 1</code></span></label>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. <code>iback = (iback - 1) % N</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Circular indices wrap around using modulo capacity arithmetic: (index + 1) % N.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q6</div>
+  <div class="q-text">Which condition represents a full Circular Queue when the front index has wrapped around and now sits immediately after rear?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q5" value="0"><span>A. <code>FRONT == 0 &amp;&amp; REAR == SIZE - 1</code></span></label>
+<label class="opt"><input type="radio" name="q5" value="1"><span>B. <code>FRONT == REAR + 1</code></span></label>
+<label class="opt"><input type="radio" name="q5" value="2"><span>C. <code>FRONT == REAR</code></span></label>
+<label class="opt"><input type="radio" name="q5" value="3"><span>D. <code>FRONT == REAR - 1</code></span></label>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. <code>SIZE == 0</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A circular queue is considered full under two configurations: (1) FRONT == 0 and REAR == SIZE - 1, or (2) FRONT == REAR + 1 after wrapping.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q7</div>
+  <div class="q-text">In a circular queue, which condition typically signals that the queue is empty?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q6" value="0"><span>A. <code>front == rear</code></span></label>
+<label class="opt"><input type="radio" name="q6" value="1"><span>B. <code>front == rear + 1</code></span></label>
+<label class="opt"><input type="radio" name="q6" value="2"><span>C. <code>rear == capacity - 1</code></span></label>
+<label class="opt"><input type="radio" name="q6" value="3"><span>D. <code>front == 0</code></span></label>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. There is no way to detect an empty queue</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">When front and rear point to the same position, and no separate count is tracked, the queue is empty — there is nothing between front and rear to dequeue.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q8</div>
+  <div class="q-text">Why does a linear (non-circular) array-based queue suffer from 'false overflow', and how does a circular queue solve it?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q7" value="0"><span>A. Because rear only ever increases and is never reset by dequeue, so it can hit the array's end even while many front slots sit empty; a circular queue solves this by wrapping rear back to index 0 with modulo arithmetic</span></label>
+<label class="opt"><input type="radio" name="q7" value="1"><span>B. Because the array runs out of memory permanently after any dequeue</span></label>
+<label class="opt"><input type="radio" name="q7" value="2"><span>C. Because linear queues cannot hold more than 2 elements</span></label>
+<label class="opt"><input type="radio" name="q7" value="3"><span>D. Because dequeue() deletes the entire array by mistake</span></label>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. There is no real difference between linear and circular queues</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">In a plain array queue, rear keeps climbing with every enqueue and is never pulled back by dequeue, even though the freed slots at the front sit unused. Eventually rear hits the end of the array and reports 'full' even though space remains at the front — this is false overflow. A circular queue fixes it by wrapping rear (and front) around to index 0 with modulo arithmetic, reusing the freed slots.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q9</div>
+  <div class="q-text">In a Circular Queue of size <code>N</code>, how is the current size calculated from the <code>front</code> and <code>rear</code> indices?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q8" value="0"><span>A. <code>(rear - front + N) % N</code></span></label>
+<label class="opt"><input type="radio" name="q8" value="1"><span>B. <code>(rear - front) % N</code></span></label>
+<label class="opt"><input type="radio" name="q8" value="2"><span>C. <code>(rear - front + N) % N + 1</code></span></label>
+<label class="opt"><input type="radio" name="q8" value="3"><span>D. <code>rear - front</code></span></label>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. It depends on a separate size tracker variable only</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">If the queue has wrapped, rear < front. The general formula for the number of elements currently stored is (rear - front + N) % N.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q10</div>
+  <div class="q-text">What is the front index in a Circular Queue after enqueuing 3 elements and dequeueing 2 elements, starting from empty at index 0?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q9" value="0"><span>A. 0</span></label>
+<label class="opt"><input type="radio" name="q9" value="1"><span>B. 1</span></label>
+<label class="opt"><input type="radio" name="q9" value="2"><span>C. 2</span></label>
+<label class="opt"><input type="radio" name="q9" value="3"><span>D. 3</span></label>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. 4</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Enqueuing 3 elements fills indices 0, 1, 2. Dequeueing 2 elements removes index 0 and index 1. The front pointer now rests at index 2.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q11</div>
+  <div class="q-text">What are the values of <code>rear</code> and <code>front</code> after enqueuing 3 elements and dequeueing 2 elements in a Circular Queue? (0-indexed, starting empty at index 0.)</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q10" value="0"><span>A. front = 2, rear = 2</span></label>
+<label class="opt"><input type="radio" name="q10" value="1"><span>B. front = 0, rear = 1</span></label>
+<label class="opt"><input type="radio" name="q10" value="2"><span>C. front = 1, rear = 2</span></label>
+<label class="opt"><input type="radio" name="q10" value="3"><span>D. front = 2, rear = 3</span></label>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. front = 0, rear = 2</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Enqueuing 3 elements fills index 0, 1, and 2, so rear ends at 2. Dequeuing 2 elements removes index 0 and 1, so front moves to index 2. Both front and rear now rest at index 2.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q12</div>
+  <div class="q-text">A Circular Queue has capacity <code>N=5</code> (using the 'leave one slot empty' strategy) and starts with <code>front=0, rear=0</code>. After <code>enqueue(A), enqueue(B), enqueue(C), enqueue(D)</code>, what are the values of <code>front</code> and <code>rear</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q11" value="0"><span>A. front=0, rear=4</span></label>
+<label class="opt"><input type="radio" name="q11" value="1"><span>B. front=4, rear=0</span></label>
+<label class="opt"><input type="radio" name="q11" value="2"><span>C. front=0, rear=3</span></label>
+<label class="opt"><input type="radio" name="q11" value="3"><span>D. front=1, rear=4</span></label>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. front=0, rear=5</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Each enqueue writes at rear then advances: rear = (rear+1) % 5. Starting rear=0: after A, rear=1; after B, rear=2; after C, rear=3; after D, rear=4. front never moves during enqueue, so it stays 0. Final: front=0, rear=4.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q13</div>
+  <div class="q-text">Continuing from the same circular queue (N=5, front=0, rear=4 after enqueuing A,B,C,D), perform <code>dequeue(); dequeue();</code>. What are the new values of <code>front</code> and <code>rear</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q12" value="0"><span>A. front=2, rear=4</span></label>
+<label class="opt"><input type="radio" name="q12" value="1"><span>B. front=1, rear=3</span></label>
+<label class="opt"><input type="radio" name="q12" value="2"><span>C. front=0, rear=2</span></label>
+<label class="opt"><input type="radio" name="q12" value="3"><span>D. front=2, rear=2</span></label>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. front=4, rear=2</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Each dequeue reads at front then advances: front = (front+1) % 5. Starting front=0: after the first dequeue (removes A), front=1; after the second (removes B), front=2. rear is untouched by dequeue, staying at 4. Final: front=2, rear=4.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q14</div>
+  <div class="q-text">In the 'leave one slot empty' circular queue strategy with capacity N=5, the queue is currently full according to <code>(rear+1)%N == front</code>. If <code>front=3</code>, what is <code>rear</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q13" value="0"><span>A. 2</span></label>
+<label class="opt"><input type="radio" name="q13" value="1"><span>B. 3</span></label>
+<label class="opt"><input type="radio" name="q13" value="2"><span>C. 4</span></label>
+<label class="opt"><input type="radio" name="q13" value="3"><span>D. 1</span></label>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. 0</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Full condition: (rear+1) % 5 == front == 3, so rear+1 is congruent to 3 mod 5, meaning rear = 2, since (2+1)%5 = 3.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q15</div>
+  <div class="q-text">A circular queue has capacity <code>N=4</code> (leave-one-slot strategy) and starts with <code>front=0, rear=0</code>. After <code>enqueue(P); enqueue(Q); enqueue(R);</code>, what are the values of <code>front</code> and <code>rear</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q14" value="0"><span>A. front=0, rear=3</span></label>
+<label class="opt"><input type="radio" name="q14" value="1"><span>B. front=0, rear=4</span></label>
+<label class="opt"><input type="radio" name="q14" value="2"><span>C. front=1, rear=3</span></label>
+<label class="opt"><input type="radio" name="q14" value="3"><span>D. front=3, rear=0</span></label>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. front=0, rear=2</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Each enqueue writes at rear then advances: rear = (rear+1) % 4. Starting rear=0: after P, rear=1; after Q, rear=2; after R, rear=3. front never moves during enqueue, staying 0. Final: front=0, rear=3 — and since (rear+1)%4 == front, the queue is now full.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q16</div>
+  <div class="q-text">Using the 'Simple Queue' (non-circular, slide model) with a starting empty state, after enqueuing 4 elements the queue reports <code>full() == true</code>. If we now call <code>dequeue()</code> four times to empty it, can we <code>enqueue(E)</code> afterward? Why?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q15" value="0"><span>A. No — rear is stuck at the same position (equal to size), so full() still returns true even though the queue is logically empty (this is the 'Rightward Drift' problem)</span></label>
+<label class="opt"><input type="radio" name="q15" value="1"><span>B. Yes — dequeuing resets rear back to 0 automatically</span></label>
+<label class="opt"><input type="radio" name="q15" value="2"><span>C. Yes — front and rear both wrap around using modulo</span></label>
+<label class="opt"><input type="radio" name="q15" value="3"><span>D. No — because front now exceeds the array bounds</span></label>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. Yes, but only if the array size is increased manually first</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">In the simple, non-circular array queue, rear only ever increases and is never reset by dequeue. After 4 enqueues, rear equals size, so full() stays true forever, even after the queue becomes logically empty. This is the 'Rightward Drift' problem that circular queues solve.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q17</div>
+  <div class="q-text">What is the time complexity of enqueuing an element into a Circular Queue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q16" value="0"><span>A. O(N)</span></label>
+<label class="opt"><input type="radio" name="q16" value="1"><span>B. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q16" value="2"><span>C. O(1)</span></label>
+<label class="opt"><input type="radio" name="q16" value="3"><span>D. O(N log N)</span></label>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. O(N^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Circular Queue insertions run in constant O(1) time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q18</div>
+  <div class="q-text">What is the time complexity of checking whether a Queue is empty?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q17" value="1"><span>B. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q17" value="2"><span>C. O(N)</span></label>
+<label class="opt"><input type="radio" name="q17" value="3"><span>D. O(N^2)</span></label>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. It depends on the queue's capacity</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Checking if a queue is empty is a constant-time check: either testing size == 0 or front == rear (or front == -1 in some conventions).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q19</div>
+  <div class="q-text">In a well-implemented circular array queue with front, rear, and a size counter, which of these operations run in O(1) time?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. enqueue, dequeue, front, and isEmpty — all of them</span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. Only enqueue</span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. Only dequeue and isEmpty</span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. None of them; all require scanning the array</span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. Only isEmpty</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Because a circular queue tracks front, rear, and size directly, enqueuing, dequeuing, peeking at the front, and checking emptiness can all be done with simple index math and no scanning. All are O(1).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q20</div>
+  <div class="q-text">Read the following queue simulation. What is printed?<pre><code>#include &lt;iostream&gt;
+#include &lt;queue&gt;
+int main() {
+    std::queue&lt;int&gt; q;
+    q.push(1); q.push(2); q.push(3);
+    q.pop();
+    q.push(4);
+    while(!q.empty()) {
+        std::cout &lt;&lt; q.front() &lt;&lt; " ";
+        q.pop();
+    }
+    return 0;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. 1 2 3 4</span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. 2 3 4</span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. 4 3 2</span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. 3 2 1</span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. 1 2 3</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The queue starts as [1, 2, 3]. Popping removes the front element (1), leaving [2, 3]. Pushing 4 yields [2, 3, 4]. Printing the front and popping repeatedly outputs '2 3 4 '.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q21</div>
+  <div class="q-text">What is the output of this <code>std::queue</code> trace?<pre><code>#include &lt;iostream&gt;
+#include &lt;queue&gt;
+int main() {
+    std::queue&lt;int&gt; q;
+    q.push(1); q.push(2); q.push(3);
+    q.pop();
+    q.push(4);
+    std::cout &lt;&lt; q.front() &lt;&lt; " " &lt;&lt; q.back();
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. 2 4</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. 1 4</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. 2 3</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. 1 3</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. 4 2</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">push 1,2,3 -> queue: [1,2,3] (front=1). pop() removes 1 -> [2,3]. push(4) -> [2,3,4]. front() = 2, back() = 4. Output: '2 4'.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q22</div>
+  <div class="q-text">What happens if you call <code>pop()</code> on an empty <code>std::queue</code> in C++?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. It throws a std::out_of_range exception</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. It returns a default value like 0</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. It is undefined behavior</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. The code fails to compile</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. It automatically waits until an element is pushed</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Like std::stack, std::queue does not check whether it is empty before popping. Calling pop() or front() on an empty queue is undefined behavior — the caller must check empty() first.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q23</div>
+  <div class="q-text">What is the difference between <code>front()</code> and <code>pop()</code> in <code>std::queue</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. front() removes the front element; pop() only reads it</span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. front() reads the front element without removing it; pop() removes the front element without returning it</span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. They do exactly the same thing</span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. front() only works on an empty queue</span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. pop() returns the value and removes it in a single call</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">front() returns a reference to the element at the front but leaves it in the queue. pop() removes the front element but does not return its value — code typically calls front() first to read it, then pop() to remove it.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q24</div>
+  <div class="q-text">After the sequence <code>enqueue(10); enqueue(20); enqueue(30); dequeue(); enqueue(40);</code>, what does <code>size()</code> return?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. 3</span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. 4</span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. 1</span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. 0</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">enqueue adds three elements (size 3), dequeue removes one (size 2), then enqueue adds one more (size 3). The queue ends with 3 elements.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q25</div>
+  <div class="q-text">Which situation causes a Queue Underflow?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. Calling enqueue() on a full queue</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. Calling dequeue() or front() on an empty queue</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. Calling empty() on any queue</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. Enqueuing a new value onto the queue</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. Dequeuing the last element, leaving the queue empty</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Queue Underflow happens when we try to remove or read data (dequeue or front) from a queue that has no elements.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q26</div>
+  <div class="q-text">A Queue is implemented using two stacks, <code>inStack</code> and <code>outStack</code>. Enqueue always pushes onto inStack. Dequeue pops from outStack, refilling it from inStack whenever outStack is empty (by popping everything off inStack and pushing it onto outStack). Starting from both stacks empty, we call <code>enqueue(1); enqueue(2); dequeue();</code>. What is the state of the two stacks right after <code>dequeue()</code> finishes?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. inStack is empty; outStack contains [2] with 2 on top</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. inStack contains [1,2]; outStack is empty</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. Both stacks are empty</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. inStack contains [2]; outStack contains [1]</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. inStack is empty; outStack contains [1,2]</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">enqueue(1) and enqueue(2) both go onto inStack: inStack=[1,2]. On dequeue(), since outStack is empty, everything moves from inStack to outStack, reversing the order: outStack=[2,1] (1 on top). Popping outStack removes 1, the correct FIFO answer since 1 was enqueued first. After that pop, inStack is empty and outStack holds [2].</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q27</div>
+  <div class="q-text">What is a Double-Ended Queue (Deque)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. A queue that allows insertion at one end and removal at the other</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. A queue that allows insertions and deletions at both the front and the back</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. A queue with two storage arrays to prevent stack overflow</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. A queue that operates in O(log N) time</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. A queue that sorts elements automatically</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A Deque (Double-Ended Queue) allows elements to be enqueued or dequeued from either the front or the back.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q28</div>
+  <div class="q-text">How does a Priority Queue differ from a standard FIFO Queue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. It uses stack pointers</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. It dequeues elements based on priority/value instead of strict arrival order</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. It only supports floating-point values</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. It has half the memory footprint</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. It requires lazy deletion on every insert</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">In a Priority Queue, elements are enqueued normally but dequeued based on priority, not on the order they arrived.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q29</div>
+  <div class="q-text">Which statement correctly distinguishes a Queue, a Deque, and a Priority Queue?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. Queue: FIFO, insert at the back and remove from the front only. Deque: insert and remove at both ends. Priority Queue: removes based on priority, not arrival order</span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. They are all exactly the same structure with different names</span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. A Deque can only insert at the front; a Priority Queue can only insert at the back</span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. A Priority Queue always removes the oldest element, just like a Queue</span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. A Deque is a Priority Queue that only holds two elements</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A plain Queue is strict FIFO. A Deque relaxes that by allowing insertion and removal at both the front and back. A Priority Queue relaxes it differently: elements come out based on priority value, regardless of when they arrived.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q30</div>
+  <div class="q-text">In a plain FIFO queue with no extra structure, what is the time complexity of finding the element with the highest priority among N elements?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. O(N)</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. O(N log N)</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. O(N^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A plain queue only lets us access the front element directly. To find the highest-priority element, we would need to scan every element, which takes O(N) time — this is exactly the gap a Priority Queue is designed to close.</div>
+</div>
+
+<div class="score-bar">
+  <span>Score: <strong>0 / 0</strong></span>
+  <span style="margin-left:auto">30 questions</span>
+</div>
+
+<script>window.__QS__ = [{"q": "In a Queue ADT, elements are inserted at the ______ and removed from the ______.", "options": ["front, rear", "rear, front", "top, bottom", "bottom, top", "middle, front"], "correct": 1, "explain": "Queues follow First-In, First-Out (FIFO). New elements are enqueued at the back/rear, and removed from the front."}, {"q": "Which two operations, together, define the core behavior of a queue?", "options": ["push and pop", "enqueue and dequeue", "insert and delete at any position", "front and back only, with no removal", "search and sort"], "correct": 1, "explain": "A queue's identity comes from restricting insertion to one end and removal to the other: enqueue adds an element to the back, and dequeue removes the element from the front."}, {"q": "Which data structure operates on a Restricted-Access FIFO policy?", "options": ["Stack", "Queue", "Binary Heap", "Hash Table", "BST"], "correct": 1, "explain": "Queues strictly restrict insertions to the back (enqueue) and deletions to the front (dequeue), enforcing First-In, First-Out (FIFO) policy."}, {"q": "Which real-world scenario best models how a Queue (FIFO) behaves?", "options": ["People waiting in line at a ticket counter — first to arrive is first to be served", "A stack of plates, where you only take the top one", "A phone book sorted alphabetically", "A pile of laundry where you grab whatever is on top", "A deck of cards shuffled randomly"], "correct": 0, "explain": "A queue serves elements in the exact order they arrived, just like a line of people waiting their turn. The plate stack and laundry pile are LIFO examples (stack-like), not FIFO."}, {"q": "In an array-based Circular Queue of size <code>N</code>, which expression correctly wraps the tail pointer index <code>iback</code> during enqueue?", "options": ["<code>iback = (iback + 1) % (N + 1)</code>", "<code>iback = (iback + 1) % N</code>", "<code>iback = iback + 1</code>", "<code>iback = (iback % N) + 1</code>", "<code>iback = (iback - 1) % N</code>"], "correct": 1, "explain": "Circular indices wrap around using modulo capacity arithmetic: (index + 1) % N."}, {"q": "Which condition represents a full Circular Queue when the front index has wrapped around and now sits immediately after rear?", "options": ["<code>FRONT == 0 &amp;&amp; REAR == SIZE - 1</code>", "<code>FRONT == REAR + 1</code>", "<code>FRONT == REAR</code>", "<code>FRONT == REAR - 1</code>", "<code>SIZE == 0</code>"], "correct": 1, "explain": "A circular queue is considered full under two configurations: (1) FRONT == 0 and REAR == SIZE - 1, or (2) FRONT == REAR + 1 after wrapping."}, {"q": "In a circular queue, which condition typically signals that the queue is empty?", "options": ["<code>front == rear</code>", "<code>front == rear + 1</code>", "<code>rear == capacity - 1</code>", "<code>front == 0</code>", "There is no way to detect an empty queue"], "correct": 0, "explain": "When front and rear point to the same position, and no separate count is tracked, the queue is empty — there is nothing between front and rear to dequeue."}, {"q": "Why does a linear (non-circular) array-based queue suffer from 'false overflow', and how does a circular queue solve it?", "options": ["Because rear only ever increases and is never reset by dequeue, so it can hit the array's end even while many front slots sit empty; a circular queue solves this by wrapping rear back to index 0 with modulo arithmetic", "Because the array runs out of memory permanently after any dequeue", "Because linear queues cannot hold more than 2 elements", "Because dequeue() deletes the entire array by mistake", "There is no real difference between linear and circular queues"], "correct": 0, "explain": "In a plain array queue, rear keeps climbing with every enqueue and is never pulled back by dequeue, even though the freed slots at the front sit unused. Eventually rear hits the end of the array and reports 'full' even though space remains at the front — this is false overflow. A circular queue fixes it by wrapping rear (and front) around to index 0 with modulo arithmetic, reusing the freed slots."}, {"q": "In a Circular Queue of size <code>N</code>, how is the current size calculated from the <code>front</code> and <code>rear</code> indices?", "options": ["<code>(rear - front + N) % N</code>", "<code>(rear - front) % N</code>", "<code>(rear - front + N) % N + 1</code>", "<code>rear - front</code>", "It depends on a separate size tracker variable only"], "correct": 0, "explain": "If the queue has wrapped, rear < front. The general formula for the number of elements currently stored is (rear - front + N) % N."}, {"q": "What is the front index in a Circular Queue after enqueuing 3 elements and dequeueing 2 elements, starting from empty at index 0?", "options": ["0", "1", "2", "3", "4"], "correct": 2, "explain": "Enqueuing 3 elements fills indices 0, 1, 2. Dequeueing 2 elements removes index 0 and index 1. The front pointer now rests at index 2."}, {"q": "What are the values of <code>rear</code> and <code>front</code> after enqueuing 3 elements and dequeueing 2 elements in a Circular Queue? (0-indexed, starting empty at index 0.)", "options": ["front = 2, rear = 2", "front = 0, rear = 1", "front = 1, rear = 2", "front = 2, rear = 3", "front = 0, rear = 2"], "correct": 0, "explain": "Enqueuing 3 elements fills index 0, 1, and 2, so rear ends at 2. Dequeuing 2 elements removes index 0 and 1, so front moves to index 2. Both front and rear now rest at index 2."}, {"q": "A Circular Queue has capacity <code>N=5</code> (using the 'leave one slot empty' strategy) and starts with <code>front=0, rear=0</code>. After <code>enqueue(A), enqueue(B), enqueue(C), enqueue(D)</code>, what are the values of <code>front</code> and <code>rear</code>?", "options": ["front=0, rear=4", "front=4, rear=0", "front=0, rear=3", "front=1, rear=4", "front=0, rear=5"], "correct": 0, "explain": "Each enqueue writes at rear then advances: rear = (rear+1) % 5. Starting rear=0: after A, rear=1; after B, rear=2; after C, rear=3; after D, rear=4. front never moves during enqueue, so it stays 0. Final: front=0, rear=4."}, {"q": "Continuing from the same circular queue (N=5, front=0, rear=4 after enqueuing A,B,C,D), perform <code>dequeue(); dequeue();</code>. What are the new values of <code>front</code> and <code>rear</code>?", "options": ["front=2, rear=4", "front=1, rear=3", "front=0, rear=2", "front=2, rear=2", "front=4, rear=2"], "correct": 0, "explain": "Each dequeue reads at front then advances: front = (front+1) % 5. Starting front=0: after the first dequeue (removes A), front=1; after the second (removes B), front=2. rear is untouched by dequeue, staying at 4. Final: front=2, rear=4."}, {"q": "In the 'leave one slot empty' circular queue strategy with capacity N=5, the queue is currently full according to <code>(rear+1)%N == front</code>. If <code>front=3</code>, what is <code>rear</code>?", "options": ["2", "3", "4", "1", "0"], "correct": 0, "explain": "Full condition: (rear+1) % 5 == front == 3, so rear+1 is congruent to 3 mod 5, meaning rear = 2, since (2+1)%5 = 3."}, {"q": "A circular queue has capacity <code>N=4</code> (leave-one-slot strategy) and starts with <code>front=0, rear=0</code>. After <code>enqueue(P); enqueue(Q); enqueue(R);</code>, what are the values of <code>front</code> and <code>rear</code>?", "options": ["front=0, rear=3", "front=0, rear=4", "front=1, rear=3", "front=3, rear=0", "front=0, rear=2"], "correct": 0, "explain": "Each enqueue writes at rear then advances: rear = (rear+1) % 4. Starting rear=0: after P, rear=1; after Q, rear=2; after R, rear=3. front never moves during enqueue, staying 0. Final: front=0, rear=3 — and since (rear+1)%4 == front, the queue is now full."}, {"q": "Using the 'Simple Queue' (non-circular, slide model) with a starting empty state, after enqueuing 4 elements the queue reports <code>full() == true</code>. If we now call <code>dequeue()</code> four times to empty it, can we <code>enqueue(E)</code> afterward? Why?", "options": ["No — rear is stuck at the same position (equal to size), so full() still returns true even though the queue is logically empty (this is the 'Rightward Drift' problem)", "Yes — dequeuing resets rear back to 0 automatically", "Yes — front and rear both wrap around using modulo", "No — because front now exceeds the array bounds", "Yes, but only if the array size is increased manually first"], "correct": 0, "explain": "In the simple, non-circular array queue, rear only ever increases and is never reset by dequeue. After 4 enqueues, rear equals size, so full() stays true forever, even after the queue becomes logically empty. This is the 'Rightward Drift' problem that circular queues solve."}, {"q": "What is the time complexity of enqueuing an element into a Circular Queue?", "options": ["O(N)", "O(log N)", "O(1)", "O(N log N)", "O(N^2)"], "correct": 2, "explain": "Circular Queue insertions run in constant O(1) time."}, {"q": "What is the time complexity of checking whether a Queue is empty?", "options": ["O(1)", "O(log N)", "O(N)", "O(N^2)", "It depends on the queue's capacity"], "correct": 0, "explain": "Checking if a queue is empty is a constant-time check: either testing size == 0 or front == rear (or front == -1 in some conventions)."}, {"q": "In a well-implemented circular array queue with front, rear, and a size counter, which of these operations run in O(1) time?", "options": ["enqueue, dequeue, front, and isEmpty — all of them", "Only enqueue", "Only dequeue and isEmpty", "None of them; all require scanning the array", "Only isEmpty"], "correct": 0, "explain": "Because a circular queue tracks front, rear, and size directly, enqueuing, dequeuing, peeking at the front, and checking emptiness can all be done with simple index math and no scanning. All are O(1)."}, {"q": "Read the following queue simulation. What is printed?<pre><code>#include &lt;iostream&gt;\n#include &lt;queue&gt;\nint main() {\n    std::queue&lt;int&gt; q;\n    q.push(1); q.push(2); q.push(3);\n    q.pop();\n    q.push(4);\n    while(!q.empty()) {\n        std::cout &lt;&lt; q.front() &lt;&lt; \" \";\n        q.pop();\n    }\n    return 0;\n}</code></pre>", "options": ["1 2 3 4", "2 3 4", "4 3 2", "3 2 1", "1 2 3"], "correct": 1, "explain": "The queue starts as [1, 2, 3]. Popping removes the front element (1), leaving [2, 3]. Pushing 4 yields [2, 3, 4]. Printing the front and popping repeatedly outputs '2 3 4 '."}, {"q": "What is the output of this <code>std::queue</code> trace?<pre><code>#include &lt;iostream&gt;\n#include &lt;queue&gt;\nint main() {\n    std::queue&lt;int&gt; q;\n    q.push(1); q.push(2); q.push(3);\n    q.pop();\n    q.push(4);\n    std::cout &lt;&lt; q.front() &lt;&lt; \" \" &lt;&lt; q.back();\n}</code></pre>", "options": ["2 4", "1 4", "2 3", "1 3", "4 2"], "correct": 0, "explain": "push 1,2,3 -> queue: [1,2,3] (front=1). pop() removes 1 -> [2,3]. push(4) -> [2,3,4]. front() = 2, back() = 4. Output: '2 4'."}, {"q": "What happens if you call <code>pop()</code> on an empty <code>std::queue</code> in C++?", "options": ["It throws a std::out_of_range exception", "It returns a default value like 0", "It is undefined behavior", "The code fails to compile", "It automatically waits until an element is pushed"], "correct": 2, "explain": "Like std::stack, std::queue does not check whether it is empty before popping. Calling pop() or front() on an empty queue is undefined behavior — the caller must check empty() first."}, {"q": "What is the difference between <code>front()</code> and <code>pop()</code> in <code>std::queue</code>?", "options": ["front() removes the front element; pop() only reads it", "front() reads the front element without removing it; pop() removes the front element without returning it", "They do exactly the same thing", "front() only works on an empty queue", "pop() returns the value and removes it in a single call"], "correct": 1, "explain": "front() returns a reference to the element at the front but leaves it in the queue. pop() removes the front element but does not return its value — code typically calls front() first to read it, then pop() to remove it."}, {"q": "After the sequence <code>enqueue(10); enqueue(20); enqueue(30); dequeue(); enqueue(40);</code>, what does <code>size()</code> return?", "options": ["3", "2", "4", "1", "0"], "correct": 0, "explain": "enqueue adds three elements (size 3), dequeue removes one (size 2), then enqueue adds one more (size 3). The queue ends with 3 elements."}, {"q": "Which situation causes a Queue Underflow?", "options": ["Calling enqueue() on a full queue", "Calling dequeue() or front() on an empty queue", "Calling empty() on any queue", "Enqueuing a new value onto the queue", "Dequeuing the last element, leaving the queue empty"], "correct": 1, "explain": "Queue Underflow happens when we try to remove or read data (dequeue or front) from a queue that has no elements."}, {"q": "A Queue is implemented using two stacks, <code>inStack</code> and <code>outStack</code>. Enqueue always pushes onto inStack. Dequeue pops from outStack, refilling it from inStack whenever outStack is empty (by popping everything off inStack and pushing it onto outStack). Starting from both stacks empty, we call <code>enqueue(1); enqueue(2); dequeue();</code>. What is the state of the two stacks right after <code>dequeue()</code> finishes?", "options": ["inStack is empty; outStack contains [2] with 2 on top", "inStack contains [1,2]; outStack is empty", "Both stacks are empty", "inStack contains [2]; outStack contains [1]", "inStack is empty; outStack contains [1,2]"], "correct": 0, "explain": "enqueue(1) and enqueue(2) both go onto inStack: inStack=[1,2]. On dequeue(), since outStack is empty, everything moves from inStack to outStack, reversing the order: outStack=[2,1] (1 on top). Popping outStack removes 1, the correct FIFO answer since 1 was enqueued first. After that pop, inStack is empty and outStack holds [2]."}, {"q": "What is a Double-Ended Queue (Deque)?", "options": ["A queue that allows insertion at one end and removal at the other", "A queue that allows insertions and deletions at both the front and the back", "A queue with two storage arrays to prevent stack overflow", "A queue that operates in O(log N) time", "A queue that sorts elements automatically"], "correct": 1, "explain": "A Deque (Double-Ended Queue) allows elements to be enqueued or dequeued from either the front or the back."}, {"q": "How does a Priority Queue differ from a standard FIFO Queue?", "options": ["It uses stack pointers", "It dequeues elements based on priority/value instead of strict arrival order", "It only supports floating-point values", "It has half the memory footprint", "It requires lazy deletion on every insert"], "correct": 1, "explain": "In a Priority Queue, elements are enqueued normally but dequeued based on priority, not on the order they arrived."}, {"q": "Which statement correctly distinguishes a Queue, a Deque, and a Priority Queue?", "options": ["Queue: FIFO, insert at the back and remove from the front only. Deque: insert and remove at both ends. Priority Queue: removes based on priority, not arrival order", "They are all exactly the same structure with different names", "A Deque can only insert at the front; a Priority Queue can only insert at the back", "A Priority Queue always removes the oldest element, just like a Queue", "A Deque is a Priority Queue that only holds two elements"], "correct": 0, "explain": "A plain Queue is strict FIFO. A Deque relaxes that by allowing insertion and removal at both the front and back. A Priority Queue relaxes it differently: elements come out based on priority value, regardless of when they arrived."}, {"q": "In a plain FIFO queue with no extra structure, what is the time complexity of finding the element with the highest priority among N elements?", "options": ["O(1)", "O(log N)", "O(N)", "O(N log N)", "O(N^2)"], "correct": 2, "explain": "A plain queue only lets us access the front element directly. To find the highest-priority element, we would need to scan every element, which takes O(N) time — this is exactly the gap a Priority Queue is designed to close."}];</script>
+
+
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>04. Linked Lists — Quiz</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav>
+  <a class="home" href="index.html">Quiz Home</a>
+  <span class="sep">/</span>
+  <span class="topic">Linked List</span>
+  <div class="nav-links">
+    <a href="3_QUEUE.html">← Queue</a>
+    <a href="5_HASH.html">Hash Table →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <h1>04. Linked Lists</h1>
+
+<div class="q">
+  <div class="q-num">Q1</div>
+  <div class="q-text">On a 64-bit operating system, how much memory is consumed by a pointer variable?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q0" value="0"><span>A. 2 bytes</span></label>
+<label class="opt"><input type="radio" name="q0" value="1"><span>B. 4 bytes</span></label>
+<label class="opt"><input type="radio" name="q0" value="2"><span>C. 8 bytes</span></label>
+<label class="opt"><input type="radio" name="q0" value="3"><span>D. 16 bytes</span></label>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. It depends on the data structure it points to</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">On 64-bit architectures, memory addresses are 64-bit values, so every pointer variable consumes exactly 8 bytes of storage, regardless of what it points to.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q2</div>
+  <div class="q-text">How many link pointers are stored in each node of a Doubly Linked List?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q1" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q1" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q1" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q1" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. 0</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Each node in a doubly linked list stores two pointers: next and prev.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q3</div>
+  <div class="q-text">What is a Circular Linked List?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q2" value="0"><span>A. A list where nodes are arranged in a circular array</span></label>
+<label class="opt"><input type="radio" name="q2" value="1"><span>B. A list where the tail node's next pointer links back to the head node</span></label>
+<label class="opt"><input type="radio" name="q2" value="2"><span>C. A list containing duplicate values</span></label>
+<label class="opt"><input type="radio" name="q2" value="3"><span>D. A list that cannot be traversed</span></label>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. A list with two head pointers</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A circular linked list forms a closed ring, so the last (tail) node points directly back to the first (head) node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q4</div>
+  <div class="q-text">In a circular linked list, what does the tail node's <code>next</code> pointer refer to?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q3" value="0"><span>A. nullptr</span></label>
+<label class="opt"><input type="radio" name="q3" value="1"><span>B. The tail node itself</span></label>
+<label class="opt"><input type="radio" name="q3" value="2"><span>C. The head node</span></label>
+<label class="opt"><input type="radio" name="q3" value="3"><span>D. A sentinel node</span></label>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. The second node</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A circular list forms a closed ring, so the last (tail) node points directly back to the first (head) node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q5</div>
+  <div class="q-text">For a Circular Singly Linked List where <code>tail->next</code> points back to <code>head</code>, which condition correctly detects that the list is empty?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q4" value="0"><span>A. <code>head == nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q4" value="1"><span>B. <code>tail->next == nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q4" value="2"><span>C. <code>head == tail->next</code> is always false when empty</span></label>
+<label class="opt"><input type="radio" name="q4" value="3"><span>D. <code>tail == nullptr &amp;&amp; head != nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. There is no way to detect an empty circular list</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Regardless of the circular wiring among existing nodes, an empty list still has no nodes at all, so head (and tail) remain nullptr, just like a standard empty linked list. The circular link only exists once nodes are present.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q6</div>
+  <div class="q-text">What is the worst-case time complexity of inserting an element at position <code>k</code> (where <code>0 &lt; k &lt; N</code>) in a singly linked list of size <code>N</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q5" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q5" value="1"><span>B. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q5" value="2"><span>C. O(N)</span></label>
+<label class="opt"><input type="radio" name="q5" value="3"><span>D. O(N log N)</span></label>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. O(N^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">In a singly linked list, reaching position k requires traversing the list from the head. This traversal takes linear O(N) time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q7</div>
+  <div class="q-text">What is the time complexity to delete the tail node of a Singly Linked List of size <code>N</code>, if we only maintain a head and tail pointer?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q6" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q6" value="1"><span>B. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q6" value="2"><span>C. O(N)</span></label>
+<label class="opt"><input type="radio" name="q6" value="3"><span>D. O(N log N)</span></label>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. O(N^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Even with a tail pointer, deleting the tail requires updating the second-to-last node's next pointer to nullptr. Since a singly linked list has no way to go backward from the tail, we must traverse from the head to find that second-to-last node, taking O(N) time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q8</div>
+  <div class="q-text">What is the time complexity to find the length of a singly linked list if no length variable is cached?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q7" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q7" value="1"><span>B. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q7" value="2"><span>C. O(N)</span></label>
+<label class="opt"><input type="radio" name="q7" value="3"><span>D. O(N log N)</span></label>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. O(N^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Without a cached counter, we must traverse the list from head to tail, visiting all N nodes, giving O(N) time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q9</div>
+  <div class="q-text">Given a singly linked list of size N with no tail pointer, what is the time complexity of <code>push_back</code> (inserting a new node at the end)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q8" value="0"><span>A. O(N) — we must traverse from head to find the last node</span></label>
+<label class="opt"><input type="radio" name="q8" value="1"><span>B. O(1) — always constant</span></label>
+<label class="opt"><input type="radio" name="q8" value="2"><span>C. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q8" value="3"><span>D. O(N^2)</span></label>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. O(1) amortized, like a dynamic array</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Without a tail pointer, the only way to find the last node is to traverse the entire list starting from head, giving O(N). This is why a queue built on a linked list explicitly keeps a tail pointer, to achieve O(1) enqueue.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q10</div>
+  <div class="q-text">What is the main benefit of a Doubly Linked List over a Singly Linked List?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q9" value="0"><span>A. It consumes less memory</span></label>
+<label class="opt"><input type="radio" name="q9" value="1"><span>B. It allows bidirectional traversal, and a node can be deleted in O(1) time if we are only given a pointer to that node</span></label>
+<label class="opt"><input type="radio" name="q9" value="2"><span>C. Search operations take O(log N) time</span></label>
+<label class="opt"><input type="radio" name="q9" value="3"><span>D. It does not require pointer tracking</span></label>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. It is faster for random access</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Because doubly linked list nodes store pointers to both next and prev, we can detach a node in place in O(1) without traversing to find its predecessor — something a singly linked list cannot do without extra work.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q11</div>
+  <div class="q-text">When inserting a new node at the front of a singly linked list (<code>push_front</code>), what pointer assignment must happen first to avoid losing access to the rest of the list?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q10" value="0"><span>A. Set the list's head pointer to point to the new node</span></label>
+<label class="opt"><input type="radio" name="q10" value="1"><span>B. Set the new node's next pointer to point to the current head</span></label>
+<label class="opt"><input type="radio" name="q10" value="2"><span>C. Deallocate the old head pointer</span></label>
+<label class="opt"><input type="radio" name="q10" value="3"><span>D. Set the tail node's next pointer to the new node</span></label>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. Initialize the head pointer to nullptr</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">You must first point the new node's next to the current head — new_node->next = head; — before updating the head pointer. Doing it in the other order would lose the reference to the rest of the list.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q12</div>
+  <div class="q-text">What is the output of the following linked list wiring logic?<pre><code>struct Node { int val; Node* next; };
+Node* head = new Node{1, nullptr};
+Node* temp = new Node{2, nullptr};
+temp-&gt;next = head;
+head = temp;
+std::cout &lt;&lt; head-&gt;val &lt;&lt; " " &lt;&lt; head-&gt;next-&gt;val;</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q11" value="0"><span>A. 1 2</span></label>
+<label class="opt"><input type="radio" name="q11" value="1"><span>B. 2 1</span></label>
+<label class="opt"><input type="radio" name="q11" value="2"><span>C. 1 1</span></label>
+<label class="opt"><input type="radio" name="q11" value="3"><span>D. 2 2</span></label>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. Crash</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">temp is initialized with val 2, and its next is set to head (which holds 1). Then head is reassigned to temp. So head->val is 2, and head->next->val is 1.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q13</div>
+  <div class="q-text">Where does pointer <code>curr</code> end up after this loop, on the list <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; nullptr</code>?<pre><code>Node* curr = head;
+while (curr != nullptr &amp;&amp; curr-&gt;next != nullptr) {
+    curr = curr-&gt;next-&gt;next;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q12" value="0"><span>A. Node 3</span></label>
+<label class="opt"><input type="radio" name="q12" value="1"><span>B. Node 4</span></label>
+<label class="opt"><input type="radio" name="q12" value="2"><span>C. nullptr</span></label>
+<label class="opt"><input type="radio" name="q12" value="3"><span>D. Node 2</span></label>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. Infinite loop</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">curr starts at node 1. First iteration: curr = curr->next->next moves it to node 3. Second iteration: curr->next is node 4, and node 4's next is nullptr, so curr becomes nullptr. The loop then terminates.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q14</div>
+  <div class="q-text">We want to insert a new node with value 99 between the nodes holding 10 and 20 in the list <code>10 -&gt; 20 -&gt; 30</code>. With pointer <code>prev</code> at the node holding 10, which statement order correctly performs the insertion?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q13" value="0"><span>A. <code>newNode->next = prev->next; prev->next = newNode;</code></span></label>
+<label class="opt"><input type="radio" name="q13" value="1"><span>B. <code>prev->next = newNode; newNode->next = prev->next;</code></span></label>
+<label class="opt"><input type="radio" name="q13" value="2"><span>C. <code>newNode->next = prev; prev->next = newNode;</code></span></label>
+<label class="opt"><input type="radio" name="q13" value="3"><span>D. <code>prev->next = newNode->next; newNode->next = prev;</code></span></label>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. <code>newNode = prev->next; prev->next = newNode;</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">You must save the old next pointer (the node holding 20) into newNode->next before overwriting prev->next. Reversing the order (option B) would make newNode->next point to newNode itself, breaking the list.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q15</div>
+  <div class="q-text">Trace this singly linked list deletion. Given <code>5 -&gt; 8 -&gt; 12 -&gt; nullptr</code> with <code>prev</code> at the node holding 5, what is the list after executing <code>Node* target = prev->next; prev->next = target->next; delete target;</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q14" value="0"><span>A. <code>5 -&gt; 12 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q14" value="1"><span>B. <code>5 -&gt; 8 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q14" value="2"><span>C. <code>8 -&gt; 12 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q14" value="3"><span>D. <code>5 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. Undefined — target was deleted before relinking</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">target points to the node holding 8. prev->next is rewired to skip over it, pointing directly to the node holding 12 (target->next), before target is deleted. Result: 5 -> 12 -> nullptr.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q16</div>
+  <div class="q-text">What is the output of this pointer-swapping reversal trace on the list <code>1 -&gt; 2 -&gt; 3 -&gt; nullptr</code>?<pre><code>Node* prev = nullptr;
+Node* curr = head; // points to 1
+while (curr != nullptr) {
+    Node* next = curr-&gt;next;
+    curr-&gt;next = prev;
+    prev = curr;
+    curr = next;
+}
+head = prev;</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q15" value="0"><span>A. <code>3 -&gt; 2 -&gt; 1 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q15" value="1"><span>B. <code>1 -&gt; 2 -&gt; 3 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q15" value="2"><span>C. <code>1 -&gt; 3 -&gt; 2 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q15" value="3"><span>D. Infinite loop</span></label>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. <code>3 -&gt; 1 -&gt; 2 -&gt; nullptr</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">This is the standard iterative in-place reversal. Each node's next pointer is redirected backward toward prev before advancing. After the loop, prev holds the new head, and the list is fully reversed: 3 -> 2 -> 1 -> nullptr.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q17</div>
+  <div class="q-text">What does this code print, tracing the pointer reassignment carefully?<pre><code>struct Node { int val; Node* next; };
+Node a{1, nullptr}, b{2, nullptr}, c{3, nullptr};
+a.next = &amp;b;
+b.next = &amp;c;
+Node* p = &amp;a;
+p = p-&gt;next;
+p-&gt;val = 99;
+std::cout &lt;&lt; a.next-&gt;val;</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q16" value="0"><span>A. 99</span></label>
+<label class="opt"><input type="radio" name="q16" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q16" value="2"><span>C. 1</span></label>
+<label class="opt"><input type="radio" name="q16" value="3"><span>D. 3</span></label>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. Undefined Behavior</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">p starts at &a, then p = p->next moves it to &b. p->val = 99 modifies node b's value directly, since p now points to the same memory as b. a.next still points to &b, so a.next->val prints 99.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q18</div>
+  <div class="q-text">A singly linked list node holding <code>5</code> is given directly via a pointer <code>node</code> (not the head, and we have no access to its predecessor). To delete it in O(1), we use the trick of copying the next node's value into <code>node</code>, then deleting the next node instead. For the list <code>3 -&gt; 5 -&gt; 8 -&gt; nullptr</code>, with <code>node</code> pointing to the node holding 5, what does the list look like after this trick?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. <code>3 -&gt; 8 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q17" value="1"><span>B. <code>3 -&gt; 5 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q17" value="2"><span>C. <code>3 -&gt; 5 -&gt; 8 -&gt; nullptr</code> (unchanged)</span></label>
+<label class="opt"><input type="radio" name="q17" value="3"><span>D. <code>5 -&gt; 8 -&gt; nullptr</code></span></label>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. <code>3 -&gt; nullptr</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Since we cannot reach the predecessor (the node holding 3), we fake deleting node itself: we copy the next node's value (8) into node, so node's value becomes 8, then delete the actual next node and relink node->next to skip past it. The list becomes 3 -> 8 -> nullptr, functionally the same as if the node holding 5 had been removed.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q19</div>
+  <div class="q-text">In the Doubly Linked List insertion diagram (inserting node N after node P, before node S), what is the correct 4-step pointer sequence?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. <code>N->next=P->next; N->prev=P; P->next->prev=N; P->next=N;</code></span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. <code>P->next=N; N->prev=P; N->next=S; S->prev=N;</code></span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. <code>N->next=S; N->prev=P; P->next=N; S->prev=N;</code> (any order)</span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. <code>P->next=N; S->prev=N; N->next=S; N->prev=P;</code></span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. <code>N->prev=P; P->next=N; N->next=S; S->prev=N;</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The safe order sets N's own pointers first (N->next = P->next, which is S; N->prev = P), then fixes the old neighbor's back-pointer (P->next->prev = N, which must happen while P->next still refers to S, i.e. before overwriting P->next), and only then rewires P->next = N. Doing 'P->next = N' too early would lose the reference needed to update S->prev.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q20</div>
+  <div class="q-text">Which algorithm is used to detect cycles in a linked list using two pointers moving at different speeds?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. Kahn's Topological Sort</span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. Floyd's Tortoise and Hare Algorithm</span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. Warshall's Transitive Closure</span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. Dijkstra's Algorithm</span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. Binary Search Traversal</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Floyd's Cycle-Finding Algorithm uses a slow pointer moving 1 step at a time and a fast pointer moving 2 steps at a time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q21</div>
+  <div class="q-text">Using Floyd's Cycle Detection (slow moves 1 step, fast moves 2 steps) on the list <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 2</code> (node 4 points back to node 2, forming a cycle), do slow and fast ever meet?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. Yes — they eventually meet inside the cycle</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. No — fast reaches nullptr first, since the list has a cycle</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. They meet immediately at the head</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. No — slow and fast move at the same speed in this case</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. Only if the list has an odd number of nodes</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Because a cycle exists, fast can never reach nullptr — it keeps looping. Since fast gains on slow by 1 step every iteration within a finite cycle, they are mathematically guaranteed to eventually land on the same node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q22</div>
+  <div class="q-text">To find the middle element of a linked list in a single pass, we should use:</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. A recursion stack</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. A fast pointer moving 2 nodes and a slow pointer moving 1 node per step</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. A hash map mapping nodes to indexes</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. A temporary copy of the array</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. A sorting algorithm</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Using the two-pointer technique: when the fast pointer reaches the tail, the slow pointer lands exactly on the middle node.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q23</div>
+  <div class="q-text">Trace this slow/fast pointer code to find the middle node of <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; nullptr</code>:<pre><code>Node* slow = head;
+Node* fast = head;
+while (fast != nullptr &amp;&amp; fast-&gt;next != nullptr) {
+    slow = slow-&gt;next;
+    fast = fast-&gt;next-&gt;next;
+}
+// slow now points to the middle</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. Node with value 3</span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. Node with value 2</span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. Node with value 4</span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. Node with value 5</span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. Node with value 1</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">fast moves 2 steps for every 1 step slow moves. Starting both at node 1: after iteration 1, slow=2, fast=3; iteration 2: slow=3, fast=5. At the next check, fast->next is nullptr, so the loop stops with fast at 5. slow lands on node 3, the middle of 5 elements.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q24</div>
+  <div class="q-text">What is the auxiliary space complexity of reversing a singly linked list of size <code>N</code> iteratively?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. O(N)</span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. O(N^2)</span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. O(N log N)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Reversing iteratively only requires updating pointers in place using a few temporary variables, giving constant O(1) space.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q25</div>
+  <div class="q-text">What is the auxiliary space complexity of the recursive (not iterative) version of linked list reversal, for a list of size N?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. O(N), due to the recursive call stack</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. O(1), same as iterative</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. O(N^2)</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. O(1), if tail-call optimized by any compiler, guaranteed by the standard</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Each recursive call adds a new stack frame that isn't resolved until the base case is reached and calls start returning, so the call stack grows to depth N in the worst case — O(N) auxiliary space, unlike the O(1) iterative version.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q26</div>
+  <div class="q-text">What is the key advantage of using a Sentinel (Dummy) Node in a linked list?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. It reduces memory consumption</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. It removes special-case checks for empty lists and for insertion or deletion at the head or tail</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. It speeds up traversal to O(1)</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. It automatically sorts the list's nodes</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. It prevents memory fragmentation</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">With a dummy node, head is never nullptr, which removes the need for special code branches to handle empty lists or changes to the head.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q27</div>
+  <div class="q-text">A sentinel (dummy) head node is used so that <code>dummy->next</code> is the real head. What is the main benefit when deleting the actual first node of the list?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. No special-case branch is needed for deleting the head — the same 'delete the node after prev' logic works uniformly</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. It automatically frees memory without calling delete</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. It doubles the traversal speed</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. It prevents all memory leaks in the program</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. It removes the need for a next pointer entirely</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Without a sentinel, deleting the head requires special-case code, since the head pointer itself has no 'previous' node. With a dummy node placed before the real head, every deletion, including the first real node, follows the same 'unlink the node after prev' pattern, removing the edge case.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q28</div>
+  <div class="q-text">What happens when a 'dereferencing nullptr' error occurs in a linked list operation?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. The program silently ignores it</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. The compiler flags a syntax error</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. The operating system halts the program with a Segmentation Fault</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. A new node is automatically created</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. A memory leak occurs</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A null pointer does not refer to a valid memory address. Accessing ptr->next or ptr->val when ptr is nullptr triggers a runtime segmentation fault.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q29</div>
+  <div class="q-text">Trace merging two sorted lists <code>1 -&gt; 3 -&gt; 5</code> and <code>2 -&gt; 4</code> using a dummy node and a tail pointer. What are the first three values appended to the merged result?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. 1, 2, 3</span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. 1, 2, 4</span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. 2, 1, 3</span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. 1, 3, 2</span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. 2, 4, 1</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Compare the fronts: 1 vs 2, append 1, advance list1 to 3. Compare 3 vs 2, append 2, advance list2 to 4. Compare 3 vs 4, append 3, advance list1 to 5. The first three appended values are 1, 2, 3.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q30</div>
+  <div class="q-text">In the 'Remove Nth Node From End' technique, using two pointers separated by a gap of N+1 (with a dummy node), for the list <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5</code> and N=2 (remove the 2nd node from the end), which node is removed?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. The node holding 4</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. The node holding 3</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. The node holding 5</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. The node holding 2</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. The node holding 1</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The 2nd node from the end of [1,2,3,4,5] is 4 (the end is 5, one before it is 4). The two-pointer technique advances a fast pointer N+1 steps ahead first, then moves both pointers together until fast reaches nullptr — at that point, slow lands exactly before the target node, allowing its removal in one pass.</div>
+</div>
+
+<div class="score-bar">
+  <span>Score: <strong>0 / 0</strong></span>
+  <span style="margin-left:auto">30 questions</span>
+</div>
+
+<script>window.__QS__ = [{"q": "On a 64-bit operating system, how much memory is consumed by a pointer variable?", "options": ["2 bytes", "4 bytes", "8 bytes", "16 bytes", "It depends on the data structure it points to"], "correct": 2, "explain": "On 64-bit architectures, memory addresses are 64-bit values, so every pointer variable consumes exactly 8 bytes of storage, regardless of what it points to."}, {"q": "How many link pointers are stored in each node of a Doubly Linked List?", "options": ["1", "2", "3", "4", "0"], "correct": 1, "explain": "Each node in a doubly linked list stores two pointers: next and prev."}, {"q": "What is a Circular Linked List?", "options": ["A list where nodes are arranged in a circular array", "A list where the tail node's next pointer links back to the head node", "A list containing duplicate values", "A list that cannot be traversed", "A list with two head pointers"], "correct": 1, "explain": "A circular linked list forms a closed ring, so the last (tail) node points directly back to the first (head) node."}, {"q": "In a circular linked list, what does the tail node's <code>next</code> pointer refer to?", "options": ["nullptr", "The tail node itself", "The head node", "A sentinel node", "The second node"], "correct": 2, "explain": "A circular list forms a closed ring, so the last (tail) node points directly back to the first (head) node."}, {"q": "For a Circular Singly Linked List where <code>tail->next</code> points back to <code>head</code>, which condition correctly detects that the list is empty?", "options": ["<code>head == nullptr</code>", "<code>tail->next == nullptr</code>", "<code>head == tail->next</code> is always false when empty", "<code>tail == nullptr &amp;&amp; head != nullptr</code>", "There is no way to detect an empty circular list"], "correct": 0, "explain": "Regardless of the circular wiring among existing nodes, an empty list still has no nodes at all, so head (and tail) remain nullptr, just like a standard empty linked list. The circular link only exists once nodes are present."}, {"q": "What is the worst-case time complexity of inserting an element at position <code>k</code> (where <code>0 &lt; k &lt; N</code>) in a singly linked list of size <code>N</code>?", "options": ["O(1)", "O(log N)", "O(N)", "O(N log N)", "O(N^2)"], "correct": 2, "explain": "In a singly linked list, reaching position k requires traversing the list from the head. This traversal takes linear O(N) time."}, {"q": "What is the time complexity to delete the tail node of a Singly Linked List of size <code>N</code>, if we only maintain a head and tail pointer?", "options": ["O(1)", "O(log N)", "O(N)", "O(N log N)", "O(N^2)"], "correct": 2, "explain": "Even with a tail pointer, deleting the tail requires updating the second-to-last node's next pointer to nullptr. Since a singly linked list has no way to go backward from the tail, we must traverse from the head to find that second-to-last node, taking O(N) time."}, {"q": "What is the time complexity to find the length of a singly linked list if no length variable is cached?", "options": ["O(1)", "O(log N)", "O(N)", "O(N log N)", "O(N^2)"], "correct": 2, "explain": "Without a cached counter, we must traverse the list from head to tail, visiting all N nodes, giving O(N) time."}, {"q": "Given a singly linked list of size N with no tail pointer, what is the time complexity of <code>push_back</code> (inserting a new node at the end)?", "options": ["O(N) — we must traverse from head to find the last node", "O(1) — always constant", "O(log N)", "O(N^2)", "O(1) amortized, like a dynamic array"], "correct": 0, "explain": "Without a tail pointer, the only way to find the last node is to traverse the entire list starting from head, giving O(N). This is why a queue built on a linked list explicitly keeps a tail pointer, to achieve O(1) enqueue."}, {"q": "What is the main benefit of a Doubly Linked List over a Singly Linked List?", "options": ["It consumes less memory", "It allows bidirectional traversal, and a node can be deleted in O(1) time if we are only given a pointer to that node", "Search operations take O(log N) time", "It does not require pointer tracking", "It is faster for random access"], "correct": 1, "explain": "Because doubly linked list nodes store pointers to both next and prev, we can detach a node in place in O(1) without traversing to find its predecessor — something a singly linked list cannot do without extra work."}, {"q": "When inserting a new node at the front of a singly linked list (<code>push_front</code>), what pointer assignment must happen first to avoid losing access to the rest of the list?", "options": ["Set the list's head pointer to point to the new node", "Set the new node's next pointer to point to the current head", "Deallocate the old head pointer", "Set the tail node's next pointer to the new node", "Initialize the head pointer to nullptr"], "correct": 1, "explain": "You must first point the new node's next to the current head — new_node->next = head; — before updating the head pointer. Doing it in the other order would lose the reference to the rest of the list."}, {"q": "What is the output of the following linked list wiring logic?<pre><code>struct Node { int val; Node* next; };\nNode* head = new Node{1, nullptr};\nNode* temp = new Node{2, nullptr};\ntemp-&gt;next = head;\nhead = temp;\nstd::cout &lt;&lt; head-&gt;val &lt;&lt; \" \" &lt;&lt; head-&gt;next-&gt;val;</code></pre>", "options": ["1 2", "2 1", "1 1", "2 2", "Crash"], "correct": 1, "explain": "temp is initialized with val 2, and its next is set to head (which holds 1). Then head is reassigned to temp. So head->val is 2, and head->next->val is 1."}, {"q": "Where does pointer <code>curr</code> end up after this loop, on the list <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; nullptr</code>?<pre><code>Node* curr = head;\nwhile (curr != nullptr &amp;&amp; curr-&gt;next != nullptr) {\n    curr = curr-&gt;next-&gt;next;\n}</code></pre>", "options": ["Node 3", "Node 4", "nullptr", "Node 2", "Infinite loop"], "correct": 2, "explain": "curr starts at node 1. First iteration: curr = curr->next->next moves it to node 3. Second iteration: curr->next is node 4, and node 4's next is nullptr, so curr becomes nullptr. The loop then terminates."}, {"q": "We want to insert a new node with value 99 between the nodes holding 10 and 20 in the list <code>10 -&gt; 20 -&gt; 30</code>. With pointer <code>prev</code> at the node holding 10, which statement order correctly performs the insertion?", "options": ["<code>newNode->next = prev->next; prev->next = newNode;</code>", "<code>prev->next = newNode; newNode->next = prev->next;</code>", "<code>newNode->next = prev; prev->next = newNode;</code>", "<code>prev->next = newNode->next; newNode->next = prev;</code>", "<code>newNode = prev->next; prev->next = newNode;</code>"], "correct": 0, "explain": "You must save the old next pointer (the node holding 20) into newNode->next before overwriting prev->next. Reversing the order (option B) would make newNode->next point to newNode itself, breaking the list."}, {"q": "Trace this singly linked list deletion. Given <code>5 -&gt; 8 -&gt; 12 -&gt; nullptr</code> with <code>prev</code> at the node holding 5, what is the list after executing <code>Node* target = prev->next; prev->next = target->next; delete target;</code>?", "options": ["<code>5 -&gt; 12 -&gt; nullptr</code>", "<code>5 -&gt; 8 -&gt; nullptr</code>", "<code>8 -&gt; 12 -&gt; nullptr</code>", "<code>5 -&gt; nullptr</code>", "Undefined — target was deleted before relinking"], "correct": 0, "explain": "target points to the node holding 8. prev->next is rewired to skip over it, pointing directly to the node holding 12 (target->next), before target is deleted. Result: 5 -> 12 -> nullptr."}, {"q": "What is the output of this pointer-swapping reversal trace on the list <code>1 -&gt; 2 -&gt; 3 -&gt; nullptr</code>?<pre><code>Node* prev = nullptr;\nNode* curr = head; // points to 1\nwhile (curr != nullptr) {\n    Node* next = curr-&gt;next;\n    curr-&gt;next = prev;\n    prev = curr;\n    curr = next;\n}\nhead = prev;</code></pre>", "options": ["<code>3 -&gt; 2 -&gt; 1 -&gt; nullptr</code>", "<code>1 -&gt; 2 -&gt; 3 -&gt; nullptr</code>", "<code>1 -&gt; 3 -&gt; 2 -&gt; nullptr</code>", "Infinite loop", "<code>3 -&gt; 1 -&gt; 2 -&gt; nullptr</code>"], "correct": 0, "explain": "This is the standard iterative in-place reversal. Each node's next pointer is redirected backward toward prev before advancing. After the loop, prev holds the new head, and the list is fully reversed: 3 -> 2 -> 1 -> nullptr."}, {"q": "What does this code print, tracing the pointer reassignment carefully?<pre><code>struct Node { int val; Node* next; };\nNode a{1, nullptr}, b{2, nullptr}, c{3, nullptr};\na.next = &amp;b;\nb.next = &amp;c;\nNode* p = &amp;a;\np = p-&gt;next;\np-&gt;val = 99;\nstd::cout &lt;&lt; a.next-&gt;val;</code></pre>", "options": ["99", "2", "1", "3", "Undefined Behavior"], "correct": 0, "explain": "p starts at &a, then p = p->next moves it to &b. p->val = 99 modifies node b's value directly, since p now points to the same memory as b. a.next still points to &b, so a.next->val prints 99."}, {"q": "A singly linked list node holding <code>5</code> is given directly via a pointer <code>node</code> (not the head, and we have no access to its predecessor). To delete it in O(1), we use the trick of copying the next node's value into <code>node</code>, then deleting the next node instead. For the list <code>3 -&gt; 5 -&gt; 8 -&gt; nullptr</code>, with <code>node</code> pointing to the node holding 5, what does the list look like after this trick?", "options": ["<code>3 -&gt; 8 -&gt; nullptr</code>", "<code>3 -&gt; 5 -&gt; nullptr</code>", "<code>3 -&gt; 5 -&gt; 8 -&gt; nullptr</code> (unchanged)", "<code>5 -&gt; 8 -&gt; nullptr</code>", "<code>3 -&gt; nullptr</code>"], "correct": 0, "explain": "Since we cannot reach the predecessor (the node holding 3), we fake deleting node itself: we copy the next node's value (8) into node, so node's value becomes 8, then delete the actual next node and relink node->next to skip past it. The list becomes 3 -> 8 -> nullptr, functionally the same as if the node holding 5 had been removed."}, {"q": "In the Doubly Linked List insertion diagram (inserting node N after node P, before node S), what is the correct 4-step pointer sequence?", "options": ["<code>N->next=P->next; N->prev=P; P->next->prev=N; P->next=N;</code>", "<code>P->next=N; N->prev=P; N->next=S; S->prev=N;</code>", "<code>N->next=S; N->prev=P; P->next=N; S->prev=N;</code> (any order)", "<code>P->next=N; S->prev=N; N->next=S; N->prev=P;</code>", "<code>N->prev=P; P->next=N; N->next=S; S->prev=N;</code>"], "correct": 0, "explain": "The safe order sets N's own pointers first (N->next = P->next, which is S; N->prev = P), then fixes the old neighbor's back-pointer (P->next->prev = N, which must happen while P->next still refers to S, i.e. before overwriting P->next), and only then rewires P->next = N. Doing 'P->next = N' too early would lose the reference needed to update S->prev."}, {"q": "Which algorithm is used to detect cycles in a linked list using two pointers moving at different speeds?", "options": ["Kahn's Topological Sort", "Floyd's Tortoise and Hare Algorithm", "Warshall's Transitive Closure", "Dijkstra's Algorithm", "Binary Search Traversal"], "correct": 1, "explain": "Floyd's Cycle-Finding Algorithm uses a slow pointer moving 1 step at a time and a fast pointer moving 2 steps at a time."}, {"q": "Using Floyd's Cycle Detection (slow moves 1 step, fast moves 2 steps) on the list <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 2</code> (node 4 points back to node 2, forming a cycle), do slow and fast ever meet?", "options": ["Yes — they eventually meet inside the cycle", "No — fast reaches nullptr first, since the list has a cycle", "They meet immediately at the head", "No — slow and fast move at the same speed in this case", "Only if the list has an odd number of nodes"], "correct": 0, "explain": "Because a cycle exists, fast can never reach nullptr — it keeps looping. Since fast gains on slow by 1 step every iteration within a finite cycle, they are mathematically guaranteed to eventually land on the same node."}, {"q": "To find the middle element of a linked list in a single pass, we should use:", "options": ["A recursion stack", "A fast pointer moving 2 nodes and a slow pointer moving 1 node per step", "A hash map mapping nodes to indexes", "A temporary copy of the array", "A sorting algorithm"], "correct": 1, "explain": "Using the two-pointer technique: when the fast pointer reaches the tail, the slow pointer lands exactly on the middle node."}, {"q": "Trace this slow/fast pointer code to find the middle node of <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; nullptr</code>:<pre><code>Node* slow = head;\nNode* fast = head;\nwhile (fast != nullptr &amp;&amp; fast-&gt;next != nullptr) {\n    slow = slow-&gt;next;\n    fast = fast-&gt;next-&gt;next;\n}\n// slow now points to the middle</code></pre>", "options": ["Node with value 3", "Node with value 2", "Node with value 4", "Node with value 5", "Node with value 1"], "correct": 0, "explain": "fast moves 2 steps for every 1 step slow moves. Starting both at node 1: after iteration 1, slow=2, fast=3; iteration 2: slow=3, fast=5. At the next check, fast->next is nullptr, so the loop stops with fast at 5. slow lands on node 3, the middle of 5 elements."}, {"q": "What is the auxiliary space complexity of reversing a singly linked list of size <code>N</code> iteratively?", "options": ["O(1)", "O(log N)", "O(N)", "O(N^2)", "O(N log N)"], "correct": 0, "explain": "Reversing iteratively only requires updating pointers in place using a few temporary variables, giving constant O(1) space."}, {"q": "What is the auxiliary space complexity of the recursive (not iterative) version of linked list reversal, for a list of size N?", "options": ["O(N), due to the recursive call stack", "O(1), same as iterative", "O(log N)", "O(N^2)", "O(1), if tail-call optimized by any compiler, guaranteed by the standard"], "correct": 0, "explain": "Each recursive call adds a new stack frame that isn't resolved until the base case is reached and calls start returning, so the call stack grows to depth N in the worst case — O(N) auxiliary space, unlike the O(1) iterative version."}, {"q": "What is the key advantage of using a Sentinel (Dummy) Node in a linked list?", "options": ["It reduces memory consumption", "It removes special-case checks for empty lists and for insertion or deletion at the head or tail", "It speeds up traversal to O(1)", "It automatically sorts the list's nodes", "It prevents memory fragmentation"], "correct": 1, "explain": "With a dummy node, head is never nullptr, which removes the need for special code branches to handle empty lists or changes to the head."}, {"q": "A sentinel (dummy) head node is used so that <code>dummy->next</code> is the real head. What is the main benefit when deleting the actual first node of the list?", "options": ["No special-case branch is needed for deleting the head — the same 'delete the node after prev' logic works uniformly", "It automatically frees memory without calling delete", "It doubles the traversal speed", "It prevents all memory leaks in the program", "It removes the need for a next pointer entirely"], "correct": 0, "explain": "Without a sentinel, deleting the head requires special-case code, since the head pointer itself has no 'previous' node. With a dummy node placed before the real head, every deletion, including the first real node, follows the same 'unlink the node after prev' pattern, removing the edge case."}, {"q": "What happens when a 'dereferencing nullptr' error occurs in a linked list operation?", "options": ["The program silently ignores it", "The compiler flags a syntax error", "The operating system halts the program with a Segmentation Fault", "A new node is automatically created", "A memory leak occurs"], "correct": 2, "explain": "A null pointer does not refer to a valid memory address. Accessing ptr->next or ptr->val when ptr is nullptr triggers a runtime segmentation fault."}, {"q": "Trace merging two sorted lists <code>1 -&gt; 3 -&gt; 5</code> and <code>2 -&gt; 4</code> using a dummy node and a tail pointer. What are the first three values appended to the merged result?", "options": ["1, 2, 3", "1, 2, 4", "2, 1, 3", "1, 3, 2", "2, 4, 1"], "correct": 0, "explain": "Compare the fronts: 1 vs 2, append 1, advance list1 to 3. Compare 3 vs 2, append 2, advance list2 to 4. Compare 3 vs 4, append 3, advance list1 to 5. The first three appended values are 1, 2, 3."}, {"q": "In the 'Remove Nth Node From End' technique, using two pointers separated by a gap of N+1 (with a dummy node), for the list <code>1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5</code> and N=2 (remove the 2nd node from the end), which node is removed?", "options": ["The node holding 4", "The node holding 3", "The node holding 5", "The node holding 2", "The node holding 1"], "correct": 0, "explain": "The 2nd node from the end of [1,2,3,4,5] is 4 (the end is 5, one before it is 4). The two-pointer technique advances a fast pointer N+1 steps ahead first, then moves both pointers together until fast reaches nullptr — at that point, slow lands exactly before the target node, allowing its removal in one pass."}];</script>
+
+
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>

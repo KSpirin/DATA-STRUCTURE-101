@@ -4,90 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>08. Binary Search Tree (BST) — Quiz</title>
-<style>
-:root{
-  --bg:#111;
-  --card:#1a1a1a;
-  --border:#2a2a2a;
-  --txt:#e8e8e8;
-  --muted:#888;
-  --accent:#5865f2;
-  --ok:#3ba55c;
-  --err:#ed4245;
-  --mono:'JetBrains Mono',monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
-a{color:inherit;text-decoration:none}
 
-/* top bar */
-nav{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-bottom:1px solid var(--border);background:var(--card);position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:rgba(26,26,26,0.9)}
-nav .home{font-weight:600;color:var(--muted);font-size:.85rem;letter-spacing:.04em;transition:color .2s}
-nav .home:hover{color:var(--txt)}
-nav .sep{color:var(--border)}
-nav .topic{font-size:.85rem;color:var(--txt);font-weight:500}
-.nav-links{margin-left:auto;display:flex;gap:1rem;font-size:.85rem;color:var(--muted)}
-.nav-links a{transition:color .2s}
-.nav-links a:hover{color:var(--txt)}
-
-/* topic grid on index */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;padding:2rem 1.5rem}
-.tile{border:1px solid var(--border);border-radius:10px;padding:1.5rem;background:var(--card);cursor:pointer;transition:all .2s ease}
-.tile:hover{border-color:var(--accent);background:#1e1e2e;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
-.tile .num{font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-family:var(--mono)}
-.tile .name{font-size:1.15rem;font-weight:600;letter-spacing:-0.02em}
-.tile .count{font-size:.8rem;color:var(--muted);margin-top:.5rem}
-
-/* quiz page layout */
-.page{max-width:780px;margin:0 auto;padding:2.5rem 1.5rem}
-.page h1{font-size:1.5rem;font-weight:700;margin-bottom:2rem;letter-spacing:-0.02em}
-
-/* question card */
-.q{border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;background:var(--card);box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.q-num{font-size:.75rem;color:var(--muted);font-family:var(--mono);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
-.q-text{font-size:1rem;margin-bottom:1.25rem;font-weight:400}
-.opts{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem}
-.opt{display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 1rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.95rem;transition:all .15s ease;user-select:none;background:rgba(255,255,255,0.02)}
-.opt:hover{border-color:#555;background:rgba(255,255,255,0.05)}
-.opt input{margin-top:4px;accent-color:var(--accent);flex-shrink:0;width:1rem;height:1rem}
-.opt.ok{border-color:var(--ok);background:rgba(59,165,92,.1);color:#a7f3d0}
-.opt.err{border-color:var(--err);background:rgba(237,66,69,.1);color:#fecaca}
-.check{background:var(--accent);color:#fff;border:none;padding:.6rem 1.25rem;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:600;transition:all .2s;box-shadow:0 2px 4px rgba(88,101,242,0.2)}
-.check:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 4px 8px rgba(88,101,242,0.3)}
-.check:active{transform:translateY(0);box-shadow:none}
-.check:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
-.exp{display:none;margin-top:1rem;padding:1rem;border-radius:8px;font-size:.9rem;line-height:1.6;border-left:4px solid var(--muted);background:#111;color:var(--txt)}
-.exp.show{display:block;animation:fadeIn 0.3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-.exp.ok{border-color:var(--ok);color:#a7f3d0}
-.exp.err{border-color:var(--err);color:#fecaca}
-
-/* code blocks */
-pre{background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:1rem;overflow-x:auto;margin:.75rem 0}
-pre code{font-family:var(--mono);font-size:.85rem;color:#c9d1d9}
-code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;border-radius:4px;color:#e8e8e8}
-
-/* score bar */
-.score-bar{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--card);backdrop-filter:blur(8px);background:rgba(26,26,26,0.9);z-index:10}
-.score-bar span{font-size:.9rem;color:var(--muted)}
-.score-bar strong{color:var(--accent);font-size:1.05rem}
-
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-  nav { padding: 0.6rem 1rem; }
-  .grid { padding: 1.5rem 1rem; grid-template-columns: 1fr; }
-  .page { padding: 1.5rem 1rem; }
-  .page h1 { font-size: 1.25rem; margin-bottom: 1.5rem; }
-  .q { padding: 1.25rem; margin-bottom: 1rem; }
-  .opt { padding: 0.5rem 0.75rem; font-size: 0.9rem; }
-  .check { width: 100%; padding: 0.75rem; }
-  .score-bar { padding: 0.6rem 1rem; }
-  .nav-links { display: none; } /* hide prev/next text on very small screens, maybe keep icons if we had them, but for now just hide to save space or adjust */
-}
-</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <script>alert("⚠️ WARNING: This quiz is a draft and currently under review. It may contain incorrect answers or unverified content.");</script>
@@ -502,39 +423,8 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 </div>
 
 <script>window.__QS__ = [{"q": "An In-order traversal of a valid Binary Search Tree (BST) visits nodes in which sorted order?", "options": ["Random order", "Ascending sorted order", "Descending sorted order", "Postorder equivalent order", "Alternating leaf-root order"], "correct": 1, "explain": "By BST properties, left child < parent < right child. Traversing Inorder visits elements in ascending order."}, {"q": "When deleting a BST node with two children, what is a standard replacement strategy?", "options": ["Delete the entire left subtree.", "Replace the node's value with its Inorder Successor (minimum in right subtree).", "Replace the node's value with a root node.", "Convert it into an AVL leaf.", "Swap it with the leftmost leaf."], "correct": 1, "explain": "To delete a node with two children, replace it with its Inorder Successor or Inorder Predecessor."}, {"q": "What is the worst-case time complexity of searching for a key in a BST of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "If keys are inserted in sorted order, the BST becomes a single-linked list. Searching this tree takes linear $\\mathcal{O}(N)$ time."}, {"q": "What is the maximum number of children a node can have in a Binary Search Tree?", "options": ["0", "1", "2", "Variable", "Unlimited"], "correct": 2, "explain": "Every node in a BST is restricted to a maximum of 2 child branches (left and right)."}, {"q": "Which traversal can validate the BST property by verifying that each visited node is greater than the previously visited node?", "options": ["Preorder", "Postorder", "Inorder", "Level-order", "DFS Out-order"], "correct": 2, "explain": "Since inorder visits BST elements in sorted order, checking that current > previous validates the BST."}, {"q": "What is the Inorder Predecessor of the root node in a Binary Search Tree?", "options": ["The minimum element in the left subtree.", "The maximum element in the left subtree.", "The minimum element in the right subtree.", "The maximum element in the right subtree.", "The left child itself."], "correct": 1, "explain": "The inorder predecessor is the node visited immediately before the root, which corresponds to the maximum value in the root's left subtree."}, {"q": "What is the time complexity to find the minimum value in a balanced BST containing <code>N</code> nodes?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "In a balanced BST, the height is $O(\\log N)$, so searching for the leftmost node takes $\\mathcal{O}(\\log N)$ time."}, {"q": "Reconstructing a unique Binary Search Tree from a traversal sequence is possible with only a:", "options": ["Preorder traversal sequence.", "Postorder traversal sequence.", "Inorder traversal sequence.", "Either Preorder or Postorder sequence (since Inorder is implicitly sorted keys).", "Level-order traversal sequence."], "correct": 3, "explain": "In a BST, the inorder sequence is simply the sorted keys. Thus, having either Preorder or Postorder traversal alone is sufficient."}, {"q": "If keys <code>[10, 20, 30, 40]</code> are inserted sequentially into an empty BST, what is the resulting height of the tree?", "options": ["1", "2", "3", "4", "0"], "correct": 3, "explain": "Inserting sorted keys generates a right-skewed tree structure with height 4."}, {"q": "If we insert keys <code>[15, 10, 20, 8, 12]</code> into an empty BST, which node is the parent of node <code>12</code>?", "options": ["15", "10", "20", "8", "None"], "correct": 1, "explain": "12 goes right of 10. Thus, 10 is the parent of 12."}, {"q": "What is the average time complexity of inserting an element in a Binary Search Tree?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "On average, a BST is balanced with height $O(\\log N)$. Inserting an element traverses one path from root to leaf, taking $O(\\log N)$ time."}, {"q": "Which of the following keys is NOT present in the left subtree of node 50 in a valid BST?", "options": ["10", "25", "30", "49", "51"], "correct": 4, "explain": "By the BST property, all keys in the left subtree of a node must be strictly less than that node's value. `51` is greater than 50, so it must be in the right subtree."}, {"q": "What is the height of a BST after inserting keys in the order: <code>[10, 5, 15, 3, 7, 12, 18]</code>?", "options": ["2", "3", "4", "7", "5"], "correct": 1, "explain": "Inserting these elements produces a perfect binary tree of height 3: Root 10; Left 5 (with children 3, 7); Right 15 (with children 12, 18)."}, {"q": "What is the time complexity to search for a key in a skewed BST of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "A skewed BST is structurally identical to a linked list, requiring a linear scan of up to $N$ nodes, taking $O(N)$ time."}, {"q": "In a BST, the largest key is found by starting at the root and continuously traversing which pointer?", "options": ["Left child", "Right child", "Parent", "Sibling", "Null child"], "correct": 1, "explain": "Since right child is always greater, the maximum element is found by traversing down the rightmost path of the tree."}, {"q": "For a BST initially containing keys <code>[10, 5, 20]</code> (with root 10). If we insert key 15, which node does it become the child of?", "options": ["Node 10", "Node 5", "Node 20", "Node 15 itself", "None"], "correct": 2, "explain": "BST insertion follows recursive comparisons: 15 > 10, go to right child (20). 15 < 20, go to left child. Since left child of 20 is empty, 15 is inserted as the left child of 20."}, {"q": "Consider BST: Root 15, left child 10, right child 20, and left child of right child is 18. What is the Inorder Successor of 15?", "options": ["10", "20", "18", "15", "None"], "correct": 2, "explain": "The Inorder Successor of a node with a right child is the absolute minimum node in its right subtree. The right subtree contains {20, 18}. The minimum value is 18. Successor: 18."}, {"q": "An In-order traversal of a valid Binary Search Tree (BST) visits nodes in which sorted order?", "options": ["Random order", "Ascending sorted order", "Descending sorted order", "Postorder equivalent order", "Alternating leaf-root order"], "correct": 1, "explain": "By BST properties, left child < parent < right child. Traversing Inorder visits elements in ascending order."}, {"q": "When deleting a BST node with two children, what is a standard replacement strategy?", "options": ["Delete the entire left subtree.", "Replace the node's value with its Inorder Successor (minimum in right subtree).", "Replace the node's value with a root node.", "Convert it into an AVL leaf.", "Swap it with the leftmost leaf."], "correct": 1, "explain": "To delete a node with two children, replace it with its Inorder Successor or Inorder Predecessor."}, {"q": "What is the worst-case time complexity of searching for a key in a BST of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "If keys are inserted in sorted order, the BST becomes a single-linked list. Searching this tree takes linear $\\mathcal{O}(N)$ time."}, {"q": "What is the maximum number of children a node can have in a Binary Search Tree?", "options": ["0", "1", "2", "Variable", "Unlimited"], "correct": 2, "explain": "Every node in a BST is restricted to a maximum of 2 child branches (left and right)."}, {"q": "Which traversal can validate the BST property by verifying that each visited node is greater than the previously visited node?", "options": ["Preorder", "Postorder", "Inorder", "Level-order", "DFS Out-order"], "correct": 2, "explain": "Since inorder visits BST elements in sorted order, checking that current > previous validates the BST."}, {"q": "What is the Inorder Predecessor of the root node in a Binary Search Tree?", "options": ["The minimum element in the left subtree.", "The maximum element in the left subtree.", "The minimum element in the right subtree.", "The maximum element in the right subtree.", "The left child itself."], "correct": 1, "explain": "The inorder predecessor is the node visited immediately before the root, which corresponds to the maximum value in the root's left subtree."}, {"q": "What is the time complexity to find the minimum value in a balanced BST containing <code>N</code> nodes?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "In a balanced BST, the height is $O(\\log N)$, so searching for the leftmost node takes $\\mathcal{O}(\\log N)$ time."}, {"q": "Reconstructing a unique Binary Search Tree from a traversal sequence is possible with only a:", "options": ["Preorder traversal sequence.", "Postorder traversal sequence.", "Inorder traversal sequence.", "Either Preorder or Postorder sequence (since Inorder is implicitly sorted keys).", "Level-order traversal sequence."], "correct": 3, "explain": "In a BST, the inorder sequence is simply the sorted keys. Thus, having either Preorder or Postorder traversal alone is sufficient."}, {"q": "If keys <code>[10, 20, 30, 40]</code> are inserted sequentially into an empty BST, what is the resulting height of the tree?", "options": ["1", "2", "3", "4", "0"], "correct": 3, "explain": "Inserting sorted keys generates a right-skewed tree structure with height 4."}, {"q": "If we insert keys <code>[15, 10, 20, 8, 12]</code> into an empty BST, which node is the parent of node <code>12</code>?", "options": ["15", "10", "20", "8", "None"], "correct": 1, "explain": "12 goes right of 10. Thus, 10 is the parent of 12."}, {"q": "What is the average time complexity of inserting an element in a Binary Search Tree?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "On average, a BST is balanced with height $O(\\log N)$. Inserting an element traverses one path from root to leaf, taking $O(\\log N)$ time."}, {"q": "Which of the following keys is NOT present in the left subtree of node 50 in a valid BST?", "options": ["10", "25", "30", "49", "51"], "correct": 4, "explain": "By the BST property, all keys in the left subtree of a node must be strictly less than that node's value. `51` is greater than 50, so it must be in the right subtree."}, {"q": "What is the height of a BST after inserting keys in the order: <code>[10, 5, 15, 3, 7, 12, 18]</code>?", "options": ["2", "3", "4", "7", "5"], "correct": 1, "explain": "Inserting these elements produces a perfect binary tree of height 3: Root 10; Left 5 (with children 3, 7); Right 15 (with children 12, 18)."}];</script>
-<script>
-const QS = window.__QS__;
-let correct = 0, answered = 0;
 
-document.querySelectorAll('.q').forEach((card, qi) => {
-  const btn = card.querySelector('.check');
-  btn.addEventListener('click', () => {
-    const sel = card.querySelector('input:checked');
-    if (!sel) return;
-    const chosen = parseInt(sel.value);
-    const answer = QS[qi].correct;
-    const opts = card.querySelectorAll('.opt');
-    const exp = card.querySelector('.exp');
 
-    opts.forEach((o, i) => {
-      if (i === answer) o.classList.add('ok');
-      else if (i === chosen && chosen !== answer) o.classList.add('err');
-      o.querySelector('input').disabled = true;
-    });
-
-    exp.classList.add('show');
-    if (chosen === answer) {
-      correct++;
-      exp.classList.add('ok');
-    } else {
-      exp.classList.add('err');
-    }
-    answered++;
-    btn.disabled = true;
-    document.querySelector('.score-bar strong').textContent = correct + ' / ' + answered;
-  });
-});
-</script>
-
+<script src="assets/js/quiz.js"></script>
 </body>
 </html>

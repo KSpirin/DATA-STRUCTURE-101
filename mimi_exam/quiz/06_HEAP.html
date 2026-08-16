@@ -4,90 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>06. Heap / Priority Queue — Quiz</title>
-<style>
-:root{
-  --bg:#111;
-  --card:#1a1a1a;
-  --border:#2a2a2a;
-  --txt:#e8e8e8;
-  --muted:#888;
-  --accent:#5865f2;
-  --ok:#3ba55c;
-  --err:#ed4245;
-  --mono:'JetBrains Mono',monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
-a{color:inherit;text-decoration:none}
 
-/* top bar */
-nav{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-bottom:1px solid var(--border);background:var(--card);position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:rgba(26,26,26,0.9)}
-nav .home{font-weight:600;color:var(--muted);font-size:.85rem;letter-spacing:.04em;transition:color .2s}
-nav .home:hover{color:var(--txt)}
-nav .sep{color:var(--border)}
-nav .topic{font-size:.85rem;color:var(--txt);font-weight:500}
-.nav-links{margin-left:auto;display:flex;gap:1rem;font-size:.85rem;color:var(--muted)}
-.nav-links a{transition:color .2s}
-.nav-links a:hover{color:var(--txt)}
-
-/* topic grid on index */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;padding:2rem 1.5rem}
-.tile{border:1px solid var(--border);border-radius:10px;padding:1.5rem;background:var(--card);cursor:pointer;transition:all .2s ease}
-.tile:hover{border-color:var(--accent);background:#1e1e2e;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
-.tile .num{font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-family:var(--mono)}
-.tile .name{font-size:1.15rem;font-weight:600;letter-spacing:-0.02em}
-.tile .count{font-size:.8rem;color:var(--muted);margin-top:.5rem}
-
-/* quiz page layout */
-.page{max-width:780px;margin:0 auto;padding:2.5rem 1.5rem}
-.page h1{font-size:1.5rem;font-weight:700;margin-bottom:2rem;letter-spacing:-0.02em}
-
-/* question card */
-.q{border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;background:var(--card);box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.q-num{font-size:.75rem;color:var(--muted);font-family:var(--mono);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
-.q-text{font-size:1rem;margin-bottom:1.25rem;font-weight:400}
-.opts{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem}
-.opt{display:flex;align-items:flex-start;gap:.75rem;padding:.65rem 1rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.95rem;transition:all .15s ease;user-select:none;background:rgba(255,255,255,0.02)}
-.opt:hover{border-color:#555;background:rgba(255,255,255,0.05)}
-.opt input{margin-top:4px;accent-color:var(--accent);flex-shrink:0;width:1rem;height:1rem}
-.opt.ok{border-color:var(--ok);background:rgba(59,165,92,.1);color:#a7f3d0}
-.opt.err{border-color:var(--err);background:rgba(237,66,69,.1);color:#fecaca}
-.check{background:var(--accent);color:#fff;border:none;padding:.6rem 1.25rem;border-radius:8px;cursor:pointer;font-size:.9rem;font-weight:600;transition:all .2s;box-shadow:0 2px 4px rgba(88,101,242,0.2)}
-.check:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 4px 8px rgba(88,101,242,0.3)}
-.check:active{transform:translateY(0);box-shadow:none}
-.check:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
-.exp{display:none;margin-top:1rem;padding:1rem;border-radius:8px;font-size:.9rem;line-height:1.6;border-left:4px solid var(--muted);background:#111;color:var(--txt)}
-.exp.show{display:block;animation:fadeIn 0.3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-.exp.ok{border-color:var(--ok);color:#a7f3d0}
-.exp.err{border-color:var(--err);color:#fecaca}
-
-/* code blocks */
-pre{background:#0a0a0a;border:1px solid var(--border);border-radius:8px;padding:1rem;overflow-x:auto;margin:.75rem 0}
-pre code{font-family:var(--mono);font-size:.85rem;color:#c9d1d9}
-code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;border-radius:4px;color:#e8e8e8}
-
-/* score bar */
-.score-bar{display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--card);backdrop-filter:blur(8px);background:rgba(26,26,26,0.9);z-index:10}
-.score-bar span{font-size:.9rem;color:var(--muted)}
-.score-bar strong{color:var(--accent);font-size:1.05rem}
-
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-  nav { padding: 0.6rem 1rem; }
-  .grid { padding: 1.5rem 1rem; grid-template-columns: 1fr; }
-  .page { padding: 1.5rem 1rem; }
-  .page h1 { font-size: 1.25rem; margin-bottom: 1.5rem; }
-  .q { padding: 1.25rem; margin-bottom: 1rem; }
-  .opt { padding: 0.5rem 0.75rem; font-size: 0.9rem; }
-  .check { width: 100%; padding: 0.75rem; }
-  .score-bar { padding: 0.6rem 1rem; }
-  .nav-links { display: none; } /* hide prev/next text on very small screens, maybe keep icons if we had them, but for now just hide to save space or adjust */
-}
-</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <script>alert("⚠️ WARNING: This quiz is a draft and currently under review. It may contain incorrect answers or unverified content.");</script>
@@ -502,39 +423,8 @@ code{font-family:var(--mono);font-size:.9em;background:#222;padding:.2em .4em;bo
 </div>
 
 <script>window.__QS__ = [{"q": "Given a 0-indexed array representing a complete binary tree, if a parent node is located at index <code>i</code>, what is the index of its left child?", "options": ["<code>2i</code>", "<code>2i + 1</code>", "<code>2i + 2</code>", "<code>(i - 1) / 2</code>", "<code>i + 2</code>"], "correct": 1, "explain": "In a 0-indexed complete binary tree array: Left child is at `2i + 1`, Right child is at `2i + 2`, and Parent is at `(i-1)/2`."}, {"q": "What is the time complexity of the bottom-up heap construction algorithm (<code>buildHeap</code> / heapify)?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "Bottom-up heap construction runs in linear $\\mathcal{O}(N)$ time."}, {"q": "In a Max-Heap, where is the largest key always stored?", "options": ["At the last leaf node.", "At index N-1.", "At the root node (index 0).", "In the left subtree leaves.", "In the right subtree leaves."], "correct": 2, "explain": "By Max-Heap ordering properties, every parent's value must be greater than its children's. Thus, the absolute maximum must reside at the root."}, {"q": "Which operation is used to restore heap order properties after removing the root element?", "options": ["<code>heapifyUp</code> (bubble-up)", "<code>heapifyDown</code> (sink-down)", "<code>buildHeap</code>", "<code>doubleRotate</code>", "<code>linearSearch</code>"], "correct": 1, "explain": "After pop, we place the last leaf at the root and restore heap ordering by sinking it down (<code>heapifyDown</code>)."}, {"q": "What is the time complexity of sorting an array of size <code>N</code> using Heap Sort?", "options": ["$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N^2 \\log N)$"], "correct": 1, "explain": "Heap Sort extracts the max element $N$ times. Each extraction takes $O(\\log N)$ heapify time, yielding a total time complexity of $\\mathcal{O}(N \\log N)$."}, {"q": "What is the minimum number of elements in a binary heap of height <code>H</code>?", "options": ["<code>2^(H-1)</code>", "<code>2^H</code>", "<code>2^(H-1) + 1</code>", "<code>2^H - 1</code>", "<code>H</code>"], "correct": 0, "explain": "A complete binary tree of height H has Level H-1 completely filled (containing $2^{H-1}-1$ nodes) and at least 1 node at Level H. So: $(2^{H-1}-1) + 1 = 2^{H-1}$ nodes."}, {"q": "Under what condition can a Binary Search Tree (BST) be a valid Min-Heap?", "options": ["Always.", "Never.", "Only when the tree has at most one child per node.", "Only when it is a linear chain of left nodes.", "Only when it contains at most 2 nodes (e.g. root and right child where root < right child)."], "correct": 4, "explain": "In a BST, Left < Root < Right. In a Min-Heap, Root < Left and Root < Right. For both to hold, the tree can have at most one right child. Any left child violates Min-Heap because Left < Root."}, {"q": "For a 1-indexed array representation of a heap, what is the parent index of node <code>i</code>?", "options": ["<code>i / 2</code>", "<code>2i</code>", "<code>2i + 1</code>", "<code>i - 1</code>", "<code>(i - 1) / 2</code>"], "correct": 0, "explain": "In a 1-indexed heap array representation: Parent is at `i/2` (using integer division)."}, {"q": "What is the time complexity of the <code>decreaseKey</code> operation in a binary heap of size <code>N</code> if the target node's index is already known?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "Decreasing a key in a Min-Heap means it may bubble up. The maximum height is $O(\\log N)$, so the bubble-up process takes $\\mathcal{O}(\\log N)$ time."}, {"q": "In a Min-Heap, what is the relation between parent node <code>P</code> and child node <code>C</code>?", "options": ["<code>P <= C</code>", "<code>P >= C</code>", "<code>P == C</code>", "No relation", "<code>P + C == 0</code>"], "correct": 0, "explain": "The Min-Heap property requires that every parent node's value must be less than or equal to its children's values: P <= C."}, {"q": "What is the height of a binary heap containing <code>N</code> elements?", "options": ["<code>O(N)</code>", "<code>O(log N)</code>", "<code>O(N log N)</code>", "<code>O(1)</code>", "<code>O(N^2)</code>"], "correct": 1, "explain": "Because a heap is a complete binary tree, its level depth is tightly bounded at $\\lceil \\log_2(N+1) \\rceil$, yielding $O(\\log N)$ height."}, {"q": "In a Min-Heap, where is the second smallest key stored?", "options": ["At index 1 (left child of root).", "At index 2 (right child of root).", "Either at index 1 or index 2 (children of root).", "At a leaf node.", "At index N-1."], "correct": 2, "explain": "The smallest key is at the root. The second smallest key must be one of the children of the root (index 1 or index 2)."}, {"q": "What is the time complexity of extracting the maximum element from a Max-Heap of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "Extracting the root takes constant time, but rebuilding the heap via <code>heapifyDown</code> takes $O(\\log N)$ time."}, {"q": "Which of the following represents the array state of a Max-Heap after inserting 35 into: <code>[30, 20, 10]</code>?", "options": ["<code>[30, 20, 10, 35]</code>", "<code>[35, 30, 10, 20]</code>", "<code>[35, 20, 10, 30]</code>", "<code>[30, 35, 10, 20]</code>", "<code>[35, 10, 20, 30]</code>"], "correct": 1, "explain": "1) Insert 35 as last leaf: `[30, 20, 10, 35]`. 2) Parent of 35 is 20 (index 1). Since $35 > 20$, swap: `[30, 35, 10, 20]`. 3) Parent of 35 is 30 (index 0). Since $35 > 30$, swap: `[35, 30, 10, 20]`."}, {"q": "What type of priority queue does Dijkstra's shortest path algorithm use to greedily extract the closest unvisited vertex?", "options": ["Max-Heap Priority Queue", "Min-Heap Priority Queue", "LIFO Stack", "FIFO Queue", "BST Queue"], "correct": 1, "explain": "Dijkstra's algorithm extracts the vertex with the minimum tentative distance, requiring a Min-Priority Queue (Min-Heap)."}, {"q": "For a max-heap represented by array <code>[90, 80, 70, 50, 60]</code>, which node is the parent of 60 (index 4)?", "options": ["90", "80", "70", "50", "No parent"], "correct": 1, "explain": "In a 0-indexed complete binary tree array, the parent of index <code>i</code> is <code>(i - 1) / 2</code>. For index 4, parent index is (4-1)/2 = 1. Index 1 contains 80."}, {"q": "Given array representation <code>[10, 80, 90]</code>, what does the array look like after executing <code>heapifyDown(0)</code> to restore Min-Heap properties?", "options": ["[10, 80, 90]", "[80, 10, 90]", "[90, 80, 10]", "[10, 90, 80]", "[80, 90, 10]"], "correct": 0, "explain": "The root element is 10. Its children are 80 (left) and 90 (right). Since 10 is already smaller than both children, the min-heap property holds and no swaps occur. The array remains [10, 80, 90]."}, {"q": "Given a 0-indexed array representing a complete binary tree, if a parent node is located at index <code>i</code>, what is the index of its left child?", "options": ["<code>2i</code>", "<code>2i + 1</code>", "<code>2i + 2</code>", "<code>(i - 1) / 2</code>", "<code>i + 2</code>"], "correct": 1, "explain": "In a 0-indexed complete binary tree array: Left child is at `2i + 1`, Right child is at `2i + 2`, and Parent is at `(i-1)/2`."}, {"q": "What is the time complexity of the bottom-up heap construction algorithm (<code>buildHeap</code> / heapify)?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 2, "explain": "Bottom-up heap construction runs in linear $\\mathcal{O}(N)$ time."}, {"q": "In a Max-Heap, where is the largest key always stored?", "options": ["At the last leaf node.", "At index N-1.", "At the root node (index 0).", "In the left subtree leaves.", "In the right subtree leaves."], "correct": 2, "explain": "By Max-Heap ordering properties, every parent's value must be greater than its children's. Thus, the absolute maximum must reside at the root."}, {"q": "Which operation is used to restore heap order properties after removing the root element?", "options": ["<code>heapifyUp</code> (bubble-up)", "<code>heapifyDown</code> (sink-down)", "<code>buildHeap</code>", "<code>doubleRotate</code>", "<code>linearSearch</code>"], "correct": 1, "explain": "After pop, we place the last leaf at the root and restore heap ordering by sinking it down (<code>heapifyDown</code>)."}, {"q": "What is the time complexity of sorting an array of size <code>N</code> using Heap Sort?", "options": ["$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N^2 \\log N)$"], "correct": 1, "explain": "Heap Sort extracts the max element $N$ times. Each extraction takes $O(\\log N)$ heapify time, yielding a total time complexity of $\\mathcal{O}(N \\log N)$."}, {"q": "What is the minimum number of elements in a binary heap of height <code>H</code>?", "options": ["<code>2^(H-1)</code>", "<code>2^H</code>", "<code>2^(H-1) + 1</code>", "<code>2^H - 1</code>", "<code>H</code>"], "correct": 0, "explain": "A complete binary tree of height H has Level H-1 completely filled (containing $2^{H-1}-1$ nodes) and at least 1 node at Level H. So: $(2^{H-1}-1) + 1 = 2^{H-1}$ nodes."}, {"q": "Under what condition can a Binary Search Tree (BST) be a valid Min-Heap?", "options": ["Always.", "Never.", "Only when the tree has at most one child per node.", "Only when it is a linear chain of left nodes.", "Only when it contains at most 2 nodes (e.g. root and right child where root < right child)."], "correct": 4, "explain": "In a BST, Left < Root < Right. In a Min-Heap, Root < Left and Root < Right. For both to hold, the tree can have at most one right child. Any left child violates Min-Heap because Left < Root."}, {"q": "For a 1-indexed array representation of a heap, what is the parent index of node <code>i</code>?", "options": ["<code>i / 2</code>", "<code>2i</code>", "<code>2i + 1</code>", "<code>i - 1</code>", "<code>(i - 1) / 2</code>"], "correct": 0, "explain": "In a 1-indexed heap array representation: Parent is at `i/2` (using integer division)."}, {"q": "What is the time complexity of the <code>decreaseKey</code> operation in a binary heap of size <code>N</code> if the target node's index is already known?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "Decreasing a key in a Min-Heap means it may bubble up. The maximum height is $O(\\log N)$, so the bubble-up process takes $\\mathcal{O}(\\log N)$ time."}, {"q": "In a Min-Heap, what is the relation between parent node <code>P</code> and child node <code>C</code>?", "options": ["<code>P <= C</code>", "<code>P >= C</code>", "<code>P == C</code>", "No relation", "<code>P + C == 0</code>"], "correct": 0, "explain": "The Min-Heap property requires that every parent node's value must be less than or equal to its children's values: P <= C."}, {"q": "What is the height of a binary heap containing <code>N</code> elements?", "options": ["<code>O(N)</code>", "<code>O(log N)</code>", "<code>O(N log N)</code>", "<code>O(1)</code>", "<code>O(N^2)</code>"], "correct": 1, "explain": "Because a heap is a complete binary tree, its level depth is tightly bounded at $\\lceil \\log_2(N+1) \\rceil$, yielding $O(\\log N)$ height."}, {"q": "In a Min-Heap, where is the second smallest key stored?", "options": ["At index 1 (left child of root).", "At index 2 (right child of root).", "Either at index 1 or index 2 (children of root).", "At a leaf node.", "At index N-1."], "correct": 2, "explain": "The smallest key is at the root. The second smallest key must be one of the children of the root (index 1 or index 2)."}, {"q": "What is the time complexity of extracting the maximum element from a Max-Heap of size <code>N</code>?", "options": ["$\\mathcal{O}(1)$", "$\\mathcal{O}(\\log N)$", "$\\mathcal{O}(N)$", "$\\mathcal{O}(N \\log N)$", "$\\mathcal{O}(N^2)$"], "correct": 1, "explain": "Extracting the root takes constant time, but rebuilding the heap via <code>heapifyDown</code> takes $O(\\log N)$ time."}];</script>
-<script>
-const QS = window.__QS__;
-let correct = 0, answered = 0;
 
-document.querySelectorAll('.q').forEach((card, qi) => {
-  const btn = card.querySelector('.check');
-  btn.addEventListener('click', () => {
-    const sel = card.querySelector('input:checked');
-    if (!sel) return;
-    const chosen = parseInt(sel.value);
-    const answer = QS[qi].correct;
-    const opts = card.querySelectorAll('.opt');
-    const exp = card.querySelector('.exp');
 
-    opts.forEach((o, i) => {
-      if (i === answer) o.classList.add('ok');
-      else if (i === chosen && chosen !== answer) o.classList.add('err');
-      o.querySelector('input').disabled = true;
-    });
-
-    exp.classList.add('show');
-    if (chosen === answer) {
-      correct++;
-      exp.classList.add('ok');
-    } else {
-      exp.classList.add('err');
-    }
-    answered++;
-    btn.disabled = true;
-    document.querySelector('.score-bar strong').textContent = correct + ' / ' + answered;
-  });
-});
-</script>
-
+<script src="assets/js/quiz.js"></script>
 </body>
 </html>

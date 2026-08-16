@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>02. Stack ADT — Quiz</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav>
+  <a class="home" href="index.html">Quiz Home</a>
+  <span class="sep">/</span>
+  <span class="topic">Stack</span>
+  <div class="nav-links">
+    <a href="0_ARRAYS.html">← Arrays</a>
+    <a href="3_QUEUE.html">Queue →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <h1>02. Stack ADT</h1>
+
+<div class="q">
+  <div class="q-num">Q1</div>
+  <div class="q-text">Which of the following describes how a Stack works?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q0" value="0"><span>A. First-In, First-Out (FIFO)</span></label>
+<label class="opt"><input type="radio" name="q0" value="1"><span>B. Last-In, First-Out (LIFO)</span></label>
+<label class="opt"><input type="radio" name="q0" value="2"><span>C. First-In, Last-Out (FILO)</span></label>
+<label class="opt"><input type="radio" name="q0" value="3"><span>D. Random access order</span></label>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. Priority-based order</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A stack follows Last-In, First-Out (LIFO) order. We can only insert and remove elements at one end, called the top.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q2</div>
+  <div class="q-text">Which two operations, together, define the core behavior of a stack?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q1" value="0"><span>A. Insert and delete at any position</span></label>
+<label class="opt"><input type="radio" name="q1" value="1"><span>B. push and pop</span></label>
+<label class="opt"><input type="radio" name="q1" value="2"><span>C. enqueue and dequeue</span></label>
+<label class="opt"><input type="radio" name="q1" value="3"><span>D. front and back</span></label>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. search and sort</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A stack's identity comes from restricting insertion and removal to a single end: push adds an element to the top, and pop removes the element from the top.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q3</div>
+  <div class="q-text">Which of the following is NOT a typical application of a stack?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q2" value="0"><span>A. Checking balanced parentheses</span></label>
+<label class="opt"><input type="radio" name="q2" value="1"><span>B. Undo functionality in a text editor</span></label>
+<label class="opt"><input type="radio" name="q2" value="2"><span>C. Breadth-first search traversal of a graph</span></label>
+<label class="opt"><input type="radio" name="q2" value="3"><span>D. Managing function calls (the call stack)</span></label>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. Reversing the order of elements</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Breadth-first search uses a Queue, not a Stack, since it explores nodes level by level in the order they were discovered. The other options are all classic stack applications.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q4</div>
+  <div class="q-text">A stack uses a fixed-size array with capacity <code>N</code>. The variable <code>top</code> starts at <code>0</code>. Each push stores data at index <code>top</code>, then increments <code>top</code>. Which condition means the stack is full?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q3" value="0"><span>A. <code>top == N - 1</code></span></label>
+<label class="opt"><input type="radio" name="q3" value="1"><span>B. <code>top == N</code></span></label>
+<label class="opt"><input type="radio" name="q3" value="2"><span>C. <code>top == 0</code></span></label>
+<label class="opt"><input type="radio" name="q3" value="3"><span>D. <code>top == N + 1</code></span></label>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. <code>top == -1</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Since <code>top</code> starts at 0 and increases by 1 after every push, <code>top</code> always equals the current number of elements. The stack becomes full when <code>top</code> reaches <code>N</code>.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q5</div>
+  <div class="q-text">What happens when a program tries to push a new element onto an array-based stack that is already full?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q4" value="0"><span>A. Stack Underflow</span></label>
+<label class="opt"><input type="radio" name="q4" value="1"><span>B. Stack Overflow</span></label>
+<label class="opt"><input type="radio" name="q4" value="2"><span>C. Segmentation Fault</span></label>
+<label class="opt"><input type="radio" name="q4" value="3"><span>D. Rehashing</span></label>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. Memory Leak</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Pushing onto a stack that has no more room causes a Stack Overflow.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q6</div>
+  <div class="q-text">Which situation causes a Stack Underflow?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q5" value="0"><span>A. Calling push() on a full stack</span></label>
+<label class="opt"><input type="radio" name="q5" value="1"><span>B. Calling pop() or top() on an empty stack</span></label>
+<label class="opt"><input type="radio" name="q5" value="2"><span>C. Calling empty() on any stack</span></label>
+<label class="opt"><input type="radio" name="q5" value="3"><span>D. Pushing a new value onto the stack</span></label>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. Popping the last element, leaving the stack empty</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Stack Underflow happens when we try to remove or read data (pop or top) from a stack that has no elements.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q7</div>
+  <div class="q-text">A different stack implementation uses an array of capacity <code>C</code>, where the variable <code>top</code> starts at <code>-1</code> to mean the stack is empty. Pushing increments <code>top</code> first, then stores data at <code>Array[top]</code>. Which pair of conditions correctly signals overflow and underflow?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q6" value="0"><span>A. Overflow: <code>top == C - 1</code>, Underflow: <code>top == -1</code></span></label>
+<label class="opt"><input type="radio" name="q6" value="1"><span>B. Overflow: <code>top == C</code>, Underflow: <code>top == 0</code></span></label>
+<label class="opt"><input type="radio" name="q6" value="2"><span>C. Overflow: <code>top == 0</code>, Underflow: <code>top == C</code></span></label>
+<label class="opt"><input type="radio" name="q6" value="3"><span>D. Overflow: <code>top == -1</code>, Underflow: <code>top == C - 1</code></span></label>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. Overflow: <code>top == C + 1</code>, Underflow: <code>top == 1</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">With <code>top</code> starting at -1, the last valid array index is <code>C - 1</code>. If <code>top</code> already equals <code>C - 1</code>, there is no room for another push, so that is overflow. <code>top == -1</code> means no elements are stored, which is exactly the underflow condition.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q8</div>
+  <div class="q-text">A stack is stored in an array where <code>Array[0]</code> holds the capacity, and the data is stored from index 1 to <code>top</code>. The stack starts empty (<code>top = 0</code>). Trace these calls in order: <code>push(5); push(8); pop(); push(3);</code>. What are the final values of <code>top</code> and <code>Array[top]</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q7" value="0"><span>A. top = 2, Array[top] = 3</span></label>
+<label class="opt"><input type="radio" name="q7" value="1"><span>B. top = 1, Array[top] = 3</span></label>
+<label class="opt"><input type="radio" name="q7" value="2"><span>C. top = 2, Array[top] = 8</span></label>
+<label class="opt"><input type="radio" name="q7" value="3"><span>D. top = 3, Array[top] = 3</span></label>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. top = 1, Array[top] = 5</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">push(5): top = 1, Array[1] = 5. push(8): top = 2, Array[2] = 8. pop(): removes Array[2] = 8, top becomes 1. push(3): top = 2, Array[2] = 3. Final state: top = 2, Array[top] = 3.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q9</div>
+  <div class="q-text">A stack currently holds <code>[X, Y, Z]</code> with <code>Z</code> on top. We call <code>push(W)</code>, then <code>pop()</code>, then <code>pop()</code>. What is the top element now?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q8" value="0"><span>A. X</span></label>
+<label class="opt"><input type="radio" name="q8" value="1"><span>B. Y</span></label>
+<label class="opt"><input type="radio" name="q8" value="2"><span>C. Z</span></label>
+<label class="opt"><input type="radio" name="q8" value="3"><span>D. W</span></label>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. The stack is empty</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Start: [X, Y, Z]. push(W): [X, Y, Z, W]. pop(): removes W, leaving [X, Y, Z]. pop(): removes Z, leaving [X, Y]. The top element is now Y.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q10</div>
+  <div class="q-text">Trace these operations on an initially empty stack: <code>push(1); push(2); push(3); pop(); push(4); pop(); pop();</code>. What does the stack contain at the end?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q9" value="0"><span>A. [1]</span></label>
+<label class="opt"><input type="radio" name="q9" value="1"><span>B. [1, 2]</span></label>
+<label class="opt"><input type="radio" name="q9" value="2"><span>C. [ ] (empty)</span></label>
+<label class="opt"><input type="radio" name="q9" value="3"><span>D. [1, 4]</span></label>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. [2]</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">push(1) -> [1]. push(2) -> [1,2]. push(3) -> [1,2,3]. pop() removes 3 -> [1,2]. push(4) -> [1,2,4]. pop() removes 4 -> [1,2]. pop() removes 2 -> [1]. Final stack: [1].</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q11</div>
+  <div class="q-text">After the sequence <code>push(10); push(20); push(30); pop(); push(40);</code>, what does <code>size()</code> return?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q10" value="0"><span>A. 3</span></label>
+<label class="opt"><input type="radio" name="q10" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q10" value="2"><span>C. 4</span></label>
+<label class="opt"><input type="radio" name="q10" value="3"><span>D. 1</span></label>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. 0</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">push adds three elements (size 3), pop removes one (size 2), then push adds one more (size 3). The stack ends with 3 elements.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q12</div>
+  <div class="q-text">Trace this code. What is the final value of <code>sum</code>?<pre><code>std::stack&lt;int&gt; s;
+for (int i = 1; i &lt;= 5; ++i) s.push(i);
+int sum = 0;
+while (!s.empty()) {
+    int t = s.top(); s.pop();
+    if (t % 2 == 0) s.push(t / 2);
+    else sum += t;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q11" value="0"><span>A. 11</span></label>
+<label class="opt"><input type="radio" name="q11" value="1"><span>B. 15</span></label>
+<label class="opt"><input type="radio" name="q11" value="2"><span>C. 9</span></label>
+<label class="opt"><input type="radio" name="q11" value="3"><span>D. 5</span></label>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. 6</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Stack after the loop (bottom to top): [1,2,3,4,5]. Popping and applying the rule step by step: pop 5 (odd, sum=5). pop 4 (even, push 2). pop 2 (even, push 1). pop 1 (odd, sum=6). pop 3 (odd, sum=9). pop 2 (even, push 1). pop 1 (odd, sum=10). pop 1 (odd, sum=11). Final sum = 11.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q13</div>
+  <div class="q-text">What does this code print?<pre><code>#include &lt;iostream&gt;
+#include &lt;stack&gt;
+int main() {
+    std::stack&lt;int&gt; s;
+    s.push(10);
+    s.push(20);
+    std::cout &lt;&lt; s.top() &lt;&lt; " ";
+    s.pop();
+    s.push(30);
+    s.pop();
+    std::cout &lt;&lt; s.top();
+    return 0;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q12" value="0"><span>A. 20 10</span></label>
+<label class="opt"><input type="radio" name="q12" value="1"><span>B. 20 30</span></label>
+<label class="opt"><input type="radio" name="q12" value="2"><span>C. 10 30</span></label>
+<label class="opt"><input type="radio" name="q12" value="3"><span>D. 10 10</span></label>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. 30 10</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">push(10), push(20): stack is [10, 20]. top() prints 20. pop() removes 20: stack is [10]. push(30): stack is [10, 30]. pop() removes 30: stack is [10]. top() prints 10. Final output: 20 10.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q14</div>
+  <div class="q-text">What is the output of this code?<pre><code>#include &lt;iostream&gt;
+#include &lt;stack&gt;
+int main() {
+    std::stack&lt;int&gt; s;
+    for (int i = 1; i &lt;= 3; ++i) s.push(i * i);
+    int sum = 0;
+    while (!s.empty()) {
+        sum += s.top();
+        s.pop();
+    }
+    std::cout &lt;&lt; sum;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q13" value="0"><span>A. 14</span></label>
+<label class="opt"><input type="radio" name="q13" value="1"><span>B. 6</span></label>
+<label class="opt"><input type="radio" name="q13" value="2"><span>C. 9</span></label>
+<label class="opt"><input type="radio" name="q13" value="3"><span>D. 1</span></label>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. 36</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The values pushed are 1, 4, and 9 (1*1, 2*2, 3*3). Popping and adding all of them gives 1 + 4 + 9 = 14.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q15</div>
+  <div class="q-text">What happens if you call <code>pop()</code> on an empty <code>std::stack</code> in C++?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q14" value="0"><span>A. It throws a std::out_of_range exception</span></label>
+<label class="opt"><input type="radio" name="q14" value="1"><span>B. It returns a default value like 0</span></label>
+<label class="opt"><input type="radio" name="q14" value="2"><span>C. It is undefined behavior</span></label>
+<label class="opt"><input type="radio" name="q14" value="3"><span>D. The code fails to compile</span></label>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. It automatically resizes and does nothing</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">std::stack does not check whether it is empty before popping. Calling pop() (or top()) on an empty stack is undefined behavior — the program may crash or produce garbage. It is the caller's job to check empty() first.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q16</div>
+  <div class="q-text">What is the difference between <code>top()</code> and <code>pop()</code> in <code>std::stack</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q15" value="0"><span>A. top() removes the top element; pop() only reads it</span></label>
+<label class="opt"><input type="radio" name="q15" value="1"><span>B. top() reads the top element without removing it; pop() removes the top element without returning it</span></label>
+<label class="opt"><input type="radio" name="q15" value="2"><span>C. They do exactly the same thing</span></label>
+<label class="opt"><input type="radio" name="q15" value="3"><span>D. top() only works on an empty stack</span></label>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. pop() returns the top element and removes it in a single call</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">top() returns a reference to the top element but leaves it on the stack. pop() removes the top element but does not return its value — that is why code usually calls top() first to read the value, then pop() to remove it.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q17</div>
+  <div class="q-text">What is the main disadvantage of implementing a Stack using a singly linked list instead of an array?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q16" value="0"><span>A. Push takes O(N) time</span></label>
+<label class="opt"><input type="radio" name="q16" value="1"><span>B. Pop takes O(N) time</span></label>
+<label class="opt"><input type="radio" name="q16" value="2"><span>C. Each node needs extra memory to store a pointer</span></label>
+<label class="opt"><input type="radio" name="q16" value="3"><span>D. It cannot grow dynamically</span></label>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. It causes stack overflow</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A linked-list stack never overflows because it grows as needed, but every node must store an extra pointer (8 bytes on a 64-bit system) along with the data.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q18</div>
+  <div class="q-text">Compared to an array-based stack, what is the main advantage of a linked-list-based stack?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. It uses less memory overall</span></label>
+<label class="opt"><input type="radio" name="q17" value="1"><span>B. It has better cache performance</span></label>
+<label class="opt"><input type="radio" name="q17" value="2"><span>C. It never runs out of space unless the computer itself runs out of memory</span></label>
+<label class="opt"><input type="radio" name="q17" value="3"><span>D. Its push and pop are faster in every case</span></label>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. It supports random access to any element</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">An array-based stack has a fixed capacity and can overflow. A linked-list stack allocates a new node for every push, so it keeps growing until memory itself runs out. The trade-off is extra pointer memory per node and weaker cache locality.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q19</div>
+  <div class="q-text">This function checks whether parentheses are balanced. What does it return for the input <code>"(()))"</code>?<pre><code>#include &lt;stack&gt;
+#include &lt;string&gt;
+bool check(std::string s) {
+    std::stack&lt;char&gt; st;
+    for(char c : s) {
+        if(c == '(') st.push(c);
+        else if(c == ')') {
+            if(st.empty()) return false;
+            st.pop();
+        }
+    }
+    return st.empty();
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. true</span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. false</span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. Undefined Behavior</span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. Compiler Error</span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. Throws Exception</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The string has two '(' characters, which get pushed. The first two ')' characters pop them, leaving the stack empty. The third ')' finds an empty stack, so the function returns false right away.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q20</div>
+  <div class="q-text">A stack-based bracket checker reads the string <code>{[()]}</code> from left to right. How many push operations happen before the first pop?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. 1</span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. 2</span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. 4</span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. 0</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Reading left to right: '{' is pushed, '[' is pushed, '(' is pushed — three pushes in a row. The next character ')' is a closing bracket, which causes the first pop. So 3 pushes happen before the first pop.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q21</div>
+  <div class="q-text">A balanced-bracket checker reads the string <code>( [ { } ] ) )</code>. It pushes each opening bracket and pops on each closing bracket, checking that the popped bracket matches. At which character does the checker first report an error?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. The first ')'</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. The first ']'</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. The '}'</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. The last ')'</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. It never reports an error</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Trace: '(' push, '[' push, '{' push, '}' pops '{' (match), ']' pops '[' (match), ')' pops '(' (match) — the stack is now empty. The final ')' arrives with nothing left to pop, so the checker reports an error there.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q22</div>
+  <div class="q-text">When using a stack to check that XHTML tags are properly nested, which situation signals a nesting error?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. An opening tag is pushed while the stack is empty</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. The stack is empty when we see an opening tag</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. The tag popped for a closing tag does not match that closing tag</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. The stack size becomes larger than the document</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. An opening tag is successfully popped</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Every closing tag must match the most recently pushed opening tag. If the popped tag is different, or the stack is empty when we try to pop, the tags are not properly nested.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q23</div>
+  <div class="q-text">Using a stack, evaluate this postfix expression: <code>10 4 2 / + 5 *</code>. What is the result?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. 30</span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. 60</span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. 27</span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. 35</span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. 70</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Push 10, 4, 2. '/': pop 2 and 4, compute 4/2 = 2, push 2. '+': pop 2 and 10, compute 10+2 = 12, push 12. Push 5. '*': pop 5 and 12, compute 12*5 = 60.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q24</div>
+  <div class="q-text">Convert the infix expression <code>(A + B) * C - D</code> to postfix.</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. <code>A B + C * D -</code></span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. <code>A B C + * D -</code></span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. <code>A B + C D - *</code></span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. <code>- * + A B C D</code></span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. <code>A B + * C D -</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">First convert (A + B) to A B +. Then multiply by C: A B + C *. Finally subtract D: A B + C * D -.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q25</div>
+  <div class="q-text">Which data structure is commonly used to implement the Back and Forward buttons in a web browser?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. A single queue</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. Two stacks</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. One linked list</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. A binary search tree</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. A hash table</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Browsers typically use two stacks: one for Back and one for Forward. Visiting a new page pushes the current page onto the Back stack and clears the Forward stack.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q26</div>
+  <div class="q-text">Calling a recursive function with too much recursion depth (for example, no base case, or a very large input) can crash a program with a 'stack overflow' error. Why does this happen?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. Because each recursive call uses memory on the call stack, and the call stack has a limited size</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. Because recursion always runs in an infinite loop</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. Because the CPU cannot execute more than 100 function calls</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. Because recursive functions leak heap memory</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. Because the compiler refuses to compile recursive functions</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Every function call, including each recursive call, pushes a new frame onto the program's call stack to store local variables and the return address. If recursion goes too deep, the call stack runs out of space, causing a stack overflow crash.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q27</div>
+  <div class="q-text">A recursive function <code>rev(s, i)</code> prints <code>s[i]</code> after calling <code>rev(s, i+1)</code>. For the input <code>"abc"</code> starting at <code>i = 0</code>, in what order are the characters printed?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. a b c</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. c b a</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. c a b</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. b c a</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. a c b</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The calls go rev(0) -> rev(1) -> rev(2) -> rev(3) (base case) before anything prints. On the way back out, i=2 prints 'c' first, then i=1 prints 'b', then i=0 prints 'a'. This mirrors how a stack unwinds: last in, first out.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q28</div>
+  <div class="q-text">In a plain stack with no extra data structure, what is the time complexity of finding the minimum element among N elements?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. O(1)</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. O(N)</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. O(N log N)</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. O(N^2)</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A plain stack only lets us access the top element. To find the minimum, we would need to pop every element to look at it, which takes O(N) time.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q29</div>
+  <div class="q-text">A MinStack keeps a second, auxiliary stack that always stores the minimum value seen so far. We perform <code>push(5), push(3), push(7)</code>, then call <code>getMin()</code>. What does <code>getMin()</code> return?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. 3</span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. 5</span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. 7</span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. 0</span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. It is undefined</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The auxiliary min-stack tracks the smallest value at each step: after push(5) it is [5]; after push(3) it is [5,3] because 3 is smaller; after push(7) it stays [5,3] because 7 is not smaller than 3. getMin() reads the top of the auxiliary stack, which is 3. This trick makes getMin() run in O(1).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q30</div>
+  <div class="q-text">We implement a Queue using two stacks, <code>inStack</code> and <code>outStack</code>. Across a long sequence of operations, what is the amortized time complexity of <code>dequeue()</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. O(1) amortized</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. O(N) every time, with no amortization</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. O(log N)</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. O(N^2)</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. O(1) in the worst case, always</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Each element moves from inStack to outStack at most once during its lifetime. A single dequeue() can cost O(N) when outStack is empty and needs refilling, but that cost is spread across the many O(1) dequeues that follow. This gives O(1) amortized time.</div>
+</div>
+
+<div class="score-bar">
+  <span>Score: <strong>0 / 0</strong></span>
+  <span style="margin-left:auto">30 questions</span>
+</div>
+
+<script>window.__QS__ = [{"q": "Which of the following describes how a Stack works?", "options": ["First-In, First-Out (FIFO)", "Last-In, First-Out (LIFO)", "First-In, Last-Out (FILO)", "Random access order", "Priority-based order"], "correct": 1, "explain": "A stack follows Last-In, First-Out (LIFO) order. We can only insert and remove elements at one end, called the top."}, {"q": "Which two operations, together, define the core behavior of a stack?", "options": ["Insert and delete at any position", "push and pop", "enqueue and dequeue", "front and back", "search and sort"], "correct": 1, "explain": "A stack's identity comes from restricting insertion and removal to a single end: push adds an element to the top, and pop removes the element from the top."}, {"q": "Which of the following is NOT a typical application of a stack?", "options": ["Checking balanced parentheses", "Undo functionality in a text editor", "Breadth-first search traversal of a graph", "Managing function calls (the call stack)", "Reversing the order of elements"], "correct": 2, "explain": "Breadth-first search uses a Queue, not a Stack, since it explores nodes level by level in the order they were discovered. The other options are all classic stack applications."}, {"q": "A stack uses a fixed-size array with capacity <code>N</code>. The variable <code>top</code> starts at <code>0</code>. Each push stores data at index <code>top</code>, then increments <code>top</code>. Which condition means the stack is full?", "options": ["<code>top == N - 1</code>", "<code>top == N</code>", "<code>top == 0</code>", "<code>top == N + 1</code>", "<code>top == -1</code>"], "correct": 1, "explain": "Since <code>top</code> starts at 0 and increases by 1 after every push, <code>top</code> always equals the current number of elements. The stack becomes full when <code>top</code> reaches <code>N</code>."}, {"q": "What happens when a program tries to push a new element onto an array-based stack that is already full?", "options": ["Stack Underflow", "Stack Overflow", "Segmentation Fault", "Rehashing", "Memory Leak"], "correct": 1, "explain": "Pushing onto a stack that has no more room causes a Stack Overflow."}, {"q": "Which situation causes a Stack Underflow?", "options": ["Calling push() on a full stack", "Calling pop() or top() on an empty stack", "Calling empty() on any stack", "Pushing a new value onto the stack", "Popping the last element, leaving the stack empty"], "correct": 1, "explain": "Stack Underflow happens when we try to remove or read data (pop or top) from a stack that has no elements."}, {"q": "A different stack implementation uses an array of capacity <code>C</code>, where the variable <code>top</code> starts at <code>-1</code> to mean the stack is empty. Pushing increments <code>top</code> first, then stores data at <code>Array[top]</code>. Which pair of conditions correctly signals overflow and underflow?", "options": ["Overflow: <code>top == C - 1</code>, Underflow: <code>top == -1</code>", "Overflow: <code>top == C</code>, Underflow: <code>top == 0</code>", "Overflow: <code>top == 0</code>, Underflow: <code>top == C</code>", "Overflow: <code>top == -1</code>, Underflow: <code>top == C - 1</code>", "Overflow: <code>top == C + 1</code>, Underflow: <code>top == 1</code>"], "correct": 0, "explain": "With <code>top</code> starting at -1, the last valid array index is <code>C - 1</code>. If <code>top</code> already equals <code>C - 1</code>, there is no room for another push, so that is overflow. <code>top == -1</code> means no elements are stored, which is exactly the underflow condition."}, {"q": "A stack is stored in an array where <code>Array[0]</code> holds the capacity, and the data is stored from index 1 to <code>top</code>. The stack starts empty (<code>top = 0</code>). Trace these calls in order: <code>push(5); push(8); pop(); push(3);</code>. What are the final values of <code>top</code> and <code>Array[top]</code>?", "options": ["top = 2, Array[top] = 3", "top = 1, Array[top] = 3", "top = 2, Array[top] = 8", "top = 3, Array[top] = 3", "top = 1, Array[top] = 5"], "correct": 0, "explain": "push(5): top = 1, Array[1] = 5. push(8): top = 2, Array[2] = 8. pop(): removes Array[2] = 8, top becomes 1. push(3): top = 2, Array[2] = 3. Final state: top = 2, Array[top] = 3."}, {"q": "A stack currently holds <code>[X, Y, Z]</code> with <code>Z</code> on top. We call <code>push(W)</code>, then <code>pop()</code>, then <code>pop()</code>. What is the top element now?", "options": ["X", "Y", "Z", "W", "The stack is empty"], "correct": 1, "explain": "Start: [X, Y, Z]. push(W): [X, Y, Z, W]. pop(): removes W, leaving [X, Y, Z]. pop(): removes Z, leaving [X, Y]. The top element is now Y."}, {"q": "Trace these operations on an initially empty stack: <code>push(1); push(2); push(3); pop(); push(4); pop(); pop();</code>. What does the stack contain at the end?", "options": ["[1]", "[1, 2]", "[ ] (empty)", "[1, 4]", "[2]"], "correct": 0, "explain": "push(1) -> [1]. push(2) -> [1,2]. push(3) -> [1,2,3]. pop() removes 3 -> [1,2]. push(4) -> [1,2,4]. pop() removes 4 -> [1,2]. pop() removes 2 -> [1]. Final stack: [1]."}, {"q": "After the sequence <code>push(10); push(20); push(30); pop(); push(40);</code>, what does <code>size()</code> return?", "options": ["3", "2", "4", "1", "0"], "correct": 0, "explain": "push adds three elements (size 3), pop removes one (size 2), then push adds one more (size 3). The stack ends with 3 elements."}, {"q": "Trace this code. What is the final value of <code>sum</code>?<pre><code>std::stack&lt;int&gt; s;\nfor (int i = 1; i &lt;= 5; ++i) s.push(i);\nint sum = 0;\nwhile (!s.empty()) {\n    int t = s.top(); s.pop();\n    if (t % 2 == 0) s.push(t / 2);\n    else sum += t;\n}</code></pre>", "options": ["11", "15", "9", "5", "6"], "correct": 0, "explain": "Stack after the loop (bottom to top): [1,2,3,4,5]. Popping and applying the rule step by step: pop 5 (odd, sum=5). pop 4 (even, push 2). pop 2 (even, push 1). pop 1 (odd, sum=6). pop 3 (odd, sum=9). pop 2 (even, push 1). pop 1 (odd, sum=10). pop 1 (odd, sum=11). Final sum = 11."}, {"q": "What does this code print?<pre><code>#include &lt;iostream&gt;\n#include &lt;stack&gt;\nint main() {\n    std::stack&lt;int&gt; s;\n    s.push(10);\n    s.push(20);\n    std::cout &lt;&lt; s.top() &lt;&lt; \" \";\n    s.pop();\n    s.push(30);\n    s.pop();\n    std::cout &lt;&lt; s.top();\n    return 0;\n}</code></pre>", "options": ["20 10", "20 30", "10 30", "10 10", "30 10"], "correct": 0, "explain": "push(10), push(20): stack is [10, 20]. top() prints 20. pop() removes 20: stack is [10]. push(30): stack is [10, 30]. pop() removes 30: stack is [10]. top() prints 10. Final output: 20 10."}, {"q": "What is the output of this code?<pre><code>#include &lt;iostream&gt;\n#include &lt;stack&gt;\nint main() {\n    std::stack&lt;int&gt; s;\n    for (int i = 1; i &lt;= 3; ++i) s.push(i * i);\n    int sum = 0;\n    while (!s.empty()) {\n        sum += s.top();\n        s.pop();\n    }\n    std::cout &lt;&lt; sum;\n}</code></pre>", "options": ["14", "6", "9", "1", "36"], "correct": 0, "explain": "The values pushed are 1, 4, and 9 (1*1, 2*2, 3*3). Popping and adding all of them gives 1 + 4 + 9 = 14."}, {"q": "What happens if you call <code>pop()</code> on an empty <code>std::stack</code> in C++?", "options": ["It throws a std::out_of_range exception", "It returns a default value like 0", "It is undefined behavior", "The code fails to compile", "It automatically resizes and does nothing"], "correct": 2, "explain": "std::stack does not check whether it is empty before popping. Calling pop() (or top()) on an empty stack is undefined behavior — the program may crash or produce garbage. It is the caller's job to check empty() first."}, {"q": "What is the difference between <code>top()</code> and <code>pop()</code> in <code>std::stack</code>?", "options": ["top() removes the top element; pop() only reads it", "top() reads the top element without removing it; pop() removes the top element without returning it", "They do exactly the same thing", "top() only works on an empty stack", "pop() returns the top element and removes it in a single call"], "correct": 1, "explain": "top() returns a reference to the top element but leaves it on the stack. pop() removes the top element but does not return its value — that is why code usually calls top() first to read the value, then pop() to remove it."}, {"q": "What is the main disadvantage of implementing a Stack using a singly linked list instead of an array?", "options": ["Push takes O(N) time", "Pop takes O(N) time", "Each node needs extra memory to store a pointer", "It cannot grow dynamically", "It causes stack overflow"], "correct": 2, "explain": "A linked-list stack never overflows because it grows as needed, but every node must store an extra pointer (8 bytes on a 64-bit system) along with the data."}, {"q": "Compared to an array-based stack, what is the main advantage of a linked-list-based stack?", "options": ["It uses less memory overall", "It has better cache performance", "It never runs out of space unless the computer itself runs out of memory", "Its push and pop are faster in every case", "It supports random access to any element"], "correct": 2, "explain": "An array-based stack has a fixed capacity and can overflow. A linked-list stack allocates a new node for every push, so it keeps growing until memory itself runs out. The trade-off is extra pointer memory per node and weaker cache locality."}, {"q": "This function checks whether parentheses are balanced. What does it return for the input <code>\"(()))\"</code>?<pre><code>#include &lt;stack&gt;\n#include &lt;string&gt;\nbool check(std::string s) {\n    std::stack&lt;char&gt; st;\n    for(char c : s) {\n        if(c == '(') st.push(c);\n        else if(c == ')') {\n            if(st.empty()) return false;\n            st.pop();\n        }\n    }\n    return st.empty();\n}</code></pre>", "options": ["true", "false", "Undefined Behavior", "Compiler Error", "Throws Exception"], "correct": 1, "explain": "The string has two '(' characters, which get pushed. The first two ')' characters pop them, leaving the stack empty. The third ')' finds an empty stack, so the function returns false right away."}, {"q": "A stack-based bracket checker reads the string <code>{[()]}</code> from left to right. How many push operations happen before the first pop?", "options": ["1", "2", "3", "4", "0"], "correct": 2, "explain": "Reading left to right: '{' is pushed, '[' is pushed, '(' is pushed — three pushes in a row. The next character ')' is a closing bracket, which causes the first pop. So 3 pushes happen before the first pop."}, {"q": "A balanced-bracket checker reads the string <code>( [ { } ] ) )</code>. It pushes each opening bracket and pops on each closing bracket, checking that the popped bracket matches. At which character does the checker first report an error?", "options": ["The first ')'", "The first ']'", "The '}'", "The last ')'", "It never reports an error"], "correct": 3, "explain": "Trace: '(' push, '[' push, '{' push, '}' pops '{' (match), ']' pops '[' (match), ')' pops '(' (match) — the stack is now empty. The final ')' arrives with nothing left to pop, so the checker reports an error there."}, {"q": "When using a stack to check that XHTML tags are properly nested, which situation signals a nesting error?", "options": ["An opening tag is pushed while the stack is empty", "The stack is empty when we see an opening tag", "The tag popped for a closing tag does not match that closing tag", "The stack size becomes larger than the document", "An opening tag is successfully popped"], "correct": 2, "explain": "Every closing tag must match the most recently pushed opening tag. If the popped tag is different, or the stack is empty when we try to pop, the tags are not properly nested."}, {"q": "Using a stack, evaluate this postfix expression: <code>10 4 2 / + 5 *</code>. What is the result?", "options": ["30", "60", "27", "35", "70"], "correct": 1, "explain": "Push 10, 4, 2. '/': pop 2 and 4, compute 4/2 = 2, push 2. '+': pop 2 and 10, compute 10+2 = 12, push 12. Push 5. '*': pop 5 and 12, compute 12*5 = 60."}, {"q": "Convert the infix expression <code>(A + B) * C - D</code> to postfix.", "options": ["<code>A B + C * D -</code>", "<code>A B C + * D -</code>", "<code>A B + C D - *</code>", "<code>- * + A B C D</code>", "<code>A B + * C D -</code>"], "correct": 0, "explain": "First convert (A + B) to A B +. Then multiply by C: A B + C *. Finally subtract D: A B + C * D -."}, {"q": "Which data structure is commonly used to implement the Back and Forward buttons in a web browser?", "options": ["A single queue", "Two stacks", "One linked list", "A binary search tree", "A hash table"], "correct": 1, "explain": "Browsers typically use two stacks: one for Back and one for Forward. Visiting a new page pushes the current page onto the Back stack and clears the Forward stack."}, {"q": "Calling a recursive function with too much recursion depth (for example, no base case, or a very large input) can crash a program with a 'stack overflow' error. Why does this happen?", "options": ["Because each recursive call uses memory on the call stack, and the call stack has a limited size", "Because recursion always runs in an infinite loop", "Because the CPU cannot execute more than 100 function calls", "Because recursive functions leak heap memory", "Because the compiler refuses to compile recursive functions"], "correct": 0, "explain": "Every function call, including each recursive call, pushes a new frame onto the program's call stack to store local variables and the return address. If recursion goes too deep, the call stack runs out of space, causing a stack overflow crash."}, {"q": "A recursive function <code>rev(s, i)</code> prints <code>s[i]</code> after calling <code>rev(s, i+1)</code>. For the input <code>\"abc\"</code> starting at <code>i = 0</code>, in what order are the characters printed?", "options": ["a b c", "c b a", "c a b", "b c a", "a c b"], "correct": 1, "explain": "The calls go rev(0) -> rev(1) -> rev(2) -> rev(3) (base case) before anything prints. On the way back out, i=2 prints 'c' first, then i=1 prints 'b', then i=0 prints 'a'. This mirrors how a stack unwinds: last in, first out."}, {"q": "In a plain stack with no extra data structure, what is the time complexity of finding the minimum element among N elements?", "options": ["O(1)", "O(log N)", "O(N)", "O(N log N)", "O(N^2)"], "correct": 2, "explain": "A plain stack only lets us access the top element. To find the minimum, we would need to pop every element to look at it, which takes O(N) time."}, {"q": "A MinStack keeps a second, auxiliary stack that always stores the minimum value seen so far. We perform <code>push(5), push(3), push(7)</code>, then call <code>getMin()</code>. What does <code>getMin()</code> return?", "options": ["3", "5", "7", "0", "It is undefined"], "correct": 0, "explain": "The auxiliary min-stack tracks the smallest value at each step: after push(5) it is [5]; after push(3) it is [5,3] because 3 is smaller; after push(7) it stays [5,3] because 7 is not smaller than 3. getMin() reads the top of the auxiliary stack, which is 3. This trick makes getMin() run in O(1)."}, {"q": "We implement a Queue using two stacks, <code>inStack</code> and <code>outStack</code>. Across a long sequence of operations, what is the amortized time complexity of <code>dequeue()</code>?", "options": ["O(1) amortized", "O(N) every time, with no amortization", "O(log N)", "O(N^2)", "O(1) in the worst case, always"], "correct": 0, "explain": "Each element moves from inStack to outStack at most once during its lifetime. A single dequeue() can cost O(N) when outStack is empty and needs refilling, but that cost is spread across the many O(1) dequeues that follow. This gives O(1) amortized time."}];</script>
+
+
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>

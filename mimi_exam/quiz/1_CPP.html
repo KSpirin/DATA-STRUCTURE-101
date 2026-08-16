@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>01. C++ Basics & Memory Management — Quiz</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav>
+  <a class="home" href="index.html">Quiz Home</a>
+  <span class="sep">/</span>
+  <span class="topic">C++</span>
+  <div class="nav-links">
+    <a href="0_ARRAYS.html">Arrays →</a>
+  </div>
+</nav>
+
+<div class="page">
+  <h1>01. C++ Basics &amp; Memory Management</h1>
+
+<div class="q">
+  <div class="q-num">Q1</div>
+  <div class="q-text">Why must the preprocessor guard directive <code>#ifndef SINGLE_LIST_H</code> be placed at the top of header files?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q0" value="0"><span>A. To instruct the compiler to use inline optimization</span></label>
+<label class="opt"><input type="radio" name="q0" value="1"><span>B. To prevent duplicate declaration errors when a header file is included multiple times</span></label>
+<label class="opt"><input type="radio" name="q0" value="2"><span>C. To define a namespace structure automatically</span></label>
+<label class="opt"><input type="radio" name="q0" value="3"><span>D. To automatically import the standard C++ libraries</span></label>
+<label class="opt"><input type="radio" name="q0" value="4"><span>E. To allocate global memory for templated nodes</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Including the same header multiple times causes duplicate class or variable definitions. Guards like #ifndef, #define, and #endif prevent the definition block from being compiled twice.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q2</div>
+  <div class="q-text">Which of the following correctly forms a header guard?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q1" value="0"><span>A. <code>#ifndef NODE_H<br>#define NODE_H<br>... declarations ...<br>#endif</code></span></label>
+<label class="opt"><input type="radio" name="q1" value="1"><span>B. <code>#ifdef NODE_H<br>#define NODE_H<br>... declarations ...<br>#endif</code></span></label>
+<label class="opt"><input type="radio" name="q1" value="2"><span>C. <code>#define NODE_H<br>#ifndef NODE_H<br>... declarations ...<br>#endif</code></span></label>
+<label class="opt"><input type="radio" name="q1" value="3"><span>D. <code>#ifndef NODE_H<br>... declarations ...<br>#define NODE_H</code></span></label>
+<label class="opt"><input type="radio" name="q1" value="4"><span>E. <code>#ifndef NODE_H<br>#endif<br>... declarations ...<br>#define NODE_H</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The correct order is: #ifndef checks that the guard macro is not yet defined, #define immediately defines it, then the declarations follow, and #endif closes the conditional at the end of the file.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q3</div>
+  <div class="q-text">A header file uses <code>#ifndef</code> and <code>#define</code> for a header guard, but the programmer forgets to add the matching <code>#endif</code>. What happens?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q2" value="0"><span>A. Nothing; the compiler adds it automatically</span></label>
+<label class="opt"><input type="radio" name="q2" value="1"><span>B. The rest of the file, and possibly anything included afterward, may be treated as still inside that conditional, usually causing a compiler error</span></label>
+<label class="opt"><input type="radio" name="q2" value="2"><span>C. The program compiles but runs slower</span></label>
+<label class="opt"><input type="radio" name="q2" value="3"><span>D. It only affects release builds, not debug builds</span></label>
+<label class="opt"><input type="radio" name="q2" value="4"><span>E. The linker automatically fixes it</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">#ifndef opens a conditional block that must be closed with #endif. Without it, the preprocessor may treat the rest of the file, or even the rest of whatever gets included afterward, as still being inside that conditional, usually causing a compiler error or unexpected behavior.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q4</div>
+  <div class="q-text">Given the preprocessor performs pure text substitution with no syntax checking, what is printed?<pre><code>#include &lt;iostream&gt;
+#define SQUARE(x) x * x
+int main() {
+    std::cout &lt;&lt; SQUARE(2 + 3);
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q3" value="0"><span>A. 25</span></label>
+<label class="opt"><input type="radio" name="q3" value="1"><span>B. 11</span></label>
+<label class="opt"><input type="radio" name="q3" value="2"><span>C. Compiler Error</span></label>
+<label class="opt"><input type="radio" name="q3" value="3"><span>D. 10</span></label>
+<label class="opt"><input type="radio" name="q3" value="4"><span>E. 13</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Textual substitution gives 2 + 3 * 2 + 3, which by operator precedence evaluates as 2 + (3*2) + 3 = 2+6+3 = 11, not 25. This is why function-like macros are dangerous without parentheses.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q5</div>
+  <div class="q-text">A student forgets a header guard and includes 'Node.h' from two different .cpp translation units linked into the same executable. What is the most likely resulting error?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q4" value="0"><span>A. Nothing — headers are always safe to include multiple times</span></label>
+<label class="opt"><input type="radio" name="q4" value="1"><span>B. A 'multiple definition' linker error, if the header contains non-inline definitions</span></label>
+<label class="opt"><input type="radio" name="q4" value="2"><span>C. A runtime segmentation fault only</span></label>
+<label class="opt"><input type="radio" name="q4" value="3"><span>D. The compiler automatically deduplicates the header</span></label>
+<label class="opt"><input type="radio" name="q4" value="4"><span>E. A warning only; compilation still succeeds silently</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Without a header guard, if the header defines (not just declares) functions or variables and is included in multiple .cpp files, each translation unit emits its own copy of the symbol. The linker then reports a 'multiple definition' error when combining the object files.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q6</div>
+  <div class="q-text">What is the difference between <code>#include &lt;iostream&gt;</code> and <code>#include "myheader.h"</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q5" value="0"><span>A. There is no real difference; both work identically</span></label>
+<label class="opt"><input type="radio" name="q5" value="1"><span>B. Angle brackets search the compiler's system library directories first; quotes search the current directory first</span></label>
+<label class="opt"><input type="radio" name="q5" value="2"><span>C. Angle brackets are only for C++ files; quotes are only for C files</span></label>
+<label class="opt"><input type="radio" name="q5" value="3"><span>D. Quotes can only be used inside a class</span></label>
+<label class="opt"><input type="radio" name="q5" value="4"><span>E. Angle brackets require a semicolon at the end, but quotes do not</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Angle brackets tell the preprocessor to look in the compiler's standard system directories, used for standard libraries like iostream. Quotes tell it to look in the current directory first, used for your own local header files.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q7</div>
+  <div class="q-text">Trace the following namespace resolution. What is printed?<pre><code>#include &lt;iostream&gt;
+namespace lab {
+    int n = 4;
+}
+int n = 10;
+int main() {
+    std::cout &lt;&lt; n &lt;&lt; " " &lt;&lt; lab::n;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q6" value="0"><span>A. 4 4</span></label>
+<label class="opt"><input type="radio" name="q6" value="1"><span>B. 10 4</span></label>
+<label class="opt"><input type="radio" name="q6" value="2"><span>C. 10 10</span></label>
+<label class="opt"><input type="radio" name="q6" value="3"><span>D. 4 10</span></label>
+<label class="opt"><input type="radio" name="q6" value="4"><span>E. Compiler Error</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The unqualified n inside main() refers to the global n (10). lab::n explicitly accesses the namespace-scoped n (4). Output: '10 4'.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q8</div>
+  <div class="q-text">Why is writing <code>using namespace std;</code> at the top of a header file generally considered bad practice?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q7" value="0"><span>A. It makes the header's names leak into every file that includes it, raising the risk of naming conflicts</span></label>
+<label class="opt"><input type="radio" name="q7" value="1"><span>B. It is a syntax error in C++17 and later</span></label>
+<label class="opt"><input type="radio" name="q7" value="2"><span>C. It slows down compilation significantly</span></label>
+<label class="opt"><input type="radio" name="q7" value="3"><span>D. It disables all standard library functions</span></label>
+<label class="opt"><input type="radio" name="q7" value="4"><span>E. It only works inside main()</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A using directive in a header file affects every source file that includes it, pulling all of std's names into the global namespace everywhere. This raises the risk of naming collisions, which is why it is safer to write std:: explicitly, or keep using namespace std; local to a small scope.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q9</div>
+  <div class="q-text">Consider the code: <code>int x = 10; int&amp; ref = x; ref += 5; x *= 2;</code>. What is the value of <code>ref</code> after these operations?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q8" value="0"><span>A. 10</span></label>
+<label class="opt"><input type="radio" name="q8" value="1"><span>B. 15</span></label>
+<label class="opt"><input type="radio" name="q8" value="2"><span>C. 20</span></label>
+<label class="opt"><input type="radio" name="q8" value="3"><span>D. 30</span></label>
+<label class="opt"><input type="radio" name="q8" value="4"><span>E. The compiler triggers an error because reference reassignment is invalid</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A reference is an alias. Adding 5 to ref changes x to 15. Then multiplying x by 2 changes it to 30. Since ref aliases x, it evaluates to 30.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q10</div>
+  <div class="q-text">Once a C++ reference is initialized to refer to a variable, can it later be made to refer to a different variable?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q9" value="0"><span>A. No, a reference is permanently bound to the variable it was initialized with</span></label>
+<label class="opt"><input type="radio" name="q9" value="1"><span>B. Yes, using the = operator to reassign it</span></label>
+<label class="opt"><input type="radio" name="q9" value="2"><span>C. Yes, but only inside a loop</span></label>
+<label class="opt"><input type="radio" name="q9" value="3"><span>D. Yes, but only for reference parameters, not local references</span></label>
+<label class="opt"><input type="radio" name="q9" value="4"><span>E. No, but you can delete it and create a new one</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Unlike a pointer, a reference cannot be 're-seated' to refer to something else after initialization. Assigning through a reference (ref = something;) changes the value of the variable it refers to — it does not change what the reference refers to.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q11</div>
+  <div class="q-text">What does this code print?<pre><code>void swap(int&amp; a, int&amp; b) {
+    int t = a; a = b; b = t;
+}
+int main() {
+    int x = 3, y = 8;
+    swap(x, y);
+    std::cout &lt;&lt; x &lt;&lt; " " &lt;&lt; y;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q10" value="0"><span>A. 8 3</span></label>
+<label class="opt"><input type="radio" name="q10" value="1"><span>B. 3 8</span></label>
+<label class="opt"><input type="radio" name="q10" value="2"><span>C. 3 3</span></label>
+<label class="opt"><input type="radio" name="q10" value="3"><span>D. 8 8</span></label>
+<label class="opt"><input type="radio" name="q10" value="4"><span>E. Compiler Error</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Because a and b are references to x and y, swapping a and b inside the function directly swaps the original x and y. After the call, x = 8 and y = 3.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q12</div>
+  <div class="q-text">What is the output of the following C++ code?<pre><code>#include &lt;iostream&gt;
+void modify(int* a, int&amp; b) {
+    *a += 5;
+    b *= 2;
+}
+int main() {
+    int x = 10, y = 20;
+    modify(&amp;x, y);
+    std::cout &lt;&lt; (x + y);
+    return 0;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q11" value="0"><span>A. 30</span></label>
+<label class="opt"><input type="radio" name="q11" value="1"><span>B. 50</span></label>
+<label class="opt"><input type="radio" name="q11" value="2"><span>C. 55</span></label>
+<label class="opt"><input type="radio" name="q11" value="3"><span>D. 60</span></label>
+<label class="opt"><input type="radio" name="q11" value="4"><span>E. Compiler Error</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Inside modify, x is modified via pointer dereference (*a += 5) to 15. y is passed by reference, so b *= 2 modifies y to 40. The sum 15 + 40 equals 55.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q13</div>
+  <div class="q-text">Trace pointer arithmetic. What does this print?<pre><code>#include &lt;iostream&gt;
+int main() {
+    int arr[4] = {10, 20, 30, 40};
+    int* p = arr;
+    p += 2;
+    std::cout &lt;&lt; *p &lt;&lt; " " &lt;&lt; *(p - 1);
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q12" value="0"><span>A. 30 20</span></label>
+<label class="opt"><input type="radio" name="q12" value="1"><span>B. 20 10</span></label>
+<label class="opt"><input type="radio" name="q12" value="2"><span>C. 30 40</span></label>
+<label class="opt"><input type="radio" name="q12" value="3"><span>D. 10 20</span></label>
+<label class="opt"><input type="radio" name="q12" value="4"><span>E. 40 30</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">p starts at arr[0]. p += 2 advances it by 2 elements, not bytes, to arr[2] = 30. *(p-1) is arr[1] = 20. Output: '30 20'.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q14</div>
+  <div class="q-text">Given <code>int* pi</code> and <code>char* pc</code>, both currently pointing to the same address, what happens after <code>pi++</code> and <code>pc++</code> (assuming <code>sizeof(int) == 4</code>)?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q13" value="0"><span>A. pi moves forward by 4 bytes; pc moves forward by 1 byte</span></label>
+<label class="opt"><input type="radio" name="q13" value="1"><span>B. Both move forward by exactly 1 byte</span></label>
+<label class="opt"><input type="radio" name="q13" value="2"><span>C. Both move forward by exactly 4 bytes</span></label>
+<label class="opt"><input type="radio" name="q13" value="3"><span>D. pi moves forward by 1 byte; pc moves forward by 4 bytes</span></label>
+<label class="opt"><input type="radio" name="q13" value="4"><span>E. Pointer increment always moves by 8 bytes, regardless of type</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Pointer arithmetic is scaled by the size of the pointed-to type. Incrementing an int* moves it forward by sizeof(int) bytes (4), while incrementing a char* moves it forward by sizeof(char) byte (1).</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q15</div>
+  <div class="q-text">Which C++ operator is used to deallocate memory previously allocated with <code>new</code> for a single object?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q14" value="0"><span>A. <code>free</code></span></label>
+<label class="opt"><input type="radio" name="q14" value="1"><span>B. <code>release</code></span></label>
+<label class="opt"><input type="radio" name="q14" value="2"><span>C. <code>delete</code></span></label>
+<label class="opt"><input type="radio" name="q14" value="3"><span>D. <code>delete[]</code></span></label>
+<label class="opt"><input type="radio" name="q14" value="4"><span>E. <code>destruct</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">For single objects allocated with new, use delete. For array allocations like new Type[N], use delete[].</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q16</div>
+  <div class="q-text">Which of the following describes the difference between <code>delete</code> and <code>delete[]</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q15" value="0"><span>A. delete[] frees twice as much memory</span></label>
+<label class="opt"><input type="radio" name="q15" value="1"><span>B. delete[] calls the destructor for every object in the allocated array, while delete only calls it for the first element</span></label>
+<label class="opt"><input type="radio" name="q15" value="2"><span>C. delete is used for classes, delete[] is used for basic data types</span></label>
+<label class="opt"><input type="radio" name="q15" value="3"><span>D. delete[] is deprecated in C++17</span></label>
+<label class="opt"><input type="radio" name="q15" value="4"><span>E. delete automatically calls garbage collection</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">For arrays allocated via new Type[N], delete[] ensures the destructor runs for all N objects in the array. Plain delete only runs it for the first, and using the wrong one is undefined behavior.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q17</div>
+  <div class="q-text">What is the consequence of executing: <code>int* p = new int(5); delete p; std::cout &lt;&lt; *p;</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q16" value="0"><span>A. It prints 5</span></label>
+<label class="opt"><input type="radio" name="q16" value="1"><span>B. It prints 0</span></label>
+<label class="opt"><input type="radio" name="q16" value="2"><span>C. It causes a compile-time error</span></label>
+<label class="opt"><input type="radio" name="q16" value="3"><span>D. It triggers Undefined Behavior because p is now a dangling pointer to deallocated memory</span></label>
+<label class="opt"><input type="radio" name="q16" value="4"><span>E. It throws a std::bad_alloc exception</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Deleting a pointer deallocates the memory it points to. Accessing it afterward through a dangling pointer results in Undefined Behavior, which could crash the program or output garbage values.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q18</div>
+  <div class="q-text">What is the rule for matching <code>new</code> and <code>delete</code> in C++?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q17" value="0"><span>A. Memory from new must be freed with delete; memory from new[] must be freed with delete[]</span></label>
+<label class="opt"><input type="radio" name="q17" value="1"><span>B. Any new can be freed with either delete or delete[]</span></label>
+<label class="opt"><input type="radio" name="q17" value="2"><span>C. delete[] can only be used on arrays smaller than 100 elements</span></label>
+<label class="opt"><input type="radio" name="q17" value="3"><span>D. Both new and new[] require delete[] to free them</span></label>
+<label class="opt"><input type="radio" name="q17" value="4"><span>E. It does not matter which one you use, as long as you free it eventually</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">new and delete are a matched pair for single objects; new[] and delete[] are a matched pair for arrays. Mixing them, for example calling delete on memory from new[], is undefined behavior.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q19</div>
+  <div class="q-text">What is a 'memory leak' in a C++ program?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q18" value="0"><span>A. Heap memory allocated with new but never freed with delete, so the program can no longer access or release it</span></label>
+<label class="opt"><input type="radio" name="q18" value="1"><span>B. Any variable declared but never used</span></label>
+<label class="opt"><input type="radio" name="q18" value="2"><span>C. A pointer that points to the wrong type</span></label>
+<label class="opt"><input type="radio" name="q18" value="3"><span>D. A stack variable that goes out of scope</span></label>
+<label class="opt"><input type="radio" name="q18" value="4"><span>E. An array that is too large to fit in memory</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A memory leak happens when a program loses all references to memory it allocated on the heap, for example by overwriting the only pointer to it, without calling delete first. That memory stays reserved and unusable until the program ends.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q20</div>
+  <div class="q-text">If class <code>ClassA</code> declares class <code>ClassB</code> to be a <code>friend</code> (<code>friend class ClassB;</code> inside ClassA), which of the following is true?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q19" value="0"><span>A. ClassA can access and modify all private members of ClassB</span></label>
+<label class="opt"><input type="radio" name="q19" value="1"><span>B. ClassB can access and modify all private members of ClassA</span></label>
+<label class="opt"><input type="radio" name="q19" value="2"><span>C. Both ClassA and ClassB can access each other's private members</span></label>
+<label class="opt"><input type="radio" name="q19" value="3"><span>D. ClassB gains access, and any subclass of ClassB automatically gains access to ClassA too</span></label>
+<label class="opt"><input type="radio" name="q19" value="4"><span>E. Friendship is transitive, so any friend of ClassB also becomes a friend of ClassA</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">Friendship is one-way: ClassA declaring ClassB as a friend allows ClassB to access ClassA's private members, but not the reverse. Friendship is also neither inherited nor transitive.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q21</div>
+  <div class="q-text">What is the primary difference between a C++ <code>struct</code> and a C++ <code>class</code>?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q20" value="0"><span>A. Classes can have member functions, but structs cannot</span></label>
+<label class="opt"><input type="radio" name="q20" value="1"><span>B. Structs cannot use templates, whereas classes can</span></label>
+<label class="opt"><input type="radio" name="q20" value="2"><span>C. Structs default to public visibility for members and inheritance, while classes default to private</span></label>
+<label class="opt"><input type="radio" name="q20" value="3"><span>D. Structs are allocated on the stack, while classes are always allocated on the heap</span></label>
+<label class="opt"><input type="radio" name="q20" value="4"><span>E. Structs cannot have constructors or destructors</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">In C++, the only real difference is that a struct defaults to public member visibility and inheritance, while a class defaults to private. Both can have member functions, constructors, and templates.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q22</div>
+  <div class="q-text">What is printed when a template function is instantiated with two different types?<pre><code>#include &lt;iostream&gt;
+template &lt;typename T&gt;
+T sqr(T x) { return x * x; }
+int main() {
+    std::cout &lt;&lt; sqr(3) &lt;&lt; " " &lt;&lt; sqr(2.5);
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q21" value="0"><span>A. 9 6.25</span></label>
+<label class="opt"><input type="radio" name="q21" value="1"><span>B. 9 6</span></label>
+<label class="opt"><input type="radio" name="q21" value="2"><span>C. Compiler Error: sqr redefined</span></label>
+<label class="opt"><input type="radio" name="q21" value="3"><span>D. 9.0 6.25</span></label>
+<label class="opt"><input type="radio" name="q21" value="4"><span>E. 6 5</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">The compiler instantiates sqr<int> and sqr<double> separately at compile time, based on the argument types. sqr(3) -> 9, sqr(2.5) -> 6.25.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q23</div>
+  <div class="q-text">Given a class template <code>template &lt;typename Type&gt; class Complex { ... };</code>, how do you create an instance that stores <code>double</code> values?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q22" value="0"><span>A. <code>Complex&lt;double&gt; z(3.7, 4.2);</code></span></label>
+<label class="opt"><input type="radio" name="q22" value="1"><span>B. <code>Complex z(3.7, 4.2);</code></span></label>
+<label class="opt"><input type="radio" name="q22" value="2"><span>C. <code>Complex(double) z(3.7, 4.2);</code></span></label>
+<label class="opt"><input type="radio" name="q22" value="3"><span>D. <code>double Complex z(3.7, 4.2);</code></span></label>
+<label class="opt"><input type="radio" name="q22" value="4"><span>E. <code>Complex::double z(3.7, 4.2);</code></span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">To instantiate a class template with a specific type, the type goes in angle brackets right after the class name. Complex<double> z(3.7, 4.2); tells the compiler to generate a version of Complex that stores double values.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q24</div>
+  <div class="q-text">Trace this loop. What is <code>arr[3]</code> after execution?<pre><code>int arr[5];
+arr[0] = 1;
+for (int i = 1; i &lt; 5; ++i) {
+    arr[i] = 2 * arr[i - 1] + 1;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q23" value="0"><span>A. 7</span></label>
+<label class="opt"><input type="radio" name="q23" value="1"><span>B. 15</span></label>
+<label class="opt"><input type="radio" name="q23" value="2"><span>C. 3</span></label>
+<label class="opt"><input type="radio" name="q23" value="3"><span>D. 31</span></label>
+<label class="opt"><input type="radio" name="q23" value="4"><span>E. 1</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">arr[0]=1, arr[1]=2*1+1=3, arr[2]=2*3+1=7, arr[3]=2*7+1=15.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q25</div>
+  <div class="q-text">What is the key difference between a <code>while</code> loop and a <code>do-while</code> loop in C++?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q24" value="0"><span>A. A do-while loop always executes its body at least once, even if the condition is false from the start</span></label>
+<label class="opt"><input type="radio" name="q24" value="1"><span>B. A while loop always executes its body at least once</span></label>
+<label class="opt"><input type="radio" name="q24" value="2"><span>C. do-while loops cannot contain break statements</span></label>
+<label class="opt"><input type="radio" name="q24" value="3"><span>D. while loops can only run a fixed number of times</span></label>
+<label class="opt"><input type="radio" name="q24" value="4"><span>E. There is no difference; they are interchangeable</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A while loop checks its condition before the first execution, so its body might never run. A do-while loop checks its condition after running the body, so the body always executes at least once.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q26</div>
+  <div class="q-text">Given the input line <code>7 3</code>, what values do <code>x</code> and <code>y</code> hold after this code runs?<pre><code>int x, y;
+std::cin &gt;&gt; x &gt;&gt; y;</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q25" value="0"><span>A. x=7, y=3</span></label>
+<label class="opt"><input type="radio" name="q25" value="1"><span>B. x=3, y=7</span></label>
+<label class="opt"><input type="radio" name="q25" value="2"><span>C. x=73, y=0</span></label>
+<label class="opt"><input type="radio" name="q25" value="3"><span>D. x=0, y=0</span></label>
+<label class="opt"><input type="radio" name="q25" value="4"><span>E. Compiler Error</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">cin >> reads whitespace-separated values in order. The first value, 7, is stored in x; the second value, 3, is stored in y.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q27</div>
+  <div class="q-text">What is printed by this operator chaining?<pre><code>#include &lt;iostream&gt;
+int sqr(int x){ return x*x; }
+int main(){
+    std::cout &lt;&lt; "val=" &lt;&lt; sqr(3) &lt;&lt; std::endl;
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q26" value="0"><span>A. val=9</span></label>
+<label class="opt"><input type="radio" name="q26" value="1"><span>B. val=6</span></label>
+<label class="opt"><input type="radio" name="q26" value="2"><span>C. val=3sqr(3)</span></label>
+<label class="opt"><input type="radio" name="q26" value="3"><span>D. Compiler Error</span></label>
+<label class="opt"><input type="radio" name="q26" value="4"><span>E. val=x*x</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">cout << is evaluated left to right: ((cout << "val=") << sqr(3)) << endl. sqr(3) evaluates to 9, so it prints 'val=9'.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q28</div>
+  <div class="q-text">Why does an expression like <code>cout &lt;&lt; a &lt;&lt; b &lt;&lt; c;</code> work correctly in C++?</div>
+  <div class="opts"><label class="opt"><input type="radio" name="q27" value="0"><span>A. Because operator<< returns a reference to the same ostream object, so the next << is applied to that same result</span></label>
+<label class="opt"><input type="radio" name="q27" value="1"><span>B. Because the compiler automatically splits it into three separate statements with no connection</span></label>
+<label class="opt"><input type="radio" name="q27" value="2"><span>C. Because cout is a special keyword that ignores the << operator entirely</span></label>
+<label class="opt"><input type="radio" name="q27" value="3"><span>D. Because << can only be used once per line, so this is actually invalid code</span></label>
+<label class="opt"><input type="radio" name="q27" value="4"><span>E. Because a, b, and c are automatically combined into a single string first</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">operator<< is overloaded to return a reference to the ostream it was called on, usually cout itself. That lets the result of one << be immediately used as the left-hand side of the next <<, allowing the whole chain to work left to right.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q29</div>
+  <div class="q-text">Trace the recursion. What value does <code>func(4)</code> return?<pre><code>int func(int x) {
+    if (x &lt; 1) return 0;
+    return x + func(x - 1);
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q28" value="0"><span>A. 6</span></label>
+<label class="opt"><input type="radio" name="q28" value="1"><span>B. 10</span></label>
+<label class="opt"><input type="radio" name="q28" value="2"><span>C. 4</span></label>
+<label class="opt"><input type="radio" name="q28" value="3"><span>D. 0</span></label>
+<label class="opt"><input type="radio" name="q28" value="4"><span>E. 24</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">func(4)=4+func(3), func(3)=3+func(2), func(2)=2+func(1), func(1)=1+func(0), func(0)=0. Summing back: 1, 3, 6, 10. func(4)=10.</div>
+</div>
+
+<div class="q">
+  <div class="q-num">Q30</div>
+  <div class="q-text">Trace this static local variable across multiple calls. What is printed?<pre><code>#include &lt;iostream&gt;
+void counter() {
+    static int count = 0;
+    count++;
+    std::cout &lt;&lt; count &lt;&lt; " ";
+}
+int main() {
+    counter();
+    counter();
+    counter();
+}</code></pre></div>
+  <div class="opts"><label class="opt"><input type="radio" name="q29" value="0"><span>A. 1 2 3</span></label>
+<label class="opt"><input type="radio" name="q29" value="1"><span>B. 1 1 1</span></label>
+<label class="opt"><input type="radio" name="q29" value="2"><span>C. 0 1 2</span></label>
+<label class="opt"><input type="radio" name="q29" value="3"><span>D. 3 3 3</span></label>
+<label class="opt"><input type="radio" name="q29" value="4"><span>E. Compiler Error</span></label></div>
+  <button class="check">Check</button>
+  <div class="exp">A static local variable is initialized only once and keeps its value between function calls, unlike a normal local variable, which is re-created and re-initialized every call. Each call increments the same persistent count: 1, then 2, then 3.</div>
+</div>
+
+<div class="score-bar">
+  <span>Score: <strong>0 / 0</strong></span>
+  <span style="margin-left:auto">30 questions</span>
+</div>
+
+<script>window.__QS__ = [{"q": "Why must the preprocessor guard directive <code>#ifndef SINGLE_LIST_H</code> be placed at the top of header files?", "options": ["To instruct the compiler to use inline optimization", "To prevent duplicate declaration errors when a header file is included multiple times", "To define a namespace structure automatically", "To automatically import the standard C++ libraries", "To allocate global memory for templated nodes"], "correct": 1, "explain": "Including the same header multiple times causes duplicate class or variable definitions. Guards like #ifndef, #define, and #endif prevent the definition block from being compiled twice."}, {"q": "Which of the following correctly forms a header guard?", "options": ["<code>#ifndef NODE_H<br>#define NODE_H<br>... declarations ...<br>#endif</code>", "<code>#ifdef NODE_H<br>#define NODE_H<br>... declarations ...<br>#endif</code>", "<code>#define NODE_H<br>#ifndef NODE_H<br>... declarations ...<br>#endif</code>", "<code>#ifndef NODE_H<br>... declarations ...<br>#define NODE_H</code>", "<code>#ifndef NODE_H<br>#endif<br>... declarations ...<br>#define NODE_H</code>"], "correct": 0, "explain": "The correct order is: #ifndef checks that the guard macro is not yet defined, #define immediately defines it, then the declarations follow, and #endif closes the conditional at the end of the file."}, {"q": "A header file uses <code>#ifndef</code> and <code>#define</code> for a header guard, but the programmer forgets to add the matching <code>#endif</code>. What happens?", "options": ["Nothing; the compiler adds it automatically", "The rest of the file, and possibly anything included afterward, may be treated as still inside that conditional, usually causing a compiler error", "The program compiles but runs slower", "It only affects release builds, not debug builds", "The linker automatically fixes it"], "correct": 1, "explain": "#ifndef opens a conditional block that must be closed with #endif. Without it, the preprocessor may treat the rest of the file, or even the rest of whatever gets included afterward, as still being inside that conditional, usually causing a compiler error or unexpected behavior."}, {"q": "Given the preprocessor performs pure text substitution with no syntax checking, what is printed?<pre><code>#include &lt;iostream&gt;\n#define SQUARE(x) x * x\nint main() {\n    std::cout &lt;&lt; SQUARE(2 + 3);\n}</code></pre>", "options": ["25", "11", "Compiler Error", "10", "13"], "correct": 1, "explain": "Textual substitution gives 2 + 3 * 2 + 3, which by operator precedence evaluates as 2 + (3*2) + 3 = 2+6+3 = 11, not 25. This is why function-like macros are dangerous without parentheses."}, {"q": "A student forgets a header guard and includes 'Node.h' from two different .cpp translation units linked into the same executable. What is the most likely resulting error?", "options": ["Nothing — headers are always safe to include multiple times", "A 'multiple definition' linker error, if the header contains non-inline definitions", "A runtime segmentation fault only", "The compiler automatically deduplicates the header", "A warning only; compilation still succeeds silently"], "correct": 1, "explain": "Without a header guard, if the header defines (not just declares) functions or variables and is included in multiple .cpp files, each translation unit emits its own copy of the symbol. The linker then reports a 'multiple definition' error when combining the object files."}, {"q": "What is the difference between <code>#include &lt;iostream&gt;</code> and <code>#include \"myheader.h\"</code>?", "options": ["There is no real difference; both work identically", "Angle brackets search the compiler's system library directories first; quotes search the current directory first", "Angle brackets are only for C++ files; quotes are only for C files", "Quotes can only be used inside a class", "Angle brackets require a semicolon at the end, but quotes do not"], "correct": 1, "explain": "Angle brackets tell the preprocessor to look in the compiler's standard system directories, used for standard libraries like iostream. Quotes tell it to look in the current directory first, used for your own local header files."}, {"q": "Trace the following namespace resolution. What is printed?<pre><code>#include &lt;iostream&gt;\nnamespace lab {\n    int n = 4;\n}\nint n = 10;\nint main() {\n    std::cout &lt;&lt; n &lt;&lt; \" \" &lt;&lt; lab::n;\n}</code></pre>", "options": ["4 4", "10 4", "10 10", "4 10", "Compiler Error"], "correct": 1, "explain": "The unqualified n inside main() refers to the global n (10). lab::n explicitly accesses the namespace-scoped n (4). Output: '10 4'."}, {"q": "Why is writing <code>using namespace std;</code> at the top of a header file generally considered bad practice?", "options": ["It makes the header's names leak into every file that includes it, raising the risk of naming conflicts", "It is a syntax error in C++17 and later", "It slows down compilation significantly", "It disables all standard library functions", "It only works inside main()"], "correct": 0, "explain": "A using directive in a header file affects every source file that includes it, pulling all of std's names into the global namespace everywhere. This raises the risk of naming collisions, which is why it is safer to write std:: explicitly, or keep using namespace std; local to a small scope."}, {"q": "Consider the code: <code>int x = 10; int&amp; ref = x; ref += 5; x *= 2;</code>. What is the value of <code>ref</code> after these operations?", "options": ["10", "15", "20", "30", "The compiler triggers an error because reference reassignment is invalid"], "correct": 3, "explain": "A reference is an alias. Adding 5 to ref changes x to 15. Then multiplying x by 2 changes it to 30. Since ref aliases x, it evaluates to 30."}, {"q": "Once a C++ reference is initialized to refer to a variable, can it later be made to refer to a different variable?", "options": ["No, a reference is permanently bound to the variable it was initialized with", "Yes, using the = operator to reassign it", "Yes, but only inside a loop", "Yes, but only for reference parameters, not local references", "No, but you can delete it and create a new one"], "correct": 0, "explain": "Unlike a pointer, a reference cannot be 're-seated' to refer to something else after initialization. Assigning through a reference (ref = something;) changes the value of the variable it refers to — it does not change what the reference refers to."}, {"q": "What does this code print?<pre><code>void swap(int&amp; a, int&amp; b) {\n    int t = a; a = b; b = t;\n}\nint main() {\n    int x = 3, y = 8;\n    swap(x, y);\n    std::cout &lt;&lt; x &lt;&lt; \" \" &lt;&lt; y;\n}</code></pre>", "options": ["8 3", "3 8", "3 3", "8 8", "Compiler Error"], "correct": 0, "explain": "Because a and b are references to x and y, swapping a and b inside the function directly swaps the original x and y. After the call, x = 8 and y = 3."}, {"q": "What is the output of the following C++ code?<pre><code>#include &lt;iostream&gt;\nvoid modify(int* a, int&amp; b) {\n    *a += 5;\n    b *= 2;\n}\nint main() {\n    int x = 10, y = 20;\n    modify(&amp;x, y);\n    std::cout &lt;&lt; (x + y);\n    return 0;\n}</code></pre>", "options": ["30", "50", "55", "60", "Compiler Error"], "correct": 2, "explain": "Inside modify, x is modified via pointer dereference (*a += 5) to 15. y is passed by reference, so b *= 2 modifies y to 40. The sum 15 + 40 equals 55."}, {"q": "Trace pointer arithmetic. What does this print?<pre><code>#include &lt;iostream&gt;\nint main() {\n    int arr[4] = {10, 20, 30, 40};\n    int* p = arr;\n    p += 2;\n    std::cout &lt;&lt; *p &lt;&lt; \" \" &lt;&lt; *(p - 1);\n}</code></pre>", "options": ["30 20", "20 10", "30 40", "10 20", "40 30"], "correct": 0, "explain": "p starts at arr[0]. p += 2 advances it by 2 elements, not bytes, to arr[2] = 30. *(p-1) is arr[1] = 20. Output: '30 20'."}, {"q": "Given <code>int* pi</code> and <code>char* pc</code>, both currently pointing to the same address, what happens after <code>pi++</code> and <code>pc++</code> (assuming <code>sizeof(int) == 4</code>)?", "options": ["pi moves forward by 4 bytes; pc moves forward by 1 byte", "Both move forward by exactly 1 byte", "Both move forward by exactly 4 bytes", "pi moves forward by 1 byte; pc moves forward by 4 bytes", "Pointer increment always moves by 8 bytes, regardless of type"], "correct": 0, "explain": "Pointer arithmetic is scaled by the size of the pointed-to type. Incrementing an int* moves it forward by sizeof(int) bytes (4), while incrementing a char* moves it forward by sizeof(char) byte (1)."}, {"q": "Which C++ operator is used to deallocate memory previously allocated with <code>new</code> for a single object?", "options": ["<code>free</code>", "<code>release</code>", "<code>delete</code>", "<code>delete[]</code>", "<code>destruct</code>"], "correct": 2, "explain": "For single objects allocated with new, use delete. For array allocations like new Type[N], use delete[]."}, {"q": "Which of the following describes the difference between <code>delete</code> and <code>delete[]</code>?", "options": ["delete[] frees twice as much memory", "delete[] calls the destructor for every object in the allocated array, while delete only calls it for the first element", "delete is used for classes, delete[] is used for basic data types", "delete[] is deprecated in C++17", "delete automatically calls garbage collection"], "correct": 1, "explain": "For arrays allocated via new Type[N], delete[] ensures the destructor runs for all N objects in the array. Plain delete only runs it for the first, and using the wrong one is undefined behavior."}, {"q": "What is the consequence of executing: <code>int* p = new int(5); delete p; std::cout &lt;&lt; *p;</code>?", "options": ["It prints 5", "It prints 0", "It causes a compile-time error", "It triggers Undefined Behavior because p is now a dangling pointer to deallocated memory", "It throws a std::bad_alloc exception"], "correct": 3, "explain": "Deleting a pointer deallocates the memory it points to. Accessing it afterward through a dangling pointer results in Undefined Behavior, which could crash the program or output garbage values."}, {"q": "What is the rule for matching <code>new</code> and <code>delete</code> in C++?", "options": ["Memory from new must be freed with delete; memory from new[] must be freed with delete[]", "Any new can be freed with either delete or delete[]", "delete[] can only be used on arrays smaller than 100 elements", "Both new and new[] require delete[] to free them", "It does not matter which one you use, as long as you free it eventually"], "correct": 0, "explain": "new and delete are a matched pair for single objects; new[] and delete[] are a matched pair for arrays. Mixing them, for example calling delete on memory from new[], is undefined behavior."}, {"q": "What is a 'memory leak' in a C++ program?", "options": ["Heap memory allocated with new but never freed with delete, so the program can no longer access or release it", "Any variable declared but never used", "A pointer that points to the wrong type", "A stack variable that goes out of scope", "An array that is too large to fit in memory"], "correct": 0, "explain": "A memory leak happens when a program loses all references to memory it allocated on the heap, for example by overwriting the only pointer to it, without calling delete first. That memory stays reserved and unusable until the program ends."}, {"q": "If class <code>ClassA</code> declares class <code>ClassB</code> to be a <code>friend</code> (<code>friend class ClassB;</code> inside ClassA), which of the following is true?", "options": ["ClassA can access and modify all private members of ClassB", "ClassB can access and modify all private members of ClassA", "Both ClassA and ClassB can access each other's private members", "ClassB gains access, and any subclass of ClassB automatically gains access to ClassA too", "Friendship is transitive, so any friend of ClassB also becomes a friend of ClassA"], "correct": 1, "explain": "Friendship is one-way: ClassA declaring ClassB as a friend allows ClassB to access ClassA's private members, but not the reverse. Friendship is also neither inherited nor transitive."}, {"q": "What is the primary difference between a C++ <code>struct</code> and a C++ <code>class</code>?", "options": ["Classes can have member functions, but structs cannot", "Structs cannot use templates, whereas classes can", "Structs default to public visibility for members and inheritance, while classes default to private", "Structs are allocated on the stack, while classes are always allocated on the heap", "Structs cannot have constructors or destructors"], "correct": 2, "explain": "In C++, the only real difference is that a struct defaults to public member visibility and inheritance, while a class defaults to private. Both can have member functions, constructors, and templates."}, {"q": "What is printed when a template function is instantiated with two different types?<pre><code>#include &lt;iostream&gt;\ntemplate &lt;typename T&gt;\nT sqr(T x) { return x * x; }\nint main() {\n    std::cout &lt;&lt; sqr(3) &lt;&lt; \" \" &lt;&lt; sqr(2.5);\n}</code></pre>", "options": ["9 6.25", "9 6", "Compiler Error: sqr redefined", "9.0 6.25", "6 5"], "correct": 0, "explain": "The compiler instantiates sqr<int> and sqr<double> separately at compile time, based on the argument types. sqr(3) -> 9, sqr(2.5) -> 6.25."}, {"q": "Given a class template <code>template &lt;typename Type&gt; class Complex { ... };</code>, how do you create an instance that stores <code>double</code> values?", "options": ["<code>Complex&lt;double&gt; z(3.7, 4.2);</code>", "<code>Complex z(3.7, 4.2);</code>", "<code>Complex(double) z(3.7, 4.2);</code>", "<code>double Complex z(3.7, 4.2);</code>", "<code>Complex::double z(3.7, 4.2);</code>"], "correct": 0, "explain": "To instantiate a class template with a specific type, the type goes in angle brackets right after the class name. Complex<double> z(3.7, 4.2); tells the compiler to generate a version of Complex that stores double values."}, {"q": "Trace this loop. What is <code>arr[3]</code> after execution?<pre><code>int arr[5];\narr[0] = 1;\nfor (int i = 1; i &lt; 5; ++i) {\n    arr[i] = 2 * arr[i - 1] + 1;\n}</code></pre>", "options": ["7", "15", "3", "31", "1"], "correct": 1, "explain": "arr[0]=1, arr[1]=2*1+1=3, arr[2]=2*3+1=7, arr[3]=2*7+1=15."}, {"q": "What is the key difference between a <code>while</code> loop and a <code>do-while</code> loop in C++?", "options": ["A do-while loop always executes its body at least once, even if the condition is false from the start", "A while loop always executes its body at least once", "do-while loops cannot contain break statements", "while loops can only run a fixed number of times", "There is no difference; they are interchangeable"], "correct": 0, "explain": "A while loop checks its condition before the first execution, so its body might never run. A do-while loop checks its condition after running the body, so the body always executes at least once."}, {"q": "Given the input line <code>7 3</code>, what values do <code>x</code> and <code>y</code> hold after this code runs?<pre><code>int x, y;\nstd::cin &gt;&gt; x &gt;&gt; y;</code></pre>", "options": ["x=7, y=3", "x=3, y=7", "x=73, y=0", "x=0, y=0", "Compiler Error"], "correct": 0, "explain": "cin >> reads whitespace-separated values in order. The first value, 7, is stored in x; the second value, 3, is stored in y."}, {"q": "What is printed by this operator chaining?<pre><code>#include &lt;iostream&gt;\nint sqr(int x){ return x*x; }\nint main(){\n    std::cout &lt;&lt; \"val=\" &lt;&lt; sqr(3) &lt;&lt; std::endl;\n}</code></pre>", "options": ["val=9", "val=6", "val=3sqr(3)", "Compiler Error", "val=x*x"], "correct": 0, "explain": "cout << is evaluated left to right: ((cout << \"val=\") << sqr(3)) << endl. sqr(3) evaluates to 9, so it prints 'val=9'."}, {"q": "Why does an expression like <code>cout &lt;&lt; a &lt;&lt; b &lt;&lt; c;</code> work correctly in C++?", "options": ["Because operator<< returns a reference to the same ostream object, so the next << is applied to that same result", "Because the compiler automatically splits it into three separate statements with no connection", "Because cout is a special keyword that ignores the << operator entirely", "Because << can only be used once per line, so this is actually invalid code", "Because a, b, and c are automatically combined into a single string first"], "correct": 0, "explain": "operator<< is overloaded to return a reference to the ostream it was called on, usually cout itself. That lets the result of one << be immediately used as the left-hand side of the next <<, allowing the whole chain to work left to right."}, {"q": "Trace the recursion. What value does <code>func(4)</code> return?<pre><code>int func(int x) {\n    if (x &lt; 1) return 0;\n    return x + func(x - 1);\n}</code></pre>", "options": ["6", "10", "4", "0", "24"], "correct": 1, "explain": "func(4)=4+func(3), func(3)=3+func(2), func(2)=2+func(1), func(1)=1+func(0), func(0)=0. Summing back: 1, 3, 6, 10. func(4)=10."}, {"q": "Trace this static local variable across multiple calls. What is printed?<pre><code>#include &lt;iostream&gt;\nvoid counter() {\n    static int count = 0;\n    count++;\n    std::cout &lt;&lt; count &lt;&lt; \" \";\n}\nint main() {\n    counter();\n    counter();\n    counter();\n}</code></pre>", "options": ["1 2 3", "1 1 1", "0 1 2", "3 3 3", "Compiler Error"], "correct": 0, "explain": "A static local variable is initialized only once and keeps its value between function calls, unlike a normal local variable, which is re-created and re-initialized every call. Each call increments the same persistent count: 1, then 2, then 3."}];</script>
+
+
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>
