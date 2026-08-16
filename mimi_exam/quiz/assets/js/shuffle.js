@@ -103,7 +103,7 @@ function renderQuiz(questions) {
       <button class="check-btn" id="btn-${idx}">Check</button>
       <div class="explanation" id="exp-${idx}">
         <strong>Explanation:</strong><br>
-        ${q.explanation || 'No explanation provided.'}
+        ${q.explain || 'No explanation provided.'}
       </div>
     `;
 
